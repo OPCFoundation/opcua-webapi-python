@@ -1,0 +1,29 @@
+# CancelRequest
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
+**request_handle** | **int** |  | [optional] 
+
+## Example
+
+```python
+from opcua_webapi.models.cancel_request import CancelRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of CancelRequest from a JSON string
+cancel_request_instance = CancelRequest.from_json(json)
+# print the JSON string representation of the object
+print CancelRequest.to_json()
+
+# convert the object into a dict
+cancel_request_dict = cancel_request_instance.to_dict()
+# create an instance of CancelRequest from a dict
+cancel_request_form_dict = cancel_request.from_dict(cancel_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

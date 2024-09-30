@@ -1,0 +1,28 @@
+# LiteralOperand
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**value** | [**Variant**](Variant.md) |  | [optional] 
+
+## Example
+
+```python
+from opcua_webapi.models.literal_operand import LiteralOperand
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of LiteralOperand from a JSON string
+literal_operand_instance = LiteralOperand.from_json(json)
+# print the JSON string representation of the object
+print LiteralOperand.to_json()
+
+# convert the object into a dict
+literal_operand_dict = literal_operand_instance.to_dict()
+# create an instance of LiteralOperand from a dict
+literal_operand_form_dict = literal_operand.from_dict(literal_operand_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
