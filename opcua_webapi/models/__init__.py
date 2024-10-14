@@ -4,7 +4,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -123,7 +123,6 @@ from opcua_webapi.models.monitored_item_modify_result import MonitoredItemModify
 from opcua_webapi.models.monitored_item_notification import MonitoredItemNotification
 from opcua_webapi.models.monitoring_mode import MonitoringMode
 from opcua_webapi.models.monitoring_parameters import MonitoringParameters
-from opcua_webapi.models.network_address_data_type import NetworkAddressDataType
 from opcua_webapi.models.node_class import NodeClass
 from opcua_webapi.models.notification_message import NotificationMessage
 from opcua_webapi.models.perform_update_type import PerformUpdateType

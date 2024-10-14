@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,71 +18,89 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conint
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from typing import Optional, Set
+from typing_extensions import Self
 
 class DiagnosticInfo(BaseModel):
     """
     DiagnosticInfo
-    """
-    symbolic_id: Optional[StrictInt] = Field(None, alias="SymbolicId")
-    namespace_uri: Optional[StrictInt] = Field(None, alias="NamespaceUri")
-    locale: Optional[StrictInt] = Field(None, alias="Locale")
-    localized_text: Optional[StrictInt] = Field(None, alias="LocalizedText")
-    additional_info: Optional[StrictStr] = Field(None, alias="AdditionalInfo")
-    inner_status_code: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="InnerStatusCode")
-    inner_diagnostic_info: Optional[DiagnosticInfo] = Field(None, alias="InnerDiagnosticInfo")
-    __properties = ["SymbolicId", "NamespaceUri", "Locale", "LocalizedText", "AdditionalInfo", "InnerStatusCode", "InnerDiagnosticInfo"]
+    """ # noqa: E501
+    symbolic_id: Optional[StrictInt] = Field(default=None, alias="SymbolicId")
+    namespace_uri: Optional[StrictInt] = Field(default=None, alias="NamespaceUri")
+    locale: Optional[StrictInt] = Field(default=None, alias="Locale")
+    localized_text: Optional[StrictInt] = Field(default=None, alias="LocalizedText")
+    additional_info: Optional[StrictStr] = Field(default=None, alias="AdditionalInfo")
+    inner_status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="InnerStatusCode")
+    inner_diagnostic_info: Optional[DiagnosticInfo] = Field(default=None, alias="InnerDiagnosticInfo")
+    __properties: ClassVar[List[str]] = ["SymbolicId", "NamespaceUri", "Locale", "LocalizedText", "AdditionalInfo", "InnerStatusCode", "InnerDiagnosticInfo"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> DiagnosticInfo:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of DiagnosticInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of inner_diagnostic_info
         if self.inner_diagnostic_info:
             _dict['InnerDiagnosticInfo'] = self.inner_diagnostic_info.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> DiagnosticInfo:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of DiagnosticInfo from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return DiagnosticInfo.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = DiagnosticInfo.parse_obj({
-            "symbolic_id": obj.get("SymbolicId"),
-            "namespace_uri": obj.get("NamespaceUri"),
-            "locale": obj.get("Locale"),
-            "localized_text": obj.get("LocalizedText"),
-            "additional_info": obj.get("AdditionalInfo"),
-            "inner_status_code": obj.get("InnerStatusCode"),
-            "inner_diagnostic_info": DiagnosticInfo.from_dict(obj.get("InnerDiagnosticInfo")) if obj.get("InnerDiagnosticInfo") is not None else None
+        _obj = cls.model_validate({
+            "SymbolicId": obj.get("SymbolicId"),
+            "NamespaceUri": obj.get("NamespaceUri"),
+            "Locale": obj.get("Locale"),
+            "LocalizedText": obj.get("LocalizedText"),
+            "AdditionalInfo": obj.get("AdditionalInfo"),
+            "InnerStatusCode": obj.get("InnerStatusCode"),
+            "InnerDiagnosticInfo": DiagnosticInfo.from_dict(obj["InnerDiagnosticInfo"]) if obj.get("InnerDiagnosticInfo") is not None else None
         })
         return _obj
 
-DiagnosticInfo.update_forward_refs()
+# TODO: Rewrite to not use raise_errors
+DiagnosticInfo.model_rebuild(raise_errors=False)
 

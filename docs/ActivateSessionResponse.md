@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of ActivateSessionResponse from a JSON string
 activate_session_response_instance = ActivateSessionResponse.from_json(json)
 # print the JSON string representation of the object
-print ActivateSessionResponse.to_json()
+print(ActivateSessionResponse.to_json())
 
 # convert the object into a dict
 activate_session_response_dict = activate_session_response_instance.to_dict()
 # create an instance of ActivateSessionResponse from a dict
-activate_session_response_form_dict = activate_session_response.from_dict(activate_session_response_dict)
+activate_session_response_from_dict = ActivateSessionResponse.from_dict(activate_session_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
@@ -17,12 +18,12 @@ json = "{}"
 # create an instance of CloseSessionRequest from a JSON string
 close_session_request_instance = CloseSessionRequest.from_json(json)
 # print the JSON string representation of the object
-print CloseSessionRequest.to_json()
+print(CloseSessionRequest.to_json())
 
 # convert the object into a dict
 close_session_request_dict = close_session_request_instance.to_dict()
 # create an instance of CloseSessionRequest from a dict
-close_session_request_form_dict = close_session_request.from_dict(close_session_request_dict)
+close_session_request_from_dict = CloseSessionRequest.from_dict(close_session_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

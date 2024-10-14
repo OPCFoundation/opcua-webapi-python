@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of TranslateBrowsePathsToNodeIdsResponse from a JSON string
 translate_browse_paths_to_node_ids_response_instance = TranslateBrowsePathsToNodeIdsResponse.from_json(json)
 # print the JSON string representation of the object
-print TranslateBrowsePathsToNodeIdsResponse.to_json()
+print(TranslateBrowsePathsToNodeIdsResponse.to_json())
 
 # convert the object into a dict
 translate_browse_paths_to_node_ids_response_dict = translate_browse_paths_to_node_ids_response_instance.to_dict()
 # create an instance of TranslateBrowsePathsToNodeIdsResponse from a dict
-translate_browse_paths_to_node_ids_response_form_dict = translate_browse_paths_to_node_ids_response.from_dict(translate_browse_paths_to_node_ids_response_dict)
+translate_browse_paths_to_node_ids_response_from_dict = TranslateBrowsePathsToNodeIdsResponse.from_dict(translate_browse_paths_to_node_ids_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

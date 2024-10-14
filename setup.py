@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -21,16 +21,14 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-from setuptools import setup, find_packages  # noqa: H301
-
 NAME = "opcua-webapi"
 VERSION = "1.504.0"
-PYTHON_REQUIRES = ">=3.7"
+PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
-    "urllib3 >= 1.25.3, < 2.1.0",
-    "python-dateutil",
-    "pydantic >= 1.10.5, < 2",
-    "aenum"
+    "urllib3 >= 1.25.3, < 3.0.0",
+    "python-dateutil >= 2.8.2",
+    "pydantic >= 2",
+    "typing-extensions >= 4.7.1",
 ]
 
 setup(
@@ -41,14 +39,13 @@ setup(
     author_email="office@opcfoundation.org",
     url="https://github.com/opcfoundation-org/opcua-webapi-python/",
     keywords=["OpenAPI", "OpenAPI-Generator", "OPC UA Web API"],
-    python_requires=PYTHON_REQUIRES,
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     license="OPC Source Deliverable Agreement of Use",
     long_description_content_type='text/markdown',
     long_description="""\
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
     """,  # noqa: E501
     package_data={"opcua_webapi": ["py.typed"]},
     classifiers=[

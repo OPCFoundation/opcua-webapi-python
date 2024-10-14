@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,63 +18,80 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Any, List, Optional
-from pydantic import BaseModel, Field, conint, conlist
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Variant(BaseModel):
     """
     Variant
-    """
-    type: Optional[conint(strict=True, le=255, ge=0)] = Field(None, alias="Type")
-    body: Optional[Any] = Field(None, alias="Body")
-    dimensions: Optional[conlist(conint(strict=True, ge=0))] = Field(None, alias="Dimensions")
-    __properties = ["Type", "Body", "Dimensions"]
+    """ # noqa: E501
+    type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="Type")
+    body: Optional[Any] = Field(default=None, alias="Body")
+    dimensions: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="Dimensions")
+    __properties: ClassVar[List[str]] = ["Type", "Body", "Dimensions"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Variant:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Variant from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # set to None if body (nullable) is None
-        # and __fields_set__ contains the field
-        if self.body is None and "body" in self.__fields_set__:
+        # and model_fields_set contains the field
+        if self.body is None and "body" in self.model_fields_set:
             _dict['Body'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> Variant:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Variant from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return Variant.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = Variant.parse_obj({
-            "type": obj.get("Type"),
-            "body": obj.get("Body"),
-            "dimensions": obj.get("Dimensions")
+        _obj = cls.model_validate({
+            "Type": obj.get("Type"),
+            "Body": obj.get("Body"),
+            "Dimensions": obj.get("Dimensions")
         })
         return _obj
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of CreateMonitoredItemsRequest from a JSON string
 create_monitored_items_request_instance = CreateMonitoredItemsRequest.from_json(json)
 # print the JSON string representation of the object
-print CreateMonitoredItemsRequest.to_json()
+print(CreateMonitoredItemsRequest.to_json())
 
 # convert the object into a dict
 create_monitored_items_request_dict = create_monitored_items_request_instance.to_dict()
 # create an instance of CreateMonitoredItemsRequest from a dict
-create_monitored_items_request_form_dict = create_monitored_items_request.from_dict(create_monitored_items_request_dict)
+create_monitored_items_request_from_dict = CreateMonitoredItemsRequest.from_dict(create_monitored_items_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **endpoint_url** | **str** |  | [optional] 
@@ -23,12 +24,12 @@ json = "{}"
 # create an instance of EndpointDescription from a JSON string
 endpoint_description_instance = EndpointDescription.from_json(json)
 # print the JSON string representation of the object
-print EndpointDescription.to_json()
+print(EndpointDescription.to_json())
 
 # convert the object into a dict
 endpoint_description_dict = endpoint_description_instance.to_dict()
 # create an instance of EndpointDescription from a dict
-endpoint_description_form_dict = endpoint_description.from_dict(endpoint_description_dict)
+endpoint_description_from_dict = EndpointDescription.from_dict(endpoint_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

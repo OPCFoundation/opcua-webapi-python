@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -19,47 +19,65 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conint, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 from opcua_webapi.models.extension_object import ExtensionObject
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ResponseHeader(BaseModel):
     """
     ResponseHeader
-    """
-    timestamp: Optional[datetime] = Field(None, alias="Timestamp")
-    request_handle: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="RequestHandle")
-    service_result: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="ServiceResult")
-    service_diagnostics: Optional[DiagnosticInfo] = Field(None, alias="ServiceDiagnostics")
-    string_table: Optional[conlist(StrictStr)] = Field(None, alias="StringTable")
-    additional_header: Optional[ExtensionObject] = Field(None, alias="AdditionalHeader")
-    __properties = ["Timestamp", "RequestHandle", "ServiceResult", "ServiceDiagnostics", "StringTable", "AdditionalHeader"]
+    """ # noqa: E501
+    timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
+    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestHandle")
+    service_result: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ServiceResult")
+    service_diagnostics: Optional[DiagnosticInfo] = Field(default=None, alias="ServiceDiagnostics")
+    string_table: Optional[List[StrictStr]] = Field(default=None, alias="StringTable")
+    additional_header: Optional[ExtensionObject] = Field(default=None, alias="AdditionalHeader")
+    __properties: ClassVar[List[str]] = ["Timestamp", "RequestHandle", "ServiceResult", "ServiceDiagnostics", "StringTable", "AdditionalHeader"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ResponseHeader:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ResponseHeader from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of service_diagnostics
         if self.service_diagnostics:
             _dict['ServiceDiagnostics'] = self.service_diagnostics.to_dict()
@@ -69,21 +87,21 @@ class ResponseHeader(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ResponseHeader:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ResponseHeader from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ResponseHeader.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ResponseHeader.parse_obj({
-            "timestamp": obj.get("Timestamp"),
-            "request_handle": obj.get("RequestHandle"),
-            "service_result": obj.get("ServiceResult"),
-            "service_diagnostics": DiagnosticInfo.from_dict(obj.get("ServiceDiagnostics")) if obj.get("ServiceDiagnostics") is not None else None,
-            "string_table": obj.get("StringTable"),
-            "additional_header": ExtensionObject.from_dict(obj.get("AdditionalHeader")) if obj.get("AdditionalHeader") is not None else None
+        _obj = cls.model_validate({
+            "Timestamp": obj.get("Timestamp"),
+            "RequestHandle": obj.get("RequestHandle"),
+            "ServiceResult": obj.get("ServiceResult"),
+            "ServiceDiagnostics": DiagnosticInfo.from_dict(obj["ServiceDiagnostics"]) if obj.get("ServiceDiagnostics") is not None else None,
+            "StringTable": obj.get("StringTable"),
+            "AdditionalHeader": ExtensionObject.from_dict(obj["AdditionalHeader"]) if obj.get("AdditionalHeader") is not None else None
         })
         return _obj
 

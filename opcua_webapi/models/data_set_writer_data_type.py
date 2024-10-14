@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,57 +18,74 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conint, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
+from typing import Optional, Set
+from typing_extensions import Self
 
 class DataSetWriterDataType(BaseModel):
     """
     DataSetWriterDataType
-    """
-    name: Optional[StrictStr] = Field(None, alias="Name")
-    enabled: Optional[StrictBool] = Field(None, alias="Enabled")
-    data_set_writer_id: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="DataSetWriterId")
-    data_set_field_content_mask: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="DataSetFieldContentMask")
-    key_frame_count: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="KeyFrameCount")
-    data_set_name: Optional[StrictStr] = Field(None, alias="DataSetName")
-    data_set_writer_properties: Optional[conlist(KeyValuePair)] = Field(None, alias="DataSetWriterProperties")
-    transport_settings: Optional[ExtensionObject] = Field(None, alias="TransportSettings")
-    message_settings: Optional[ExtensionObject] = Field(None, alias="MessageSettings")
-    __properties = ["Name", "Enabled", "DataSetWriterId", "DataSetFieldContentMask", "KeyFrameCount", "DataSetName", "DataSetWriterProperties", "TransportSettings", "MessageSettings"]
+    """ # noqa: E501
+    name: Optional[StrictStr] = Field(default=None, alias="Name")
+    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="DataSetWriterId")
+    data_set_field_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="DataSetFieldContentMask")
+    key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="KeyFrameCount")
+    data_set_name: Optional[StrictStr] = Field(default=None, alias="DataSetName")
+    data_set_writer_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="DataSetWriterProperties")
+    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
+    message_settings: Optional[ExtensionObject] = Field(default=None, alias="MessageSettings")
+    __properties: ClassVar[List[str]] = ["Name", "Enabled", "DataSetWriterId", "DataSetFieldContentMask", "KeyFrameCount", "DataSetName", "DataSetWriterProperties", "TransportSettings", "MessageSettings"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> DataSetWriterDataType:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of DataSetWriterDataType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in data_set_writer_properties (list)
         _items = []
         if self.data_set_writer_properties:
-            for _item in self.data_set_writer_properties:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_data_set_writer_properties in self.data_set_writer_properties:
+                if _item_data_set_writer_properties:
+                    _items.append(_item_data_set_writer_properties.to_dict())
             _dict['DataSetWriterProperties'] = _items
         # override the default output from pydantic by calling `to_dict()` of transport_settings
         if self.transport_settings:
@@ -79,24 +96,24 @@ class DataSetWriterDataType(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> DataSetWriterDataType:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of DataSetWriterDataType from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return DataSetWriterDataType.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = DataSetWriterDataType.parse_obj({
-            "name": obj.get("Name"),
-            "enabled": obj.get("Enabled"),
-            "data_set_writer_id": obj.get("DataSetWriterId"),
-            "data_set_field_content_mask": obj.get("DataSetFieldContentMask"),
-            "key_frame_count": obj.get("KeyFrameCount"),
-            "data_set_name": obj.get("DataSetName"),
-            "data_set_writer_properties": [KeyValuePair.from_dict(_item) for _item in obj.get("DataSetWriterProperties")] if obj.get("DataSetWriterProperties") is not None else None,
-            "transport_settings": ExtensionObject.from_dict(obj.get("TransportSettings")) if obj.get("TransportSettings") is not None else None,
-            "message_settings": ExtensionObject.from_dict(obj.get("MessageSettings")) if obj.get("MessageSettings") is not None else None
+        _obj = cls.model_validate({
+            "Name": obj.get("Name"),
+            "Enabled": obj.get("Enabled"),
+            "DataSetWriterId": obj.get("DataSetWriterId"),
+            "DataSetFieldContentMask": obj.get("DataSetFieldContentMask"),
+            "KeyFrameCount": obj.get("KeyFrameCount"),
+            "DataSetName": obj.get("DataSetName"),
+            "DataSetWriterProperties": [KeyValuePair.from_dict(_item) for _item in obj["DataSetWriterProperties"]] if obj.get("DataSetWriterProperties") is not None else None,
+            "TransportSettings": ExtensionObject.from_dict(obj["TransportSettings"]) if obj.get("TransportSettings") is not None else None,
+            "MessageSettings": ExtensionObject.from_dict(obj["MessageSettings"]) if obj.get("MessageSettings") is not None else None
         })
         return _obj
 

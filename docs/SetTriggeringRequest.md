@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of SetTriggeringRequest from a JSON string
 set_triggering_request_instance = SetTriggeringRequest.from_json(json)
 # print the JSON string representation of the object
-print SetTriggeringRequest.to_json()
+print(SetTriggeringRequest.to_json())
 
 # convert the object into a dict
 set_triggering_request_dict = set_triggering_request_instance.to_dict()
 # create an instance of SetTriggeringRequest from a dict
-set_triggering_request_form_dict = set_triggering_request.from_dict(set_triggering_request_dict)
+set_triggering_request_from_dict = SetTriggeringRequest.from_dict(set_triggering_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

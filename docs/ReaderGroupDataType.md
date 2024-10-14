@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
@@ -25,12 +26,12 @@ json = "{}"
 # create an instance of ReaderGroupDataType from a JSON string
 reader_group_data_type_instance = ReaderGroupDataType.from_json(json)
 # print the JSON string representation of the object
-print ReaderGroupDataType.to_json()
+print(ReaderGroupDataType.to_json())
 
 # convert the object into a dict
 reader_group_data_type_dict = reader_group_data_type_instance.to_dict()
 # create an instance of ReaderGroupDataType from a dict
-reader_group_data_type_form_dict = reader_group_data_type.from_dict(reader_group_data_type_dict)
+reader_group_data_type_from_dict = ReaderGroupDataType.from_dict(reader_group_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

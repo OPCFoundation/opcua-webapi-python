@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of ModifySubscriptionRequest from a JSON string
 modify_subscription_request_instance = ModifySubscriptionRequest.from_json(json)
 # print the JSON string representation of the object
-print ModifySubscriptionRequest.to_json()
+print(ModifySubscriptionRequest.to_json())
 
 # convert the object into a dict
 modify_subscription_request_dict = modify_subscription_request_instance.to_dict()
 # create an instance of ModifySubscriptionRequest from a dict
-modify_subscription_request_form_dict = modify_subscription_request.from_dict(modify_subscription_request_dict)
+modify_subscription_request_from_dict = ModifySubscriptionRequest.from_dict(modify_subscription_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

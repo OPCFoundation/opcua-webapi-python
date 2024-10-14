@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -24,12 +25,12 @@ json = "{}"
 # create an instance of PubSubConnectionDataType from a JSON string
 pub_sub_connection_data_type_instance = PubSubConnectionDataType.from_json(json)
 # print the JSON string representation of the object
-print PubSubConnectionDataType.to_json()
+print(PubSubConnectionDataType.to_json())
 
 # convert the object into a dict
 pub_sub_connection_data_type_dict = pub_sub_connection_data_type_instance.to_dict()
 # create an instance of PubSubConnectionDataType from a dict
-pub_sub_connection_data_type_form_dict = pub_sub_connection_data_type.from_dict(pub_sub_connection_data_type_dict)
+pub_sub_connection_data_type_from_dict = PubSubConnectionDataType.from_dict(pub_sub_connection_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

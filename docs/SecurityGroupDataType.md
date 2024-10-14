@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -24,12 +25,12 @@ json = "{}"
 # create an instance of SecurityGroupDataType from a JSON string
 security_group_data_type_instance = SecurityGroupDataType.from_json(json)
 # print the JSON string representation of the object
-print SecurityGroupDataType.to_json()
+print(SecurityGroupDataType.to_json())
 
 # convert the object into a dict
 security_group_data_type_dict = security_group_data_type_instance.to_dict()
 # create an instance of SecurityGroupDataType from a dict
-security_group_data_type_form_dict = security_group_data_type.from_dict(security_group_data_type_dict)
+security_group_data_type_from_dict = SecurityGroupDataType.from_dict(security_group_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

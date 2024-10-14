@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,56 +18,72 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing import Optional, Set
+from typing_extensions import Self
 
 class LocalizedText(BaseModel):
     """
     LocalizedText
-    """
-    locale: Optional[StrictStr] = Field(None, alias="Locale")
-    text: Optional[StrictStr] = Field(None, alias="Text")
-    __properties = ["Locale", "Text"]
+    """ # noqa: E501
+    locale: Optional[StrictStr] = Field(default=None, alias="Locale")
+    text: Optional[StrictStr] = Field(default=None, alias="Text")
+    __properties: ClassVar[List[str]] = ["Locale", "Text"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> LocalizedText:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of LocalizedText from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> LocalizedText:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of LocalizedText from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return LocalizedText.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = LocalizedText.parse_obj({
-            "locale": obj.get("Locale"),
-            "text": obj.get("Text")
+        _obj = cls.model_validate({
+            "Locale": obj.get("Locale"),
+            "Text": obj.get("Text")
         })
         return _obj
 

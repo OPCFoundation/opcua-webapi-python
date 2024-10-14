@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | **str** |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of HistoryReadValueId from a JSON string
 history_read_value_id_instance = HistoryReadValueId.from_json(json)
 # print the JSON string representation of the object
-print HistoryReadValueId.to_json()
+print(HistoryReadValueId.to_json())
 
 # convert the object into a dict
 history_read_value_id_dict = history_read_value_id_instance.to_dict()
 # create an instance of HistoryReadValueId from a dict
-history_read_value_id_form_dict = history_read_value_id.from_dict(history_read_value_id_dict)
+history_read_value_id_from_dict = HistoryReadValueId.from_dict(history_read_value_id_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

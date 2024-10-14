@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,44 +18,60 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.localized_text import LocalizedText
+from typing import Optional, Set
+from typing_extensions import Self
 
 class EnumValueType(BaseModel):
     """
     EnumValueType
-    """
-    value: Optional[StrictInt] = Field(None, alias="Value")
-    display_name: Optional[LocalizedText] = Field(None, alias="DisplayName")
-    description: Optional[LocalizedText] = Field(None, alias="Description")
-    __properties = ["Value", "DisplayName", "Description"]
+    """ # noqa: E501
+    value: Optional[StrictInt] = Field(default=None, alias="Value")
+    display_name: Optional[LocalizedText] = Field(default=None, alias="DisplayName")
+    description: Optional[LocalizedText] = Field(default=None, alias="Description")
+    __properties: ClassVar[List[str]] = ["Value", "DisplayName", "Description"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> EnumValueType:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of EnumValueType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of display_name
         if self.display_name:
             _dict['DisplayName'] = self.display_name.to_dict()
@@ -65,18 +81,18 @@ class EnumValueType(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> EnumValueType:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of EnumValueType from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return EnumValueType.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = EnumValueType.parse_obj({
-            "value": obj.get("Value"),
-            "display_name": LocalizedText.from_dict(obj.get("DisplayName")) if obj.get("DisplayName") is not None else None,
-            "description": LocalizedText.from_dict(obj.get("Description")) if obj.get("Description") is not None else None
+        _obj = cls.model_validate({
+            "Value": obj.get("Value"),
+            "DisplayName": LocalizedText.from_dict(obj["DisplayName"]) if obj.get("DisplayName") is not None else None,
+            "Description": LocalizedText.from_dict(obj["Description"]) if obj.get("Description") is not None else None
         })
         return _obj
 

@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,70 +18,86 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.localized_text import LocalizedText
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ApplicationDescription(BaseModel):
     """
     ApplicationDescription
-    """
-    application_uri: Optional[StrictStr] = Field(None, alias="ApplicationUri")
-    product_uri: Optional[StrictStr] = Field(None, alias="ProductUri")
-    application_name: Optional[LocalizedText] = Field(None, alias="ApplicationName")
-    application_type: Optional[StrictInt] = Field(None, alias="ApplicationType")
-    gateway_server_uri: Optional[StrictStr] = Field(None, alias="GatewayServerUri")
-    discovery_profile_uri: Optional[StrictStr] = Field(None, alias="DiscoveryProfileUri")
-    discovery_urls: Optional[conlist(StrictStr)] = Field(None, alias="DiscoveryUrls")
-    __properties = ["ApplicationUri", "ProductUri", "ApplicationName", "ApplicationType", "GatewayServerUri", "DiscoveryProfileUri", "DiscoveryUrls"]
+    """ # noqa: E501
+    application_uri: Optional[StrictStr] = Field(default=None, alias="ApplicationUri")
+    product_uri: Optional[StrictStr] = Field(default=None, alias="ProductUri")
+    application_name: Optional[LocalizedText] = Field(default=None, alias="ApplicationName")
+    application_type: Optional[StrictInt] = Field(default=None, alias="ApplicationType")
+    gateway_server_uri: Optional[StrictStr] = Field(default=None, alias="GatewayServerUri")
+    discovery_profile_uri: Optional[StrictStr] = Field(default=None, alias="DiscoveryProfileUri")
+    discovery_urls: Optional[List[StrictStr]] = Field(default=None, alias="DiscoveryUrls")
+    __properties: ClassVar[List[str]] = ["ApplicationUri", "ProductUri", "ApplicationName", "ApplicationType", "GatewayServerUri", "DiscoveryProfileUri", "DiscoveryUrls"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ApplicationDescription:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ApplicationDescription from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of application_name
         if self.application_name:
             _dict['ApplicationName'] = self.application_name.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ApplicationDescription:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ApplicationDescription from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ApplicationDescription.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ApplicationDescription.parse_obj({
-            "application_uri": obj.get("ApplicationUri"),
-            "product_uri": obj.get("ProductUri"),
-            "application_name": LocalizedText.from_dict(obj.get("ApplicationName")) if obj.get("ApplicationName") is not None else None,
-            "application_type": obj.get("ApplicationType"),
-            "gateway_server_uri": obj.get("GatewayServerUri"),
-            "discovery_profile_uri": obj.get("DiscoveryProfileUri"),
-            "discovery_urls": obj.get("DiscoveryUrls")
+        _obj = cls.model_validate({
+            "ApplicationUri": obj.get("ApplicationUri"),
+            "ProductUri": obj.get("ProductUri"),
+            "ApplicationName": LocalizedText.from_dict(obj["ApplicationName"]) if obj.get("ApplicationName") is not None else None,
+            "ApplicationType": obj.get("ApplicationType"),
+            "GatewayServerUri": obj.get("GatewayServerUri"),
+            "DiscoveryProfileUri": obj.get("DiscoveryProfileUri"),
+            "DiscoveryUrls": obj.get("DiscoveryUrls")
         })
         return _obj
 

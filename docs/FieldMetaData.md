@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -25,12 +26,12 @@ json = "{}"
 # create an instance of FieldMetaData from a JSON string
 field_meta_data_instance = FieldMetaData.from_json(json)
 # print the JSON string representation of the object
-print FieldMetaData.to_json()
+print(FieldMetaData.to_json())
 
 # convert the object into a dict
 field_meta_data_dict = field_meta_data_instance.to_dict()
 # create an instance of FieldMetaData from a dict
-field_meta_data_form_dict = field_meta_data.from_dict(field_meta_data_dict)
+field_meta_data_from_dict = FieldMetaData.from_dict(field_meta_data_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **low** | **float** |  | [optional] 
@@ -17,12 +18,12 @@ json = "{}"
 # create an instance of Range from a JSON string
 range_instance = Range.from_json(json)
 # print the JSON string representation of the object
-print Range.to_json()
+print(Range.to_json())
 
 # convert the object into a dict
 range_dict = range_instance.to_dict()
 # create an instance of Range from a dict
-range_form_dict = range.from_dict(range_dict)
+range_from_dict = Range.from_dict(range_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

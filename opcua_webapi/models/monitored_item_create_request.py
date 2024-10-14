@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,45 +18,61 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import Optional
-from pydantic import BaseModel, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.monitoring_parameters import MonitoringParameters
 from opcua_webapi.models.read_value_id import ReadValueId
+from typing import Optional, Set
+from typing_extensions import Self
 
 class MonitoredItemCreateRequest(BaseModel):
     """
     MonitoredItemCreateRequest
-    """
-    item_to_monitor: Optional[ReadValueId] = Field(None, alias="ItemToMonitor")
-    monitoring_mode: Optional[StrictInt] = Field(None, alias="MonitoringMode")
-    requested_parameters: Optional[MonitoringParameters] = Field(None, alias="RequestedParameters")
-    __properties = ["ItemToMonitor", "MonitoringMode", "RequestedParameters"]
+    """ # noqa: E501
+    item_to_monitor: Optional[ReadValueId] = Field(default=None, alias="ItemToMonitor")
+    monitoring_mode: Optional[StrictInt] = Field(default=None, alias="MonitoringMode")
+    requested_parameters: Optional[MonitoringParameters] = Field(default=None, alias="RequestedParameters")
+    __properties: ClassVar[List[str]] = ["ItemToMonitor", "MonitoringMode", "RequestedParameters"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> MonitoredItemCreateRequest:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of MonitoredItemCreateRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of item_to_monitor
         if self.item_to_monitor:
             _dict['ItemToMonitor'] = self.item_to_monitor.to_dict()
@@ -66,18 +82,18 @@ class MonitoredItemCreateRequest(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> MonitoredItemCreateRequest:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of MonitoredItemCreateRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return MonitoredItemCreateRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = MonitoredItemCreateRequest.parse_obj({
-            "item_to_monitor": ReadValueId.from_dict(obj.get("ItemToMonitor")) if obj.get("ItemToMonitor") is not None else None,
-            "monitoring_mode": obj.get("MonitoringMode"),
-            "requested_parameters": MonitoringParameters.from_dict(obj.get("RequestedParameters")) if obj.get("RequestedParameters") is not None else None
+        _obj = cls.model_validate({
+            "ItemToMonitor": ReadValueId.from_dict(obj["ItemToMonitor"]) if obj.get("ItemToMonitor") is not None else None,
+            "MonitoringMode": obj.get("MonitoringMode"),
+            "RequestedParameters": MonitoringParameters.from_dict(obj["RequestedParameters"]) if obj.get("RequestedParameters") is not None else None
         })
         return _obj
 

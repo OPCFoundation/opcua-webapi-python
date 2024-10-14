@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **writer_group_id** | **int** |  | [optional] 
@@ -31,12 +32,12 @@ json = "{}"
 # create an instance of WriterGroupDataType from a JSON string
 writer_group_data_type_instance = WriterGroupDataType.from_json(json)
 # print the JSON string representation of the object
-print WriterGroupDataType.to_json()
+print(WriterGroupDataType.to_json())
 
 # convert the object into a dict
 writer_group_data_type_dict = writer_group_data_type_instance.to_dict()
 # create an instance of WriterGroupDataType from a dict
-writer_group_data_type_form_dict = writer_group_data_type.from_dict(writer_group_data_type_dict)
+writer_group_data_type_from_dict = WriterGroupDataType.from_dict(writer_group_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

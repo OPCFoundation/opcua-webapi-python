@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **subscribed_data_sets** | [**List[StandaloneSubscribedDataSetDataType]**](StandaloneSubscribedDataSetDataType.md) |  | [optional] 
@@ -25,12 +26,12 @@ json = "{}"
 # create an instance of PubSubConfiguration2DataType from a JSON string
 pub_sub_configuration2_data_type_instance = PubSubConfiguration2DataType.from_json(json)
 # print the JSON string representation of the object
-print PubSubConfiguration2DataType.to_json()
+print(PubSubConfiguration2DataType.to_json())
 
 # convert the object into a dict
 pub_sub_configuration2_data_type_dict = pub_sub_configuration2_data_type_instance.to_dict()
 # create an instance of PubSubConfiguration2DataType from a dict
-pub_sub_configuration2_data_type_form_dict = pub_sub_configuration2_data_type.from_dict(pub_sub_configuration2_data_type_dict)
+pub_sub_configuration2_data_type_from_dict = PubSubConfiguration2DataType.from_dict(pub_sub_configuration2_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

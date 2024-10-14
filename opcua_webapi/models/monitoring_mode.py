@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -13,13 +13,10 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
-import pprint
-import re  # noqa: F401
-from aenum import Enum, no_arg
-
-
-
+from enum import Enum
+from typing_extensions import Self
 
 
 class MonitoringMode(int, Enum):
@@ -30,13 +27,13 @@ class MonitoringMode(int, Enum):
     """
     allowed enum values
     """
-    NUMBER_0 = 0
-    NUMBER_1 = 1
-    NUMBER_2 = 2
+    Disabled = 0
+    Sampling = 1
+    Reporting = 2
 
     @classmethod
-    def from_json(cls, json_str: str) -> MonitoringMode:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of MonitoringMode from a JSON string"""
-        return MonitoringMode(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

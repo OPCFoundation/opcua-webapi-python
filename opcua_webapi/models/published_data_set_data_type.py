@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,57 +18,73 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType
 from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PublishedDataSetDataType(BaseModel):
     """
     PublishedDataSetDataType
-    """
-    name: Optional[StrictStr] = Field(None, alias="Name")
-    data_set_folder: Optional[conlist(StrictStr)] = Field(None, alias="DataSetFolder")
-    data_set_meta_data: Optional[DataSetMetaDataType] = Field(None, alias="DataSetMetaData")
-    extension_fields: Optional[conlist(KeyValuePair)] = Field(None, alias="ExtensionFields")
-    data_set_source: Optional[ExtensionObject] = Field(None, alias="DataSetSource")
-    __properties = ["Name", "DataSetFolder", "DataSetMetaData", "ExtensionFields", "DataSetSource"]
+    """ # noqa: E501
+    name: Optional[StrictStr] = Field(default=None, alias="Name")
+    data_set_folder: Optional[List[StrictStr]] = Field(default=None, alias="DataSetFolder")
+    data_set_meta_data: Optional[DataSetMetaDataType] = Field(default=None, alias="DataSetMetaData")
+    extension_fields: Optional[List[KeyValuePair]] = Field(default=None, alias="ExtensionFields")
+    data_set_source: Optional[ExtensionObject] = Field(default=None, alias="DataSetSource")
+    __properties: ClassVar[List[str]] = ["Name", "DataSetFolder", "DataSetMetaData", "ExtensionFields", "DataSetSource"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PublishedDataSetDataType:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PublishedDataSetDataType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of data_set_meta_data
         if self.data_set_meta_data:
             _dict['DataSetMetaData'] = self.data_set_meta_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in extension_fields (list)
         _items = []
         if self.extension_fields:
-            for _item in self.extension_fields:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_extension_fields in self.extension_fields:
+                if _item_extension_fields:
+                    _items.append(_item_extension_fields.to_dict())
             _dict['ExtensionFields'] = _items
         # override the default output from pydantic by calling `to_dict()` of data_set_source
         if self.data_set_source:
@@ -76,20 +92,20 @@ class PublishedDataSetDataType(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PublishedDataSetDataType:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PublishedDataSetDataType from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PublishedDataSetDataType.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PublishedDataSetDataType.parse_obj({
-            "name": obj.get("Name"),
-            "data_set_folder": obj.get("DataSetFolder"),
-            "data_set_meta_data": DataSetMetaDataType.from_dict(obj.get("DataSetMetaData")) if obj.get("DataSetMetaData") is not None else None,
-            "extension_fields": [KeyValuePair.from_dict(_item) for _item in obj.get("ExtensionFields")] if obj.get("ExtensionFields") is not None else None,
-            "data_set_source": ExtensionObject.from_dict(obj.get("DataSetSource")) if obj.get("DataSetSource") is not None else None
+        _obj = cls.model_validate({
+            "Name": obj.get("Name"),
+            "DataSetFolder": obj.get("DataSetFolder"),
+            "DataSetMetaData": DataSetMetaDataType.from_dict(obj["DataSetMetaData"]) if obj.get("DataSetMetaData") is not None else None,
+            "ExtensionFields": [KeyValuePair.from_dict(_item) for _item in obj["ExtensionFields"]] if obj.get("ExtensionFields") is not None else None,
+            "DataSetSource": ExtensionObject.from_dict(obj["DataSetSource"]) if obj.get("DataSetSource") is not None else None
         })
         return _obj
 

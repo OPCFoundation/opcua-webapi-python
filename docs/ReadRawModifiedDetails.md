@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **is_read_modified** | **bool** |  | [optional] 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of ReadRawModifiedDetails from a JSON string
 read_raw_modified_details_instance = ReadRawModifiedDetails.from_json(json)
 # print the JSON string representation of the object
-print ReadRawModifiedDetails.to_json()
+print(ReadRawModifiedDetails.to_json())
 
 # convert the object into a dict
 read_raw_modified_details_dict = read_raw_modified_details_instance.to_dict()
 # create an instance of ReadRawModifiedDetails from a dict
-read_raw_modified_details_form_dict = read_raw_modified_details.from_dict(read_raw_modified_details_dict)
+read_raw_modified_details_from_dict = ReadRawModifiedDetails.from_dict(read_raw_modified_details_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

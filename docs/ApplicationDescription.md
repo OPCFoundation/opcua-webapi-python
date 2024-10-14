@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **application_uri** | **str** |  | [optional] 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of ApplicationDescription from a JSON string
 application_description_instance = ApplicationDescription.from_json(json)
 # print the JSON string representation of the object
-print ApplicationDescription.to_json()
+print(ApplicationDescription.to_json())
 
 # convert the object into a dict
 application_description_dict = application_description_instance.to_dict()
 # create an instance of ApplicationDescription from a dict
-application_description_form_dict = application_description.from_dict(application_description_dict)
+application_description_from_dict = ApplicationDescription.from_dict(application_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

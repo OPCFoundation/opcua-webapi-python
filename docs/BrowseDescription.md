@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | **str** |  | [optional] 
@@ -21,12 +22,12 @@ json = "{}"
 # create an instance of BrowseDescription from a JSON string
 browse_description_instance = BrowseDescription.from_json(json)
 # print the JSON string representation of the object
-print BrowseDescription.to_json()
+print(BrowseDescription.to_json())
 
 # convert the object into a dict
 browse_description_dict = browse_description_instance.to_dict()
 # create an instance of BrowseDescription from a dict
-browse_description_form_dict = browse_description.from_dict(browse_description_dict)
+browse_description_from_dict = BrowseDescription.from_dict(browse_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

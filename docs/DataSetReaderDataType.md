@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -32,12 +33,12 @@ json = "{}"
 # create an instance of DataSetReaderDataType from a JSON string
 data_set_reader_data_type_instance = DataSetReaderDataType.from_json(json)
 # print the JSON string representation of the object
-print DataSetReaderDataType.to_json()
+print(DataSetReaderDataType.to_json())
 
 # convert the object into a dict
 data_set_reader_data_type_dict = data_set_reader_data_type_instance.to_dict()
 # create an instance of DataSetReaderDataType from a dict
-data_set_reader_data_type_form_dict = data_set_reader_data_type.from_dict(data_set_reader_data_type_dict)
+data_set_reader_data_type_from_dict = DataSetReaderDataType.from_dict(data_set_reader_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

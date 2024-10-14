@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbolic_id** | **int** |  | [optional] 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of DiagnosticInfo from a JSON string
 diagnostic_info_instance = DiagnosticInfo.from_json(json)
 # print the JSON string representation of the object
-print DiagnosticInfo.to_json()
+print(DiagnosticInfo.to_json())
 
 # convert the object into a dict
 diagnostic_info_dict = diagnostic_info_instance.to_dict()
 # create an instance of DiagnosticInfo from a dict
-diagnostic_info_form_dict = diagnostic_info.from_dict(diagnostic_info_dict)
+diagnostic_info_from_dict = DiagnosticInfo.from_dict(diagnostic_info_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

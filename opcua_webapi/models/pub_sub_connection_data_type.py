@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,54 +18,70 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from opcua_webapi.models.reader_group_data_type import ReaderGroupDataType
 from opcua_webapi.models.variant import Variant
 from opcua_webapi.models.writer_group_data_type import WriterGroupDataType
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PubSubConnectionDataType(BaseModel):
     """
     PubSubConnectionDataType
-    """
-    name: Optional[StrictStr] = Field(None, alias="Name")
-    enabled: Optional[StrictBool] = Field(None, alias="Enabled")
-    publisher_id: Optional[Variant] = Field(None, alias="PublisherId")
-    transport_profile_uri: Optional[StrictStr] = Field(None, alias="TransportProfileUri")
-    address: Optional[ExtensionObject] = Field(None, alias="Address")
-    connection_properties: Optional[conlist(KeyValuePair)] = Field(None, alias="ConnectionProperties")
-    transport_settings: Optional[ExtensionObject] = Field(None, alias="TransportSettings")
-    writer_groups: Optional[conlist(WriterGroupDataType)] = Field(None, alias="WriterGroups")
-    reader_groups: Optional[conlist(ReaderGroupDataType)] = Field(None, alias="ReaderGroups")
-    __properties = ["Name", "Enabled", "PublisherId", "TransportProfileUri", "Address", "ConnectionProperties", "TransportSettings", "WriterGroups", "ReaderGroups"]
+    """ # noqa: E501
+    name: Optional[StrictStr] = Field(default=None, alias="Name")
+    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    publisher_id: Optional[Variant] = Field(default=None, alias="PublisherId")
+    transport_profile_uri: Optional[StrictStr] = Field(default=None, alias="TransportProfileUri")
+    address: Optional[ExtensionObject] = Field(default=None, alias="Address")
+    connection_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="ConnectionProperties")
+    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
+    writer_groups: Optional[List[WriterGroupDataType]] = Field(default=None, alias="WriterGroups")
+    reader_groups: Optional[List[ReaderGroupDataType]] = Field(default=None, alias="ReaderGroups")
+    __properties: ClassVar[List[str]] = ["Name", "Enabled", "PublisherId", "TransportProfileUri", "Address", "ConnectionProperties", "TransportSettings", "WriterGroups", "ReaderGroups"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PubSubConnectionDataType:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PubSubConnectionDataType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of publisher_id
         if self.publisher_id:
             _dict['PublisherId'] = self.publisher_id.to_dict()
@@ -75,9 +91,9 @@ class PubSubConnectionDataType(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in connection_properties (list)
         _items = []
         if self.connection_properties:
-            for _item in self.connection_properties:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_connection_properties in self.connection_properties:
+                if _item_connection_properties:
+                    _items.append(_item_connection_properties.to_dict())
             _dict['ConnectionProperties'] = _items
         # override the default output from pydantic by calling `to_dict()` of transport_settings
         if self.transport_settings:
@@ -85,38 +101,38 @@ class PubSubConnectionDataType(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of each item in writer_groups (list)
         _items = []
         if self.writer_groups:
-            for _item in self.writer_groups:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_writer_groups in self.writer_groups:
+                if _item_writer_groups:
+                    _items.append(_item_writer_groups.to_dict())
             _dict['WriterGroups'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in reader_groups (list)
         _items = []
         if self.reader_groups:
-            for _item in self.reader_groups:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_reader_groups in self.reader_groups:
+                if _item_reader_groups:
+                    _items.append(_item_reader_groups.to_dict())
             _dict['ReaderGroups'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PubSubConnectionDataType:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PubSubConnectionDataType from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PubSubConnectionDataType.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PubSubConnectionDataType.parse_obj({
-            "name": obj.get("Name"),
-            "enabled": obj.get("Enabled"),
-            "publisher_id": Variant.from_dict(obj.get("PublisherId")) if obj.get("PublisherId") is not None else None,
-            "transport_profile_uri": obj.get("TransportProfileUri"),
-            "address": ExtensionObject.from_dict(obj.get("Address")) if obj.get("Address") is not None else None,
-            "connection_properties": [KeyValuePair.from_dict(_item) for _item in obj.get("ConnectionProperties")] if obj.get("ConnectionProperties") is not None else None,
-            "transport_settings": ExtensionObject.from_dict(obj.get("TransportSettings")) if obj.get("TransportSettings") is not None else None,
-            "writer_groups": [WriterGroupDataType.from_dict(_item) for _item in obj.get("WriterGroups")] if obj.get("WriterGroups") is not None else None,
-            "reader_groups": [ReaderGroupDataType.from_dict(_item) for _item in obj.get("ReaderGroups")] if obj.get("ReaderGroups") is not None else None
+        _obj = cls.model_validate({
+            "Name": obj.get("Name"),
+            "Enabled": obj.get("Enabled"),
+            "PublisherId": Variant.from_dict(obj["PublisherId"]) if obj.get("PublisherId") is not None else None,
+            "TransportProfileUri": obj.get("TransportProfileUri"),
+            "Address": ExtensionObject.from_dict(obj["Address"]) if obj.get("Address") is not None else None,
+            "ConnectionProperties": [KeyValuePair.from_dict(_item) for _item in obj["ConnectionProperties"]] if obj.get("ConnectionProperties") is not None else None,
+            "TransportSettings": ExtensionObject.from_dict(obj["TransportSettings"]) if obj.get("TransportSettings") is not None else None,
+            "WriterGroups": [WriterGroupDataType.from_dict(_item) for _item in obj["WriterGroups"]] if obj.get("WriterGroups") is not None else None,
+            "ReaderGroups": [ReaderGroupDataType.from_dict(_item) for _item in obj["ReaderGroups"]] if obj.get("ReaderGroups") is not None else None
         })
         return _obj
 

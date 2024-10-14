@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start_time** | **datetime** |  | [optional] 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of ReadProcessedDetails from a JSON string
 read_processed_details_instance = ReadProcessedDetails.from_json(json)
 # print the JSON string representation of the object
-print ReadProcessedDetails.to_json()
+print(ReadProcessedDetails.to_json())
 
 # convert the object into a dict
 read_processed_details_dict = read_processed_details_instance.to_dict()
 # create an instance of ReadProcessedDetails from a dict
-read_processed_details_form_dict = read_processed_details.from_dict(read_processed_details_dict)
+read_processed_details_from_dict = ReadProcessedDetails.from_dict(read_processed_details_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

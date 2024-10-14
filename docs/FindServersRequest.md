@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of FindServersRequest from a JSON string
 find_servers_request_instance = FindServersRequest.from_json(json)
 # print the JSON string representation of the object
-print FindServersRequest.to_json()
+print(FindServersRequest.to_json())
 
 # convert the object into a dict
 find_servers_request_dict = find_servers_request_instance.to_dict()
 # create an instance of FindServersRequest from a dict
-find_servers_request_form_dict = find_servers_request.from_dict(find_servers_request_dict)
+find_servers_request_from_dict = FindServersRequest.from_dict(find_servers_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

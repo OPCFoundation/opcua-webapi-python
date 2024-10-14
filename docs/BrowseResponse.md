@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of BrowseResponse from a JSON string
 browse_response_instance = BrowseResponse.from_json(json)
 # print the JSON string representation of the object
-print BrowseResponse.to_json()
+print(BrowseResponse.to_json())
 
 # convert the object into a dict
 browse_response_dict = browse_response_instance.to_dict()
 # create an instance of BrowseResponse from a dict
-browse_response_form_dict = browse_response.from_dict(browse_response_dict)
+browse_response_from_dict = BrowseResponse.from_dict(browse_response_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

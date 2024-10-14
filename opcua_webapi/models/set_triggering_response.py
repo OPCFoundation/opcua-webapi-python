@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,81 +18,98 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, conint, conlist
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 from opcua_webapi.models.response_header import ResponseHeader
+from typing import Optional, Set
+from typing_extensions import Self
 
 class SetTriggeringResponse(BaseModel):
     """
     SetTriggeringResponse
-    """
-    response_header: Optional[ResponseHeader] = Field(None, alias="ResponseHeader")
-    add_results: Optional[conlist(conint(strict=True, le=4294967295, ge=0))] = Field(None, alias="AddResults")
-    add_diagnostic_infos: Optional[conlist(DiagnosticInfo)] = Field(None, alias="AddDiagnosticInfos")
-    remove_results: Optional[conlist(conint(strict=True, le=4294967295, ge=0))] = Field(None, alias="RemoveResults")
-    remove_diagnostic_infos: Optional[conlist(DiagnosticInfo)] = Field(None, alias="RemoveDiagnosticInfos")
-    __properties = ["ResponseHeader", "AddResults", "AddDiagnosticInfos", "RemoveResults", "RemoveDiagnosticInfos"]
+    """ # noqa: E501
+    response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
+    add_results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="AddResults")
+    add_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="AddDiagnosticInfos")
+    remove_results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="RemoveResults")
+    remove_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="RemoveDiagnosticInfos")
+    __properties: ClassVar[List[str]] = ["ResponseHeader", "AddResults", "AddDiagnosticInfos", "RemoveResults", "RemoveDiagnosticInfos"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> SetTriggeringResponse:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of SetTriggeringResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of response_header
         if self.response_header:
             _dict['ResponseHeader'] = self.response_header.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in add_diagnostic_infos (list)
         _items = []
         if self.add_diagnostic_infos:
-            for _item in self.add_diagnostic_infos:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_add_diagnostic_infos in self.add_diagnostic_infos:
+                if _item_add_diagnostic_infos:
+                    _items.append(_item_add_diagnostic_infos.to_dict())
             _dict['AddDiagnosticInfos'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in remove_diagnostic_infos (list)
         _items = []
         if self.remove_diagnostic_infos:
-            for _item in self.remove_diagnostic_infos:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_remove_diagnostic_infos in self.remove_diagnostic_infos:
+                if _item_remove_diagnostic_infos:
+                    _items.append(_item_remove_diagnostic_infos.to_dict())
             _dict['RemoveDiagnosticInfos'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> SetTriggeringResponse:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of SetTriggeringResponse from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return SetTriggeringResponse.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = SetTriggeringResponse.parse_obj({
-            "response_header": ResponseHeader.from_dict(obj.get("ResponseHeader")) if obj.get("ResponseHeader") is not None else None,
-            "add_results": obj.get("AddResults"),
-            "add_diagnostic_infos": [DiagnosticInfo.from_dict(_item) for _item in obj.get("AddDiagnosticInfos")] if obj.get("AddDiagnosticInfos") is not None else None,
-            "remove_results": obj.get("RemoveResults"),
-            "remove_diagnostic_infos": [DiagnosticInfo.from_dict(_item) for _item in obj.get("RemoveDiagnosticInfos")] if obj.get("RemoveDiagnosticInfos") is not None else None
+        _obj = cls.model_validate({
+            "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
+            "AddResults": obj.get("AddResults"),
+            "AddDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["AddDiagnosticInfos"]] if obj.get("AddDiagnosticInfos") is not None else None,
+            "RemoveResults": obj.get("RemoveResults"),
+            "RemoveDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["RemoveDiagnosticInfos"]] if obj.get("RemoveDiagnosticInfos") is not None else None
         })
         return _obj
 

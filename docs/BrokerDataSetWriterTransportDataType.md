@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **queue_name** | **str** |  | [optional] 
@@ -21,12 +22,12 @@ json = "{}"
 # create an instance of BrokerDataSetWriterTransportDataType from a JSON string
 broker_data_set_writer_transport_data_type_instance = BrokerDataSetWriterTransportDataType.from_json(json)
 # print the JSON string representation of the object
-print BrokerDataSetWriterTransportDataType.to_json()
+print(BrokerDataSetWriterTransportDataType.to_json())
 
 # convert the object into a dict
 broker_data_set_writer_transport_data_type_dict = broker_data_set_writer_transport_data_type_instance.to_dict()
 # create an instance of BrokerDataSetWriterTransportDataType from a dict
-broker_data_set_writer_transport_data_type_form_dict = broker_data_set_writer_transport_data_type.from_dict(broker_data_set_writer_transport_data_type_dict)
+broker_data_set_writer_transport_data_type_from_dict = BrokerDataSetWriterTransportDataType.from_dict(broker_data_set_writer_transport_data_type_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

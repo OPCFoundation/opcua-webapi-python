@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,74 +18,90 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictBool, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.pub_sub_connection_data_type import PubSubConnectionDataType
 from opcua_webapi.models.published_data_set_data_type import PublishedDataSetDataType
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PubSubConfigurationDataType(BaseModel):
     """
     PubSubConfigurationDataType
-    """
-    published_data_sets: Optional[conlist(PublishedDataSetDataType)] = Field(None, alias="PublishedDataSets")
-    connections: Optional[conlist(PubSubConnectionDataType)] = Field(None, alias="Connections")
-    enabled: Optional[StrictBool] = Field(None, alias="Enabled")
-    __properties = ["PublishedDataSets", "Connections", "Enabled"]
+    """ # noqa: E501
+    published_data_sets: Optional[List[PublishedDataSetDataType]] = Field(default=None, alias="PublishedDataSets")
+    connections: Optional[List[PubSubConnectionDataType]] = Field(default=None, alias="Connections")
+    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    __properties: ClassVar[List[str]] = ["PublishedDataSets", "Connections", "Enabled"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> PubSubConfigurationDataType:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PubSubConfigurationDataType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in published_data_sets (list)
         _items = []
         if self.published_data_sets:
-            for _item in self.published_data_sets:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_published_data_sets in self.published_data_sets:
+                if _item_published_data_sets:
+                    _items.append(_item_published_data_sets.to_dict())
             _dict['PublishedDataSets'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in connections (list)
         _items = []
         if self.connections:
-            for _item in self.connections:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_connections in self.connections:
+                if _item_connections:
+                    _items.append(_item_connections.to_dict())
             _dict['Connections'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> PubSubConfigurationDataType:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PubSubConfigurationDataType from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return PubSubConfigurationDataType.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = PubSubConfigurationDataType.parse_obj({
-            "published_data_sets": [PublishedDataSetDataType.from_dict(_item) for _item in obj.get("PublishedDataSets")] if obj.get("PublishedDataSets") is not None else None,
-            "connections": [PubSubConnectionDataType.from_dict(_item) for _item in obj.get("Connections")] if obj.get("Connections") is not None else None,
-            "enabled": obj.get("Enabled")
+        _obj = cls.model_validate({
+            "PublishedDataSets": [PublishedDataSetDataType.from_dict(_item) for _item in obj["PublishedDataSets"]] if obj.get("PublishedDataSets") is not None else None,
+            "Connections": [PubSubConnectionDataType.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
+            "Enabled": obj.get("Enabled")
         })
         return _obj
 

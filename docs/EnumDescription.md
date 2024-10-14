@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enum_definition** | [**EnumDefinition**](EnumDefinition.md) |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of EnumDescription from a JSON string
 enum_description_instance = EnumDescription.from_json(json)
 # print the JSON string representation of the object
-print EnumDescription.to_json()
+print(EnumDescription.to_json())
 
 # convert the object into a dict
 enum_description_dict = enum_description_instance.to_dict()
 # create an instance of EnumDescription from a dict
-enum_description_form_dict = enum_description.from_dict(enum_description_dict)
+enum_description_from_dict = EnumDescription.from_dict(enum_description_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

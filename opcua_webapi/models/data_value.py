@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -19,67 +19,85 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Optional
-from pydantic import BaseModel, Field, conint
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from opcua_webapi.models.variant import Variant
+from typing import Optional, Set
+from typing_extensions import Self
 
 class DataValue(BaseModel):
     """
     DataValue
-    """
-    value: Optional[Variant] = Field(None, alias="Value")
-    status_code: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="StatusCode")
-    source_timestamp: Optional[datetime] = Field(None, alias="SourceTimestamp")
-    source_pico_seconds: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="SourcePicoSeconds")
-    server_timestamp: Optional[datetime] = Field(None, alias="ServerTimestamp")
-    server_pico_seconds: Optional[conint(strict=True, le=65535, ge=0)] = Field(None, alias="ServerPicoSeconds")
-    __properties = ["Value", "StatusCode", "SourceTimestamp", "SourcePicoSeconds", "ServerTimestamp", "ServerPicoSeconds"]
+    """ # noqa: E501
+    value: Optional[Variant] = Field(default=None, alias="Value")
+    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
+    source_timestamp: Optional[datetime] = Field(default=None, alias="SourceTimestamp")
+    source_pico_seconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="SourcePicoSeconds")
+    server_timestamp: Optional[datetime] = Field(default=None, alias="ServerTimestamp")
+    server_pico_seconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="ServerPicoSeconds")
+    __properties: ClassVar[List[str]] = ["Value", "StatusCode", "SourceTimestamp", "SourcePicoSeconds", "ServerTimestamp", "ServerPicoSeconds"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> DataValue:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of DataValue from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of value
         if self.value:
             _dict['Value'] = self.value.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> DataValue:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of DataValue from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return DataValue.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = DataValue.parse_obj({
-            "value": Variant.from_dict(obj.get("Value")) if obj.get("Value") is not None else None,
-            "status_code": obj.get("StatusCode"),
-            "source_timestamp": obj.get("SourceTimestamp"),
-            "source_pico_seconds": obj.get("SourcePicoSeconds"),
-            "server_timestamp": obj.get("ServerTimestamp"),
-            "server_pico_seconds": obj.get("ServerPicoSeconds")
+        _obj = cls.model_validate({
+            "Value": Variant.from_dict(obj["Value"]) if obj.get("Value") is not None else None,
+            "StatusCode": obj.get("StatusCode"),
+            "SourceTimestamp": obj.get("SourceTimestamp"),
+            "SourcePicoSeconds": obj.get("SourcePicoSeconds"),
+            "ServerTimestamp": obj.get("ServerTimestamp"),
+            "ServerPicoSeconds": obj.get("ServerPicoSeconds")
         })
         return _obj
 

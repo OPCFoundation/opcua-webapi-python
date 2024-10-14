@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -13,13 +13,10 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
-import pprint
-import re  # noqa: F401
-from aenum import Enum, no_arg
-
-
-
+from enum import Enum
+from typing_extensions import Self
 
 
 class BrowseDirection(int, Enum):
@@ -30,14 +27,14 @@ class BrowseDirection(int, Enum):
     """
     allowed enum values
     """
-    NUMBER_0 = 0
-    NUMBER_1 = 1
-    NUMBER_2 = 2
-    NUMBER_3 = 3
+    Forward = 0
+    Inverse = 1
+    Both = 2
+    Invalid = 3
 
     @classmethod
-    def from_json(cls, json_str: str) -> BrowseDirection:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of BrowseDirection from a JSON string"""
-        return BrowseDirection(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

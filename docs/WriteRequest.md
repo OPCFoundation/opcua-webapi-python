@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
@@ -17,12 +18,12 @@ json = "{}"
 # create an instance of WriteRequest from a JSON string
 write_request_instance = WriteRequest.from_json(json)
 # print the JSON string representation of the object
-print WriteRequest.to_json()
+print(WriteRequest.to_json())
 
 # convert the object into a dict
 write_request_dict = write_request_instance.to_dict()
 # create an instance of WriteRequest from a dict
-write_request_form_dict = write_request.from_dict(write_request_dict)
+write_request_from_dict = WriteRequest.from_dict(write_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

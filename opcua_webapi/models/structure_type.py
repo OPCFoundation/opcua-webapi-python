@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -13,13 +13,10 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
-import pprint
-import re  # noqa: F401
-from aenum import Enum, no_arg
-
-
-
+from enum import Enum
+from typing_extensions import Self
 
 
 class StructureType(int, Enum):
@@ -30,15 +27,15 @@ class StructureType(int, Enum):
     """
     allowed enum values
     """
-    NUMBER_0 = 0
-    NUMBER_1 = 1
-    NUMBER_2 = 2
-    NUMBER_3 = 3
-    NUMBER_4 = 4
+    Structure = 0
+    StructureWithOptionalFields = 1
+    Union = 2
+    StructureWithSubtypedValues = 3
+    UnionWithSubtypedValues = 4
 
     @classmethod
-    def from_json(cls, json_str: str) -> StructureType:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of StructureType from a JSON string"""
-        return StructureType(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -13,13 +13,10 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
-import pprint
-import re  # noqa: F401
-from aenum import Enum, no_arg
-
-
-
+from enum import Enum
+from typing_extensions import Self
 
 
 class FilterOperator(int, Enum):
@@ -30,28 +27,28 @@ class FilterOperator(int, Enum):
     """
     allowed enum values
     """
-    NUMBER_0 = 0
-    NUMBER_1 = 1
-    NUMBER_2 = 2
-    NUMBER_3 = 3
-    NUMBER_4 = 4
-    NUMBER_5 = 5
-    NUMBER_6 = 6
-    NUMBER_7 = 7
-    NUMBER_8 = 8
-    NUMBER_9 = 9
-    NUMBER_10 = 10
-    NUMBER_11 = 11
-    NUMBER_12 = 12
-    NUMBER_13 = 13
-    NUMBER_14 = 14
-    NUMBER_15 = 15
-    NUMBER_16 = 16
-    NUMBER_17 = 17
+    Equals = 0
+    IsNull = 1
+    GreaterThan = 2
+    LessThan = 3
+    GreaterThanOrEqual = 4
+    LessThanOrEqual = 5
+    Like = 6
+    Not = 7
+    Between = 8
+    InList = 9
+    And = 10
+    Or = 11
+    Cast = 12
+    InView = 13
+    OfType = 14
+    RelatedTo = 15
+    BitwiseAnd = 16
+    BitwiseOr = 17
 
     @classmethod
-    def from_json(cls, json_str: str) -> FilterOperator:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of FilterOperator from a JSON string"""
-        return FilterOperator(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

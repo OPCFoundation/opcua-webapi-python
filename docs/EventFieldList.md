@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_handle** | **int** |  | [optional] 
@@ -17,12 +18,12 @@ json = "{}"
 # create an instance of EventFieldList from a JSON string
 event_field_list_instance = EventFieldList.from_json(json)
 # print the JSON string representation of the object
-print EventFieldList.to_json()
+print(EventFieldList.to_json())
 
 # convert the object into a dict
 event_field_list_dict = event_field_list_instance.to_dict()
 # create an instance of EventFieldList from a dict
-event_field_list_form_dict = event_field_list.from_dict(event_field_list_dict)
+event_field_list_from_dict = EventFieldList.from_dict(event_field_list_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

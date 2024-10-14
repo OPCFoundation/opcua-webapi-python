@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | **str** |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of UpdateEventDetails from a JSON string
 update_event_details_instance = UpdateEventDetails.from_json(json)
 # print the JSON string representation of the object
-print UpdateEventDetails.to_json()
+print(UpdateEventDetails.to_json())
 
 # convert the object into a dict
 update_event_details_dict = update_event_details_instance.to_dict()
 # create an instance of UpdateEventDetails from a dict
-update_event_details_form_dict = update_event_details.from_dict(update_event_details_dict)
+update_event_details_from_dict = UpdateEventDetails.from_dict(update_event_details_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

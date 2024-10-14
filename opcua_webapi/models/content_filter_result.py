@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,72 +18,88 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, conlist
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.content_filter_element_result import ContentFilterElementResult
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ContentFilterResult(BaseModel):
     """
     ContentFilterResult
-    """
-    element_results: Optional[conlist(ContentFilterElementResult)] = Field(None, alias="ElementResults")
-    element_diagnostic_infos: Optional[conlist(DiagnosticInfo)] = Field(None, alias="ElementDiagnosticInfos")
-    __properties = ["ElementResults", "ElementDiagnosticInfos"]
+    """ # noqa: E501
+    element_results: Optional[List[ContentFilterElementResult]] = Field(default=None, alias="ElementResults")
+    element_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="ElementDiagnosticInfos")
+    __properties: ClassVar[List[str]] = ["ElementResults", "ElementDiagnosticInfos"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ContentFilterResult:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ContentFilterResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of each item in element_results (list)
         _items = []
         if self.element_results:
-            for _item in self.element_results:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_element_results in self.element_results:
+                if _item_element_results:
+                    _items.append(_item_element_results.to_dict())
             _dict['ElementResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in element_diagnostic_infos (list)
         _items = []
         if self.element_diagnostic_infos:
-            for _item in self.element_diagnostic_infos:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_element_diagnostic_infos in self.element_diagnostic_infos:
+                if _item_element_diagnostic_infos:
+                    _items.append(_item_element_diagnostic_infos.to_dict())
             _dict['ElementDiagnosticInfos'] = _items
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ContentFilterResult:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ContentFilterResult from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ContentFilterResult.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ContentFilterResult.parse_obj({
-            "element_results": [ContentFilterElementResult.from_dict(_item) for _item in obj.get("ElementResults")] if obj.get("ElementResults") is not None else None,
-            "element_diagnostic_infos": [DiagnosticInfo.from_dict(_item) for _item in obj.get("ElementDiagnosticInfos")] if obj.get("ElementDiagnosticInfos") is not None else None
+        _obj = cls.model_validate({
+            "ElementResults": [ContentFilterElementResult.from_dict(_item) for _item in obj["ElementResults"]] if obj.get("ElementResults") is not None else None,
+            "ElementDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["ElementDiagnosticInfos"]] if obj.get("ElementDiagnosticInfos") is not None else None
         })
         return _obj
 

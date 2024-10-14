@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -18,64 +18,81 @@ import pprint
 import re  # noqa: F401
 import json
 
-
-from typing import List, Optional
-from pydantic import BaseModel, Field, StrictInt, conint, conlist
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from opcua_webapi.models.request_header import RequestHeader
+from typing import Optional, Set
+from typing_extensions import Self
 
 class SetMonitoringModeRequest(BaseModel):
     """
     SetMonitoringModeRequest
-    """
-    request_header: Optional[RequestHeader] = Field(None, alias="RequestHeader")
-    subscription_id: Optional[conint(strict=True, le=4294967295, ge=0)] = Field(None, alias="SubscriptionId")
-    monitoring_mode: Optional[StrictInt] = Field(None, alias="MonitoringMode")
-    monitored_item_ids: Optional[conlist(conint(strict=True, le=4294967295, ge=0))] = Field(None, alias="MonitoredItemIds")
-    __properties = ["RequestHeader", "SubscriptionId", "MonitoringMode", "MonitoredItemIds"]
+    """ # noqa: E501
+    request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
+    monitoring_mode: Optional[StrictInt] = Field(default=None, alias="MonitoringMode")
+    monitored_item_ids: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="MonitoredItemIds")
+    __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "MonitoringMode", "MonitoredItemIds"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> SetMonitoringModeRequest:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of SetMonitoringModeRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        excluded_fields: Set[str] = set([
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+        )
         # override the default output from pydantic by calling `to_dict()` of request_header
         if self.request_header:
             _dict['RequestHeader'] = self.request_header.to_dict()
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> SetMonitoringModeRequest:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of SetMonitoringModeRequest from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return SetMonitoringModeRequest.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = SetMonitoringModeRequest.parse_obj({
-            "request_header": RequestHeader.from_dict(obj.get("RequestHeader")) if obj.get("RequestHeader") is not None else None,
-            "subscription_id": obj.get("SubscriptionId"),
-            "monitoring_mode": obj.get("MonitoringMode"),
-            "monitored_item_ids": obj.get("MonitoredItemIds")
+        _obj = cls.model_validate({
+            "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
+            "SubscriptionId": obj.get("SubscriptionId"),
+            "MonitoringMode": obj.get("MonitoringMode"),
+            "MonitoredItemIds": obj.get("MonitoredItemIds")
         })
         return _obj
 
