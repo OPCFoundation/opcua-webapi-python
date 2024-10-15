@@ -28,7 +28,7 @@ class MessageSecurityMode(int, Enum):
     allowed enum values
     """
     Invalid = 0
-    None = 1
+    NoSignOrEncrypt = 1
     Sign = 2
     SignAndEncrypt = 3
 
