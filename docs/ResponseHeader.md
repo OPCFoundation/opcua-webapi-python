@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **timestamp** | **datetime** |  | [optional] 
-**request_handle** | **int** |  | [optional] 
-**service_result** | **int** |  | [optional] 
+**request_handle** | **int** |  | [optional] [default to 0]
+**service_result** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **service_diagnostics** | [**DiagnosticInfo**](DiagnosticInfo.md) |  | [optional] 
 **string_table** | **List[str]** |  | [optional] 
 **additional_header** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 

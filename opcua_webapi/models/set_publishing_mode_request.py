@@ -30,7 +30,7 @@ class SetPublishingModeRequest(BaseModel):
     SetPublishingModeRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    publishing_enabled: Optional[StrictBool] = Field(default=None, alias="PublishingEnabled")
+    publishing_enabled: Optional[StrictBool] = Field(default=False, alias="PublishingEnabled")
     subscription_ids: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="SubscriptionIds")
     __properties: ClassVar[List[str]] = ["RequestHeader", "PublishingEnabled", "SubscriptionIds"]
 
@@ -89,7 +89,7 @@ class SetPublishingModeRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "PublishingEnabled": obj.get("PublishingEnabled"),
+            "PublishingEnabled": obj.get("PublishingEnabled") if obj.get("PublishingEnabled") is not None else False,
             "SubscriptionIds": obj.get("SubscriptionIds")
         })
         return _obj

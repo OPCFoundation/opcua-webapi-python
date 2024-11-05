@@ -29,7 +29,7 @@ class EventFieldList(BaseModel):
     """
     EventFieldList
     """ # noqa: E501
-    client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ClientHandle")
+    client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ClientHandle")
     event_fields: Optional[List[Variant]] = Field(default=None, alias="EventFields")
     __properties: ClassVar[List[str]] = ["ClientHandle", "EventFields"]
 
@@ -91,7 +91,7 @@ class EventFieldList(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ClientHandle": obj.get("ClientHandle"),
+            "ClientHandle": obj.get("ClientHandle") if obj.get("ClientHandle") is not None else 0,
             "EventFields": [Variant.from_dict(_item) for _item in obj["EventFields"]] if obj.get("EventFields") is not None else None
         })
         return _obj

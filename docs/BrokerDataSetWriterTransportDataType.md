@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **authentication_profile_uri** | **str** |  | [optional] 
 **requested_delivery_guarantee** | **int** |  | [optional] 
 **meta_data_queue_name** | **str** |  | [optional] 
-**meta_data_update_time** | **float** |  | [optional] 
+**meta_data_update_time** | **float** |  | [optional] [default to 0]
 
 ## Example
 

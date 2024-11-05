@@ -29,7 +29,7 @@ class EUInformation(BaseModel):
     EUInformation
     """ # noqa: E501
     namespace_uri: Optional[StrictStr] = Field(default=None, alias="NamespaceUri")
-    unit_id: Optional[StrictInt] = Field(default=None, alias="UnitId")
+    unit_id: Optional[StrictInt] = Field(default=0, alias="UnitId")
     display_name: Optional[LocalizedText] = Field(default=None, alias="DisplayName")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")
     __properties: ClassVar[List[str]] = ["NamespaceUri", "UnitId", "DisplayName", "Description"]
@@ -92,7 +92,7 @@ class EUInformation(BaseModel):
 
         _obj = cls.model_validate({
             "NamespaceUri": obj.get("NamespaceUri"),
-            "UnitId": obj.get("UnitId"),
+            "UnitId": obj.get("UnitId") if obj.get("UnitId") is not None else 0,
             "DisplayName": LocalizedText.from_dict(obj["DisplayName"]) if obj.get("DisplayName") is not None else None,
             "Description": LocalizedText.from_dict(obj["Description"]) if obj.get("Description") is not None else None
         })

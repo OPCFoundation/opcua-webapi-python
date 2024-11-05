@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | **int** |  | [optional] 
-**input_argument_results** | **List[int]** |  | [optional] 
+**status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
+**input_argument_results** | [**List[StatusCode]**](StatusCode.md) |  | [optional] 
 **input_argument_diagnostic_infos** | [**List[DiagnosticInfo]**](DiagnosticInfo.md) |  | [optional] 
 **output_arguments** | [**List[Variant]**](Variant.md) |  | [optional] 
 

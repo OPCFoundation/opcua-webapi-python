@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,10 +28,10 @@ class ExtensionObject(BaseModel):
     """
     ExtensionObject
     """ # noqa: E501
-    type_id: Optional[StrictStr] = Field(default=None, alias="TypeId")
-    encoding: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="Encoding")
-    body: Optional[Dict[str, Any]] = Field(default=None, alias="Body")
-    __properties: ClassVar[List[str]] = ["TypeId", "Encoding", "Body"]
+    ua_type_id: Optional[StrictStr] = Field(default=None, alias="UaTypeId")
+    ua_encoding: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="UaEncoding")
+    ua_body: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="UaBody")
+    __properties: ClassVar[List[str]] = ["UaTypeId", "UaEncoding", "UaBody"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,9 +84,9 @@ class ExtensionObject(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "TypeId": obj.get("TypeId"),
-            "Encoding": obj.get("Encoding"),
-            "Body": obj.get("Body")
+            "UaTypeId": obj.get("UaTypeId"),
+            "UaEncoding": obj.get("UaEncoding"),
+            "UaBody": obj.get("UaBody")
         })
         return _obj
 

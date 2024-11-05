@@ -30,8 +30,8 @@ class RepublishRequest(BaseModel):
     RepublishRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
-    retransmit_sequence_number: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RetransmitSequenceNumber")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
+    retransmit_sequence_number: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RetransmitSequenceNumber")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "RetransmitSequenceNumber"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class RepublishRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "SubscriptionId": obj.get("SubscriptionId"),
-            "RetransmitSequenceNumber": obj.get("RetransmitSequenceNumber")
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
+            "RetransmitSequenceNumber": obj.get("RetransmitSequenceNumber") if obj.get("RetransmitSequenceNumber") is not None else 0
         })
         return _obj
 

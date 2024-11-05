@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **authentication_token** | **str** |  | [optional] 
 **timestamp** | **datetime** |  | [optional] 
-**request_handle** | **int** |  | [optional] 
-**return_diagnostics** | **int** |  | [optional] 
+**request_handle** | **int** |  | [optional] [default to 0]
+**return_diagnostics** | **int** |  | [optional] [default to 0]
 **audit_entry_id** | **str** |  | [optional] 
-**timeout_hint** | **int** |  | [optional] 
+**timeout_hint** | **int** |  | [optional] [default to 0]
 **additional_header** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
 
 ## Example

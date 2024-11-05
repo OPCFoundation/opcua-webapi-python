@@ -30,7 +30,7 @@ class EnumDescription(BaseModel):
     EnumDescription
     """ # noqa: E501
     enum_definition: Optional[EnumDefinition] = Field(default=None, alias="EnumDefinition")
-    built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="BuiltInType")
+    built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="BuiltInType")
     data_type_id: Optional[StrictStr] = Field(default=None, alias="DataTypeId")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     __properties: ClassVar[List[str]] = ["DataTypeId", "Name"]

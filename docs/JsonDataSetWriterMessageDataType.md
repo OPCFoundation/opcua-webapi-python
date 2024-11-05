@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data_set_message_content_mask** | **int** |  | [optional] 
+**data_set_message_content_mask** | **int** |  | [optional] [default to 0]
 
 ## Example
 

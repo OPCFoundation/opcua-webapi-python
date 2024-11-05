@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**low** | **float** |  | [optional] 
-**high** | **float** |  | [optional] 
+**low** | **float** |  | [optional] [default to 0]
+**high** | **float** |  | [optional] [default to 0]
 
 ## Example
 

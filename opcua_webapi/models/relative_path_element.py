@@ -28,8 +28,8 @@ class RelativePathElement(BaseModel):
     RelativePathElement
     """ # noqa: E501
     reference_type_id: Optional[StrictStr] = Field(default=None, alias="ReferenceTypeId")
-    is_inverse: Optional[StrictBool] = Field(default=None, alias="IsInverse")
-    include_subtypes: Optional[StrictBool] = Field(default=None, alias="IncludeSubtypes")
+    is_inverse: Optional[StrictBool] = Field(default=False, alias="IsInverse")
+    include_subtypes: Optional[StrictBool] = Field(default=False, alias="IncludeSubtypes")
     target_name: Optional[StrictStr] = Field(default=None, alias="TargetName")
     __properties: ClassVar[List[str]] = ["ReferenceTypeId", "IsInverse", "IncludeSubtypes", "TargetName"]
 
@@ -85,8 +85,8 @@ class RelativePathElement(BaseModel):
 
         _obj = cls.model_validate({
             "ReferenceTypeId": obj.get("ReferenceTypeId"),
-            "IsInverse": obj.get("IsInverse"),
-            "IncludeSubtypes": obj.get("IncludeSubtypes"),
+            "IsInverse": obj.get("IsInverse") if obj.get("IsInverse") is not None else False,
+            "IncludeSubtypes": obj.get("IncludeSubtypes") if obj.get("IncludeSubtypes") is not None else False,
             "TargetName": obj.get("TargetName")
         })
         return _obj

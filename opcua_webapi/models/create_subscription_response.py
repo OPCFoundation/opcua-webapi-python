@@ -30,10 +30,10 @@ class CreateSubscriptionResponse(BaseModel):
     CreateSubscriptionResponse
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
-    revised_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RevisedPublishingInterval")
-    revised_lifetime_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RevisedLifetimeCount")
-    revised_max_keep_alive_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RevisedMaxKeepAliveCount")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
+    revised_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedPublishingInterval")
+    revised_lifetime_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RevisedLifetimeCount")
+    revised_max_keep_alive_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RevisedMaxKeepAliveCount")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "SubscriptionId", "RevisedPublishingInterval", "RevisedLifetimeCount", "RevisedMaxKeepAliveCount"]
 
     model_config = ConfigDict(
@@ -91,10 +91,10 @@ class CreateSubscriptionResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
-            "SubscriptionId": obj.get("SubscriptionId"),
-            "RevisedPublishingInterval": obj.get("RevisedPublishingInterval"),
-            "RevisedLifetimeCount": obj.get("RevisedLifetimeCount"),
-            "RevisedMaxKeepAliveCount": obj.get("RevisedMaxKeepAliveCount")
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
+            "RevisedPublishingInterval": obj.get("RevisedPublishingInterval") if obj.get("RevisedPublishingInterval") is not None else 0,
+            "RevisedLifetimeCount": obj.get("RevisedLifetimeCount") if obj.get("RevisedLifetimeCount") is not None else 0,
+            "RevisedMaxKeepAliveCount": obj.get("RevisedMaxKeepAliveCount") if obj.get("RevisedMaxKeepAliveCount") is not None else 0
         })
         return _obj
 

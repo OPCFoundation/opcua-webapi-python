@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**enabled** | **bool** |  | [optional] 
+**enabled** | **bool** |  | [optional] [default to False]
 **publisher_id** | [**Variant**](Variant.md) |  | [optional] 
 **transport_profile_uri** | **str** |  | [optional] 
 **address** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 

@@ -32,7 +32,7 @@ class BrokerDataSetWriterTransportDataType(BaseModel):
     authentication_profile_uri: Optional[StrictStr] = Field(default=None, alias="AuthenticationProfileUri")
     requested_delivery_guarantee: Optional[StrictInt] = Field(default=None, alias="RequestedDeliveryGuarantee")
     meta_data_queue_name: Optional[StrictStr] = Field(default=None, alias="MetaDataQueueName")
-    meta_data_update_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="MetaDataUpdateTime")
+    meta_data_update_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="MetaDataUpdateTime")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

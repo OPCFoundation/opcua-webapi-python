@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**index** | **int** |  | [optional] 
+**index** | **int** |  | [optional] [default to 0]
 
 ## Example
 

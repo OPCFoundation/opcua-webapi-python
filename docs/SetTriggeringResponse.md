@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
-**add_results** | **List[int]** |  | [optional] 
+**add_results** | [**List[StatusCode]**](StatusCode.md) |  | [optional] 
 **add_diagnostic_infos** | [**List[DiagnosticInfo]**](DiagnosticInfo.md) |  | [optional] 
-**remove_results** | **List[int]** |  | [optional] 
+**remove_results** | [**List[StatusCode]**](StatusCode.md) |  | [optional] 
 **remove_diagnostic_infos** | [**List[DiagnosticInfo]**](DiagnosticInfo.md) |  | [optional] 
 
 ## Example

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subscription_id** | **int** |  | [optional] 
-**sequence_number** | **int** |  | [optional] 
+**subscription_id** | **int** |  | [optional] [default to 0]
+**sequence_number** | **int** |  | [optional] [default to 0]
 
 ## Example
 

@@ -31,7 +31,7 @@ class ViewDescription(BaseModel):
     """ # noqa: E501
     view_id: Optional[StrictStr] = Field(default=None, alias="ViewId")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
-    view_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ViewVersion")
+    view_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ViewVersion")
     __properties: ClassVar[List[str]] = ["ViewId", "Timestamp", "ViewVersion"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class ViewDescription(BaseModel):
         _obj = cls.model_validate({
             "ViewId": obj.get("ViewId"),
             "Timestamp": obj.get("Timestamp"),
-            "ViewVersion": obj.get("ViewVersion")
+            "ViewVersion": obj.get("ViewVersion") if obj.get("ViewVersion") is not None else 0
         })
         return _obj
 

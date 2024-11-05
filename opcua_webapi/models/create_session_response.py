@@ -35,13 +35,13 @@ class CreateSessionResponse(BaseModel):
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     session_id: Optional[StrictStr] = Field(default=None, alias="SessionId")
     authentication_token: Optional[StrictStr] = Field(default=None, alias="AuthenticationToken")
-    revised_session_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RevisedSessionTimeout")
+    revised_session_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedSessionTimeout")
     server_nonce: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ServerNonce")
     server_certificate: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ServerCertificate")
     server_endpoints: Optional[List[EndpointDescription]] = Field(default=None, alias="ServerEndpoints")
     server_software_certificates: Optional[List[SignedSoftwareCertificate]] = Field(default=None, alias="ServerSoftwareCertificates")
     server_signature: Optional[SignatureData] = Field(default=None, alias="ServerSignature")
-    max_request_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxRequestMessageSize")
+    max_request_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxRequestMessageSize")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "SessionId", "AuthenticationToken", "RevisedSessionTimeout", "ServerNonce", "ServerCertificate", "ServerEndpoints", "ServerSoftwareCertificates", "ServerSignature", "MaxRequestMessageSize"]
 
     model_config = ConfigDict(
@@ -118,13 +118,13 @@ class CreateSessionResponse(BaseModel):
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
             "SessionId": obj.get("SessionId"),
             "AuthenticationToken": obj.get("AuthenticationToken"),
-            "RevisedSessionTimeout": obj.get("RevisedSessionTimeout"),
+            "RevisedSessionTimeout": obj.get("RevisedSessionTimeout") if obj.get("RevisedSessionTimeout") is not None else 0,
             "ServerNonce": obj.get("ServerNonce"),
             "ServerCertificate": obj.get("ServerCertificate"),
             "ServerEndpoints": [EndpointDescription.from_dict(_item) for _item in obj["ServerEndpoints"]] if obj.get("ServerEndpoints") is not None else None,
             "ServerSoftwareCertificates": [SignedSoftwareCertificate.from_dict(_item) for _item in obj["ServerSoftwareCertificates"]] if obj.get("ServerSoftwareCertificates") is not None else None,
             "ServerSignature": SignatureData.from_dict(obj["ServerSignature"]) if obj.get("ServerSignature") is not None else None,
-            "MaxRequestMessageSize": obj.get("MaxRequestMessageSize")
+            "MaxRequestMessageSize": obj.get("MaxRequestMessageSize") if obj.get("MaxRequestMessageSize") is not None else 0
         })
         return _obj
 

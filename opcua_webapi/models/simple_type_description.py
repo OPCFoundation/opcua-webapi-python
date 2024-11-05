@@ -29,7 +29,7 @@ class SimpleTypeDescription(BaseModel):
     SimpleTypeDescription
     """ # noqa: E501
     base_data_type: Optional[StrictStr] = Field(default=None, alias="BaseDataType")
-    built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="BuiltInType")
+    built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="BuiltInType")
     data_type_id: Optional[StrictStr] = Field(default=None, alias="DataTypeId")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     __properties: ClassVar[List[str]] = ["DataTypeId", "Name"]

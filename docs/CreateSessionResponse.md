@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
 **session_id** | **str** |  | [optional] 
 **authentication_token** | **str** |  | [optional] 
-**revised_session_timeout** | **float** |  | [optional] 
+**revised_session_timeout** | **float** |  | [optional] [default to 0]
 **server_nonce** | **bytearray** |  | [optional] 
 **server_certificate** | **bytearray** |  | [optional] 
 **server_endpoints** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
 **server_software_certificates** | [**List[SignedSoftwareCertificate]**](SignedSoftwareCertificate.md) |  | [optional] 
 **server_signature** | [**SignatureData**](SignatureData.md) |  | [optional] 
-**max_request_message_size** | **int** |  | [optional] 
+**max_request_message_size** | **int** |  | [optional] [default to 0]
 
 ## Example
 

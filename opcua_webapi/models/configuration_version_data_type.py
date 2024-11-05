@@ -28,8 +28,8 @@ class ConfigurationVersionDataType(BaseModel):
     """
     ConfigurationVersionDataType
     """ # noqa: E501
-    major_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MajorVersion")
-    minor_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MinorVersion")
+    major_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MajorVersion")
+    minor_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MinorVersion")
     __properties: ClassVar[List[str]] = ["MajorVersion", "MinorVersion"]
 
     model_config = ConfigDict(
@@ -83,8 +83,8 @@ class ConfigurationVersionDataType(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "MajorVersion": obj.get("MajorVersion"),
-            "MinorVersion": obj.get("MinorVersion")
+            "MajorVersion": obj.get("MajorVersion") if obj.get("MajorVersion") is not None else 0,
+            "MinorVersion": obj.get("MinorVersion") if obj.get("MinorVersion") is not None else 0
         })
         return _obj
 

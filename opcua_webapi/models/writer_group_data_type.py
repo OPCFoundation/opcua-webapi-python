@@ -32,21 +32,21 @@ class WriterGroupDataType(BaseModel):
     """
     WriterGroupDataType
     """ # noqa: E501
-    writer_group_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="WriterGroupId")
-    publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="PublishingInterval")
-    keep_alive_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="KeepAliveTime")
-    priority: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="Priority")
+    writer_group_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="WriterGroupId")
+    publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="PublishingInterval")
+    keep_alive_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="KeepAliveTime")
+    priority: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="Priority")
     locale_ids: Optional[List[StrictStr]] = Field(default=None, alias="LocaleIds")
     header_layout_uri: Optional[StrictStr] = Field(default=None, alias="HeaderLayoutUri")
     transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
     message_settings: Optional[ExtensionObject] = Field(default=None, alias="MessageSettings")
     data_set_writers: Optional[List[DataSetWriterDataType]] = Field(default=None, alias="DataSetWriters")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
-    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
     security_mode: Optional[StrictInt] = Field(default=None, alias="SecurityMode")
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
     security_key_services: Optional[List[EndpointDescription]] = Field(default=None, alias="SecurityKeyServices")
-    max_network_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxNetworkMessageSize")
+    max_network_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxNetworkMessageSize")
     group_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="GroupProperties")
     __properties: ClassVar[List[str]] = ["Name", "Enabled", "SecurityMode", "SecurityGroupId", "SecurityKeyServices", "MaxNetworkMessageSize", "GroupProperties"]
 
@@ -116,11 +116,11 @@ class WriterGroupDataType(BaseModel):
 
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
-            "Enabled": obj.get("Enabled"),
+            "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False,
             "SecurityMode": obj.get("SecurityMode"),
             "SecurityGroupId": obj.get("SecurityGroupId"),
             "SecurityKeyServices": [EndpointDescription.from_dict(_item) for _item in obj["SecurityKeyServices"]] if obj.get("SecurityKeyServices") is not None else None,
-            "MaxNetworkMessageSize": obj.get("MaxNetworkMessageSize"),
+            "MaxNetworkMessageSize": obj.get("MaxNetworkMessageSize") if obj.get("MaxNetworkMessageSize") is not None else 0,
             "GroupProperties": [KeyValuePair.from_dict(_item) for _item in obj["GroupProperties"]] if obj.get("GroupProperties") is not None else None
         })
         return _obj

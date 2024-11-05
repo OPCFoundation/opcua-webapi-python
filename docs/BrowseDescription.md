@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **node_id** | **str** |  | [optional] 
 **browse_direction** | **int** |  | [optional] 
 **reference_type_id** | **str** |  | [optional] 
-**include_subtypes** | **bool** |  | [optional] 
-**node_class_mask** | **int** |  | [optional] 
-**result_mask** | **int** |  | [optional] 
+**include_subtypes** | **bool** |  | [optional] [default to False]
+**node_class_mask** | **int** |  | [optional] [default to 0]
+**result_mask** | **int** |  | [optional] [default to 0]
 
 ## Example
 

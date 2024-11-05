@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**select_clause_results** | **List[int]** |  | [optional] 
+**select_clause_results** | [**List[StatusCode]**](StatusCode.md) |  | [optional] 
 **select_clause_diagnostic_infos** | [**List[DiagnosticInfo]**](DiagnosticInfo.md) |  | [optional] 
 **where_clause_result** | [**ContentFilterResult**](ContentFilterResult.md) |  | [optional] 
 

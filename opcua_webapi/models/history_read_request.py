@@ -33,7 +33,7 @@ class HistoryReadRequest(BaseModel):
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     history_read_details: Optional[ExtensionObject] = Field(default=None, alias="HistoryReadDetails")
     timestamps_to_return: Optional[StrictInt] = Field(default=None, alias="TimestampsToReturn")
-    release_continuation_points: Optional[StrictBool] = Field(default=None, alias="ReleaseContinuationPoints")
+    release_continuation_points: Optional[StrictBool] = Field(default=False, alias="ReleaseContinuationPoints")
     nodes_to_read: Optional[List[HistoryReadValueId]] = Field(default=None, alias="NodesToRead")
     __properties: ClassVar[List[str]] = ["RequestHeader", "HistoryReadDetails", "TimestampsToReturn", "ReleaseContinuationPoints", "NodesToRead"]
 
@@ -104,7 +104,7 @@ class HistoryReadRequest(BaseModel):
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
             "HistoryReadDetails": ExtensionObject.from_dict(obj["HistoryReadDetails"]) if obj.get("HistoryReadDetails") is not None else None,
             "TimestampsToReturn": obj.get("TimestampsToReturn"),
-            "ReleaseContinuationPoints": obj.get("ReleaseContinuationPoints"),
+            "ReleaseContinuationPoints": obj.get("ReleaseContinuationPoints") if obj.get("ReleaseContinuationPoints") is not None else False,
             "NodesToRead": [HistoryReadValueId.from_dict(_item) for _item in obj["NodesToRead"]] if obj.get("NodesToRead") is not None else None
         })
         return _obj

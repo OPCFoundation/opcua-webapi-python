@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**is_read_modified** | **bool** |  | [optional] 
+**is_read_modified** | **bool** |  | [optional] [default to False]
 **start_time** | **datetime** |  | [optional] 
 **end_time** | **datetime** |  | [optional] 
-**num_values_per_node** | **int** |  | [optional] 
-**return_bounds** | **bool** |  | [optional] 
+**num_values_per_node** | **int** |  | [optional] [default to 0]
+**return_bounds** | **bool** |  | [optional] [default to False]
 
 ## Example
 

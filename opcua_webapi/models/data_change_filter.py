@@ -29,8 +29,8 @@ class DataChangeFilter(BaseModel):
     DataChangeFilter
     """ # noqa: E501
     trigger: Optional[StrictInt] = Field(default=None, alias="Trigger")
-    deadband_type: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="DeadbandType")
-    deadband_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="DeadbandValue")
+    deadband_type: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="DeadbandType")
+    deadband_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="DeadbandValue")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

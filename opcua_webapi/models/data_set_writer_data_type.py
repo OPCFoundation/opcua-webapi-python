@@ -31,10 +31,10 @@ class DataSetWriterDataType(BaseModel):
     DataSetWriterDataType
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
-    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
-    data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="DataSetWriterId")
-    data_set_field_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="DataSetFieldContentMask")
-    key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="KeyFrameCount")
+    enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
+    data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="DataSetWriterId")
+    data_set_field_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="DataSetFieldContentMask")
+    key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="KeyFrameCount")
     data_set_name: Optional[StrictStr] = Field(default=None, alias="DataSetName")
     data_set_writer_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="DataSetWriterProperties")
     transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
@@ -106,10 +106,10 @@ class DataSetWriterDataType(BaseModel):
 
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
-            "Enabled": obj.get("Enabled"),
-            "DataSetWriterId": obj.get("DataSetWriterId"),
-            "DataSetFieldContentMask": obj.get("DataSetFieldContentMask"),
-            "KeyFrameCount": obj.get("KeyFrameCount"),
+            "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False,
+            "DataSetWriterId": obj.get("DataSetWriterId") if obj.get("DataSetWriterId") is not None else 0,
+            "DataSetFieldContentMask": obj.get("DataSetFieldContentMask") if obj.get("DataSetFieldContentMask") is not None else 0,
+            "KeyFrameCount": obj.get("KeyFrameCount") if obj.get("KeyFrameCount") is not None else 0,
             "DataSetName": obj.get("DataSetName"),
             "DataSetWriterProperties": [KeyValuePair.from_dict(_item) for _item in obj["DataSetWriterProperties"]] if obj.get("DataSetWriterProperties") is not None else None,
             "TransportSettings": ExtensionObject.from_dict(obj["TransportSettings"]) if obj.get("TransportSettings") is not None else None,

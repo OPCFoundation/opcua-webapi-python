@@ -31,7 +31,7 @@ class ModifyMonitoredItemsRequest(BaseModel):
     ModifyMonitoredItemsRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
     timestamps_to_return: Optional[StrictInt] = Field(default=None, alias="TimestampsToReturn")
     items_to_modify: Optional[List[MonitoredItemModifyRequest]] = Field(default=None, alias="ItemsToModify")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "TimestampsToReturn", "ItemsToModify"]
@@ -98,7 +98,7 @@ class ModifyMonitoredItemsRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "SubscriptionId": obj.get("SubscriptionId"),
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
             "TimestampsToReturn": obj.get("TimestampsToReturn"),
             "ItemsToModify": [MonitoredItemModifyRequest.from_dict(_item) for _item in obj["ItemsToModify"]] if obj.get("ItemsToModify") is not None else None
         })

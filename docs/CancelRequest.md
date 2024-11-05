@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**request_handle** | **int** |  | [optional] 
+**request_handle** | **int** |  | [optional] [default to 0]
 
 ## Example
 

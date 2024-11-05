@@ -34,14 +34,14 @@ class DataSetReaderDataType(BaseModel):
     DataSetReaderDataType
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
-    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
     publisher_id: Optional[Variant] = Field(default=None, alias="PublisherId")
-    writer_group_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="WriterGroupId")
-    data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="DataSetWriterId")
+    writer_group_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="WriterGroupId")
+    data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="DataSetWriterId")
     data_set_meta_data: Optional[DataSetMetaDataType] = Field(default=None, alias="DataSetMetaData")
-    data_set_field_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="DataSetFieldContentMask")
-    message_receive_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="MessageReceiveTimeout")
-    key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="KeyFrameCount")
+    data_set_field_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="DataSetFieldContentMask")
+    message_receive_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="MessageReceiveTimeout")
+    key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="KeyFrameCount")
     header_layout_uri: Optional[StrictStr] = Field(default=None, alias="HeaderLayoutUri")
     security_mode: Optional[StrictInt] = Field(default=None, alias="SecurityMode")
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
@@ -133,14 +133,14 @@ class DataSetReaderDataType(BaseModel):
 
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
-            "Enabled": obj.get("Enabled"),
+            "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False,
             "PublisherId": Variant.from_dict(obj["PublisherId"]) if obj.get("PublisherId") is not None else None,
-            "WriterGroupId": obj.get("WriterGroupId"),
-            "DataSetWriterId": obj.get("DataSetWriterId"),
+            "WriterGroupId": obj.get("WriterGroupId") if obj.get("WriterGroupId") is not None else 0,
+            "DataSetWriterId": obj.get("DataSetWriterId") if obj.get("DataSetWriterId") is not None else 0,
             "DataSetMetaData": DataSetMetaDataType.from_dict(obj["DataSetMetaData"]) if obj.get("DataSetMetaData") is not None else None,
-            "DataSetFieldContentMask": obj.get("DataSetFieldContentMask"),
-            "MessageReceiveTimeout": obj.get("MessageReceiveTimeout"),
-            "KeyFrameCount": obj.get("KeyFrameCount"),
+            "DataSetFieldContentMask": obj.get("DataSetFieldContentMask") if obj.get("DataSetFieldContentMask") is not None else 0,
+            "MessageReceiveTimeout": obj.get("MessageReceiveTimeout") if obj.get("MessageReceiveTimeout") is not None else 0,
+            "KeyFrameCount": obj.get("KeyFrameCount") if obj.get("KeyFrameCount") is not None else 0,
             "HeaderLayoutUri": obj.get("HeaderLayoutUri"),
             "SecurityMode": obj.get("SecurityMode"),
             "SecurityGroupId": obj.get("SecurityGroupId"),

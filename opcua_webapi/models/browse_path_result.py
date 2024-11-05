@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.browse_path_target import BrowsePathTarget
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class BrowsePathResult(BaseModel):
     """
     BrowsePathResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     targets: Optional[List[BrowsePathTarget]] = Field(default=None, alias="Targets")
     __properties: ClassVar[List[str]] = ["StatusCode", "Targets"]
 
@@ -72,6 +72,9 @@ class BrowsePathResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in targets (list)
         _items = []
         if self.targets:
@@ -91,7 +94,7 @@ class BrowsePathResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
             "Targets": [BrowsePathTarget.from_dict(_item) for _item in obj["Targets"]] if obj.get("Targets") is not None else None
         })
         return _obj

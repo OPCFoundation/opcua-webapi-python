@@ -29,7 +29,7 @@ class RolePermissionType(BaseModel):
     RolePermissionType
     """ # noqa: E501
     role_id: Optional[StrictStr] = Field(default=None, alias="RoleId")
-    permissions: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="Permissions")
+    permissions: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="Permissions")
     __properties: ClassVar[List[str]] = ["RoleId", "Permissions"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class RolePermissionType(BaseModel):
 
         _obj = cls.model_validate({
             "RoleId": obj.get("RoleId"),
-            "Permissions": obj.get("Permissions")
+            "Permissions": obj.get("Permissions") if obj.get("Permissions") is not None else 0
         })
         return _obj
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **int** |  | [optional] 
+**status** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **diagnostic_info** | [**DiagnosticInfo**](DiagnosticInfo.md) |  | [optional] 
 
 ## Example

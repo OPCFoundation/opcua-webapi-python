@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **base_data_type** | **str** |  | [optional] 
-**built_in_type** | **int** |  | [optional] 
+**built_in_type** | **int** |  | [optional] [default to 0]
 **data_type_id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 

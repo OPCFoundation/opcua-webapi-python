@@ -29,7 +29,7 @@ class ReadValueId(BaseModel):
     ReadValueId
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
-    attribute_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="AttributeId")
+    attribute_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="AttributeId")
     index_range: Optional[StrictStr] = Field(default=None, alias="IndexRange")
     data_encoding: Optional[StrictStr] = Field(default=None, alias="DataEncoding")
     __properties: ClassVar[List[str]] = ["NodeId", "AttributeId", "IndexRange", "DataEncoding"]
@@ -86,7 +86,7 @@ class ReadValueId(BaseModel):
 
         _obj = cls.model_validate({
             "NodeId": obj.get("NodeId"),
-            "AttributeId": obj.get("AttributeId"),
+            "AttributeId": obj.get("AttributeId") if obj.get("AttributeId") is not None else 0,
             "IndexRange": obj.get("IndexRange"),
             "DataEncoding": obj.get("DataEncoding")
         })

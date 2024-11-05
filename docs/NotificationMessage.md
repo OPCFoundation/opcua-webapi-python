@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sequence_number** | **int** |  | [optional] 
+**sequence_number** | **int** |  | [optional] [default to 0]
 **publish_time** | **datetime** |  | [optional] 
 **notification_data** | [**List[ExtensionObject]**](ExtensionObject.md) |  | [optional] 
 

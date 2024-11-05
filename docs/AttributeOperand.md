@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **node_id** | **str** |  | [optional] 
 **alias** | **str** |  | [optional] 
 **browse_path** | [**RelativePath**](RelativePath.md) |  | [optional] 
-**attribute_id** | **int** |  | [optional] 
+**attribute_id** | **int** |  | [optional] [default to 0]
 **index_range** | **str** |  | [optional] 
 
 ## Example

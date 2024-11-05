@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | **int** |  | [optional] 
+**status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **available_sequence_numbers** | **List[int]** |  | [optional] 
 
 ## Example

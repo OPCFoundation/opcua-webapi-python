@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reference_type_id** | **str** |  | [optional] 
-**is_inverse** | **bool** |  | [optional] 
-**include_subtypes** | **bool** |  | [optional] 
+**is_inverse** | **bool** |  | [optional] [default to False]
+**include_subtypes** | **bool** |  | [optional] [default to False]
 **target_name** | **str** |  | [optional] 
 
 ## Example

@@ -28,8 +28,8 @@ class Decimal(BaseModel):
     """
     Decimal
     """ # noqa: E501
-    scale: Optional[Annotated[int, Field(le=32767, strict=True, ge=-32768)]] = Field(default=None, alias="Scale")
-    value: Optional[StrictStr] = Field(default=None, alias="Value")
+    scale: Optional[Annotated[int, Field(le=32767, strict=True, ge=-32768)]] = Field(default=0, alias="Scale")
+    value: Optional[StrictStr] = Field(default='0', alias="Value")
     __properties: ClassVar[List[str]] = ["Scale", "Value"]
 
     model_config = ConfigDict(
@@ -83,8 +83,8 @@ class Decimal(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Scale": obj.get("Scale"),
-            "Value": obj.get("Value")
+            "Scale": obj.get("Scale") if obj.get("Scale") is not None else 0,
+            "Value": obj.get("Value") if obj.get("Value") is not None else '0'
         })
         return _obj
 

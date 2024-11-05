@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,7 @@ class TransferResult(BaseModel):
     """
     TransferResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     available_sequence_numbers: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="AvailableSequenceNumbers")
     __properties: ClassVar[List[str]] = ["StatusCode", "AvailableSequenceNumbers"]
 
@@ -71,6 +72,9 @@ class TransferResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
         return _dict
 
     @classmethod
@@ -83,7 +87,7 @@ class TransferResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
             "AvailableSequenceNumbers": obj.get("AvailableSequenceNumbers")
         })
         return _obj

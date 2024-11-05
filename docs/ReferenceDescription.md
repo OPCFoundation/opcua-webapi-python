@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reference_type_id** | **str** |  | [optional] 
-**is_forward** | **bool** |  | [optional] 
+**is_forward** | **bool** |  | [optional] [default to False]
 **node_id** | **str** |  | [optional] 
 **browse_name** | **str** |  | [optional] 
 **display_name** | [**LocalizedText**](LocalizedText.md) |  | [optional] 

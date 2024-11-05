@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type_definition_id** | **str** |  | [optional] 
 **browse_path** | **List[str]** |  | [optional] 
-**attribute_id** | **int** |  | [optional] 
+**attribute_id** | **int** |  | [optional] [default to 0]
 **index_range** | **str** |  | [optional] 
 
 ## Example

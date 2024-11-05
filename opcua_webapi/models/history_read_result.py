@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing_extensions import Annotated
 from opcua_webapi.models.extension_object import ExtensionObject
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class HistoryReadResult(BaseModel):
     """
     HistoryReadResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     continuation_point: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ContinuationPoint")
     history_data: Optional[ExtensionObject] = Field(default=None, alias="HistoryData")
     __properties: ClassVar[List[str]] = ["StatusCode", "ContinuationPoint", "HistoryData"]
@@ -73,6 +73,9 @@ class HistoryReadResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of history_data
         if self.history_data:
             _dict['HistoryData'] = self.history_data.to_dict()
@@ -88,7 +91,7 @@ class HistoryReadResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
             "ContinuationPoint": obj.get("ContinuationPoint"),
             "HistoryData": ExtensionObject.from_dict(obj["HistoryData"]) if obj.get("HistoryData") is not None else None
         })

@@ -41,11 +41,11 @@ class PubSubConfiguration2DataType(BaseModel):
     default_security_key_services: Optional[List[EndpointDescription]] = Field(default=None, alias="DefaultSecurityKeyServices")
     security_groups: Optional[List[SecurityGroupDataType]] = Field(default=None, alias="SecurityGroups")
     pub_sub_key_push_targets: Optional[List[PubSubKeyPushTargetDataType]] = Field(default=None, alias="PubSubKeyPushTargets")
-    configuration_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ConfigurationVersion")
+    configuration_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ConfigurationVersion")
     configuration_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="ConfigurationProperties")
     published_data_sets: Optional[List[PublishedDataSetDataType]] = Field(default=None, alias="PublishedDataSets")
     connections: Optional[List[PubSubConnectionDataType]] = Field(default=None, alias="Connections")
-    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
     __properties: ClassVar[List[str]] = ["PublishedDataSets", "Connections", "Enabled"]
 
     model_config = ConfigDict(
@@ -115,7 +115,7 @@ class PubSubConfiguration2DataType(BaseModel):
         _obj = cls.model_validate({
             "PublishedDataSets": [PublishedDataSetDataType.from_dict(_item) for _item in obj["PublishedDataSets"]] if obj.get("PublishedDataSets") is not None else None,
             "Connections": [PubSubConnectionDataType.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
-            "Enabled": obj.get("Enabled")
+            "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False
         })
         return _obj
 

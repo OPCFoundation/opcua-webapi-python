@@ -29,11 +29,11 @@ class ReadRawModifiedDetails(BaseModel):
     """
     ReadRawModifiedDetails
     """ # noqa: E501
-    is_read_modified: Optional[StrictBool] = Field(default=None, alias="IsReadModified")
+    is_read_modified: Optional[StrictBool] = Field(default=False, alias="IsReadModified")
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     end_time: Optional[datetime] = Field(default=None, alias="EndTime")
-    num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="NumValuesPerNode")
-    return_bounds: Optional[StrictBool] = Field(default=None, alias="ReturnBounds")
+    num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NumValuesPerNode")
+    return_bounds: Optional[StrictBool] = Field(default=False, alias="ReturnBounds")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

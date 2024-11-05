@@ -32,10 +32,10 @@ class SecurityGroupDataType(BaseModel):
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     security_group_folder: Optional[List[StrictStr]] = Field(default=None, alias="SecurityGroupFolder")
-    key_lifetime: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="KeyLifetime")
+    key_lifetime: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="KeyLifetime")
     security_policy_uri: Optional[StrictStr] = Field(default=None, alias="SecurityPolicyUri")
-    max_future_key_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxFutureKeyCount")
-    max_past_key_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxPastKeyCount")
+    max_future_key_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxFutureKeyCount")
+    max_past_key_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxPastKeyCount")
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
     role_permissions: Optional[List[RolePermissionType]] = Field(default=None, alias="RolePermissions")
     group_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="GroupProperties")
@@ -108,10 +108,10 @@ class SecurityGroupDataType(BaseModel):
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
             "SecurityGroupFolder": obj.get("SecurityGroupFolder"),
-            "KeyLifetime": obj.get("KeyLifetime"),
+            "KeyLifetime": obj.get("KeyLifetime") if obj.get("KeyLifetime") is not None else 0,
             "SecurityPolicyUri": obj.get("SecurityPolicyUri"),
-            "MaxFutureKeyCount": obj.get("MaxFutureKeyCount"),
-            "MaxPastKeyCount": obj.get("MaxPastKeyCount"),
+            "MaxFutureKeyCount": obj.get("MaxFutureKeyCount") if obj.get("MaxFutureKeyCount") is not None else 0,
+            "MaxPastKeyCount": obj.get("MaxPastKeyCount") if obj.get("MaxPastKeyCount") is not None else 0,
             "SecurityGroupId": obj.get("SecurityGroupId"),
             "RolePermissions": [RolePermissionType.from_dict(_item) for _item in obj["RolePermissions"]] if obj.get("RolePermissions") is not None else None,
             "GroupProperties": [KeyValuePair.from_dict(_item) for _item in obj["GroupProperties"]] if obj.get("GroupProperties") is not None else None

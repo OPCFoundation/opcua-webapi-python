@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **default_security_key_services** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
 **security_groups** | [**List[SecurityGroupDataType]**](SecurityGroupDataType.md) |  | [optional] 
 **pub_sub_key_push_targets** | [**List[PubSubKeyPushTargetDataType]**](PubSubKeyPushTargetDataType.md) |  | [optional] 
-**configuration_version** | **int** |  | [optional] 
+**configuration_version** | **int** |  | [optional] [default to 0]
 **configuration_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
 **published_data_sets** | [**List[PublishedDataSetDataType]**](PublishedDataSetDataType.md) |  | [optional] 
 **connections** | [**List[PubSubConnectionDataType]**](PubSubConnectionDataType.md) |  | [optional] 
-**enabled** | **bool** |  | [optional] 
+**enabled** | **bool** |  | [optional] [default to False]
 
 ## Example
 

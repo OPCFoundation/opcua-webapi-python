@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from opcua_webapi.models.extension_object import ExtensionObject
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,9 +30,9 @@ class MonitoredItemModifyResult(BaseModel):
     """
     MonitoredItemModifyResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
-    revised_sampling_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RevisedSamplingInterval")
-    revised_queue_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RevisedQueueSize")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
+    revised_sampling_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedSamplingInterval")
+    revised_queue_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RevisedQueueSize")
     filter_result: Optional[ExtensionObject] = Field(default=None, alias="FilterResult")
     __properties: ClassVar[List[str]] = ["StatusCode", "RevisedSamplingInterval", "RevisedQueueSize", "FilterResult"]
 
@@ -74,6 +75,9 @@ class MonitoredItemModifyResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of filter_result
         if self.filter_result:
             _dict['FilterResult'] = self.filter_result.to_dict()
@@ -89,9 +93,9 @@ class MonitoredItemModifyResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
-            "RevisedSamplingInterval": obj.get("RevisedSamplingInterval"),
-            "RevisedQueueSize": obj.get("RevisedQueueSize"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
+            "RevisedSamplingInterval": obj.get("RevisedSamplingInterval") if obj.get("RevisedSamplingInterval") is not None else 0,
+            "RevisedQueueSize": obj.get("RevisedQueueSize") if obj.get("RevisedQueueSize") is not None else 0,
             "FilterResult": ExtensionObject.from_dict(obj["FilterResult"]) if obj.get("FilterResult") is not None else None
         })
         return _obj

@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing_extensions import Annotated
 from opcua_webapi.models.reference_description import ReferenceDescription
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class BrowseResult(BaseModel):
     """
     BrowseResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     continuation_point: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ContinuationPoint")
     references: Optional[List[ReferenceDescription]] = Field(default=None, alias="References")
     __properties: ClassVar[List[str]] = ["StatusCode", "ContinuationPoint", "References"]
@@ -73,6 +73,9 @@ class BrowseResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in references (list)
         _items = []
         if self.references:
@@ -92,7 +95,7 @@ class BrowseResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
             "ContinuationPoint": obj.get("ContinuationPoint"),
             "References": [ReferenceDescription.from_dict(_item) for _item in obj["References"]] if obj.get("References") is not None else None
         })

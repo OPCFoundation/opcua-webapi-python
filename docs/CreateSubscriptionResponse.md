@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
-**subscription_id** | **int** |  | [optional] 
-**revised_publishing_interval** | **float** |  | [optional] 
-**revised_lifetime_count** | **int** |  | [optional] 
-**revised_max_keep_alive_count** | **int** |  | [optional] 
+**subscription_id** | **int** |  | [optional] [default to 0]
+**revised_publishing_interval** | **float** |  | [optional] [default to 0]
+**revised_lifetime_count** | **int** |  | [optional] [default to 0]
+**revised_max_keep_alive_count** | **int** |  | [optional] [default to 0]
 
 ## Example
 

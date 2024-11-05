@@ -32,10 +32,10 @@ class StructureField(BaseModel):
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")
     data_type: Optional[StrictStr] = Field(default=None, alias="DataType")
-    value_rank: Optional[StrictInt] = Field(default=None, alias="ValueRank")
+    value_rank: Optional[StrictInt] = Field(default=0, alias="ValueRank")
     array_dimensions: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="ArrayDimensions")
-    max_string_length: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxStringLength")
-    is_optional: Optional[StrictBool] = Field(default=None, alias="IsOptional")
+    max_string_length: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxStringLength")
+    is_optional: Optional[StrictBool] = Field(default=False, alias="IsOptional")
     __properties: ClassVar[List[str]] = ["Name", "Description", "DataType", "ValueRank", "ArrayDimensions", "MaxStringLength", "IsOptional"]
 
     model_config = ConfigDict(
@@ -95,10 +95,10 @@ class StructureField(BaseModel):
             "Name": obj.get("Name"),
             "Description": LocalizedText.from_dict(obj["Description"]) if obj.get("Description") is not None else None,
             "DataType": obj.get("DataType"),
-            "ValueRank": obj.get("ValueRank"),
+            "ValueRank": obj.get("ValueRank") if obj.get("ValueRank") is not None else 0,
             "ArrayDimensions": obj.get("ArrayDimensions"),
-            "MaxStringLength": obj.get("MaxStringLength"),
-            "IsOptional": obj.get("IsOptional")
+            "MaxStringLength": obj.get("MaxStringLength") if obj.get("MaxStringLength") is not None else 0,
+            "IsOptional": obj.get("IsOptional") if obj.get("IsOptional") is not None else False
         })
         return _obj
 

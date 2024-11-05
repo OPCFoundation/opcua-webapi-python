@@ -27,8 +27,8 @@ class Range(BaseModel):
     """
     Range
     """ # noqa: E501
-    low: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Low")
-    high: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="High")
+    low: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="Low")
+    high: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="High")
     __properties: ClassVar[List[str]] = ["Low", "High"]
 
     model_config = ConfigDict(
@@ -82,8 +82,8 @@ class Range(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Low": obj.get("Low"),
-            "High": obj.get("High")
+            "Low": obj.get("Low") if obj.get("Low") is not None else 0,
+            "High": obj.get("High") if obj.get("High") is not None else 0
         })
         return _obj
 

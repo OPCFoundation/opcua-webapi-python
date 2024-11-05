@@ -18,23 +18,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BrowseDescription(BaseModel):
+class StatusCode(BaseModel):
     """
-    BrowseDescription
+    StatusCode
     """ # noqa: E501
-    node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
-    browse_direction: Optional[StrictInt] = Field(default=None, alias="BrowseDirection")
-    reference_type_id: Optional[StrictStr] = Field(default=None, alias="ReferenceTypeId")
-    include_subtypes: Optional[StrictBool] = Field(default=False, alias="IncludeSubtypes")
-    node_class_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NodeClassMask")
-    result_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ResultMask")
-    __properties: ClassVar[List[str]] = ["NodeId", "BrowseDirection", "ReferenceTypeId", "IncludeSubtypes", "NodeClassMask", "ResultMask"]
+    code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="Code")
+    symbol: Optional[StrictStr] = Field(default=None, alias="Symbol")
+    __properties: ClassVar[List[str]] = ["Code", "Symbol"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +50,7 @@ class BrowseDescription(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BrowseDescription from a JSON string"""
+        """Create an instance of StatusCode from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,7 +75,7 @@ class BrowseDescription(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BrowseDescription from a dict"""
+        """Create an instance of StatusCode from a dict"""
         if obj is None:
             return None
 
@@ -87,12 +83,8 @@ class BrowseDescription(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "NodeId": obj.get("NodeId"),
-            "BrowseDirection": obj.get("BrowseDirection"),
-            "ReferenceTypeId": obj.get("ReferenceTypeId"),
-            "IncludeSubtypes": obj.get("IncludeSubtypes") if obj.get("IncludeSubtypes") is not None else False,
-            "NodeClassMask": obj.get("NodeClassMask") if obj.get("NodeClassMask") is not None else 0,
-            "ResultMask": obj.get("ResultMask") if obj.get("ResultMask") is not None else 0
+            "Code": obj.get("Code"),
+            "Symbol": obj.get("Symbol")
         })
         return _obj
 

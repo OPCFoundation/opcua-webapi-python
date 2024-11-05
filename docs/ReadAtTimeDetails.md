@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **req_times** | **List[datetime]** |  | [optional] 
-**use_simple_bounds** | **bool** |  | [optional] 
+**use_simple_bounds** | **bool** |  | [optional] [default to False]
 
 ## Example
 

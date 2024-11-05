@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**num_values_per_node** | **int** |  | [optional] 
+**num_values_per_node** | **int** |  | [optional] [default to 0]
 **start_time** | **datetime** |  | [optional] 
 **end_time** | **datetime** |  | [optional] 
 **filter** | [**EventFilter**](EventFilter.md) |  | [optional] 

@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **endpoint_url** | **str** |  | [optional] 
 **security_policy_uri** | **str** |  | [optional] 
 **user_token_type** | [**UserTokenPolicy**](UserTokenPolicy.md) |  | [optional] 
-**requested_key_count** | **int** |  | [optional] 
-**retry_interval** | **float** |  | [optional] 
+**requested_key_count** | **int** |  | [optional] [default to 0]
+**retry_interval** | **float** |  | [optional] [default to 0]
 **push_target_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
 **security_groups** | **List[str]** |  | [optional] 
 

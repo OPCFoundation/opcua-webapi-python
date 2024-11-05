@@ -20,9 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 from opcua_webapi.models.response_header import ResponseHeader
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class WriteResponse(BaseModel):
     WriteResponse
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
-    results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="Results")
+    results: Optional[List[StatusCode]] = Field(default=None, alias="Results")
     diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="DiagnosticInfos")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "Results", "DiagnosticInfos"]
 
@@ -77,6 +77,13 @@ class WriteResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of response_header
         if self.response_header:
             _dict['ResponseHeader'] = self.response_header.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        _items = []
+        if self.results:
+            for _item_results in self.results:
+                if _item_results:
+                    _items.append(_item_results.to_dict())
+            _dict['Results'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in diagnostic_infos (list)
         _items = []
         if self.diagnostic_infos:
@@ -97,7 +104,7 @@ class WriteResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
-            "Results": obj.get("Results"),
+            "Results": [StatusCode.from_dict(_item) for _item in obj["Results"]] if obj.get("Results") is not None else None,
             "DiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["DiagnosticInfos"]] if obj.get("DiagnosticInfos") is not None else None
         })
         return _obj

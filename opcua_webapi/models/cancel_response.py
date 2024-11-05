@@ -30,7 +30,7 @@ class CancelResponse(BaseModel):
     CancelResponse
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
-    cancel_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="CancelCount")
+    cancel_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="CancelCount")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "CancelCount"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class CancelResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
-            "CancelCount": obj.get("CancelCount")
+            "CancelCount": obj.get("CancelCount") if obj.get("CancelCount") is not None else 0
         })
         return _obj
 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
-**cancel_count** | **int** |  | [optional] 
+**cancel_count** | **int** |  | [optional] [default to 0]
 
 ## Example
 

@@ -37,8 +37,8 @@ class CreateSessionRequest(BaseModel):
     session_name: Optional[StrictStr] = Field(default=None, alias="SessionName")
     client_nonce: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ClientNonce")
     client_certificate: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ClientCertificate")
-    requested_session_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RequestedSessionTimeout")
-    max_response_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxResponseMessageSize")
+    requested_session_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RequestedSessionTimeout")
+    max_response_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxResponseMessageSize")
     __properties: ClassVar[List[str]] = ["RequestHeader", "ClientDescription", "ServerUri", "EndpointUrl", "SessionName", "ClientNonce", "ClientCertificate", "RequestedSessionTimeout", "MaxResponseMessageSize"]
 
     model_config = ConfigDict(
@@ -105,8 +105,8 @@ class CreateSessionRequest(BaseModel):
             "SessionName": obj.get("SessionName"),
             "ClientNonce": obj.get("ClientNonce"),
             "ClientCertificate": obj.get("ClientCertificate"),
-            "RequestedSessionTimeout": obj.get("RequestedSessionTimeout"),
-            "MaxResponseMessageSize": obj.get("MaxResponseMessageSize")
+            "RequestedSessionTimeout": obj.get("RequestedSessionTimeout") if obj.get("RequestedSessionTimeout") is not None else 0,
+            "MaxResponseMessageSize": obj.get("MaxResponseMessageSize") if obj.get("MaxResponseMessageSize") is not None else 0
         })
         return _obj
 

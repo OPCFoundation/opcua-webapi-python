@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
+from opcua_webapi.models.status_code import StatusCode
 from opcua_webapi.models.variant import Variant
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,8 +30,8 @@ class CallMethodResult(BaseModel):
     """
     CallMethodResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
-    input_argument_results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="InputArgumentResults")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
+    input_argument_results: Optional[List[StatusCode]] = Field(default=None, alias="InputArgumentResults")
     input_argument_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="InputArgumentDiagnosticInfos")
     output_arguments: Optional[List[Variant]] = Field(default=None, alias="OutputArguments")
     __properties: ClassVar[List[str]] = ["StatusCode", "InputArgumentResults", "InputArgumentDiagnosticInfos", "OutputArguments"]
@@ -75,6 +75,16 @@ class CallMethodResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in input_argument_results (list)
+        _items = []
+        if self.input_argument_results:
+            for _item_input_argument_results in self.input_argument_results:
+                if _item_input_argument_results:
+                    _items.append(_item_input_argument_results.to_dict())
+            _dict['InputArgumentResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in input_argument_diagnostic_infos (list)
         _items = []
         if self.input_argument_diagnostic_infos:
@@ -101,8 +111,8 @@ class CallMethodResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
-            "InputArgumentResults": obj.get("InputArgumentResults"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
+            "InputArgumentResults": [StatusCode.from_dict(_item) for _item in obj["InputArgumentResults"]] if obj.get("InputArgumentResults") is not None else None,
             "InputArgumentDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["InputArgumentDiagnosticInfos"]] if obj.get("InputArgumentDiagnosticInfos") is not None else None,
             "OutputArguments": [Variant.from_dict(_item) for _item in obj["OutputArguments"]] if obj.get("OutputArguments") is not None else None
         })

@@ -30,7 +30,7 @@ class NotificationMessage(BaseModel):
     """
     NotificationMessage
     """ # noqa: E501
-    sequence_number: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SequenceNumber")
+    sequence_number: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SequenceNumber")
     publish_time: Optional[datetime] = Field(default=None, alias="PublishTime")
     notification_data: Optional[List[ExtensionObject]] = Field(default=None, alias="NotificationData")
     __properties: ClassVar[List[str]] = ["SequenceNumber", "PublishTime", "NotificationData"]
@@ -93,7 +93,7 @@ class NotificationMessage(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "SequenceNumber": obj.get("SequenceNumber"),
+            "SequenceNumber": obj.get("SequenceNumber") if obj.get("SequenceNumber") is not None else 0,
             "PublishTime": obj.get("PublishTime"),
             "NotificationData": [ExtensionObject.from_dict(_item) for _item in obj["NotificationData"]] if obj.get("NotificationData") is not None else None
         })

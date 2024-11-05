@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **int** |  | [optional] 
+**ua_type** | **int** |  | [optional] 
 **body** | **object** |  | [optional] 
 **dimensions** | **List[int]** |  | [optional] 
 

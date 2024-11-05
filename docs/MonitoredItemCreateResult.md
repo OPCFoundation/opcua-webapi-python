@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | **int** |  | [optional] 
-**monitored_item_id** | **int** |  | [optional] 
-**revised_sampling_interval** | **float** |  | [optional] 
-**revised_queue_size** | **int** |  | [optional] 
+**status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
+**monitored_item_id** | **int** |  | [optional] [default to 0]
+**revised_sampling_interval** | **float** |  | [optional] [default to 0]
+**revised_queue_size** | **int** |  | [optional] [default to 0]
 **filter_result** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
 
 ## Example

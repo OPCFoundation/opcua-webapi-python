@@ -24,6 +24,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 from opcua_webapi.models.extension_object import ExtensionObject
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,8 +33,8 @@ class ResponseHeader(BaseModel):
     ResponseHeader
     """ # noqa: E501
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
-    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestHandle")
-    service_result: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ServiceResult")
+    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestHandle")
+    service_result: Optional[StatusCode] = Field(default=None, alias="ServiceResult")
     service_diagnostics: Optional[DiagnosticInfo] = Field(default=None, alias="ServiceDiagnostics")
     string_table: Optional[List[StrictStr]] = Field(default=None, alias="StringTable")
     additional_header: Optional[ExtensionObject] = Field(default=None, alias="AdditionalHeader")
@@ -78,6 +79,9 @@ class ResponseHeader(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of service_result
+        if self.service_result:
+            _dict['ServiceResult'] = self.service_result.to_dict()
         # override the default output from pydantic by calling `to_dict()` of service_diagnostics
         if self.service_diagnostics:
             _dict['ServiceDiagnostics'] = self.service_diagnostics.to_dict()
@@ -97,8 +101,8 @@ class ResponseHeader(BaseModel):
 
         _obj = cls.model_validate({
             "Timestamp": obj.get("Timestamp"),
-            "RequestHandle": obj.get("RequestHandle"),
-            "ServiceResult": obj.get("ServiceResult"),
+            "RequestHandle": obj.get("RequestHandle") if obj.get("RequestHandle") is not None else 0,
+            "ServiceResult": StatusCode.from_dict(obj["ServiceResult"]) if obj.get("ServiceResult") is not None else None,
             "ServiceDiagnostics": DiagnosticInfo.from_dict(obj["ServiceDiagnostics"]) if obj.get("ServiceDiagnostics") is not None else None,
             "StringTable": obj.get("StringTable"),
             "AdditionalHeader": ExtensionObject.from_dict(obj["AdditionalHeader"]) if obj.get("AdditionalHeader") is not None else None

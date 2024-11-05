@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class StatusChangeNotification(BaseModel):
     """
     StatusChangeNotification
     """ # noqa: E501
-    status: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="Status")
+    status: Optional[StatusCode] = Field(default=None, alias="Status")
     diagnostic_info: Optional[DiagnosticInfo] = Field(default=None, alias="DiagnosticInfo")
     __properties: ClassVar[List[str]] = []
 

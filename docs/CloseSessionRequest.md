@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**delete_subscriptions** | **bool** |  | [optional] 
+**delete_subscriptions** | **bool** |  | [optional] [default to False]
 
 ## Example
 

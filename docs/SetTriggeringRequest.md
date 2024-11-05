@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**subscription_id** | **int** |  | [optional] 
-**triggering_item_id** | **int** |  | [optional] 
+**subscription_id** | **int** |  | [optional] [default to 0]
+**triggering_item_id** | **int** |  | [optional] [default to 0]
 **links_to_add** | **List[int]** |  | [optional] 
 **links_to_remove** | **List[int]** |  | [optional] 
 

@@ -28,7 +28,7 @@ class JsonWriterGroupMessageDataType(BaseModel):
     """
     JsonWriterGroupMessageDataType
     """ # noqa: E501
-    network_message_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="NetworkMessageContentMask")
+    network_message_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NetworkMessageContentMask")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

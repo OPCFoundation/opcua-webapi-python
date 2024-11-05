@@ -22,7 +22,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from opcua_webapi.models.variant import Variant
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,13 +30,15 @@ class DataValue(BaseModel):
     """
     DataValue
     """ # noqa: E501
-    value: Optional[Variant] = Field(default=None, alias="Value")
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
+    ua_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="UaType")
+    value: Optional[Any] = Field(default=None, alias="Value")
+    dimensions: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="Dimensions")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     source_timestamp: Optional[datetime] = Field(default=None, alias="SourceTimestamp")
-    source_pico_seconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="SourcePicoSeconds")
+    source_picoseconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="SourcePicoseconds")
     server_timestamp: Optional[datetime] = Field(default=None, alias="ServerTimestamp")
-    server_pico_seconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="ServerPicoSeconds")
-    __properties: ClassVar[List[str]] = ["Value", "StatusCode", "SourceTimestamp", "SourcePicoSeconds", "ServerTimestamp", "ServerPicoSeconds"]
+    server_picoseconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="ServerPicoseconds")
+    __properties: ClassVar[List[str]] = ["UaType", "Value", "Dimensions", "StatusCode", "SourceTimestamp", "SourcePicoseconds", "ServerTimestamp", "ServerPicoseconds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,9 +79,14 @@ class DataValue(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of value
-        if self.value:
-            _dict['Value'] = self.value.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
+        # set to None if value (nullable) is None
+        # and model_fields_set contains the field
+        if self.value is None and "value" in self.model_fields_set:
+            _dict['Value'] = None
+
         return _dict
 
     @classmethod
@@ -92,12 +99,14 @@ class DataValue(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Value": Variant.from_dict(obj["Value"]) if obj.get("Value") is not None else None,
-            "StatusCode": obj.get("StatusCode"),
+            "UaType": obj.get("UaType") if obj.get("UaType") is not None else 0,
+            "Value": obj.get("Value"),
+            "Dimensions": obj.get("Dimensions"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
             "SourceTimestamp": obj.get("SourceTimestamp"),
-            "SourcePicoSeconds": obj.get("SourcePicoSeconds"),
+            "SourcePicoseconds": obj.get("SourcePicoseconds"),
             "ServerTimestamp": obj.get("ServerTimestamp"),
-            "ServerPicoSeconds": obj.get("ServerPicoSeconds")
+            "ServerPicoseconds": obj.get("ServerPicoseconds")
         })
         return _obj
 

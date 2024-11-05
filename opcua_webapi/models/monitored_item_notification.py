@@ -29,7 +29,7 @@ class MonitoredItemNotification(BaseModel):
     """
     MonitoredItemNotification
     """ # noqa: E501
-    client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ClientHandle")
+    client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ClientHandle")
     value: Optional[DataValue] = Field(default=None, alias="Value")
     __properties: ClassVar[List[str]] = ["ClientHandle", "Value"]
 
@@ -87,7 +87,7 @@ class MonitoredItemNotification(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ClientHandle": obj.get("ClientHandle"),
+            "ClientHandle": obj.get("ClientHandle") if obj.get("ClientHandle") is not None else 0,
             "Value": DataValue.from_dict(obj["Value"]) if obj.get("Value") is not None else None
         })
         return _obj

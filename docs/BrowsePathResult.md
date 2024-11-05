@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | **int** |  | [optional] 
+**status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **targets** | [**List[BrowsePathTarget]**](BrowsePathTarget.md) |  | [optional] 
 
 ## Example

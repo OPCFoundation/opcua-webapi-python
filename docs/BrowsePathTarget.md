@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **target_id** | **str** |  | [optional] 
-**remaining_path_index** | **int** |  | [optional] 
+**remaining_path_index** | **int** |  | [optional] [default to 0]
 
 ## Example
 

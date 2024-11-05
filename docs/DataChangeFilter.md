@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **trigger** | **int** |  | [optional] 
-**deadband_type** | **int** |  | [optional] 
-**deadband_value** | **float** |  | [optional] 
+**deadband_type** | **int** |  | [optional] [default to 0]
+**deadband_value** | **float** |  | [optional] [default to 0]
 
 ## Example
 

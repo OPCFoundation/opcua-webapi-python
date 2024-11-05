@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**read_modified** | **bool** |  | [optional] 
-**num_values_per_node** | **int** |  | [optional] 
+**read_modified** | **bool** |  | [optional] [default to False]
+**num_values_per_node** | **int** |  | [optional] [default to 0]
 **start_time** | **datetime** |  | [optional] 
 **end_time** | **datetime** |  | [optional] 
 **filter** | [**EventFilter**](EventFilter.md) |  | [optional] 

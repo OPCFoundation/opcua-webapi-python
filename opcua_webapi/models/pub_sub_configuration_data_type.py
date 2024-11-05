@@ -31,7 +31,7 @@ class PubSubConfigurationDataType(BaseModel):
     """ # noqa: E501
     published_data_sets: Optional[List[PublishedDataSetDataType]] = Field(default=None, alias="PublishedDataSets")
     connections: Optional[List[PubSubConnectionDataType]] = Field(default=None, alias="Connections")
-    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
     __properties: ClassVar[List[str]] = ["PublishedDataSets", "Connections", "Enabled"]
 
     model_config = ConfigDict(
@@ -101,7 +101,7 @@ class PubSubConfigurationDataType(BaseModel):
         _obj = cls.model_validate({
             "PublishedDataSets": [PublishedDataSetDataType.from_dict(_item) for _item in obj["PublishedDataSets"]] if obj.get("PublishedDataSets") is not None else None,
             "Connections": [PubSubConnectionDataType.from_dict(_item) for _item in obj["Connections"]] if obj.get("Connections") is not None else None,
-            "Enabled": obj.get("Enabled")
+            "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False
         })
         return _obj
 

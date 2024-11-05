@@ -28,7 +28,7 @@ class EnumValueType(BaseModel):
     """
     EnumValueType
     """ # noqa: E501
-    value: Optional[StrictInt] = Field(default=None, alias="Value")
+    value: Optional[StrictInt] = Field(default=0, alias="Value")
     display_name: Optional[LocalizedText] = Field(default=None, alias="DisplayName")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")
     __properties: ClassVar[List[str]] = ["Value", "DisplayName", "Description"]
@@ -90,7 +90,7 @@ class EnumValueType(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Value": obj.get("Value"),
+            "Value": obj.get("Value") if obj.get("Value") is not None else 0,
             "DisplayName": LocalizedText.from_dict(obj["DisplayName"]) if obj.get("DisplayName") is not None else None,
             "Description": LocalizedText.from_dict(obj["Description"]) if obj.get("Description") is not None else None
         })

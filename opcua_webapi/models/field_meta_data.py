@@ -32,12 +32,12 @@ class FieldMetaData(BaseModel):
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")
-    field_flags: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="FieldFlags")
-    built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="BuiltInType")
+    field_flags: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="FieldFlags")
+    built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="BuiltInType")
     data_type: Optional[StrictStr] = Field(default=None, alias="DataType")
-    value_rank: Optional[StrictInt] = Field(default=None, alias="ValueRank")
+    value_rank: Optional[StrictInt] = Field(default=0, alias="ValueRank")
     array_dimensions: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="ArrayDimensions")
-    max_string_length: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxStringLength")
+    max_string_length: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxStringLength")
     data_set_field_id: Optional[StrictStr] = Field(default=None, alias="DataSetFieldId")
     properties: Optional[List[KeyValuePair]] = Field(default=None, alias="Properties")
     __properties: ClassVar[List[str]] = ["Name", "Description", "FieldFlags", "BuiltInType", "DataType", "ValueRank", "ArrayDimensions", "MaxStringLength", "DataSetFieldId", "Properties"]
@@ -105,12 +105,12 @@ class FieldMetaData(BaseModel):
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
             "Description": LocalizedText.from_dict(obj["Description"]) if obj.get("Description") is not None else None,
-            "FieldFlags": obj.get("FieldFlags"),
-            "BuiltInType": obj.get("BuiltInType"),
+            "FieldFlags": obj.get("FieldFlags") if obj.get("FieldFlags") is not None else 0,
+            "BuiltInType": obj.get("BuiltInType") if obj.get("BuiltInType") is not None else 0,
             "DataType": obj.get("DataType"),
-            "ValueRank": obj.get("ValueRank"),
+            "ValueRank": obj.get("ValueRank") if obj.get("ValueRank") is not None else 0,
             "ArrayDimensions": obj.get("ArrayDimensions"),
-            "MaxStringLength": obj.get("MaxStringLength"),
+            "MaxStringLength": obj.get("MaxStringLength") if obj.get("MaxStringLength") is not None else 0,
             "DataSetFieldId": obj.get("DataSetFieldId"),
             "Properties": [KeyValuePair.from_dict(_item) for _item in obj["Properties"]] if obj.get("Properties") is not None else None
         })

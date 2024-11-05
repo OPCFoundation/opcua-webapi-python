@@ -17,20 +17,6 @@
 
 __version__ = "1.504.0"
 
-# import OPC UA constants
-from opcua_webapi.opcua_constants import BrowseNames
-from opcua_webapi.opcua_constants import BuiltInType
-from opcua_webapi.opcua_constants import ObjectIds
-from opcua_webapi.opcua_constants import VariableIds
-from opcua_webapi.opcua_constants import MethodIds
-from opcua_webapi.opcua_constants import ObjectTypeIds
-from opcua_webapi.opcua_constants import VariableTypeIds
-from opcua_webapi.opcua_constants import DataTypeIds
-from opcua_webapi.opcua_constants import ReferenceTypeIds
-from opcua_webapi.opcua_attributes import Attributes
-from opcua_webapi.opcua_statuscodes import StatusCodes
-from opcua_webapi.opcua_statuscodes import StatusCode
-
 # import apis into sdk package
 from opcua_webapi.api.default_api import DefaultApi
 
@@ -154,6 +140,7 @@ from opcua_webapi.models.monitored_item_modify_result import MonitoredItemModify
 from opcua_webapi.models.monitored_item_notification import MonitoredItemNotification
 from opcua_webapi.models.monitoring_mode import MonitoringMode
 from opcua_webapi.models.monitoring_parameters import MonitoringParameters
+from opcua_webapi.models.network_address_data_type import NetworkAddressDataType
 from opcua_webapi.models.node_class import NodeClass
 from opcua_webapi.models.notification_message import NotificationMessage
 from opcua_webapi.models.perform_update_type import PerformUpdateType
@@ -200,6 +187,7 @@ from opcua_webapi.models.simple_attribute_operand import SimpleAttributeOperand
 from opcua_webapi.models.simple_type_description import SimpleTypeDescription
 from opcua_webapi.models.standalone_subscribed_data_set_data_type import StandaloneSubscribedDataSetDataType
 from opcua_webapi.models.status_change_notification import StatusChangeNotification
+from opcua_webapi.models.status_code import StatusCode
 from opcua_webapi.models.structure_definition import StructureDefinition
 from opcua_webapi.models.structure_description import StructureDescription
 from opcua_webapi.models.structure_field import StructureField
@@ -227,3 +215,17 @@ from opcua_webapi.models.write_response import WriteResponse
 from opcua_webapi.models.write_value import WriteValue
 from opcua_webapi.models.writer_group_data_type import WriterGroupDataType
 from opcua_webapi.models.x509_identity_token import X509IdentityToken
+
+# import OPC UA constants
+from opcua_webapi.opcua_constants import BrowseNames
+from opcua_webapi.opcua_constants import BuiltInType
+from opcua_webapi.opcua_constants import ObjectIds
+from opcua_webapi.opcua_constants import VariableIds
+from opcua_webapi.opcua_constants import MethodIds
+from opcua_webapi.opcua_constants import ObjectTypeIds
+from opcua_webapi.opcua_constants import VariableTypeIds
+from opcua_webapi.opcua_constants import DataTypeIds
+from opcua_webapi.opcua_constants import ReferenceTypeIds
+from opcua_webapi.opcua_attributes import Attributes
+from opcua_webapi.opcua_statuscodes import StatusCodes
+from opcua_webapi.opcua_statuscodes import StatusCodeUtils

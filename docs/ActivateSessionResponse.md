@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **response_header** | [**ResponseHeader**](ResponseHeader.md) |  | [optional] 
 **server_nonce** | **bytearray** |  | [optional] 
-**results** | **List[int]** |  | [optional] 
+**results** | [**List[StatusCode]**](StatusCode.md) |  | [optional] 
 **diagnostic_infos** | [**List[DiagnosticInfo]**](DiagnosticInfo.md) |  | [optional] 
 
 ## Example

@@ -30,7 +30,7 @@ class CancelRequest(BaseModel):
     CancelRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestHandle")
+    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestHandle")
     __properties: ClassVar[List[str]] = ["RequestHeader", "RequestHandle"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class CancelRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "RequestHandle": obj.get("RequestHandle")
+            "RequestHandle": obj.get("RequestHandle") if obj.get("RequestHandle") is not None else 0
         })
         return _obj
 

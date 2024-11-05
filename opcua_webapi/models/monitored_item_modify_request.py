@@ -29,7 +29,7 @@ class MonitoredItemModifyRequest(BaseModel):
     """
     MonitoredItemModifyRequest
     """ # noqa: E501
-    monitored_item_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MonitoredItemId")
+    monitored_item_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MonitoredItemId")
     requested_parameters: Optional[MonitoringParameters] = Field(default=None, alias="RequestedParameters")
     __properties: ClassVar[List[str]] = ["MonitoredItemId", "RequestedParameters"]
 
@@ -87,7 +87,7 @@ class MonitoredItemModifyRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "MonitoredItemId": obj.get("MonitoredItemId"),
+            "MonitoredItemId": obj.get("MonitoredItemId") if obj.get("MonitoredItemId") is not None else 0,
             "RequestedParameters": MonitoringParameters.from_dict(obj["RequestedParameters"]) if obj.get("RequestedParameters") is not None else None
         })
         return _obj

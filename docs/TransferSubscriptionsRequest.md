@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
 **subscription_ids** | **List[int]** |  | [optional] 
-**send_initial_values** | **bool** |  | [optional] 
+**send_initial_values** | **bool** |  | [optional] [default to False]
 
 ## Example
 

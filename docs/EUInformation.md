@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **namespace_uri** | **str** |  | [optional] 
-**unit_id** | **int** |  | [optional] 
+**unit_id** | **int** |  | [optional] [default to 0]
 **display_name** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
 **description** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
 

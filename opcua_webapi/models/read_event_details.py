@@ -30,7 +30,7 @@ class ReadEventDetails(BaseModel):
     """
     ReadEventDetails
     """ # noqa: E501
-    num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="NumValuesPerNode")
+    num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NumValuesPerNode")
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     end_time: Optional[datetime] = Field(default=None, alias="EndTime")
     filter: Optional[EventFilter] = Field(default=None, alias="Filter")

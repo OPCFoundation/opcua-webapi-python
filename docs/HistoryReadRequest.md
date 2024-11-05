@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
 **history_read_details** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
 **timestamps_to_return** | **int** |  | [optional] 
-**release_continuation_points** | **bool** |  | [optional] 
+**release_continuation_points** | **bool** |  | [optional] [default to False]
 **nodes_to_read** | [**List[HistoryReadValueId]**](HistoryReadValueId.md) |  | [optional] 
 
 ## Example

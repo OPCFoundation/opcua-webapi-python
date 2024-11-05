@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**use_server_capabilities_defaults** | **bool** |  | [optional] 
-**treat_uncertain_as_bad** | **bool** |  | [optional] 
-**percent_data_bad** | **int** |  | [optional] 
-**percent_data_good** | **int** |  | [optional] 
-**use_sloped_extrapolation** | **bool** |  | [optional] 
+**use_server_capabilities_defaults** | **bool** |  | [optional] [default to False]
+**treat_uncertain_as_bad** | **bool** |  | [optional] [default to False]
+**percent_data_bad** | **int** |  | [optional] [default to 0]
+**percent_data_good** | **int** |  | [optional] [default to 0]
+**use_sloped_extrapolation** | **bool** |  | [optional] [default to False]
 
 ## Example
 

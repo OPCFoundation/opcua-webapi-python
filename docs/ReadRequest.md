@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**max_age** | **float** |  | [optional] 
+**max_age** | **float** |  | [optional] [default to 0]
 **timestamps_to_return** | **int** |  | [optional] 
 **nodes_to_read** | [**List[ReadValueId]**](ReadValueId.md) |  | [optional] 
 

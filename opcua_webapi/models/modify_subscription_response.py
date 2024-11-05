@@ -30,9 +30,9 @@ class ModifySubscriptionResponse(BaseModel):
     ModifySubscriptionResponse
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
-    revised_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RevisedPublishingInterval")
-    revised_lifetime_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RevisedLifetimeCount")
-    revised_max_keep_alive_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RevisedMaxKeepAliveCount")
+    revised_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedPublishingInterval")
+    revised_lifetime_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RevisedLifetimeCount")
+    revised_max_keep_alive_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RevisedMaxKeepAliveCount")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "RevisedPublishingInterval", "RevisedLifetimeCount", "RevisedMaxKeepAliveCount"]
 
     model_config = ConfigDict(
@@ -90,9 +90,9 @@ class ModifySubscriptionResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
-            "RevisedPublishingInterval": obj.get("RevisedPublishingInterval"),
-            "RevisedLifetimeCount": obj.get("RevisedLifetimeCount"),
-            "RevisedMaxKeepAliveCount": obj.get("RevisedMaxKeepAliveCount")
+            "RevisedPublishingInterval": obj.get("RevisedPublishingInterval") if obj.get("RevisedPublishingInterval") is not None else 0,
+            "RevisedLifetimeCount": obj.get("RevisedLifetimeCount") if obj.get("RevisedLifetimeCount") is not None else 0,
+            "RevisedMaxKeepAliveCount": obj.get("RevisedMaxKeepAliveCount") if obj.get("RevisedMaxKeepAliveCount") is not None else 0
         })
         return _obj
 

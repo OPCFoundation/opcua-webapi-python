@@ -29,7 +29,7 @@ class BrowsePathTarget(BaseModel):
     BrowsePathTarget
     """ # noqa: E501
     target_id: Optional[StrictStr] = Field(default=None, alias="TargetId")
-    remaining_path_index: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RemainingPathIndex")
+    remaining_path_index: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RemainingPathIndex")
     __properties: ClassVar[List[str]] = ["TargetId", "RemainingPathIndex"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class BrowsePathTarget(BaseModel):
 
         _obj = cls.model_validate({
             "TargetId": obj.get("TargetId"),
-            "RemainingPathIndex": obj.get("RemainingPathIndex")
+            "RemainingPathIndex": obj.get("RemainingPathIndex") if obj.get("RemainingPathIndex") is not None else 0
         })
         return _obj
 

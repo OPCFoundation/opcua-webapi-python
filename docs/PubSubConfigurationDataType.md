@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **published_data_sets** | [**List[PublishedDataSetDataType]**](PublishedDataSetDataType.md) |  | [optional] 
 **connections** | [**List[PubSubConnectionDataType]**](PubSubConnectionDataType.md) |  | [optional] 
-**enabled** | **bool** |  | [optional] 
+**enabled** | **bool** |  | [optional] [default to False]
 
 ## Example
 

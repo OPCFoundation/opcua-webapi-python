@@ -1,29 +1,29 @@
-# Decimal
+# StatusCode
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**scale** | **int** |  | [optional] [default to 0]
-**value** | **str** |  | [optional] [default to '0']
+**code** | **int** |  | [optional] 
+**symbol** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from opcua_webapi.models.decimal import Decimal
+from opcua_webapi.models.status_code import StatusCode
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of Decimal from a JSON string
-decimal_instance = Decimal.from_json(json)
+# create an instance of StatusCode from a JSON string
+status_code_instance = StatusCode.from_json(json)
 # print the JSON string representation of the object
-print(Decimal.to_json())
+print(StatusCode.to_json())
 
 # convert the object into a dict
-decimal_dict = decimal_instance.to_dict()
-# create an instance of Decimal from a dict
-decimal_from_dict = Decimal.from_dict(decimal_dict)
+status_code_dict = status_code_instance.to_dict()
+# create an instance of StatusCode from a dict
+status_code_from_dict = StatusCode.from_dict(status_code_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -29,7 +29,7 @@ class BrowseNextRequest(BaseModel):
     BrowseNextRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    release_continuation_points: Optional[StrictBool] = Field(default=None, alias="ReleaseContinuationPoints")
+    release_continuation_points: Optional[StrictBool] = Field(default=False, alias="ReleaseContinuationPoints")
     continuation_points: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="ContinuationPoints")
     __properties: ClassVar[List[str]] = ["RequestHeader", "ReleaseContinuationPoints", "ContinuationPoints"]
 
@@ -88,7 +88,7 @@ class BrowseNextRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "ReleaseContinuationPoints": obj.get("ReleaseContinuationPoints"),
+            "ReleaseContinuationPoints": obj.get("ReleaseContinuationPoints") if obj.get("ReleaseContinuationPoints") is not None else False,
             "ContinuationPoints": obj.get("ContinuationPoints")
         })
         return _obj

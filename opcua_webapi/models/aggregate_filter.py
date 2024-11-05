@@ -31,7 +31,7 @@ class AggregateFilter(BaseModel):
     """ # noqa: E501
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     aggregate_type: Optional[StrictStr] = Field(default=None, alias="AggregateType")
-    processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="ProcessingInterval")
+    processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="ProcessingInterval")
     aggregate_configuration: Optional[AggregateConfiguration] = Field(default=None, alias="AggregateConfiguration")
     __properties: ClassVar[List[str]] = []
 

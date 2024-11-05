@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,8 +29,8 @@ class HistoryUpdateResult(BaseModel):
     """
     HistoryUpdateResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
-    operation_results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="OperationResults")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
+    operation_results: Optional[List[StatusCode]] = Field(default=None, alias="OperationResults")
     diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="DiagnosticInfos")
     __properties: ClassVar[List[str]] = ["StatusCode", "OperationResults", "DiagnosticInfos"]
 
@@ -73,6 +73,16 @@ class HistoryUpdateResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in operation_results (list)
+        _items = []
+        if self.operation_results:
+            for _item_operation_results in self.operation_results:
+                if _item_operation_results:
+                    _items.append(_item_operation_results.to_dict())
+            _dict['OperationResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in diagnostic_infos (list)
         _items = []
         if self.diagnostic_infos:
@@ -92,8 +102,8 @@ class HistoryUpdateResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
-            "OperationResults": obj.get("OperationResults"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
+            "OperationResults": [StatusCode.from_dict(_item) for _item in obj["OperationResults"]] if obj.get("OperationResults") is not None else None,
             "DiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["DiagnosticInfos"]] if obj.get("DiagnosticInfos") is not None else None
         })
         return _obj

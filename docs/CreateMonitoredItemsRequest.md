@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**subscription_id** | **int** |  | [optional] 
+**subscription_id** | **int** |  | [optional] [default to 0]
 **timestamps_to_return** | **int** |  | [optional] 
 **items_to_create** | [**List[MonitoredItemCreateRequest]**](MonitoredItemCreateRequest.md) |  | [optional] 
 

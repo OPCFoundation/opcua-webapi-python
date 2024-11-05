@@ -31,7 +31,7 @@ class ReadProcessedDetails(BaseModel):
     """ # noqa: E501
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     end_time: Optional[datetime] = Field(default=None, alias="EndTime")
-    processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="ProcessingInterval")
+    processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="ProcessingInterval")
     aggregate_type: Optional[List[StrictStr]] = Field(default=None, alias="AggregateType")
     aggregate_configuration: Optional[AggregateConfiguration] = Field(default=None, alias="AggregateConfiguration")
     __properties: ClassVar[List[str]] = []

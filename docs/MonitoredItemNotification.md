@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_handle** | **int** |  | [optional] 
+**client_handle** | **int** |  | [optional] [default to 0]
 **value** | [**DataValue**](DataValue.md) |  | [optional] 
 
 ## Example

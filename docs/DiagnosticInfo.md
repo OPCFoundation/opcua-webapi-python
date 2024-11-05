@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **locale** | **int** |  | [optional] 
 **localized_text** | **int** |  | [optional] 
 **additional_info** | **str** |  | [optional] 
-**inner_status_code** | **int** |  | [optional] 
+**inner_status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **inner_diagnostic_info** | [**DiagnosticInfo**](DiagnosticInfo.md) |  | [optional] 
 
 ## Example

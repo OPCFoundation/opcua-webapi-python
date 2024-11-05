@@ -30,7 +30,7 @@ class SetMonitoringModeRequest(BaseModel):
     SetMonitoringModeRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
     monitoring_mode: Optional[StrictInt] = Field(default=None, alias="MonitoringMode")
     monitored_item_ids: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="MonitoredItemIds")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "MonitoringMode", "MonitoredItemIds"]
@@ -90,7 +90,7 @@ class SetMonitoringModeRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "SubscriptionId": obj.get("SubscriptionId"),
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
             "MonitoringMode": obj.get("MonitoringMode"),
             "MonitoredItemIds": obj.get("MonitoredItemIds")
         })

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | **int** |  | [optional] 
-**operation_results** | **List[int]** |  | [optional] 
+**status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
+**operation_results** | [**List[StatusCode]**](StatusCode.md) |  | [optional] 
 **diagnostic_infos** | [**List[DiagnosticInfo]**](DiagnosticInfo.md) |  | [optional] 
 
 ## Example

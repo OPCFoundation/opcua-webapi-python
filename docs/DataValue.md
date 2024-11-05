@@ -5,12 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | [**Variant**](Variant.md) |  | [optional] 
-**status_code** | **int** |  | [optional] 
+**ua_type** | **int** |  | [optional] [default to 0]
+**value** | **object** |  | [optional] 
+**dimensions** | **List[int]** |  | [optional] 
+**status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **source_timestamp** | **datetime** |  | [optional] 
-**source_pico_seconds** | **int** |  | [optional] 
+**source_picoseconds** | **int** |  | [optional] 
 **server_timestamp** | **datetime** |  | [optional] 
-**server_pico_seconds** | **int** |  | [optional] 
+**server_picoseconds** | **int** |  | [optional] 
 
 ## Example
 

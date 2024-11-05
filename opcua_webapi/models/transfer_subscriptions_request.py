@@ -31,7 +31,7 @@ class TransferSubscriptionsRequest(BaseModel):
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     subscription_ids: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="SubscriptionIds")
-    send_initial_values: Optional[StrictBool] = Field(default=None, alias="SendInitialValues")
+    send_initial_values: Optional[StrictBool] = Field(default=False, alias="SendInitialValues")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionIds", "SendInitialValues"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class TransferSubscriptionsRequest(BaseModel):
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
             "SubscriptionIds": obj.get("SubscriptionIds"),
-            "SendInitialValues": obj.get("SendInitialValues")
+            "SendInitialValues": obj.get("SendInitialValues") if obj.get("SendInitialValues") is not None else False
         })
         return _obj
 

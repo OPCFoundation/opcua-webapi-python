@@ -35,8 +35,8 @@ class PubSubKeyPushTargetDataType(BaseModel):
     endpoint_url: Optional[StrictStr] = Field(default=None, alias="EndpointUrl")
     security_policy_uri: Optional[StrictStr] = Field(default=None, alias="SecurityPolicyUri")
     user_token_type: Optional[UserTokenPolicy] = Field(default=None, alias="UserTokenType")
-    requested_key_count: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="RequestedKeyCount")
-    retry_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RetryInterval")
+    requested_key_count: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="RequestedKeyCount")
+    retry_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RetryInterval")
     push_target_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="PushTargetProperties")
     security_groups: Optional[List[StrictStr]] = Field(default=None, alias="SecurityGroups")
     __properties: ClassVar[List[str]] = ["ApplicationUri", "PushTargetFolder", "EndpointUrl", "SecurityPolicyUri", "UserTokenType", "RequestedKeyCount", "RetryInterval", "PushTargetProperties", "SecurityGroups"]
@@ -107,8 +107,8 @@ class PubSubKeyPushTargetDataType(BaseModel):
             "EndpointUrl": obj.get("EndpointUrl"),
             "SecurityPolicyUri": obj.get("SecurityPolicyUri"),
             "UserTokenType": UserTokenPolicy.from_dict(obj["UserTokenType"]) if obj.get("UserTokenType") is not None else None,
-            "RequestedKeyCount": obj.get("RequestedKeyCount"),
-            "RetryInterval": obj.get("RetryInterval"),
+            "RequestedKeyCount": obj.get("RequestedKeyCount") if obj.get("RequestedKeyCount") is not None else 0,
+            "RetryInterval": obj.get("RetryInterval") if obj.get("RetryInterval") is not None else 0,
             "PushTargetProperties": [KeyValuePair.from_dict(_item) for _item in obj["PushTargetProperties"]] if obj.get("PushTargetProperties") is not None else None,
             "SecurityGroups": obj.get("SecurityGroups")
         })

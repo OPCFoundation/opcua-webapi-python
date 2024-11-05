@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**requested_publishing_interval** | **float** |  | [optional] 
-**requested_lifetime_count** | **int** |  | [optional] 
-**requested_max_keep_alive_count** | **int** |  | [optional] 
-**max_notifications_per_publish** | **int** |  | [optional] 
-**publishing_enabled** | **bool** |  | [optional] 
-**priority** | **int** |  | [optional] 
+**requested_publishing_interval** | **float** |  | [optional] [default to 0]
+**requested_lifetime_count** | **int** |  | [optional] [default to 0]
+**requested_max_keep_alive_count** | **int** |  | [optional] [default to 0]
+**max_notifications_per_publish** | **int** |  | [optional] [default to 0]
+**publishing_enabled** | **bool** |  | [optional] [default to False]
+**priority** | **int** |  | [optional] [default to 0]
 
 ## Example
 

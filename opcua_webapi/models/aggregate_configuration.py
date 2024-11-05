@@ -28,11 +28,11 @@ class AggregateConfiguration(BaseModel):
     """
     AggregateConfiguration
     """ # noqa: E501
-    use_server_capabilities_defaults: Optional[StrictBool] = Field(default=None, alias="UseServerCapabilitiesDefaults")
-    treat_uncertain_as_bad: Optional[StrictBool] = Field(default=None, alias="TreatUncertainAsBad")
-    percent_data_bad: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="PercentDataBad")
-    percent_data_good: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="PercentDataGood")
-    use_sloped_extrapolation: Optional[StrictBool] = Field(default=None, alias="UseSlopedExtrapolation")
+    use_server_capabilities_defaults: Optional[StrictBool] = Field(default=False, alias="UseServerCapabilitiesDefaults")
+    treat_uncertain_as_bad: Optional[StrictBool] = Field(default=False, alias="TreatUncertainAsBad")
+    percent_data_bad: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="PercentDataBad")
+    percent_data_good: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="PercentDataGood")
+    use_sloped_extrapolation: Optional[StrictBool] = Field(default=False, alias="UseSlopedExtrapolation")
     __properties: ClassVar[List[str]] = ["UseServerCapabilitiesDefaults", "TreatUncertainAsBad", "PercentDataBad", "PercentDataGood", "UseSlopedExtrapolation"]
 
     model_config = ConfigDict(
@@ -86,11 +86,11 @@ class AggregateConfiguration(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "UseServerCapabilitiesDefaults": obj.get("UseServerCapabilitiesDefaults"),
-            "TreatUncertainAsBad": obj.get("TreatUncertainAsBad"),
-            "PercentDataBad": obj.get("PercentDataBad"),
-            "PercentDataGood": obj.get("PercentDataGood"),
-            "UseSlopedExtrapolation": obj.get("UseSlopedExtrapolation")
+            "UseServerCapabilitiesDefaults": obj.get("UseServerCapabilitiesDefaults") if obj.get("UseServerCapabilitiesDefaults") is not None else False,
+            "TreatUncertainAsBad": obj.get("TreatUncertainAsBad") if obj.get("TreatUncertainAsBad") is not None else False,
+            "PercentDataBad": obj.get("PercentDataBad") if obj.get("PercentDataBad") is not None else 0,
+            "PercentDataGood": obj.get("PercentDataGood") if obj.get("PercentDataGood") is not None else 0,
+            "UseSlopedExtrapolation": obj.get("UseSlopedExtrapolation") if obj.get("UseSlopedExtrapolation") is not None else False
         })
         return _obj
 

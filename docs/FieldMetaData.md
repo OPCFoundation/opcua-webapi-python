@@ -7,12 +7,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **description** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
-**field_flags** | **int** |  | [optional] 
-**built_in_type** | **int** |  | [optional] 
+**field_flags** | **int** |  | [optional] [default to 0]
+**built_in_type** | **int** |  | [optional] [default to 0]
 **data_type** | **str** |  | [optional] 
-**value_rank** | **int** |  | [optional] 
+**value_rank** | **int** |  | [optional] [default to 0]
 **array_dimensions** | **List[int]** |  | [optional] 
-**max_string_length** | **int** |  | [optional] 
+**max_string_length** | **int** |  | [optional] [default to 0]
 **data_set_field_id** | **str** |  | [optional] 
 **properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
 

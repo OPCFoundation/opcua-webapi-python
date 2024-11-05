@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**subscription_id** | **int** |  | [optional] 
-**retransmit_sequence_number** | **int** |  | [optional] 
+**subscription_id** | **int** |  | [optional] [default to 0]
+**retransmit_sequence_number** | **int** |  | [optional] [default to 0]
 
 ## Example
 

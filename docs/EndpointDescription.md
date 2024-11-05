@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **security_policy_uri** | **str** |  | [optional] 
 **user_identity_tokens** | [**List[UserTokenPolicy]**](UserTokenPolicy.md) |  | [optional] 
 **transport_profile_uri** | **str** |  | [optional] 
-**security_level** | **int** |  | [optional] 
+**security_level** | **int** |  | [optional] [default to 0]
 
 ## Example
 

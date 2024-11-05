@@ -28,7 +28,7 @@ class ElementOperand(BaseModel):
     """
     ElementOperand
     """ # noqa: E501
-    index: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="Index")
+    index: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="Index")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

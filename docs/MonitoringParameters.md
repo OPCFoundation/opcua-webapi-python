@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_handle** | **int** |  | [optional] 
-**sampling_interval** | **float** |  | [optional] 
+**client_handle** | **int** |  | [optional] [default to 0]
+**sampling_interval** | **float** |  | [optional] [default to 0]
 **filter** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
-**queue_size** | **int** |  | [optional] 
-**discard_oldest** | **bool** |  | [optional] 
+**queue_size** | **int** |  | [optional] [default to 0]
+**discard_oldest** | **bool** |  | [optional] [default to False]
 
 ## Example
 

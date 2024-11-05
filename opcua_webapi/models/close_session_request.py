@@ -29,7 +29,7 @@ class CloseSessionRequest(BaseModel):
     CloseSessionRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    delete_subscriptions: Optional[StrictBool] = Field(default=None, alias="DeleteSubscriptions")
+    delete_subscriptions: Optional[StrictBool] = Field(default=False, alias="DeleteSubscriptions")
     __properties: ClassVar[List[str]] = ["RequestHeader", "DeleteSubscriptions"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class CloseSessionRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "DeleteSubscriptions": obj.get("DeleteSubscriptions")
+            "DeleteSubscriptions": obj.get("DeleteSubscriptions") if obj.get("DeleteSubscriptions") is not None else False
         })
         return _obj
 

@@ -33,7 +33,7 @@ class BrowseRequest(BaseModel):
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     view: Optional[ViewDescription] = Field(default=None, alias="View")
-    requested_max_references_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestedMaxReferencesPerNode")
+    requested_max_references_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestedMaxReferencesPerNode")
     nodes_to_browse: Optional[List[BrowseDescription]] = Field(default=None, alias="NodesToBrowse")
     __properties: ClassVar[List[str]] = ["RequestHeader", "View", "RequestedMaxReferencesPerNode", "NodesToBrowse"]
 
@@ -103,7 +103,7 @@ class BrowseRequest(BaseModel):
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
             "View": ViewDescription.from_dict(obj["View"]) if obj.get("View") is not None else None,
-            "RequestedMaxReferencesPerNode": obj.get("RequestedMaxReferencesPerNode"),
+            "RequestedMaxReferencesPerNode": obj.get("RequestedMaxReferencesPerNode") if obj.get("RequestedMaxReferencesPerNode") is not None else 0,
             "NodesToBrowse": [BrowseDescription.from_dict(_item) for _item in obj["NodesToBrowse"]] if obj.get("NodesToBrowse") is not None else None
         })
         return _obj

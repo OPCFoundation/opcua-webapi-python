@@ -31,7 +31,7 @@ class Argument(BaseModel):
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     data_type: Optional[StrictStr] = Field(default=None, alias="DataType")
-    value_rank: Optional[StrictInt] = Field(default=None, alias="ValueRank")
+    value_rank: Optional[StrictInt] = Field(default=0, alias="ValueRank")
     array_dimensions: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="ArrayDimensions")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")
     __properties: ClassVar[List[str]] = ["Name", "DataType", "ValueRank", "ArrayDimensions", "Description"]
@@ -92,7 +92,7 @@ class Argument(BaseModel):
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
             "DataType": obj.get("DataType"),
-            "ValueRank": obj.get("ValueRank"),
+            "ValueRank": obj.get("ValueRank") if obj.get("ValueRank") is not None else 0,
             "ArrayDimensions": obj.get("ArrayDimensions"),
             "Description": LocalizedText.from_dict(obj["Description"]) if obj.get("Description") is not None else None
         })

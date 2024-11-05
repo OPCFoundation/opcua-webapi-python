@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**enabled** | **bool** |  | [optional] 
-**data_set_writer_id** | **int** |  | [optional] 
-**data_set_field_content_mask** | **int** |  | [optional] 
-**key_frame_count** | **int** |  | [optional] 
+**enabled** | **bool** |  | [optional] [default to False]
+**data_set_writer_id** | **int** |  | [optional] [default to 0]
+**data_set_field_content_mask** | **int** |  | [optional] [default to 0]
+**key_frame_count** | **int** |  | [optional] [default to 0]
 **data_set_name** | **str** |  | [optional] 
 **data_set_writer_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
 **transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 

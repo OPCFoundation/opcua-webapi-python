@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **view_id** | **str** |  | [optional] 
 **timestamp** | **datetime** |  | [optional] 
-**view_version** | **int** |  | [optional] 
+**view_version** | **int** |  | [optional] [default to 0]
 
 ## Example
 

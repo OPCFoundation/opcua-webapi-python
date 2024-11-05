@@ -5,21 +5,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**writer_group_id** | **int** |  | [optional] 
-**publishing_interval** | **float** |  | [optional] 
-**keep_alive_time** | **float** |  | [optional] 
-**priority** | **int** |  | [optional] 
+**writer_group_id** | **int** |  | [optional] [default to 0]
+**publishing_interval** | **float** |  | [optional] [default to 0]
+**keep_alive_time** | **float** |  | [optional] [default to 0]
+**priority** | **int** |  | [optional] [default to 0]
 **locale_ids** | **List[str]** |  | [optional] 
 **header_layout_uri** | **str** |  | [optional] 
 **transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
 **message_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
 **data_set_writers** | [**List[DataSetWriterDataType]**](DataSetWriterDataType.md) |  | [optional] 
 **name** | **str** |  | [optional] 
-**enabled** | **bool** |  | [optional] 
+**enabled** | **bool** |  | [optional] [default to False]
 **security_mode** | **int** |  | [optional] 
 **security_group_id** | **str** |  | [optional] 
 **security_key_services** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
-**max_network_message_size** | **int** |  | [optional] 
+**max_network_message_size** | **int** |  | [optional] [default to 0]
 **group_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
 
 ## Example

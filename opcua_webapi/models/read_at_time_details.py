@@ -29,7 +29,7 @@ class ReadAtTimeDetails(BaseModel):
     ReadAtTimeDetails
     """ # noqa: E501
     req_times: Optional[List[datetime]] = Field(default=None, alias="ReqTimes")
-    use_simple_bounds: Optional[StrictBool] = Field(default=None, alias="UseSimpleBounds")
+    use_simple_bounds: Optional[StrictBool] = Field(default=False, alias="UseSimpleBounds")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

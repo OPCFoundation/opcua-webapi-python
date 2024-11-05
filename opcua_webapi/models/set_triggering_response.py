@@ -20,9 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 from opcua_webapi.models.response_header import ResponseHeader
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,9 +31,9 @@ class SetTriggeringResponse(BaseModel):
     SetTriggeringResponse
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
-    add_results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="AddResults")
+    add_results: Optional[List[StatusCode]] = Field(default=None, alias="AddResults")
     add_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="AddDiagnosticInfos")
-    remove_results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="RemoveResults")
+    remove_results: Optional[List[StatusCode]] = Field(default=None, alias="RemoveResults")
     remove_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="RemoveDiagnosticInfos")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "AddResults", "AddDiagnosticInfos", "RemoveResults", "RemoveDiagnosticInfos"]
 
@@ -79,6 +79,13 @@ class SetTriggeringResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of response_header
         if self.response_header:
             _dict['ResponseHeader'] = self.response_header.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in add_results (list)
+        _items = []
+        if self.add_results:
+            for _item_add_results in self.add_results:
+                if _item_add_results:
+                    _items.append(_item_add_results.to_dict())
+            _dict['AddResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in add_diagnostic_infos (list)
         _items = []
         if self.add_diagnostic_infos:
@@ -86,6 +93,13 @@ class SetTriggeringResponse(BaseModel):
                 if _item_add_diagnostic_infos:
                     _items.append(_item_add_diagnostic_infos.to_dict())
             _dict['AddDiagnosticInfos'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in remove_results (list)
+        _items = []
+        if self.remove_results:
+            for _item_remove_results in self.remove_results:
+                if _item_remove_results:
+                    _items.append(_item_remove_results.to_dict())
+            _dict['RemoveResults'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in remove_diagnostic_infos (list)
         _items = []
         if self.remove_diagnostic_infos:
@@ -106,9 +120,9 @@ class SetTriggeringResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
-            "AddResults": obj.get("AddResults"),
+            "AddResults": [StatusCode.from_dict(_item) for _item in obj["AddResults"]] if obj.get("AddResults") is not None else None,
             "AddDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["AddDiagnosticInfos"]] if obj.get("AddDiagnosticInfos") is not None else None,
-            "RemoveResults": obj.get("RemoveResults"),
+            "RemoveResults": [StatusCode.from_dict(_item) for _item in obj["RemoveResults"]] if obj.get("RemoveResults") is not None else None,
             "RemoveDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["RemoveDiagnosticInfos"]] if obj.get("RemoveDiagnosticInfos") is not None else None
         })
         return _obj

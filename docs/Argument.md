@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **data_type** | **str** |  | [optional] 
-**value_rank** | **int** |  | [optional] 
+**value_rank** | **int** |  | [optional] [default to 0]
 **array_dimensions** | **List[int]** |  | [optional] 
 **description** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
 

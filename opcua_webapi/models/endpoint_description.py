@@ -37,7 +37,7 @@ class EndpointDescription(BaseModel):
     security_policy_uri: Optional[StrictStr] = Field(default=None, alias="SecurityPolicyUri")
     user_identity_tokens: Optional[List[UserTokenPolicy]] = Field(default=None, alias="UserIdentityTokens")
     transport_profile_uri: Optional[StrictStr] = Field(default=None, alias="TransportProfileUri")
-    security_level: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="SecurityLevel")
+    security_level: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="SecurityLevel")
     __properties: ClassVar[List[str]] = ["EndpointUrl", "Server", "ServerCertificate", "SecurityMode", "SecurityPolicyUri", "UserIdentityTokens", "TransportProfileUri", "SecurityLevel"]
 
     model_config = ConfigDict(
@@ -108,7 +108,7 @@ class EndpointDescription(BaseModel):
             "SecurityPolicyUri": obj.get("SecurityPolicyUri"),
             "UserIdentityTokens": [UserTokenPolicy.from_dict(_item) for _item in obj["UserIdentityTokens"]] if obj.get("UserIdentityTokens") is not None else None,
             "TransportProfileUri": obj.get("TransportProfileUri"),
-            "SecurityLevel": obj.get("SecurityLevel")
+            "SecurityLevel": obj.get("SecurityLevel") if obj.get("SecurityLevel") is not None else 0
         })
         return _obj
 

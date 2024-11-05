@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **description** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
 **data_type** | **str** |  | [optional] 
-**value_rank** | **int** |  | [optional] 
+**value_rank** | **int** |  | [optional] [default to 0]
 **array_dimensions** | **List[int]** |  | [optional] 
-**max_string_length** | **int** |  | [optional] 
-**is_optional** | **bool** |  | [optional] 
+**max_string_length** | **int** |  | [optional] [default to 0]
+**is_optional** | **bool** |  | [optional] [default to False]
 
 ## Example
 

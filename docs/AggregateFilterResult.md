@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **revised_start_time** | **datetime** |  | [optional] 
-**revised_processing_interval** | **float** |  | [optional] 
+**revised_processing_interval** | **float** |  | [optional] [default to 0]
 **revised_aggregate_configuration** | [**AggregateConfiguration**](AggregateConfiguration.md) |  | [optional] 
 
 ## Example

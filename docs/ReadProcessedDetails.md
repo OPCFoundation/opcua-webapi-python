@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **start_time** | **datetime** |  | [optional] 
 **end_time** | **datetime** |  | [optional] 
-**processing_interval** | **float** |  | [optional] 
+**processing_interval** | **float** |  | [optional] [default to 0]
 **aggregate_type** | **List[str]** |  | [optional] 
 **aggregate_configuration** | [**AggregateConfiguration**](AggregateConfiguration.md) |  | [optional] 
 

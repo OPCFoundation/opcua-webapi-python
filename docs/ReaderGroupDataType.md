@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **message_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
 **data_set_readers** | [**List[DataSetReaderDataType]**](DataSetReaderDataType.md) |  | [optional] 
 **name** | **str** |  | [optional] 
-**enabled** | **bool** |  | [optional] 
+**enabled** | **bool** |  | [optional] [default to False]
 **security_mode** | **int** |  | [optional] 
 **security_group_id** | **str** |  | [optional] 
 **security_key_services** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
-**max_network_message_size** | **int** |  | [optional] 
+**max_network_message_size** | **int** |  | [optional] [default to 0]
 **group_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
 
 ## Example

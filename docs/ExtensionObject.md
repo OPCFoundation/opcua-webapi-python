@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type_id** | **str** |  | [optional] 
-**encoding** | **int** |  | [optional] 
-**body** | **object** |  | [optional] 
+**ua_type_id** | **str** |  | [optional] 
+**ua_encoding** | **int** |  | [optional] 
+**ua_body** | **bytearray** |  | [optional] 
 
 ## Example
 

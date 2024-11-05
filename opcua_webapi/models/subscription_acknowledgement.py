@@ -28,8 +28,8 @@ class SubscriptionAcknowledgement(BaseModel):
     """
     SubscriptionAcknowledgement
     """ # noqa: E501
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
-    sequence_number: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SequenceNumber")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
+    sequence_number: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SequenceNumber")
     __properties: ClassVar[List[str]] = ["SubscriptionId", "SequenceNumber"]
 
     model_config = ConfigDict(
@@ -83,8 +83,8 @@ class SubscriptionAcknowledgement(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "SubscriptionId": obj.get("SubscriptionId"),
-            "SequenceNumber": obj.get("SequenceNumber")
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
+            "SequenceNumber": obj.get("SequenceNumber") if obj.get("SequenceNumber") is not None else 0
         })
         return _obj
 

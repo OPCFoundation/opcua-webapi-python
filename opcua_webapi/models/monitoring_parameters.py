@@ -29,11 +29,11 @@ class MonitoringParameters(BaseModel):
     """
     MonitoringParameters
     """ # noqa: E501
-    client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ClientHandle")
-    sampling_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="SamplingInterval")
+    client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ClientHandle")
+    sampling_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="SamplingInterval")
     filter: Optional[ExtensionObject] = Field(default=None, alias="Filter")
-    queue_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="QueueSize")
-    discard_oldest: Optional[StrictBool] = Field(default=None, alias="DiscardOldest")
+    queue_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="QueueSize")
+    discard_oldest: Optional[StrictBool] = Field(default=False, alias="DiscardOldest")
     __properties: ClassVar[List[str]] = ["ClientHandle", "SamplingInterval", "Filter", "QueueSize", "DiscardOldest"]
 
     model_config = ConfigDict(
@@ -90,11 +90,11 @@ class MonitoringParameters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "ClientHandle": obj.get("ClientHandle"),
-            "SamplingInterval": obj.get("SamplingInterval"),
+            "ClientHandle": obj.get("ClientHandle") if obj.get("ClientHandle") is not None else 0,
+            "SamplingInterval": obj.get("SamplingInterval") if obj.get("SamplingInterval") is not None else 0,
             "Filter": ExtensionObject.from_dict(obj["Filter"]) if obj.get("Filter") is not None else None,
-            "QueueSize": obj.get("QueueSize"),
-            "DiscardOldest": obj.get("DiscardOldest")
+            "QueueSize": obj.get("QueueSize") if obj.get("QueueSize") is not None else 0,
+            "DiscardOldest": obj.get("DiscardOldest") if obj.get("DiscardOldest") is not None else False
         })
         return _obj
 

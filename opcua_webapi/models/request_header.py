@@ -32,10 +32,10 @@ class RequestHeader(BaseModel):
     """ # noqa: E501
     authentication_token: Optional[StrictStr] = Field(default=None, alias="AuthenticationToken")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
-    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestHandle")
-    return_diagnostics: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="ReturnDiagnostics")
+    request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestHandle")
+    return_diagnostics: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ReturnDiagnostics")
     audit_entry_id: Optional[StrictStr] = Field(default=None, alias="AuditEntryId")
-    timeout_hint: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="TimeoutHint")
+    timeout_hint: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="TimeoutHint")
     additional_header: Optional[ExtensionObject] = Field(default=None, alias="AdditionalHeader")
     __properties: ClassVar[List[str]] = ["AuthenticationToken", "Timestamp", "RequestHandle", "ReturnDiagnostics", "AuditEntryId", "TimeoutHint", "AdditionalHeader"]
 
@@ -95,10 +95,10 @@ class RequestHeader(BaseModel):
         _obj = cls.model_validate({
             "AuthenticationToken": obj.get("AuthenticationToken"),
             "Timestamp": obj.get("Timestamp"),
-            "RequestHandle": obj.get("RequestHandle"),
-            "ReturnDiagnostics": obj.get("ReturnDiagnostics"),
+            "RequestHandle": obj.get("RequestHandle") if obj.get("RequestHandle") is not None else 0,
+            "ReturnDiagnostics": obj.get("ReturnDiagnostics") if obj.get("ReturnDiagnostics") is not None else 0,
             "AuditEntryId": obj.get("AuditEntryId"),
-            "TimeoutHint": obj.get("TimeoutHint"),
+            "TimeoutHint": obj.get("TimeoutHint") if obj.get("TimeoutHint") is not None else 0,
             "AdditionalHeader": ExtensionObject.from_dict(obj["AdditionalHeader"]) if obj.get("AdditionalHeader") is not None else None
         })
         return _obj

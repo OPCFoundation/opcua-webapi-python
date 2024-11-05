@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +33,7 @@ class DiagnosticInfo(BaseModel):
     locale: Optional[StrictInt] = Field(default=None, alias="Locale")
     localized_text: Optional[StrictInt] = Field(default=None, alias="LocalizedText")
     additional_info: Optional[StrictStr] = Field(default=None, alias="AdditionalInfo")
-    inner_status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="InnerStatusCode")
+    inner_status_code: Optional[StatusCode] = Field(default=None, alias="InnerStatusCode")
     inner_diagnostic_info: Optional[DiagnosticInfo] = Field(default=None, alias="InnerDiagnosticInfo")
     __properties: ClassVar[List[str]] = ["SymbolicId", "NamespaceUri", "Locale", "LocalizedText", "AdditionalInfo", "InnerStatusCode", "InnerDiagnosticInfo"]
 
@@ -76,6 +76,9 @@ class DiagnosticInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of inner_status_code
+        if self.inner_status_code:
+            _dict['InnerStatusCode'] = self.inner_status_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of inner_diagnostic_info
         if self.inner_diagnostic_info:
             _dict['InnerDiagnosticInfo'] = self.inner_diagnostic_info.to_dict()
@@ -96,7 +99,7 @@ class DiagnosticInfo(BaseModel):
             "Locale": obj.get("Locale"),
             "LocalizedText": obj.get("LocalizedText"),
             "AdditionalInfo": obj.get("AdditionalInfo"),
-            "InnerStatusCode": obj.get("InnerStatusCode"),
+            "InnerStatusCode": StatusCode.from_dict(obj["InnerStatusCode"]) if obj.get("InnerStatusCode") is not None else None,
             "InnerDiagnosticInfo": DiagnosticInfo.from_dict(obj["InnerDiagnosticInfo"]) if obj.get("InnerDiagnosticInfo") is not None else None
         })
         return _obj

@@ -30,8 +30,8 @@ class ReadEventDetails2(BaseModel):
     """
     ReadEventDetails2
     """ # noqa: E501
-    read_modified: Optional[StrictBool] = Field(default=None, alias="ReadModified")
-    num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="NumValuesPerNode")
+    read_modified: Optional[StrictBool] = Field(default=False, alias="ReadModified")
+    num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NumValuesPerNode")
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     end_time: Optional[datetime] = Field(default=None, alias="EndTime")
     filter: Optional[EventFilter] = Field(default=None, alias="Filter")
@@ -91,7 +91,7 @@ class ReadEventDetails2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "NumValuesPerNode": obj.get("NumValuesPerNode"),
+            "NumValuesPerNode": obj.get("NumValuesPerNode") if obj.get("NumValuesPerNode") is not None else 0,
             "StartTime": obj.get("StartTime"),
             "EndTime": obj.get("EndTime"),
             "Filter": EventFilter.from_dict(obj["Filter"]) if obj.get("Filter") is not None else None

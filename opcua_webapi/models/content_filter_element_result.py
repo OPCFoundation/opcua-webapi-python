@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,8 +29,8 @@ class ContentFilterElementResult(BaseModel):
     """
     ContentFilterElementResult
     """ # noqa: E501
-    status_code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="StatusCode")
-    operand_status_codes: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="OperandStatusCodes")
+    status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
+    operand_status_codes: Optional[List[StatusCode]] = Field(default=None, alias="OperandStatusCodes")
     operand_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="OperandDiagnosticInfos")
     __properties: ClassVar[List[str]] = ["StatusCode", "OperandStatusCodes", "OperandDiagnosticInfos"]
 
@@ -73,6 +73,16 @@ class ContentFilterElementResult(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of status_code
+        if self.status_code:
+            _dict['StatusCode'] = self.status_code.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in operand_status_codes (list)
+        _items = []
+        if self.operand_status_codes:
+            for _item_operand_status_codes in self.operand_status_codes:
+                if _item_operand_status_codes:
+                    _items.append(_item_operand_status_codes.to_dict())
+            _dict['OperandStatusCodes'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in operand_diagnostic_infos (list)
         _items = []
         if self.operand_diagnostic_infos:
@@ -92,8 +102,8 @@ class ContentFilterElementResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "StatusCode": obj.get("StatusCode"),
-            "OperandStatusCodes": obj.get("OperandStatusCodes"),
+            "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
+            "OperandStatusCodes": [StatusCode.from_dict(_item) for _item in obj["OperandStatusCodes"]] if obj.get("OperandStatusCodes") is not None else None,
             "OperandDiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["OperandDiagnosticInfos"]] if obj.get("OperandDiagnosticInfos") is not None else None
         })
         return _obj

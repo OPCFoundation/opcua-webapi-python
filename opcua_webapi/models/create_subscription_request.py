@@ -30,12 +30,12 @@ class CreateSubscriptionRequest(BaseModel):
     CreateSubscriptionRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    requested_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RequestedPublishingInterval")
-    requested_lifetime_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestedLifetimeCount")
-    requested_max_keep_alive_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="RequestedMaxKeepAliveCount")
-    max_notifications_per_publish: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="MaxNotificationsPerPublish")
-    publishing_enabled: Optional[StrictBool] = Field(default=None, alias="PublishingEnabled")
-    priority: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="Priority")
+    requested_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RequestedPublishingInterval")
+    requested_lifetime_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestedLifetimeCount")
+    requested_max_keep_alive_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestedMaxKeepAliveCount")
+    max_notifications_per_publish: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxNotificationsPerPublish")
+    publishing_enabled: Optional[StrictBool] = Field(default=False, alias="PublishingEnabled")
+    priority: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="Priority")
     __properties: ClassVar[List[str]] = ["RequestHeader", "RequestedPublishingInterval", "RequestedLifetimeCount", "RequestedMaxKeepAliveCount", "MaxNotificationsPerPublish", "PublishingEnabled", "Priority"]
 
     model_config = ConfigDict(
@@ -93,12 +93,12 @@ class CreateSubscriptionRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "RequestedPublishingInterval": obj.get("RequestedPublishingInterval"),
-            "RequestedLifetimeCount": obj.get("RequestedLifetimeCount"),
-            "RequestedMaxKeepAliveCount": obj.get("RequestedMaxKeepAliveCount"),
-            "MaxNotificationsPerPublish": obj.get("MaxNotificationsPerPublish"),
-            "PublishingEnabled": obj.get("PublishingEnabled"),
-            "Priority": obj.get("Priority")
+            "RequestedPublishingInterval": obj.get("RequestedPublishingInterval") if obj.get("RequestedPublishingInterval") is not None else 0,
+            "RequestedLifetimeCount": obj.get("RequestedLifetimeCount") if obj.get("RequestedLifetimeCount") is not None else 0,
+            "RequestedMaxKeepAliveCount": obj.get("RequestedMaxKeepAliveCount") if obj.get("RequestedMaxKeepAliveCount") is not None else 0,
+            "MaxNotificationsPerPublish": obj.get("MaxNotificationsPerPublish") if obj.get("MaxNotificationsPerPublish") is not None else 0,
+            "PublishingEnabled": obj.get("PublishingEnabled") if obj.get("PublishingEnabled") is not None else False,
+            "Priority": obj.get("Priority") if obj.get("Priority") is not None else 0
         })
         return _obj
 

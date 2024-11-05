@@ -29,7 +29,7 @@ class ReferenceDescription(BaseModel):
     ReferenceDescription
     """ # noqa: E501
     reference_type_id: Optional[StrictStr] = Field(default=None, alias="ReferenceTypeId")
-    is_forward: Optional[StrictBool] = Field(default=None, alias="IsForward")
+    is_forward: Optional[StrictBool] = Field(default=False, alias="IsForward")
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     browse_name: Optional[StrictStr] = Field(default=None, alias="BrowseName")
     display_name: Optional[LocalizedText] = Field(default=None, alias="DisplayName")
@@ -92,7 +92,7 @@ class ReferenceDescription(BaseModel):
 
         _obj = cls.model_validate({
             "ReferenceTypeId": obj.get("ReferenceTypeId"),
-            "IsForward": obj.get("IsForward"),
+            "IsForward": obj.get("IsForward") if obj.get("IsForward") is not None else False,
             "NodeId": obj.get("NodeId"),
             "BrowseName": obj.get("BrowseName"),
             "DisplayName": LocalizedText.from_dict(obj["DisplayName"]) if obj.get("DisplayName") is not None else None,

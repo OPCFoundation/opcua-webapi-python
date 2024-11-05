@@ -24,6 +24,7 @@ from typing_extensions import Annotated
 from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 from opcua_webapi.models.notification_message import NotificationMessage
 from opcua_webapi.models.response_header import ResponseHeader
+from opcua_webapi.models.status_code import StatusCode
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,11 +33,11 @@ class PublishResponse(BaseModel):
     PublishResponse
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
     available_sequence_numbers: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="AvailableSequenceNumbers")
-    more_notifications: Optional[StrictBool] = Field(default=None, alias="MoreNotifications")
+    more_notifications: Optional[StrictBool] = Field(default=False, alias="MoreNotifications")
     notification_message: Optional[NotificationMessage] = Field(default=None, alias="NotificationMessage")
-    results: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="Results")
+    results: Optional[List[StatusCode]] = Field(default=None, alias="Results")
     diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="DiagnosticInfos")
     __properties: ClassVar[List[str]] = ["ResponseHeader", "SubscriptionId", "AvailableSequenceNumbers", "MoreNotifications", "NotificationMessage", "Results", "DiagnosticInfos"]
 
@@ -85,6 +86,13 @@ class PublishResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of notification_message
         if self.notification_message:
             _dict['NotificationMessage'] = self.notification_message.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in results (list)
+        _items = []
+        if self.results:
+            for _item_results in self.results:
+                if _item_results:
+                    _items.append(_item_results.to_dict())
+            _dict['Results'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in diagnostic_infos (list)
         _items = []
         if self.diagnostic_infos:
@@ -105,11 +113,11 @@ class PublishResponse(BaseModel):
 
         _obj = cls.model_validate({
             "ResponseHeader": ResponseHeader.from_dict(obj["ResponseHeader"]) if obj.get("ResponseHeader") is not None else None,
-            "SubscriptionId": obj.get("SubscriptionId"),
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
             "AvailableSequenceNumbers": obj.get("AvailableSequenceNumbers"),
-            "MoreNotifications": obj.get("MoreNotifications"),
+            "MoreNotifications": obj.get("MoreNotifications") if obj.get("MoreNotifications") is not None else False,
             "NotificationMessage": NotificationMessage.from_dict(obj["NotificationMessage"]) if obj.get("NotificationMessage") is not None else None,
-            "Results": obj.get("Results"),
+            "Results": [StatusCode.from_dict(_item) for _item in obj["Results"]] if obj.get("Results") is not None else None,
             "DiagnosticInfos": [DiagnosticInfo.from_dict(_item) for _item in obj["DiagnosticInfos"]] if obj.get("DiagnosticInfos") is not None else None
         })
         return _obj

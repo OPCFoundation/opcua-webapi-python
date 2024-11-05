@@ -112,6 +112,7 @@ docs/MonitoredItemModifyResult.md
 docs/MonitoredItemNotification.md
 docs/MonitoringMode.md
 docs/MonitoringParameters.md
+docs/NetworkAddressDataType.md
 docs/NodeClass.md
 docs/NotificationMessage.md
 docs/PerformUpdateType.md
@@ -158,6 +159,7 @@ docs/SimpleAttributeOperand.md
 docs/SimpleTypeDescription.md
 docs/StandaloneSubscribedDataSetDataType.md
 docs/StatusChangeNotification.md
+docs/StatusCode.md
 docs/StructureDefinition.md
 docs/StructureDescription.md
 docs/StructureField.md
@@ -302,6 +304,7 @@ opcua_webapi/models/monitored_item_modify_result.py
 opcua_webapi/models/monitored_item_notification.py
 opcua_webapi/models/monitoring_mode.py
 opcua_webapi/models/monitoring_parameters.py
+opcua_webapi/models/network_address_data_type.py
 opcua_webapi/models/node_class.py
 opcua_webapi/models/notification_message.py
 opcua_webapi/models/perform_update_type.py
@@ -348,6 +351,7 @@ opcua_webapi/models/simple_attribute_operand.py
 opcua_webapi/models/simple_type_description.py
 opcua_webapi/models/standalone_subscribed_data_set_data_type.py
 opcua_webapi/models/status_change_notification.py
+opcua_webapi/models/status_code.py
 opcua_webapi/models/structure_definition.py
 opcua_webapi/models/structure_description.py
 opcua_webapi/models/structure_field.py

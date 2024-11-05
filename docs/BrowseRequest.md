@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
 **view** | [**ViewDescription**](ViewDescription.md) |  | [optional] 
-**requested_max_references_per_node** | **int** |  | [optional] 
+**requested_max_references_per_node** | **int** |  | [optional] [default to 0]
 **nodes_to_browse** | [**List[BrowseDescription]**](BrowseDescription.md) |  | [optional] 
 
 ## Example

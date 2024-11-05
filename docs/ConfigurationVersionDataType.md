@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**major_version** | **int** |  | [optional] 
-**minor_version** | **int** |  | [optional] 
+**major_version** | **int** |  | [optional] [default to 0]
+**minor_version** | **int** |  | [optional] [default to 0]
 
 ## Example
 

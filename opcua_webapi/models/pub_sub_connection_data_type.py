@@ -33,7 +33,7 @@ class PubSubConnectionDataType(BaseModel):
     PubSubConnectionDataType
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
-    enabled: Optional[StrictBool] = Field(default=None, alias="Enabled")
+    enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
     publisher_id: Optional[Variant] = Field(default=None, alias="PublisherId")
     transport_profile_uri: Optional[StrictStr] = Field(default=None, alias="TransportProfileUri")
     address: Optional[ExtensionObject] = Field(default=None, alias="Address")
@@ -125,7 +125,7 @@ class PubSubConnectionDataType(BaseModel):
 
         _obj = cls.model_validate({
             "Name": obj.get("Name"),
-            "Enabled": obj.get("Enabled"),
+            "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False,
             "PublisherId": Variant.from_dict(obj["PublisherId"]) if obj.get("PublisherId") is not None else None,
             "TransportProfileUri": obj.get("TransportProfileUri"),
             "Address": ExtensionObject.from_dict(obj["Address"]) if obj.get("Address") is not None else None,

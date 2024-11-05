@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role_id** | **str** |  | [optional] 
-**permissions** | **int** |  | [optional] 
+**permissions** | **int** |  | [optional] [default to 0]
 
 ## Example
 

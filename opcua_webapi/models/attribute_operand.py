@@ -32,7 +32,7 @@ class AttributeOperand(BaseModel):
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     alias: Optional[StrictStr] = Field(default=None, alias="Alias")
     browse_path: Optional[RelativePath] = Field(default=None, alias="BrowsePath")
-    attribute_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="AttributeId")
+    attribute_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="AttributeId")
     index_range: Optional[StrictStr] = Field(default=None, alias="IndexRange")
     __properties: ClassVar[List[str]] = []
 

@@ -30,7 +30,7 @@ class ReadRequest(BaseModel):
     ReadRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    max_age: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="MaxAge")
+    max_age: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="MaxAge")
     timestamps_to_return: Optional[StrictInt] = Field(default=None, alias="TimestampsToReturn")
     nodes_to_read: Optional[List[ReadValueId]] = Field(default=None, alias="NodesToRead")
     __properties: ClassVar[List[str]] = ["RequestHeader", "MaxAge", "TimestampsToReturn", "NodesToRead"]
@@ -97,7 +97,7 @@ class ReadRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "MaxAge": obj.get("MaxAge"),
+            "MaxAge": obj.get("MaxAge") if obj.get("MaxAge") is not None else 0,
             "TimestampsToReturn": obj.get("TimestampsToReturn"),
             "NodesToRead": [ReadValueId.from_dict(_item) for _item in obj["NodesToRead"]] if obj.get("NodesToRead") is not None else None
         })

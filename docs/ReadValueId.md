@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | **str** |  | [optional] 
-**attribute_id** | **int** |  | [optional] 
+**attribute_id** | **int** |  | [optional] [default to 0]
 **index_range** | **str** |  | [optional] 
 **data_encoding** | **str** |  | [optional] 
 

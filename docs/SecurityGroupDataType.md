@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **security_group_folder** | **List[str]** |  | [optional] 
-**key_lifetime** | **float** |  | [optional] 
+**key_lifetime** | **float** |  | [optional] [default to 0]
 **security_policy_uri** | **str** |  | [optional] 
-**max_future_key_count** | **int** |  | [optional] 
-**max_past_key_count** | **int** |  | [optional] 
+**max_future_key_count** | **int** |  | [optional] [default to 0]
+**max_past_key_count** | **int** |  | [optional] [default to 0]
 **security_group_id** | **str** |  | [optional] 
 **role_permissions** | [**List[RolePermissionType]**](RolePermissionType.md) |  | [optional] 
 **group_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**release_continuation_points** | **bool** |  | [optional] 
+**release_continuation_points** | **bool** |  | [optional] [default to False]
 **continuation_points** | **List[bytearray]** |  | [optional] 
 
 ## Example

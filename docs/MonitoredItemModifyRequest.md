@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**monitored_item_id** | **int** |  | [optional] 
+**monitored_item_id** | **int** |  | [optional] [default to 0]
 **requested_parameters** | [**MonitoringParameters**](MonitoringParameters.md) |  | [optional] 
 
 ## Example

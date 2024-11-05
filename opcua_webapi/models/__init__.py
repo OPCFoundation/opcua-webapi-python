@@ -123,6 +123,7 @@ from opcua_webapi.models.monitored_item_modify_result import MonitoredItemModify
 from opcua_webapi.models.monitored_item_notification import MonitoredItemNotification
 from opcua_webapi.models.monitoring_mode import MonitoringMode
 from opcua_webapi.models.monitoring_parameters import MonitoringParameters
+from opcua_webapi.models.network_address_data_type import NetworkAddressDataType
 from opcua_webapi.models.node_class import NodeClass
 from opcua_webapi.models.notification_message import NotificationMessage
 from opcua_webapi.models.perform_update_type import PerformUpdateType
@@ -169,6 +170,7 @@ from opcua_webapi.models.simple_attribute_operand import SimpleAttributeOperand
 from opcua_webapi.models.simple_type_description import SimpleTypeDescription
 from opcua_webapi.models.standalone_subscribed_data_set_data_type import StandaloneSubscribedDataSetDataType
 from opcua_webapi.models.status_change_notification import StatusChangeNotification
+from opcua_webapi.models.status_code import StatusCode
 from opcua_webapi.models.structure_definition import StructureDefinition
 from opcua_webapi.models.structure_description import StructureDescription
 from opcua_webapi.models.structure_field import StructureField

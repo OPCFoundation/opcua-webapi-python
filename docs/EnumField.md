@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**value** | **int** |  | [optional] 
+**value** | **int** |  | [optional] [default to 0]
 **display_name** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
 **description** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
 

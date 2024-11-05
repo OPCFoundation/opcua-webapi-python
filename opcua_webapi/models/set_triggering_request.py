@@ -30,8 +30,8 @@ class SetTriggeringRequest(BaseModel):
     SetTriggeringRequest
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
-    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="SubscriptionId")
-    triggering_item_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="TriggeringItemId")
+    subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
+    triggering_item_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="TriggeringItemId")
     links_to_add: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="LinksToAdd")
     links_to_remove: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="LinksToRemove")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "TriggeringItemId", "LinksToAdd", "LinksToRemove"]
@@ -91,8 +91,8 @@ class SetTriggeringRequest(BaseModel):
 
         _obj = cls.model_validate({
             "RequestHeader": RequestHeader.from_dict(obj["RequestHeader"]) if obj.get("RequestHeader") is not None else None,
-            "SubscriptionId": obj.get("SubscriptionId"),
-            "TriggeringItemId": obj.get("TriggeringItemId"),
+            "SubscriptionId": obj.get("SubscriptionId") if obj.get("SubscriptionId") is not None else 0,
+            "TriggeringItemId": obj.get("TriggeringItemId") if obj.get("TriggeringItemId") is not None else 0,
             "LinksToAdd": obj.get("LinksToAdd"),
             "LinksToRemove": obj.get("LinksToRemove")
         })

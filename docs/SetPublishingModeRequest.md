@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**publishing_enabled** | **bool** |  | [optional] 
+**publishing_enabled** | **bool** |  | [optional] [default to False]
 **subscription_ids** | **List[int]** |  | [optional] 
 
 ## Example

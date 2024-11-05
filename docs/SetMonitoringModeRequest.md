@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
-**subscription_id** | **int** |  | [optional] 
+**subscription_id** | **int** |  | [optional] [default to 0]
 **monitoring_mode** | **int** |  | [optional] 
 **monitored_item_ids** | **List[int]** |  | [optional] 
 

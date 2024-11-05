@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **session_name** | **str** |  | [optional] 
 **client_nonce** | **bytearray** |  | [optional] 
 **client_certificate** | **bytearray** |  | [optional] 
-**requested_session_timeout** | **float** |  | [optional] 
-**max_response_message_size** | **int** |  | [optional] 
+**requested_session_timeout** | **float** |  | [optional] [default to 0]
+**max_response_message_size** | **int** |  | [optional] [default to 0]
 
 ## Example
 

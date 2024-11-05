@@ -30,7 +30,7 @@ class AggregateFilterResult(BaseModel):
     AggregateFilterResult
     """ # noqa: E501
     revised_start_time: Optional[datetime] = Field(default=None, alias="RevisedStartTime")
-    revised_processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="RevisedProcessingInterval")
+    revised_processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedProcessingInterval")
     revised_aggregate_configuration: Optional[AggregateConfiguration] = Field(default=None, alias="RevisedAggregateConfiguration")
     __properties: ClassVar[List[str]] = []
 
