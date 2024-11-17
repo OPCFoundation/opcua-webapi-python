@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ua_type** | **int** |  | [optional] [default to 0]
 **value** | **object** |  | [optional] 
-**dimensions** | **List[int]** |  | [optional] 
 **status_code** | [**StatusCode**](StatusCode.md) |  | [optional] 
 **source_timestamp** | **datetime** |  | [optional] 
 **source_picoseconds** | **int** |  | [optional] 

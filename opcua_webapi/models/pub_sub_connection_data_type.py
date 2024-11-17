@@ -20,7 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from opcua_webapi.models.reader_group_data_type import ReaderGroupDataType
 from opcua_webapi.models.variant import Variant
@@ -36,9 +35,9 @@ class PubSubConnectionDataType(BaseModel):
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
     publisher_id: Optional[Variant] = Field(default=None, alias="PublisherId")
     transport_profile_uri: Optional[StrictStr] = Field(default=None, alias="TransportProfileUri")
-    address: Optional[ExtensionObject] = Field(default=None, alias="Address")
+    address: Optional[Dict[str, Any]] = Field(default=None, alias="Address")
     connection_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="ConnectionProperties")
-    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
+    transport_settings: Optional[Dict[str, Any]] = Field(default=None, alias="TransportSettings")
     writer_groups: Optional[List[WriterGroupDataType]] = Field(default=None, alias="WriterGroups")
     reader_groups: Optional[List[ReaderGroupDataType]] = Field(default=None, alias="ReaderGroups")
     __properties: ClassVar[List[str]] = ["Name", "Enabled", "PublisherId", "TransportProfileUri", "Address", "ConnectionProperties", "TransportSettings", "WriterGroups", "ReaderGroups"]
@@ -85,9 +84,6 @@ class PubSubConnectionDataType(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of publisher_id
         if self.publisher_id:
             _dict['PublisherId'] = self.publisher_id.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of address
-        if self.address:
-            _dict['Address'] = self.address.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in connection_properties (list)
         _items = []
         if self.connection_properties:
@@ -95,9 +91,6 @@ class PubSubConnectionDataType(BaseModel):
                 if _item_connection_properties:
                     _items.append(_item_connection_properties.to_dict())
             _dict['ConnectionProperties'] = _items
-        # override the default output from pydantic by calling `to_dict()` of transport_settings
-        if self.transport_settings:
-            _dict['TransportSettings'] = self.transport_settings.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in writer_groups (list)
         _items = []
         if self.writer_groups:
@@ -128,9 +121,9 @@ class PubSubConnectionDataType(BaseModel):
             "Enabled": obj.get("Enabled") if obj.get("Enabled") is not None else False,
             "PublisherId": Variant.from_dict(obj["PublisherId"]) if obj.get("PublisherId") is not None else None,
             "TransportProfileUri": obj.get("TransportProfileUri"),
-            "Address": ExtensionObject.from_dict(obj["Address"]) if obj.get("Address") is not None else None,
+            "Address": obj.get("Address"),
             "ConnectionProperties": [KeyValuePair.from_dict(_item) for _item in obj["ConnectionProperties"]] if obj.get("ConnectionProperties") is not None else None,
-            "TransportSettings": ExtensionObject.from_dict(obj["TransportSettings"]) if obj.get("TransportSettings") is not None else None,
+            "TransportSettings": obj.get("TransportSettings"),
             "WriterGroups": [WriterGroupDataType.from_dict(_item) for _item in obj["WriterGroups"]] if obj.get("WriterGroups") is not None else None,
             "ReaderGroups": [ReaderGroupDataType.from_dict(_item) for _item in obj["ReaderGroups"]] if obj.get("ReaderGroups") is not None else None
         })

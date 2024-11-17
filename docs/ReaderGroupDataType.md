@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
-**message_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**transport_settings** | **object** |  | [optional] 
+**message_settings** | **object** |  | [optional] 
 **data_set_readers** | [**List[DataSetReaderDataType]**](DataSetReaderDataType.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **enabled** | **bool** |  | [optional] [default to False]

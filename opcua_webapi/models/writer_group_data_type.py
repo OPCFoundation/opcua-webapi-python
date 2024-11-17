@@ -23,7 +23,6 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from opcua_webapi.models.data_set_writer_data_type import DataSetWriterDataType
 from opcua_webapi.models.endpoint_description import EndpointDescription
-from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from typing import Optional, Set
 from typing_extensions import Self
@@ -38,8 +37,8 @@ class WriterGroupDataType(BaseModel):
     priority: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="Priority")
     locale_ids: Optional[List[StrictStr]] = Field(default=None, alias="LocaleIds")
     header_layout_uri: Optional[StrictStr] = Field(default=None, alias="HeaderLayoutUri")
-    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
-    message_settings: Optional[ExtensionObject] = Field(default=None, alias="MessageSettings")
+    transport_settings: Optional[Dict[str, Any]] = Field(default=None, alias="TransportSettings")
+    message_settings: Optional[Dict[str, Any]] = Field(default=None, alias="MessageSettings")
     data_set_writers: Optional[List[DataSetWriterDataType]] = Field(default=None, alias="DataSetWriters")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")

@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType
-from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,7 +33,7 @@ class PublishedDataSetDataType(BaseModel):
     data_set_folder: Optional[List[StrictStr]] = Field(default=None, alias="DataSetFolder")
     data_set_meta_data: Optional[DataSetMetaDataType] = Field(default=None, alias="DataSetMetaData")
     extension_fields: Optional[List[KeyValuePair]] = Field(default=None, alias="ExtensionFields")
-    data_set_source: Optional[ExtensionObject] = Field(default=None, alias="DataSetSource")
+    data_set_source: Optional[Dict[str, Any]] = Field(default=None, alias="DataSetSource")
     __properties: ClassVar[List[str]] = ["Name", "DataSetFolder", "DataSetMetaData", "ExtensionFields", "DataSetSource"]
 
     model_config = ConfigDict(
@@ -86,9 +85,6 @@ class PublishedDataSetDataType(BaseModel):
                 if _item_extension_fields:
                     _items.append(_item_extension_fields.to_dict())
             _dict['ExtensionFields'] = _items
-        # override the default output from pydantic by calling `to_dict()` of data_set_source
-        if self.data_set_source:
-            _dict['DataSetSource'] = self.data_set_source.to_dict()
         return _dict
 
     @classmethod
@@ -105,7 +101,7 @@ class PublishedDataSetDataType(BaseModel):
             "DataSetFolder": obj.get("DataSetFolder"),
             "DataSetMetaData": DataSetMetaDataType.from_dict(obj["DataSetMetaData"]) if obj.get("DataSetMetaData") is not None else None,
             "ExtensionFields": [KeyValuePair.from_dict(_item) for _item in obj["ExtensionFields"]] if obj.get("ExtensionFields") is not None else None,
-            "DataSetSource": ExtensionObject.from_dict(obj["DataSetSource"]) if obj.get("DataSetSource") is not None else None
+            "DataSetSource": obj.get("DataSetSource")
         })
         return _obj
 

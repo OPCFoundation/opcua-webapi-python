@@ -23,7 +23,6 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType
 from opcua_webapi.models.endpoint_description import EndpointDescription
-from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from opcua_webapi.models.variant import Variant
 from typing import Optional, Set
@@ -47,9 +46,9 @@ class DataSetReaderDataType(BaseModel):
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
     security_key_services: Optional[List[EndpointDescription]] = Field(default=None, alias="SecurityKeyServices")
     data_set_reader_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="DataSetReaderProperties")
-    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
-    message_settings: Optional[ExtensionObject] = Field(default=None, alias="MessageSettings")
-    subscribed_data_set: Optional[ExtensionObject] = Field(default=None, alias="SubscribedDataSet")
+    transport_settings: Optional[Dict[str, Any]] = Field(default=None, alias="TransportSettings")
+    message_settings: Optional[Dict[str, Any]] = Field(default=None, alias="MessageSettings")
+    subscribed_data_set: Optional[Dict[str, Any]] = Field(default=None, alias="SubscribedDataSet")
     __properties: ClassVar[List[str]] = ["Name", "Enabled", "PublisherId", "WriterGroupId", "DataSetWriterId", "DataSetMetaData", "DataSetFieldContentMask", "MessageReceiveTimeout", "KeyFrameCount", "HeaderLayoutUri", "SecurityMode", "SecurityGroupId", "SecurityKeyServices", "DataSetReaderProperties", "TransportSettings", "MessageSettings", "SubscribedDataSet"]
 
     model_config = ConfigDict(
@@ -111,15 +110,6 @@ class DataSetReaderDataType(BaseModel):
                 if _item_data_set_reader_properties:
                     _items.append(_item_data_set_reader_properties.to_dict())
             _dict['DataSetReaderProperties'] = _items
-        # override the default output from pydantic by calling `to_dict()` of transport_settings
-        if self.transport_settings:
-            _dict['TransportSettings'] = self.transport_settings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of message_settings
-        if self.message_settings:
-            _dict['MessageSettings'] = self.message_settings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of subscribed_data_set
-        if self.subscribed_data_set:
-            _dict['SubscribedDataSet'] = self.subscribed_data_set.to_dict()
         return _dict
 
     @classmethod
@@ -146,9 +136,9 @@ class DataSetReaderDataType(BaseModel):
             "SecurityGroupId": obj.get("SecurityGroupId"),
             "SecurityKeyServices": [EndpointDescription.from_dict(_item) for _item in obj["SecurityKeyServices"]] if obj.get("SecurityKeyServices") is not None else None,
             "DataSetReaderProperties": [KeyValuePair.from_dict(_item) for _item in obj["DataSetReaderProperties"]] if obj.get("DataSetReaderProperties") is not None else None,
-            "TransportSettings": ExtensionObject.from_dict(obj["TransportSettings"]) if obj.get("TransportSettings") is not None else None,
-            "MessageSettings": ExtensionObject.from_dict(obj["MessageSettings"]) if obj.get("MessageSettings") is not None else None,
-            "SubscribedDataSet": ExtensionObject.from_dict(obj["SubscribedDataSet"]) if obj.get("SubscribedDataSet") is not None else None
+            "TransportSettings": obj.get("TransportSettings"),
+            "MessageSettings": obj.get("MessageSettings"),
+            "SubscribedDataSet": obj.get("SubscribedDataSet")
         })
         return _obj
 

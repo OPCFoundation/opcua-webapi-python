@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **enabled** | **bool** |  | [optional] [default to False]
 **publisher_id** | [**Variant**](Variant.md) |  | [optional] 
 **transport_profile_uri** | **str** |  | [optional] 
-**address** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**address** | **object** |  | [optional] 
 **connection_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
-**transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**transport_settings** | **object** |  | [optional] 
 **writer_groups** | [**List[WriterGroupDataType]**](WriterGroupDataType.md) |  | [optional] 
 **reader_groups** | [**List[ReaderGroupDataType]**](ReaderGroupDataType.md) |  | [optional] 
 

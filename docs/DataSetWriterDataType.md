@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **key_frame_count** | **int** |  | [optional] [default to 0]
 **data_set_name** | **str** |  | [optional] 
 **data_set_writer_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
-**transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
-**message_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**transport_settings** | **object** |  | [optional] 
+**message_settings** | **object** |  | [optional] 
 
 ## Example
 

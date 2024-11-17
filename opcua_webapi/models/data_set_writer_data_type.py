@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,8 +36,8 @@ class DataSetWriterDataType(BaseModel):
     key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="KeyFrameCount")
     data_set_name: Optional[StrictStr] = Field(default=None, alias="DataSetName")
     data_set_writer_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="DataSetWriterProperties")
-    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
-    message_settings: Optional[ExtensionObject] = Field(default=None, alias="MessageSettings")
+    transport_settings: Optional[Dict[str, Any]] = Field(default=None, alias="TransportSettings")
+    message_settings: Optional[Dict[str, Any]] = Field(default=None, alias="MessageSettings")
     __properties: ClassVar[List[str]] = ["Name", "Enabled", "DataSetWriterId", "DataSetFieldContentMask", "KeyFrameCount", "DataSetName", "DataSetWriterProperties", "TransportSettings", "MessageSettings"]
 
     model_config = ConfigDict(
@@ -87,12 +86,6 @@ class DataSetWriterDataType(BaseModel):
                 if _item_data_set_writer_properties:
                     _items.append(_item_data_set_writer_properties.to_dict())
             _dict['DataSetWriterProperties'] = _items
-        # override the default output from pydantic by calling `to_dict()` of transport_settings
-        if self.transport_settings:
-            _dict['TransportSettings'] = self.transport_settings.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of message_settings
-        if self.message_settings:
-            _dict['MessageSettings'] = self.message_settings.to_dict()
         return _dict
 
     @classmethod
@@ -112,8 +105,8 @@ class DataSetWriterDataType(BaseModel):
             "KeyFrameCount": obj.get("KeyFrameCount") if obj.get("KeyFrameCount") is not None else 0,
             "DataSetName": obj.get("DataSetName"),
             "DataSetWriterProperties": [KeyValuePair.from_dict(_item) for _item in obj["DataSetWriterProperties"]] if obj.get("DataSetWriterProperties") is not None else None,
-            "TransportSettings": ExtensionObject.from_dict(obj["TransportSettings"]) if obj.get("TransportSettings") is not None else None,
-            "MessageSettings": ExtensionObject.from_dict(obj["MessageSettings"]) if obj.get("MessageSettings") is not None else None
+            "TransportSettings": obj.get("TransportSettings"),
+            "MessageSettings": obj.get("MessageSettings")
         })
         return _obj
 

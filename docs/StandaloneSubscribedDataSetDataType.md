@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **data_set_folder** | **List[str]** |  | [optional] 
 **data_set_meta_data** | [**DataSetMetaDataType**](DataSetMetaDataType.md) |  | [optional] 
-**subscribed_data_set** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**subscribed_data_set** | **object** |  | [optional] 
 
 ## Example
 

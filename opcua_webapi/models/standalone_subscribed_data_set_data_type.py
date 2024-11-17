@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType
-from opcua_webapi.models.extension_object import ExtensionObject
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +31,7 @@ class StandaloneSubscribedDataSetDataType(BaseModel):
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     data_set_folder: Optional[List[StrictStr]] = Field(default=None, alias="DataSetFolder")
     data_set_meta_data: Optional[DataSetMetaDataType] = Field(default=None, alias="DataSetMetaData")
-    subscribed_data_set: Optional[ExtensionObject] = Field(default=None, alias="SubscribedDataSet")
+    subscribed_data_set: Optional[Dict[str, Any]] = Field(default=None, alias="SubscribedDataSet")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **security_group_id** | **str** |  | [optional] 
 **security_key_services** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
 **data_set_reader_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
-**transport_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
-**message_settings** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
-**subscribed_data_set** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**transport_settings** | **object** |  | [optional] 
+**message_settings** | **object** |  | [optional] 
+**subscribed_data_set** | **object** |  | [optional] 
 
 ## Example
 

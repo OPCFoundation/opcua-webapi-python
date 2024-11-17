@@ -29,9 +29,8 @@ class Variant(BaseModel):
     Variant
     """ # noqa: E501
     ua_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="UaType")
-    body: Optional[Any] = Field(default=None, alias="Body")
-    dimensions: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="Dimensions")
-    __properties: ClassVar[List[str]] = ["UaType", "Body", "Dimensions"]
+    value: Optional[Any] = Field(default=None, alias="Value")
+    __properties: ClassVar[List[str]] = ["UaType", "Value"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,10 +71,10 @@ class Variant(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if body (nullable) is None
+        # set to None if value (nullable) is None
         # and model_fields_set contains the field
-        if self.body is None and "body" in self.model_fields_set:
-            _dict['Body'] = None
+        if self.value is None and "value" in self.model_fields_set:
+            _dict['Value'] = None
 
         return _dict
 
@@ -90,8 +89,7 @@ class Variant(BaseModel):
 
         _obj = cls.model_validate({
             "UaType": obj.get("UaType"),
-            "Body": obj.get("Body"),
-            "Dimensions": obj.get("Dimensions")
+            "Value": obj.get("Value")
         })
         return _obj
 

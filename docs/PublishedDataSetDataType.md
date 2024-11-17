@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **data_set_folder** | **List[str]** |  | [optional] 
 **data_set_meta_data** | [**DataSetMetaDataType**](DataSetMetaDataType.md) |  | [optional] 
 **extension_fields** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 
-**data_set_source** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
+**data_set_source** | **object** |  | [optional] 
 
 ## Example
 

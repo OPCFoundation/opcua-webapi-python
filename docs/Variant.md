@@ -6,8 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ua_type** | **int** |  | [optional] 
-**body** | **object** |  | [optional] 
-**dimensions** | **List[int]** |  | [optional] 
+**value** | **object** |  | [optional] 
 
 ## Example
 

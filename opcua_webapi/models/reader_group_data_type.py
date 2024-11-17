@@ -23,7 +23,6 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from opcua_webapi.models.data_set_reader_data_type import DataSetReaderDataType
 from opcua_webapi.models.endpoint_description import EndpointDescription
-from opcua_webapi.models.extension_object import ExtensionObject
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,8 +31,8 @@ class ReaderGroupDataType(BaseModel):
     """
     ReaderGroupDataType
     """ # noqa: E501
-    transport_settings: Optional[ExtensionObject] = Field(default=None, alias="TransportSettings")
-    message_settings: Optional[ExtensionObject] = Field(default=None, alias="MessageSettings")
+    transport_settings: Optional[Dict[str, Any]] = Field(default=None, alias="TransportSettings")
+    message_settings: Optional[Dict[str, Any]] = Field(default=None, alias="MessageSettings")
     data_set_readers: Optional[List[DataSetReaderDataType]] = Field(default=None, alias="DataSetReaders")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
