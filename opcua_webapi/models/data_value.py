@@ -32,12 +32,13 @@ class DataValue(BaseModel):
     """ # noqa: E501
     ua_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="UaType")
     value: Optional[Any] = Field(default=None, alias="Value")
+    dimensions: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="Dimensions")
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     source_timestamp: Optional[datetime] = Field(default=None, alias="SourceTimestamp")
     source_picoseconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="SourcePicoseconds")
     server_timestamp: Optional[datetime] = Field(default=None, alias="ServerTimestamp")
     server_picoseconds: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=None, alias="ServerPicoseconds")
-    __properties: ClassVar[List[str]] = ["UaType", "Value", "StatusCode", "SourceTimestamp", "SourcePicoseconds", "ServerTimestamp", "ServerPicoseconds"]
+    __properties: ClassVar[List[str]] = ["UaType", "Value", "Dimensions", "StatusCode", "SourceTimestamp", "SourcePicoseconds", "ServerTimestamp", "ServerPicoseconds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,6 +101,7 @@ class DataValue(BaseModel):
         _obj = cls.model_validate({
             "UaType": obj.get("UaType") if obj.get("UaType") is not None else 0,
             "Value": obj.get("Value"),
+            "Dimensions": obj.get("Dimensions"),
             "StatusCode": StatusCode.from_dict(obj["StatusCode"]) if obj.get("StatusCode") is not None else None,
             "SourceTimestamp": obj.get("SourceTimestamp"),
             "SourcePicoseconds": obj.get("SourcePicoseconds"),

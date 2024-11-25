@@ -30,7 +30,8 @@ class Variant(BaseModel):
     """ # noqa: E501
     ua_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="UaType")
     value: Optional[Any] = Field(default=None, alias="Value")
-    __properties: ClassVar[List[str]] = ["UaType", "Value"]
+    dimensions: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="Dimensions")
+    __properties: ClassVar[List[str]] = ["UaType", "Value", "Dimensions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +90,8 @@ class Variant(BaseModel):
 
         _obj = cls.model_validate({
             "UaType": obj.get("UaType"),
-            "Value": obj.get("Value")
+            "Value": obj.get("Value"),
+            "Dimensions": obj.get("Dimensions")
         })
         return _obj
 

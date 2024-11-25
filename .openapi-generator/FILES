@@ -109,6 +109,7 @@ docs/JsonDataSetMessageContentMaskBits.md
 docs/JsonDataSetMetaDataMessage.md
 docs/JsonDataSetReaderMessageDataType.md
 docs/JsonDataSetWriterMessageDataType.md
+docs/JsonMessageType.md
 docs/JsonNetworkMessage.md
 docs/JsonNetworkMessageContentMaskBits.md
 docs/JsonPubSubConnectionMessage.md
@@ -322,6 +323,7 @@ opcua_webapi/models/json_data_set_message_content_mask_bits.py
 opcua_webapi/models/json_data_set_meta_data_message.py
 opcua_webapi/models/json_data_set_reader_message_data_type.py
 opcua_webapi/models/json_data_set_writer_message_data_type.py
+opcua_webapi/models/json_message_type.py
 opcua_webapi/models/json_network_message.py
 opcua_webapi/models/json_network_message_content_mask_bits.py
 opcua_webapi/models/json_pub_sub_connection_message.py
@@ -429,5 +431,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_matrix.py
+test/test_json_message_type.py
 tox.ini

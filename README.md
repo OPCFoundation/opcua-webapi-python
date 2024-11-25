@@ -221,6 +221,7 @@ Class | Method | HTTP request | Description
  - [JsonDataSetMetaDataMessage](docs/JsonDataSetMetaDataMessage.md)
  - [JsonDataSetReaderMessageDataType](docs/JsonDataSetReaderMessageDataType.md)
  - [JsonDataSetWriterMessageDataType](docs/JsonDataSetWriterMessageDataType.md)
+ - [JsonMessageType](docs/JsonMessageType.md)
  - [JsonNetworkMessage](docs/JsonNetworkMessage.md)
  - [JsonNetworkMessageContentMaskBits](docs/JsonNetworkMessageContentMaskBits.md)
  - [JsonPubSubConnectionMessage](docs/JsonPubSubConnectionMessage.md)
