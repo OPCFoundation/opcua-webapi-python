@@ -431,5 +431,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_json_message_type.py
 tox.ini
