@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class BrowseDirection(int, Enum):
     """
-    BrowseDirection
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.5).
     """
 
     """

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class TransferResult(BaseModel):
     """
-    TransferResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     available_sequence_numbers: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="AvailableSequenceNumbers")

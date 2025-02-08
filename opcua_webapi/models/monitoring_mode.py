@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class MonitoringMode(int, Enum):
     """
-    MonitoringMode
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.23).
     """
 
     """

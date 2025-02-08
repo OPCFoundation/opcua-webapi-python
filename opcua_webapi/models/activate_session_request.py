@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class ActivateSessionRequest(BaseModel):
     """
-    ActivateSessionRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     client_signature: Optional[SignatureData] = Field(default=None, alias="ClientSignature")

@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.event_filter_result import EventFilterResult  # noqa: E501
+from opcua_webapi.models.event_filter_result import EventFilterResult
 
 class TestEventFilterResult(unittest.TestCase):
     """EventFilterResult unit test stubs"""
@@ -29,16 +28,18 @@ class TestEventFilterResult(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EventFilterResult:
         """Test EventFilterResult
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EventFilterResult`
         """
-        model = EventFilterResult()  # noqa: E501
+        model = EventFilterResult()
         if include_optional:
             return EventFilterResult(
                 select_clause_results = [
-                    0
+                    opcua_webapi.models.status_code.StatusCode(
+                        code = 0, 
+                        symbol = '', )
                     ],
                 select_clause_diagnostic_infos = [
                     opcua_webapi.models.diagnostic_info.DiagnosticInfo(
@@ -47,21 +48,26 @@ class TestEventFilterResult(unittest.TestCase):
                         locale = 56, 
                         localized_text = 56, 
                         additional_info = '', 
-                        inner_status_code = 0, 
+                        inner_status_code = opcua_webapi.models.status_code.StatusCode(
+                            code = 0, 
+                            symbol = '', ), 
                         inner_diagnostic_info = opcua_webapi.models.diagnostic_info.DiagnosticInfo(
                             symbolic_id = 56, 
                             namespace_uri = 56, 
                             locale = 56, 
                             localized_text = 56, 
-                            additional_info = '', 
-                            inner_status_code = 0, ), )
+                            additional_info = '', ), )
                     ],
                 where_clause_result = opcua_webapi.models.content_filter_result.ContentFilterResult(
                     element_results = [
                         opcua_webapi.models.content_filter_element_result.ContentFilterElementResult(
-                            status_code = 0, 
+                            status_code = opcua_webapi.models.status_code.StatusCode(
+                                code = 0, 
+                                symbol = '', ), 
                             operand_status_codes = [
-                                0
+                                opcua_webapi.models.status_code.StatusCode(
+                                    code = 0, 
+                                    symbol = '', )
                                 ], 
                             operand_diagnostic_infos = [
                                 opcua_webapi.models.diagnostic_info.DiagnosticInfo(
@@ -70,14 +76,13 @@ class TestEventFilterResult(unittest.TestCase):
                                     locale = 56, 
                                     localized_text = 56, 
                                     additional_info = '', 
-                                    inner_status_code = 0, 
+                                    inner_status_code = , 
                                     inner_diagnostic_info = opcua_webapi.models.diagnostic_info.DiagnosticInfo(
                                         symbolic_id = 56, 
                                         namespace_uri = 56, 
                                         locale = 56, 
                                         localized_text = 56, 
-                                        additional_info = '', 
-                                        inner_status_code = 0, ), )
+                                        additional_info = '', ), )
                                 ], )
                         ], 
                     element_diagnostic_infos = [

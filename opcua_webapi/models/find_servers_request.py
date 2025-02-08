@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class FindServersRequest(BaseModel):
     """
-    FindServersRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     endpoint_url: Optional[StrictStr] = Field(default=None, alias="EndpointUrl")

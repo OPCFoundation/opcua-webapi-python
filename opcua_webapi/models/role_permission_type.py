@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class RolePermissionType(BaseModel):
     """
-    RolePermissionType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.12/#12.2.12.9).
     """ # noqa: E501
     role_id: Optional[StrictStr] = Field(default=None, alias="RoleId")
     permissions: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="Permissions")

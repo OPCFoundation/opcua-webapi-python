@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class HistoryUpdateRequest(BaseModel):
     """
-    HistoryUpdateRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     history_update_details: Optional[List[ExtensionObject]] = Field(default=None, alias="HistoryUpdateDetails")

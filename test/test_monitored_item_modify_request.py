@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.monitored_item_modify_request import MonitoredItemModifyRequest  # noqa: E501
+from opcua_webapi.models.monitored_item_modify_request import MonitoredItemModifyRequest
 
 class TestMonitoredItemModifyRequest(unittest.TestCase):
     """MonitoredItemModifyRequest unit test stubs"""
@@ -29,12 +28,12 @@ class TestMonitoredItemModifyRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MonitoredItemModifyRequest:
         """Test MonitoredItemModifyRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MonitoredItemModifyRequest`
         """
-        model = MonitoredItemModifyRequest()  # noqa: E501
+        model = MonitoredItemModifyRequest()
         if include_optional:
             return MonitoredItemModifyRequest(
                 monitored_item_id = 0,
@@ -42,9 +41,9 @@ class TestMonitoredItemModifyRequest(unittest.TestCase):
                     client_handle = 0, 
                     sampling_interval = 1.337, 
                     filter = opcua_webapi.models.extension_object.ExtensionObject(
-                        type_id = '', 
-                        encoding = 0, 
-                        body = opcua_webapi.models.body.Body(), ), 
+                        ua_type_id = '', 
+                        ua_encoding = 0, 
+                        ua_body = 'YQ==', ), 
                     queue_size = 0, 
                     discard_oldest = True, )
             )

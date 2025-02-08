@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class WriterGroupDataType(BaseModel):
     """
-    WriterGroupDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.6/#6.2.6.7.1).
     """ # noqa: E501
     writer_group_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="WriterGroupId")
     publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="PublishingInterval")
@@ -42,7 +42,7 @@ class WriterGroupDataType(BaseModel):
     data_set_writers: Optional[List[DataSetWriterDataType]] = Field(default=None, alias="DataSetWriters")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
-    security_mode: Optional[StrictInt] = Field(default=None, alias="SecurityMode")
+    security_mode: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10).", alias="SecurityMode")
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
     security_key_services: Optional[List[EndpointDescription]] = Field(default=None, alias="SecurityKeyServices")
     max_network_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxNetworkMessageSize")

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class EventNotificationList(BaseModel):
     """
-    EventNotificationList
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.25.3).
     """ # noqa: E501
     events: Optional[List[EventFieldList]] = Field(default=None, alias="Events")
     __properties: ClassVar[List[str]] = []

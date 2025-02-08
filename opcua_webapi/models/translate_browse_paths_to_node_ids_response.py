@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class TranslateBrowsePathsToNodeIdsResponse(BaseModel):
     """
-    TranslateBrowsePathsToNodeIdsResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     results: Optional[List[BrowsePathResult]] = Field(default=None, alias="Results")

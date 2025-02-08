@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class CloseSessionResponse(BaseModel):
     """
-    CloseSessionResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     __properties: ClassVar[List[str]] = ["ResponseHeader"]

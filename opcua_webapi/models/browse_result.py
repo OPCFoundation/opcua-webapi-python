@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class BrowseResult(BaseModel):
     """
-    BrowseResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.6).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     continuation_point: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ContinuationPoint")

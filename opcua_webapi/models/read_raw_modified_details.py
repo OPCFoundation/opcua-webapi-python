@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ReadRawModifiedDetails(BaseModel):
     """
-    ReadRawModifiedDetails
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.5.3/#6.5.3.1).
     """ # noqa: E501
     is_read_modified: Optional[StrictBool] = Field(default=False, alias="IsReadModified")
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")

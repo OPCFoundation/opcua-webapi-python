@@ -26,10 +26,10 @@ from typing_extensions import Self
 
 class UpdateDataDetails(BaseModel):
     """
-    UpdateDataDetails
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.9.2/#6.9.2.1).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
-    perform_insert_replace: Optional[StrictInt] = Field(default=None, alias="PerformInsertReplace")
+    perform_insert_replace: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.8).", alias="PerformInsertReplace")
     update_values: Optional[List[DataValue]] = Field(default=None, alias="UpdateValues")
     __properties: ClassVar[List[str]] = []
 

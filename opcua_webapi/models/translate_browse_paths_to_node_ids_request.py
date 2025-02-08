@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class TranslateBrowsePathsToNodeIdsRequest(BaseModel):
     """
-    TranslateBrowsePathsToNodeIdsRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     browse_paths: Optional[List[BrowsePath]] = Field(default=None, alias="BrowsePaths")

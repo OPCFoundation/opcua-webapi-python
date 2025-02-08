@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class StatusChangeNotification(BaseModel):
     """
-    StatusChangeNotification
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.25.4).
     """ # noqa: E501
     status: Optional[StatusCode] = Field(default=None, alias="Status")
     diagnostic_info: Optional[DiagnosticInfo] = Field(default=None, alias="DiagnosticInfo")

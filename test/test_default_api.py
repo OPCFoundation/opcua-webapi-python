@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -15,14 +15,14 @@
 
 import unittest
 
-from opcua_webapi.api.default_api import DefaultApi  # noqa: E501
+from opcua_webapi.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):
     """DefaultApi unit test stubs"""
 
     def setUp(self) -> None:
-        self.api = DefaultApi()  # noqa: E501
+        self.api = DefaultApi()
 
     def tearDown(self) -> None:
         pass

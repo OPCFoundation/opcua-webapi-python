@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class JsonActionResponseMessage(BaseModel):
     """
-    JsonActionResponseMessage
+    [Link to specification]().
     """ # noqa: E501
     data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="DataSetWriterId")
     action_target_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="ActionTargetId")
@@ -41,7 +41,7 @@ class JsonActionResponseMessage(BaseModel):
     status: Optional[StatusCode] = Field(default=None, alias="Status")
     message_type: Optional[StrictStr] = Field(default=None, alias="MessageType")
     request_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="RequestId")
-    action_state: Optional[StrictInt] = Field(default=None, alias="ActionState")
+    action_state: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.11/#6.2.11.2.1).", alias="ActionState")
     payload: Optional[Dict[str, Any]] = Field(default=None, alias="Payload")
     __properties: ClassVar[List[str]] = ["DataSetWriterId", "ActionTargetId", "DataSetWriterName", "WriterGroupName", "MetaDataVersion", "MinorVersion", "Timestamp", "Status", "MessageType", "RequestId", "ActionState", "Payload"]
 

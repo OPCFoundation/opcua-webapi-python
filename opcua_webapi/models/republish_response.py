@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class RepublishResponse(BaseModel):
     """
-    RepublishResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     notification_message: Optional[NotificationMessage] = Field(default=None, alias="NotificationMessage")

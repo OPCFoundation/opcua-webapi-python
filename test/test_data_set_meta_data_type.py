@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType  # noqa: E501
+from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType
 
 class TestDataSetMetaDataType(unittest.TestCase):
     """DataSetMetaDataType unit test stubs"""
@@ -29,12 +28,12 @@ class TestDataSetMetaDataType(unittest.TestCase):
 
     def make_instance(self, include_optional) -> DataSetMetaDataType:
         """Test DataSetMetaDataType
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DataSetMetaDataType`
         """
-        model = DataSetMetaDataType()  # noqa: E501
+        model = DataSetMetaDataType()
         if include_optional:
             return DataSetMetaDataType(
                 name = '',
@@ -60,8 +59,7 @@ class TestDataSetMetaDataType(unittest.TestCase):
                             opcua_webapi.models.key_value_pair.KeyValuePair(
                                 key = '', 
                                 value = opcua_webapi.models.variant.Variant(
-                                    type = 0, 
-                                    body = null, 
+                                    ua_type = 0, 
                                     dimensions = [
                                         0
                                         ], ), )

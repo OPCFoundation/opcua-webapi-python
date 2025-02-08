@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class SetPublishingModeRequest(BaseModel):
     """
-    SetPublishingModeRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     publishing_enabled: Optional[StrictBool] = Field(default=False, alias="PublishingEnabled")

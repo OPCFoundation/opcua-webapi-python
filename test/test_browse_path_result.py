@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.browse_path_result import BrowsePathResult  # noqa: E501
+from opcua_webapi.models.browse_path_result import BrowsePathResult
 
 class TestBrowsePathResult(unittest.TestCase):
     """BrowsePathResult unit test stubs"""
@@ -29,15 +28,17 @@ class TestBrowsePathResult(unittest.TestCase):
 
     def make_instance(self, include_optional) -> BrowsePathResult:
         """Test BrowsePathResult
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `BrowsePathResult`
         """
-        model = BrowsePathResult()  # noqa: E501
+        model = BrowsePathResult()
         if include_optional:
             return BrowsePathResult(
-                status_code = 0,
+                status_code = opcua_webapi.models.status_code.StatusCode(
+                    code = 0, 
+                    symbol = '', ),
                 targets = [
                     opcua_webapi.models.browse_path_target.BrowsePathTarget(
                         target_id = '', 

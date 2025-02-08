@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class KeyValuePair(BaseModel):
     """
-    KeyValuePair
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.21).
     """ # noqa: E501
     key: Optional[StrictStr] = Field(default=None, alias="Key")
     value: Optional[Variant] = Field(default=None, alias="Value")

@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class HistoryReadValueId(BaseModel):
     """
-    HistoryReadValueId
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     index_range: Optional[StrictStr] = Field(default=None, alias="IndexRange")

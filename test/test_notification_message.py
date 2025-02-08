@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.notification_message import NotificationMessage  # noqa: E501
+from opcua_webapi.models.notification_message import NotificationMessage
 
 class TestNotificationMessage(unittest.TestCase):
     """NotificationMessage unit test stubs"""
@@ -29,21 +28,21 @@ class TestNotificationMessage(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NotificationMessage:
         """Test NotificationMessage
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NotificationMessage`
         """
-        model = NotificationMessage()  # noqa: E501
+        model = NotificationMessage()
         if include_optional:
             return NotificationMessage(
                 sequence_number = 0,
                 publish_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 notification_data = [
                     opcua_webapi.models.extension_object.ExtensionObject(
-                        type_id = '', 
-                        encoding = 0, 
-                        body = opcua_webapi.models.body.Body(), )
+                        ua_type_id = '', 
+                        ua_encoding = 0, 
+                        ua_body = 'YQ==', )
                     ]
             )
         else:

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class AggregateConfiguration(BaseModel):
     """
-    AggregateConfiguration
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.5.4/#6.5.4.1).
     """ # noqa: E501
     use_server_capabilities_defaults: Optional[StrictBool] = Field(default=False, alias="UseServerCapabilitiesDefaults")
     treat_uncertain_as_bad: Optional[StrictBool] = Field(default=False, alias="TreatUncertainAsBad")

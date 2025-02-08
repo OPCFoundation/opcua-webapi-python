@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class MonitoredItemModifyResult(BaseModel):
     """
-    MonitoredItemModifyResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     revised_sampling_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedSamplingInterval")

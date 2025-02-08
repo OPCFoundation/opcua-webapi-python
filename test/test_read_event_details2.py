@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.read_event_details2 import ReadEventDetails2  # noqa: E501
+from opcua_webapi.models.read_event_details2 import ReadEventDetails2
 
 class TestReadEventDetails2(unittest.TestCase):
     """ReadEventDetails2 unit test stubs"""
@@ -29,15 +28,39 @@ class TestReadEventDetails2(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ReadEventDetails2:
         """Test ReadEventDetails2
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ReadEventDetails2`
         """
-        model = ReadEventDetails2()  # noqa: E501
+        model = ReadEventDetails2()
         if include_optional:
             return ReadEventDetails2(
-                read_modified = True
+                read_modified = True,
+                num_values_per_node = 0,
+                start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                filter = opcua_webapi.models.event_filter.EventFilter(
+                    select_clauses = [
+                        opcua_webapi.models.simple_attribute_operand.SimpleAttributeOperand(
+                            type_definition_id = '', 
+                            browse_path = [
+                                ''
+                                ], 
+                            attribute_id = 0, 
+                            index_range = '', )
+                        ], 
+                    where_clause = opcua_webapi.models.content_filter.ContentFilter(
+                        elements = [
+                            opcua_webapi.models.content_filter_element.ContentFilterElement(
+                                filter_operator = 56, 
+                                filter_operands = [
+                                    opcua_webapi.models.extension_object.ExtensionObject(
+                                        ua_type_id = '', 
+                                        ua_encoding = 0, 
+                                        ua_body = 'YQ==', )
+                                    ], )
+                            ], ), )
             )
         else:
             return ReadEventDetails2(

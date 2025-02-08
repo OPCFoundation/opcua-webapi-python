@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class RegisterNodesRequest(BaseModel):
     """
-    RegisterNodesRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     nodes_to_register: Optional[List[StrictStr]] = Field(default=None, alias="NodesToRegister")

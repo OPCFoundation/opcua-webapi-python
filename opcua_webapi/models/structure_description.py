@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class StructureDescription(BaseModel):
     """
-    StructureDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.33).
     """ # noqa: E501
     structure_definition: Optional[StructureDefinition] = Field(default=None, alias="StructureDefinition")
     data_type_id: Optional[StrictStr] = Field(default=None, alias="DataTypeId")

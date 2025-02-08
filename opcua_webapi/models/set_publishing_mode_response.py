@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class SetPublishingModeResponse(BaseModel):
     """
-    SetPublishingModeResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     results: Optional[List[StatusCode]] = Field(default=None, alias="Results")

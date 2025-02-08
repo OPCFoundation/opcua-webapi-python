@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.close_session_response import CloseSessionResponse  # noqa: E501
+from opcua_webapi.models.close_session_response import CloseSessionResponse
 
 class TestCloseSessionResponse(unittest.TestCase):
     """CloseSessionResponse unit test stubs"""
@@ -29,39 +28,42 @@ class TestCloseSessionResponse(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CloseSessionResponse:
         """Test CloseSessionResponse
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CloseSessionResponse`
         """
-        model = CloseSessionResponse()  # noqa: E501
+        model = CloseSessionResponse()
         if include_optional:
             return CloseSessionResponse(
                 response_header = opcua_webapi.models.response_header.ResponseHeader(
                     timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     request_handle = 0, 
-                    service_result = 0, 
+                    service_result = opcua_webapi.models.status_code.StatusCode(
+                        code = 0, 
+                        symbol = '', ), 
                     service_diagnostics = opcua_webapi.models.diagnostic_info.DiagnosticInfo(
                         symbolic_id = 56, 
                         namespace_uri = 56, 
                         locale = 56, 
                         localized_text = 56, 
                         additional_info = '', 
-                        inner_status_code = 0, 
+                        inner_status_code = opcua_webapi.models.status_code.StatusCode(
+                            code = 0, 
+                            symbol = '', ), 
                         inner_diagnostic_info = opcua_webapi.models.diagnostic_info.DiagnosticInfo(
                             symbolic_id = 56, 
                             namespace_uri = 56, 
                             locale = 56, 
                             localized_text = 56, 
-                            additional_info = '', 
-                            inner_status_code = 0, ), ), 
+                            additional_info = '', ), ), 
                     string_table = [
                         ''
                         ], 
                     additional_header = opcua_webapi.models.extension_object.ExtensionObject(
-                        type_id = '', 
-                        encoding = 0, 
-                        body = opcua_webapi.models.body.Body(), ), )
+                        ua_type_id = '', 
+                        ua_encoding = 0, 
+                        ua_body = 'YQ==', ), )
             )
         else:
             return CloseSessionResponse(

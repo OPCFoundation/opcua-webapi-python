@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class SetTriggeringResponse(BaseModel):
     """
-    SetTriggeringResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     add_results: Optional[List[StatusCode]] = Field(default=None, alias="AddResults")

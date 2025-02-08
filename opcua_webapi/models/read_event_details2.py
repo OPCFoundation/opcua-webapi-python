@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class ReadEventDetails2(BaseModel):
     """
-    ReadEventDetails2
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.5.2/#6.5.2.3).
     """ # noqa: E501
     read_modified: Optional[StrictBool] = Field(default=False, alias="ReadModified")
     num_values_per_node: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NumValuesPerNode")

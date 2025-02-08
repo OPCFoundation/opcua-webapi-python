@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class MonitoredItemCreateResult(BaseModel):
     """
-    MonitoredItemCreateResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     monitored_item_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MonitoredItemId")

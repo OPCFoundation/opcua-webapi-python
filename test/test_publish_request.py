@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.publish_request import PublishRequest  # noqa: E501
+from opcua_webapi.models.publish_request import PublishRequest
 
 class TestPublishRequest(unittest.TestCase):
     """PublishRequest unit test stubs"""
@@ -29,12 +28,12 @@ class TestPublishRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PublishRequest:
         """Test PublishRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PublishRequest`
         """
-        model = PublishRequest()  # noqa: E501
+        model = PublishRequest()
         if include_optional:
             return PublishRequest(
                 request_header = opcua_webapi.models.request_header.RequestHeader(
@@ -45,9 +44,9 @@ class TestPublishRequest(unittest.TestCase):
                     audit_entry_id = '', 
                     timeout_hint = 0, 
                     additional_header = opcua_webapi.models.extension_object.ExtensionObject(
-                        type_id = '', 
-                        encoding = 0, 
-                        body = opcua_webapi.models.body.Body(), ), ),
+                        ua_type_id = '', 
+                        ua_encoding = 0, 
+                        ua_body = 'YQ==', ), ),
                 subscription_acknowledgements = [
                     opcua_webapi.models.subscription_acknowledgement.SubscriptionAcknowledgement(
                         subscription_id = 0, 

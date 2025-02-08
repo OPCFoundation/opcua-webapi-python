@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class HistoryData(BaseModel):
     """
-    HistoryData
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.6.2).
     """ # noqa: E501
     data_values: Optional[List[DataValue]] = Field(default=None, alias="DataValues")
     __properties: ClassVar[List[str]] = ["DataValues"]

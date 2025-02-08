@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opcua_webapi"
-version = "1.504.0"
+version = "1.504.1"
 description = "OPC UA Web API"
 authors = ["OpenAPI Generator Community <office@opcfoundation.org>"]
 license = "OPC Source Deliverable Agreement of Use"
@@ -27,7 +27,7 @@ mypy = ">= 1.5"
 
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [tool.pylint.'MESSAGES CONTROL']

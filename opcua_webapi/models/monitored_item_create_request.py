@@ -27,10 +27,10 @@ from typing_extensions import Self
 
 class MonitoredItemCreateRequest(BaseModel):
     """
-    MonitoredItemCreateRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).
     """ # noqa: E501
     item_to_monitor: Optional[ReadValueId] = Field(default=None, alias="ItemToMonitor")
-    monitoring_mode: Optional[StrictInt] = Field(default=None, alias="MonitoringMode")
+    monitoring_mode: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.23).", alias="MonitoringMode")
     requested_parameters: Optional[MonitoringParameters] = Field(default=None, alias="RequestedParameters")
     __properties: ClassVar[List[str]] = ["ItemToMonitor", "MonitoringMode", "RequestedParameters"]
 

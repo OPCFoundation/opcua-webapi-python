@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class HistoryUpdateResult(BaseModel):
     """
-    HistoryUpdateResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     operation_results: Optional[List[StatusCode]] = Field(default=None, alias="OperationResults")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class GetEndpointsResponse(BaseModel):
     """
-    GetEndpointsResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     endpoints: Optional[List[EndpointDescription]] = Field(default=None, alias="Endpoints")

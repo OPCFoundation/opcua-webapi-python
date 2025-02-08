@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class HistoryModifiedData(BaseModel):
     """
-    HistoryModifiedData
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.6.3).
     """ # noqa: E501
     modification_infos: Optional[List[ModificationInfo]] = Field(default=None, alias="ModificationInfos")
     data_values: Optional[List[DataValue]] = Field(default=None, alias="DataValues")

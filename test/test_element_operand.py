@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.element_operand import ElementOperand  # noqa: E501
+from opcua_webapi.models.element_operand import ElementOperand
 
 class TestElementOperand(unittest.TestCase):
     """ElementOperand unit test stubs"""
@@ -29,12 +28,12 @@ class TestElementOperand(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ElementOperand:
         """Test ElementOperand
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ElementOperand`
         """
-        model = ElementOperand()  # noqa: E501
+        model = ElementOperand()
         if include_optional:
             return ElementOperand(
                 index = 0

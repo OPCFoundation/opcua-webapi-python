@@ -26,10 +26,10 @@ from typing_extensions import Self
 
 class BrowseDescription(BaseModel):
     """
-    BrowseDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
-    browse_direction: Optional[StrictInt] = Field(default=None, alias="BrowseDirection")
+    browse_direction: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.5).", alias="BrowseDirection")
     reference_type_id: Optional[StrictStr] = Field(default=None, alias="ReferenceTypeId")
     include_subtypes: Optional[StrictBool] = Field(default=False, alias="IncludeSubtypes")
     node_class_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NodeClassMask")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class MonitoredItemModifyRequest(BaseModel):
     """
-    MonitoredItemModifyRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
     """ # noqa: E501
     monitored_item_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MonitoredItemId")
     requested_parameters: Optional[MonitoringParameters] = Field(default=None, alias="RequestedParameters")

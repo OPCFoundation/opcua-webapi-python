@@ -47,7 +47,8 @@ class TestJsonActionRequestMessage(unittest.TestCase):
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 message_type = '',
                 request_id = 0,
-                action_state = 56
+                action_state = 56,
+                payload = None
             )
         else:
             return JsonActionRequestMessage(

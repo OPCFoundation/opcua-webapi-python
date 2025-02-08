@@ -26,12 +26,12 @@ from typing_extensions import Self
 
 class ApplicationDescription(BaseModel):
     """
-    ApplicationDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/7.2.4/#7.2.4.6.5).
     """ # noqa: E501
     application_uri: Optional[StrictStr] = Field(default=None, alias="ApplicationUri")
     product_uri: Optional[StrictStr] = Field(default=None, alias="ProductUri")
     application_name: Optional[LocalizedText] = Field(default=None, alias="ApplicationName")
-    application_type: Optional[StrictInt] = Field(default=None, alias="ApplicationType")
+    application_type: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.4).", alias="ApplicationType")
     gateway_server_uri: Optional[StrictStr] = Field(default=None, alias="GatewayServerUri")
     discovery_profile_uri: Optional[StrictStr] = Field(default=None, alias="DiscoveryProfileUri")
     discovery_urls: Optional[List[StrictStr]] = Field(default=None, alias="DiscoveryUrls")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class MonitoringParameters(BaseModel):
     """
-    MonitoringParameters
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.21).
     """ # noqa: E501
     client_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="ClientHandle")
     sampling_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="SamplingInterval")

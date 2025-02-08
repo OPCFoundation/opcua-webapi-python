@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class JsonDataSetReaderMessageDataType(BaseModel):
     """
-    JsonDataSetReaderMessageDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.3.2/#6.3.2.4.3).
     """ # noqa: E501
     network_message_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="NetworkMessageContentMask")
     data_set_message_content_mask: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="DataSetMessageContentMask")

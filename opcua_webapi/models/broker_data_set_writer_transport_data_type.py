@@ -25,12 +25,12 @@ from typing_extensions import Self
 
 class BrokerDataSetWriterTransportDataType(BaseModel):
     """
-    BrokerDataSetWriterTransportDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.5.7).
     """ # noqa: E501
     queue_name: Optional[StrictStr] = Field(default=None, alias="QueueName")
     resource_uri: Optional[StrictStr] = Field(default=None, alias="ResourceUri")
     authentication_profile_uri: Optional[StrictStr] = Field(default=None, alias="AuthenticationProfileUri")
-    requested_delivery_guarantee: Optional[StrictInt] = Field(default=None, alias="RequestedDeliveryGuarantee")
+    requested_delivery_guarantee: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.1).", alias="RequestedDeliveryGuarantee")
     meta_data_queue_name: Optional[StrictStr] = Field(default=None, alias="MetaDataQueueName")
     meta_data_update_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="MetaDataUpdateTime")
     __properties: ClassVar[List[str]] = []

@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.x509_identity_token import X509IdentityToken  # noqa: E501
+from opcua_webapi.models.x509_identity_token import X509IdentityToken
 
 class TestX509IdentityToken(unittest.TestCase):
     """X509IdentityToken unit test stubs"""
@@ -29,12 +28,12 @@ class TestX509IdentityToken(unittest.TestCase):
 
     def make_instance(self, include_optional) -> X509IdentityToken:
         """Test X509IdentityToken
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `X509IdentityToken`
         """
-        model = X509IdentityToken()  # noqa: E501
+        model = X509IdentityToken()
         if include_optional:
             return X509IdentityToken(
                 certificate_data = 'YQ==',

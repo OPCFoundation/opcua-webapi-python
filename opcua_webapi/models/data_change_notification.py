@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class DataChangeNotification(BaseModel):
     """
-    DataChangeNotification
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.25.2).
     """ # noqa: E501
     monitored_items: Optional[List[MonitoredItemNotification]] = Field(default=None, alias="MonitoredItems")
     diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="DiagnosticInfos")

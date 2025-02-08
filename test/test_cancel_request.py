@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.cancel_request import CancelRequest  # noqa: E501
+from opcua_webapi.models.cancel_request import CancelRequest
 
 class TestCancelRequest(unittest.TestCase):
     """CancelRequest unit test stubs"""
@@ -29,12 +28,12 @@ class TestCancelRequest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> CancelRequest:
         """Test CancelRequest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `CancelRequest`
         """
-        model = CancelRequest()  # noqa: E501
+        model = CancelRequest()
         if include_optional:
             return CancelRequest(
                 request_header = opcua_webapi.models.request_header.RequestHeader(
@@ -45,9 +44,9 @@ class TestCancelRequest(unittest.TestCase):
                     audit_entry_id = '', 
                     timeout_hint = 0, 
                     additional_header = opcua_webapi.models.extension_object.ExtensionObject(
-                        type_id = '', 
-                        encoding = 0, 
-                        body = opcua_webapi.models.body.Body(), ), ),
+                        ua_type_id = '', 
+                        ua_encoding = 0, 
+                        ua_body = 'YQ==', ), ),
                 request_handle = 0
             )
         else:

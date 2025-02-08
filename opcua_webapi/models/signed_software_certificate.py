@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class SignedSoftwareCertificate(BaseModel):
     """
-    SignedSoftwareCertificate
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.13).
     """ # noqa: E501
     certificate_data: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="CertificateData")
     signature: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="Signature")

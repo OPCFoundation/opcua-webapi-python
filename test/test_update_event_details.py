@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.update_event_details import UpdateEventDetails  # noqa: E501
+from opcua_webapi.models.update_event_details import UpdateEventDetails
 
 class TestUpdateEventDetails(unittest.TestCase):
     """UpdateEventDetails unit test stubs"""
@@ -29,12 +28,12 @@ class TestUpdateEventDetails(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UpdateEventDetails:
         """Test UpdateEventDetails
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UpdateEventDetails`
         """
-        model = UpdateEventDetails()  # noqa: E501
+        model = UpdateEventDetails()
         if include_optional:
             return UpdateEventDetails(
                 node_id = '',
@@ -55,17 +54,17 @@ class TestUpdateEventDetails(unittest.TestCase):
                                 filter_operator = 56, 
                                 filter_operands = [
                                     opcua_webapi.models.extension_object.ExtensionObject(
-                                        type_id = '', 
-                                        encoding = 0, 
-                                        body = opcua_webapi.models.body.Body(), )
+                                        ua_type_id = '', 
+                                        ua_encoding = 0, 
+                                        ua_body = 'YQ==', )
                                     ], )
                             ], ), ),
                 event_data = [
                     opcua_webapi.models.history_event_field_list.HistoryEventFieldList(
                         event_fields = [
                             opcua_webapi.models.variant.Variant(
-                                type = 0, 
-                                body = null, 
+                                ua_type = 0, 
+                                value = null, 
                                 dimensions = [
                                     0
                                     ], )

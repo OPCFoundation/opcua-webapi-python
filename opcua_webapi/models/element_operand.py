@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ElementOperand(BaseModel):
     """
-    ElementOperand
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.4/#7.7.4.2).
     """ # noqa: E501
     index: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="Index")
     __properties: ClassVar[List[str]] = []

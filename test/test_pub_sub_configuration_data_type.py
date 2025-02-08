@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.pub_sub_configuration_data_type import PubSubConfigurationDataType  # noqa: E501
+from opcua_webapi.models.pub_sub_configuration_data_type import PubSubConfigurationDataType
 
 class TestPubSubConfigurationDataType(unittest.TestCase):
     """PubSubConfigurationDataType unit test stubs"""
@@ -29,12 +28,12 @@ class TestPubSubConfigurationDataType(unittest.TestCase):
 
     def make_instance(self, include_optional) -> PubSubConfigurationDataType:
         """Test PubSubConfigurationDataType
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `PubSubConfigurationDataType`
         """
-        model = PubSubConfigurationDataType()  # noqa: E501
+        model = PubSubConfigurationDataType()
         if include_optional:
             return PubSubConfigurationDataType(
                 published_data_sets = [
@@ -64,8 +63,7 @@ class TestPubSubConfigurationDataType(unittest.TestCase):
                                         opcua_webapi.models.key_value_pair.KeyValuePair(
                                             key = '', 
                                             value = opcua_webapi.models.variant.Variant(
-                                                type = 0, 
-                                                body = null, 
+                                                ua_type = 0, 
                                                 dimensions = [
                                                     0
                                                     ], ), )
@@ -79,37 +77,27 @@ class TestPubSubConfigurationDataType(unittest.TestCase):
                             opcua_webapi.models.key_value_pair.KeyValuePair(
                                 key = '', )
                             ], 
-                        data_set_source = opcua_webapi.models.extension_object.ExtensionObject(
-                            type_id = '', 
-                            encoding = 0, 
-                            body = opcua_webapi.models.body.Body(), ), )
+                        data_set_source = opcua_webapi.models.data_set_source.DataSetSource(), )
                     ],
                 connections = [
                     opcua_webapi.models.pub_sub_connection_data_type.PubSubConnectionDataType(
                         name = '', 
                         enabled = True, 
                         publisher_id = opcua_webapi.models.variant.Variant(
-                            type = 0, 
-                            body = null, 
+                            ua_type = 0, 
+                            value = null, 
                             dimensions = [
                                 0
                                 ], ), 
                         transport_profile_uri = '', 
-                        address = opcua_webapi.models.extension_object.ExtensionObject(
-                            type_id = '', 
-                            encoding = 0, 
-                            body = opcua_webapi.models.body.Body(), ), 
+                        address = opcua_webapi.models.address.Address(), 
                         connection_properties = [
                             opcua_webapi.models.key_value_pair.KeyValuePair(
                                 key = '', 
                                 value = opcua_webapi.models.variant.Variant(
-                                    type = 0, 
-                                    body = null, ), )
+                                    ua_type = 0, ), )
                             ], 
-                        transport_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                            type_id = '', 
-                            encoding = 0, 
-                            body = opcua_webapi.models.body.Body(), ), 
+                        transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
                         writer_groups = [
                             opcua_webapi.models.writer_group_data_type.WriterGroupDataType(
                                 writer_group_id = 0, 
@@ -120,7 +108,8 @@ class TestPubSubConfigurationDataType(unittest.TestCase):
                                     ''
                                     ], 
                                 header_layout_uri = '', 
-                                message_settings = , 
+                                transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                                message_settings = opcua_webapi.models.message_settings.MessageSettings(), 
                                 data_set_writers = [
                                     opcua_webapi.models.data_set_writer_data_type.DataSetWriterDataType(
                                         name = '', 
@@ -132,11 +121,15 @@ class TestPubSubConfigurationDataType(unittest.TestCase):
                                         data_set_writer_properties = [
                                             opcua_webapi.models.key_value_pair.KeyValuePair(
                                                 key = '', )
-                                            ], )
+                                            ], 
+                                        transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                                        message_settings = opcua_webapi.models.message_settings.MessageSettings(), )
                                     ], )
                             ], 
                         reader_groups = [
                             opcua_webapi.models.reader_group_data_type.ReaderGroupDataType(
+                                transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                                message_settings = opcua_webapi.models.message_settings.MessageSettings(), 
                                 data_set_readers = [
                                     opcua_webapi.models.data_set_reader_data_type.DataSetReaderDataType(
                                         name = '', 
@@ -206,7 +199,9 @@ class TestPubSubConfigurationDataType(unittest.TestCase):
                                         data_set_reader_properties = [
                                             
                                             ], 
-                                        subscribed_data_set = , )
+                                        transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                                        message_settings = opcua_webapi.models.message_settings.MessageSettings(), 
+                                        subscribed_data_set = opcua_webapi.models.subscribed_data_set.SubscribedDataSet(), )
                                     ], )
                             ], )
                     ],

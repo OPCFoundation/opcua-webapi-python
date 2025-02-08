@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.event_field_list import EventFieldList  # noqa: E501
+from opcua_webapi.models.event_field_list import EventFieldList
 
 class TestEventFieldList(unittest.TestCase):
     """EventFieldList unit test stubs"""
@@ -29,19 +28,19 @@ class TestEventFieldList(unittest.TestCase):
 
     def make_instance(self, include_optional) -> EventFieldList:
         """Test EventFieldList
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `EventFieldList`
         """
-        model = EventFieldList()  # noqa: E501
+        model = EventFieldList()
         if include_optional:
             return EventFieldList(
                 client_handle = 0,
                 event_fields = [
                     opcua_webapi.models.variant.Variant(
-                        type = 0, 
-                        body = null, 
+                        ua_type = 0, 
+                        value = null, 
                         dimensions = [
                             0
                             ], )

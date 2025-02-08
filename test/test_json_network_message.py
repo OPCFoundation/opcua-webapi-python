@@ -41,12 +41,7 @@ class TestJsonNetworkMessage(unittest.TestCase):
                 publisher_id = '',
                 writer_group_name = '',
                 data_set_class_id = '',
-                messages = opcua_webapi.models.variant.Variant(
-                    ua_type = 0, 
-                    body = null, 
-                    dimensions = [
-                        0
-                        ], )
+                messages = None
             )
         else:
             return JsonNetworkMessage(

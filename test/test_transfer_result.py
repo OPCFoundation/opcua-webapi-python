@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.transfer_result import TransferResult  # noqa: E501
+from opcua_webapi.models.transfer_result import TransferResult
 
 class TestTransferResult(unittest.TestCase):
     """TransferResult unit test stubs"""
@@ -29,15 +28,17 @@ class TestTransferResult(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TransferResult:
         """Test TransferResult
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TransferResult`
         """
-        model = TransferResult()  # noqa: E501
+        model = TransferResult()
         if include_optional:
             return TransferResult(
-                status_code = 0,
+                status_code = opcua_webapi.models.status_code.StatusCode(
+                    code = 0, 
+                    symbol = '', ),
                 available_sequence_numbers = [
                     0
                     ]

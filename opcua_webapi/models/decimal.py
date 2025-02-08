@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class Decimal(BaseModel):
     """
-    Decimal
+    [Link to specification](https://reference.opcfoundation.org/Core/Part6/v105/docs/5.4.3).
     """ # noqa: E501
     scale: Optional[Annotated[int, Field(le=32767, strict=True, ge=-32768)]] = Field(default=0, alias="Scale")
     value: Optional[StrictStr] = Field(default='0', alias="Value")

@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class PubSubKeyPushTargetDataType(BaseModel):
     """
-    PubSubKeyPushTargetDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.12/#6.2.12.3).
     """ # noqa: E501
     application_uri: Optional[StrictStr] = Field(default=None, alias="ApplicationUri")
     push_target_folder: Optional[List[StrictStr]] = Field(default=None, alias="PushTargetFolder")

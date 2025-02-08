@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class UserIdentityToken(BaseModel):
     """
-    UserIdentityToken
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.15).
     """ # noqa: E501
     policy_id: Optional[StrictStr] = Field(default=None, alias="PolicyId")
     __properties: ClassVar[List[str]] = ["PolicyId"]

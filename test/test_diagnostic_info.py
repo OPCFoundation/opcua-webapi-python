@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.diagnostic_info import DiagnosticInfo  # noqa: E501
+from opcua_webapi.models.diagnostic_info import DiagnosticInfo
 
 class TestDiagnosticInfo(unittest.TestCase):
     """DiagnosticInfo unit test stubs"""
@@ -29,12 +28,12 @@ class TestDiagnosticInfo(unittest.TestCase):
 
     def make_instance(self, include_optional) -> DiagnosticInfo:
         """Test DiagnosticInfo
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DiagnosticInfo`
         """
-        model = DiagnosticInfo()  # noqa: E501
+        model = DiagnosticInfo()
         if include_optional:
             return DiagnosticInfo(
                 symbolic_id = 56,
@@ -42,21 +41,24 @@ class TestDiagnosticInfo(unittest.TestCase):
                 locale = 56,
                 localized_text = 56,
                 additional_info = '',
-                inner_status_code = 0,
+                inner_status_code = opcua_webapi.models.status_code.StatusCode(
+                    code = 0, 
+                    symbol = '', ),
                 inner_diagnostic_info = opcua_webapi.models.diagnostic_info.DiagnosticInfo(
                     symbolic_id = 56, 
                     namespace_uri = 56, 
                     locale = 56, 
                     localized_text = 56, 
                     additional_info = '', 
-                    inner_status_code = 0, 
+                    inner_status_code = opcua_webapi.models.status_code.StatusCode(
+                        code = 0, 
+                        symbol = '', ), 
                     inner_diagnostic_info = opcua_webapi.models.diagnostic_info.DiagnosticInfo(
                         symbolic_id = 56, 
                         namespace_uri = 56, 
                         locale = 56, 
                         localized_text = 56, 
-                        additional_info = '', 
-                        inner_status_code = 0, ), )
+                        additional_info = '', ), )
             )
         else:
             return DiagnosticInfo(

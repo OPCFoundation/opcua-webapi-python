@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class IssuedIdentityToken(BaseModel):
     """
-    IssuedIdentityToken
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.15/#12.3.15.2).
     """ # noqa: E501
     token_data: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="TokenData")
     encryption_algorithm: Optional[StrictStr] = Field(default=None, alias="EncryptionAlgorithm")

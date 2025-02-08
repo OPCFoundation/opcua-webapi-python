@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class DiagnosticInfo(BaseModel):
     """
-    DiagnosticInfo
+    [Link to specification](https://reference.opcfoundation.org/Core/Part4/v105/docs/7.12).
     """ # noqa: E501
     symbolic_id: Optional[StrictInt] = Field(default=None, alias="SymbolicId")
     namespace_uri: Optional[StrictInt] = Field(default=None, alias="NamespaceUri")

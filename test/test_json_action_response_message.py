@@ -50,7 +50,8 @@ class TestJsonActionResponseMessage(unittest.TestCase):
                     symbol = '', ),
                 message_type = '',
                 request_id = 0,
-                action_state = 56
+                action_state = 56,
+                payload = None
             )
         else:
             return JsonActionResponseMessage(

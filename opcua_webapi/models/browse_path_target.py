@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class BrowsePathTarget(BaseModel):
     """
-    BrowsePathTarget
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
     """ # noqa: E501
     target_id: Optional[StrictStr] = Field(default=None, alias="TargetId")
     remaining_path_index: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RemainingPathIndex")

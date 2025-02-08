@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class Variant(BaseModel):
     """
-    Variant
+    [Link to specification](https://reference.opcfoundation.org/Core/Part6/v105/docs/5.4.2.17).
     """ # noqa: E501
     ua_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="UaType")
     value: Optional[Any] = Field(default=None, alias="Value")

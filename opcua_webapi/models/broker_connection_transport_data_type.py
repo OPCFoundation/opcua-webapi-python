@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class BrokerConnectionTransportDataType(BaseModel):
     """
-    BrokerConnectionTransportDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.2.3).
     """ # noqa: E501
     resource_uri: Optional[StrictStr] = Field(default=None, alias="ResourceUri")
     authentication_profile_uri: Optional[StrictStr] = Field(default=None, alias="AuthenticationProfileUri")

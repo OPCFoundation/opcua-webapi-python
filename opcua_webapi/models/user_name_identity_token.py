@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class UserNameIdentityToken(BaseModel):
     """
-    UserNameIdentityToken
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.15/#12.3.15.3).
     """ # noqa: E501
     user_name: Optional[StrictStr] = Field(default=None, alias="UserName")
     password: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="Password")

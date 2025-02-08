@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.504.0"
+__version__ = "1.504.1"
 
 # import apis into sdk package
 from opcua_webapi.api.default_api import DefaultApi

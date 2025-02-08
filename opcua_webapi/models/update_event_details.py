@@ -27,10 +27,10 @@ from typing_extensions import Self
 
 class UpdateEventDetails(BaseModel):
     """
-    UpdateEventDetails
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.9.4/#6.9.4.1).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
-    perform_insert_replace: Optional[StrictInt] = Field(default=None, alias="PerformInsertReplace")
+    perform_insert_replace: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.8).", alias="PerformInsertReplace")
     filter: Optional[EventFilter] = Field(default=None, alias="Filter")
     event_data: Optional[List[HistoryEventFieldList]] = Field(default=None, alias="EventData")
     __properties: ClassVar[List[str]] = []

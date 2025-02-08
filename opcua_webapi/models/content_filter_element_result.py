@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ContentFilterElementResult(BaseModel):
     """
-    ContentFilterElementResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     operand_status_codes: Optional[List[StatusCode]] = Field(default=None, alias="OperandStatusCodes")

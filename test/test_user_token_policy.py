@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.user_token_policy import UserTokenPolicy  # noqa: E501
+from opcua_webapi.models.user_token_policy import UserTokenPolicy
 
 class TestUserTokenPolicy(unittest.TestCase):
     """UserTokenPolicy unit test stubs"""
@@ -29,12 +28,12 @@ class TestUserTokenPolicy(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserTokenPolicy:
         """Test UserTokenPolicy
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserTokenPolicy`
         """
-        model = UserTokenPolicy()  # noqa: E501
+        model = UserTokenPolicy()
         if include_optional:
             return UserTokenPolicy(
                 policy_id = '',

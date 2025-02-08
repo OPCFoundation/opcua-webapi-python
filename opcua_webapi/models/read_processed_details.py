@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ReadProcessedDetails(BaseModel):
     """
-    ReadProcessedDetails
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.5.4/#6.5.4.1).
     """ # noqa: E501
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     end_time: Optional[datetime] = Field(default=None, alias="EndTime")

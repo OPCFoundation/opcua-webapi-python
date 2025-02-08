@@ -26,14 +26,14 @@ from typing_extensions import Self
 
 class JsonStatusMessage(BaseModel):
     """
-    JsonStatusMessage
+    [Link to specification]().
     """ # noqa: E501
     message_id: Optional[StrictStr] = Field(default=None, alias="MessageId")
     message_type: Optional[StrictStr] = Field(default=None, alias="MessageType")
     publisher_id: Optional[StrictStr] = Field(default=None, alias="PublisherId")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
     is_cyclic: Optional[StrictBool] = Field(default=False, alias="IsCyclic")
-    status: Optional[StrictInt] = Field(default=None, alias="Status")
+    status: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.1).", alias="Status")
     next_report_time: Optional[datetime] = Field(default=None, alias="NextReportTime")
     __properties: ClassVar[List[str]] = ["MessageId", "MessageType", "PublisherId", "Timestamp", "IsCyclic", "Status", "NextReportTime"]
 

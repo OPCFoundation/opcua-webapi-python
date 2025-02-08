@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ActionTargetDataType(BaseModel):
     """
-    ActionTargetDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.3/#6.2.3.10.3).
     """ # noqa: E501
     action_target_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="ActionTargetId")
     name: Optional[StrictStr] = Field(default=None, alias="Name")

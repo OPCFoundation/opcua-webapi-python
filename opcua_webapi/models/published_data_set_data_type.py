@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class PublishedDataSetDataType(BaseModel):
     """
-    PublishedDataSetDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.3/#6.2.3.5).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     data_set_folder: Optional[List[StrictStr]] = Field(default=None, alias="DataSetFolder")

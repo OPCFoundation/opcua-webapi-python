@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class LocalizedText(BaseModel):
     """
-    LocalizedText
+    [Link to specification](https://reference.opcfoundation.org/Core/Part3/v105/docs/8.5).
     """ # noqa: E501
     locale: Optional[StrictStr] = Field(default=None, alias="Locale")
     text: Optional[StrictStr] = Field(default=None, alias="Text")

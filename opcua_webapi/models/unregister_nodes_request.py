@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class UnregisterNodesRequest(BaseModel):
     """
-    UnregisterNodesRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     nodes_to_unregister: Optional[List[StrictStr]] = Field(default=None, alias="NodesToUnregister")

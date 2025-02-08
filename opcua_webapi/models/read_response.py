@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class ReadResponse(BaseModel):
     """
-    ReadResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     results: Optional[List[DataValue]] = Field(default=None, alias="Results")

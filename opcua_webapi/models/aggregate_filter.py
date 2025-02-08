@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class AggregateFilter(BaseModel):
     """
-    AggregateFilter
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.22.4).
     """ # noqa: E501
     start_time: Optional[datetime] = Field(default=None, alias="StartTime")
     aggregate_type: Optional[StrictStr] = Field(default=None, alias="AggregateType")

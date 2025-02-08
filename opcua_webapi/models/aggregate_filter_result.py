@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class AggregateFilterResult(BaseModel):
     """
-    AggregateFilterResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.22.4).
     """ # noqa: E501
     revised_start_time: Optional[datetime] = Field(default=None, alias="RevisedStartTime")
     revised_processing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedProcessingInterval")

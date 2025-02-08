@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class SimpleTypeDescription(BaseModel):
     """
-    SimpleTypeDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.35).
     """ # noqa: E501
     base_data_type: Optional[StrictStr] = Field(default=None, alias="BaseDataType")
     built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="BuiltInType")

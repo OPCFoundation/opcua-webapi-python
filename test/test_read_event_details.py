@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.read_event_details import ReadEventDetails  # noqa: E501
+from opcua_webapi.models.read_event_details import ReadEventDetails
 
 class TestReadEventDetails(unittest.TestCase):
     """ReadEventDetails unit test stubs"""
@@ -29,12 +28,12 @@ class TestReadEventDetails(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ReadEventDetails:
         """Test ReadEventDetails
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ReadEventDetails`
         """
-        model = ReadEventDetails()  # noqa: E501
+        model = ReadEventDetails()
         if include_optional:
             return ReadEventDetails(
                 num_values_per_node = 0,
@@ -56,9 +55,9 @@ class TestReadEventDetails(unittest.TestCase):
                                 filter_operator = 56, 
                                 filter_operands = [
                                     opcua_webapi.models.extension_object.ExtensionObject(
-                                        type_id = '', 
-                                        encoding = 0, 
-                                        body = opcua_webapi.models.body.Body(), )
+                                        ua_type_id = '', 
+                                        ua_encoding = 0, 
+                                        ua_body = 'YQ==', )
                                     ], )
                             ], ), )
             )

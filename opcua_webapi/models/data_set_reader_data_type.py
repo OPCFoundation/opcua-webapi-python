@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class DataSetReaderDataType(BaseModel):
     """
-    DataSetReaderDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.9/#6.2.9.13.1).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
@@ -42,7 +42,7 @@ class DataSetReaderDataType(BaseModel):
     message_receive_timeout: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="MessageReceiveTimeout")
     key_frame_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="KeyFrameCount")
     header_layout_uri: Optional[StrictStr] = Field(default=None, alias="HeaderLayoutUri")
-    security_mode: Optional[StrictInt] = Field(default=None, alias="SecurityMode")
+    security_mode: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10).", alias="SecurityMode")
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
     security_key_services: Optional[List[EndpointDescription]] = Field(default=None, alias="SecurityKeyServices")
     data_set_reader_properties: Optional[List[KeyValuePair]] = Field(default=None, alias="DataSetReaderProperties")

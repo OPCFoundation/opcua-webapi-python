@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class AttributeOperand(BaseModel):
     """
-    AttributeOperand
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.4/#7.7.4.4).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     alias: Optional[StrictStr] = Field(default=None, alias="Alias")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class WriteValue(BaseModel):
     """
-    WriteValue
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     attribute_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="AttributeId")

@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class NetworkAddressDataType(BaseModel):
     """
-    NetworkAddressDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.7/#6.2.7.5.3).
     """ # noqa: E501
     network_interface: Optional[StrictStr] = Field(default=None, alias="NetworkInterface")
     __properties: ClassVar[List[str]] = ["NetworkInterface"]

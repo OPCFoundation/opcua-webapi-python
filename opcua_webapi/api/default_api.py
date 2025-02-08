@@ -98,7 +98,7 @@ class DefaultApi:
     @validate_call
     def activate_session(
         self,
-        activate_session_request: Annotated[Optional[ActivateSessionRequest], Field(description="ActivateSessionRequestMessage")] = None,
+        activate_session_request: Annotated[Optional[ActivateSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -115,7 +115,7 @@ class DefaultApi:
         """activate_session
 
 
-        :param activate_session_request: ActivateSessionRequestMessage
+        :param activate_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).
         :type activate_session_request: ActivateSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -164,7 +164,7 @@ class DefaultApi:
     @validate_call
     def activate_session_with_http_info(
         self,
-        activate_session_request: Annotated[Optional[ActivateSessionRequest], Field(description="ActivateSessionRequestMessage")] = None,
+        activate_session_request: Annotated[Optional[ActivateSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -181,7 +181,7 @@ class DefaultApi:
         """activate_session
 
 
-        :param activate_session_request: ActivateSessionRequestMessage
+        :param activate_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).
         :type activate_session_request: ActivateSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -230,7 +230,7 @@ class DefaultApi:
     @validate_call
     def activate_session_without_preload_content(
         self,
-        activate_session_request: Annotated[Optional[ActivateSessionRequest], Field(description="ActivateSessionRequestMessage")] = None,
+        activate_session_request: Annotated[Optional[ActivateSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -247,7 +247,7 @@ class DefaultApi:
         """activate_session
 
 
-        :param activate_session_request: ActivateSessionRequestMessage
+        :param activate_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2).
         :type activate_session_request: ActivateSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -368,7 +368,7 @@ class DefaultApi:
     @validate_call
     def browse(
         self,
-        browse_request: Annotated[Optional[BrowseRequest], Field(description="BrowseRequestMessage")] = None,
+        browse_request: Annotated[Optional[BrowseRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -385,7 +385,7 @@ class DefaultApi:
         """browse
 
 
-        :param browse_request: BrowseRequestMessage
+        :param browse_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).
         :type browse_request: BrowseRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -434,7 +434,7 @@ class DefaultApi:
     @validate_call
     def browse_with_http_info(
         self,
-        browse_request: Annotated[Optional[BrowseRequest], Field(description="BrowseRequestMessage")] = None,
+        browse_request: Annotated[Optional[BrowseRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -451,7 +451,7 @@ class DefaultApi:
         """browse
 
 
-        :param browse_request: BrowseRequestMessage
+        :param browse_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).
         :type browse_request: BrowseRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -500,7 +500,7 @@ class DefaultApi:
     @validate_call
     def browse_without_preload_content(
         self,
-        browse_request: Annotated[Optional[BrowseRequest], Field(description="BrowseRequestMessage")] = None,
+        browse_request: Annotated[Optional[BrowseRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -517,7 +517,7 @@ class DefaultApi:
         """browse
 
 
-        :param browse_request: BrowseRequestMessage
+        :param browse_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).
         :type browse_request: BrowseRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -638,7 +638,7 @@ class DefaultApi:
     @validate_call
     def browse_next(
         self,
-        browse_next_request: Annotated[Optional[BrowseNextRequest], Field(description="BrowseNextRequestMessage")] = None,
+        browse_next_request: Annotated[Optional[BrowseNextRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -655,7 +655,7 @@ class DefaultApi:
         """browse_next
 
 
-        :param browse_next_request: BrowseNextRequestMessage
+        :param browse_next_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).
         :type browse_next_request: BrowseNextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -704,7 +704,7 @@ class DefaultApi:
     @validate_call
     def browse_next_with_http_info(
         self,
-        browse_next_request: Annotated[Optional[BrowseNextRequest], Field(description="BrowseNextRequestMessage")] = None,
+        browse_next_request: Annotated[Optional[BrowseNextRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -721,7 +721,7 @@ class DefaultApi:
         """browse_next
 
 
-        :param browse_next_request: BrowseNextRequestMessage
+        :param browse_next_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).
         :type browse_next_request: BrowseNextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -770,7 +770,7 @@ class DefaultApi:
     @validate_call
     def browse_next_without_preload_content(
         self,
-        browse_next_request: Annotated[Optional[BrowseNextRequest], Field(description="BrowseNextRequestMessage")] = None,
+        browse_next_request: Annotated[Optional[BrowseNextRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -787,7 +787,7 @@ class DefaultApi:
         """browse_next
 
 
-        :param browse_next_request: BrowseNextRequestMessage
+        :param browse_next_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).
         :type browse_next_request: BrowseNextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -908,7 +908,7 @@ class DefaultApi:
     @validate_call
     def call(
         self,
-        call_request: Annotated[Optional[CallRequest], Field(description="CallRequestMessage")] = None,
+        call_request: Annotated[Optional[CallRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -925,7 +925,7 @@ class DefaultApi:
         """call
 
 
-        :param call_request: CallRequestMessage
+        :param call_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).
         :type call_request: CallRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -974,7 +974,7 @@ class DefaultApi:
     @validate_call
     def call_with_http_info(
         self,
-        call_request: Annotated[Optional[CallRequest], Field(description="CallRequestMessage")] = None,
+        call_request: Annotated[Optional[CallRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -991,7 +991,7 @@ class DefaultApi:
         """call
 
 
-        :param call_request: CallRequestMessage
+        :param call_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).
         :type call_request: CallRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1040,7 +1040,7 @@ class DefaultApi:
     @validate_call
     def call_without_preload_content(
         self,
-        call_request: Annotated[Optional[CallRequest], Field(description="CallRequestMessage")] = None,
+        call_request: Annotated[Optional[CallRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1057,7 +1057,7 @@ class DefaultApi:
         """call
 
 
-        :param call_request: CallRequestMessage
+        :param call_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).
         :type call_request: CallRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1178,7 +1178,7 @@ class DefaultApi:
     @validate_call
     def cancel(
         self,
-        cancel_request: Annotated[Optional[CancelRequest], Field(description="CancelRequestMessage")] = None,
+        cancel_request: Annotated[Optional[CancelRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1195,7 +1195,7 @@ class DefaultApi:
         """cancel
 
 
-        :param cancel_request: CancelRequestMessage
+        :param cancel_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).
         :type cancel_request: CancelRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1244,7 +1244,7 @@ class DefaultApi:
     @validate_call
     def cancel_with_http_info(
         self,
-        cancel_request: Annotated[Optional[CancelRequest], Field(description="CancelRequestMessage")] = None,
+        cancel_request: Annotated[Optional[CancelRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1261,7 +1261,7 @@ class DefaultApi:
         """cancel
 
 
-        :param cancel_request: CancelRequestMessage
+        :param cancel_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).
         :type cancel_request: CancelRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1310,7 +1310,7 @@ class DefaultApi:
     @validate_call
     def cancel_without_preload_content(
         self,
-        cancel_request: Annotated[Optional[CancelRequest], Field(description="CancelRequestMessage")] = None,
+        cancel_request: Annotated[Optional[CancelRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1327,7 +1327,7 @@ class DefaultApi:
         """cancel
 
 
-        :param cancel_request: CancelRequestMessage
+        :param cancel_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).
         :type cancel_request: CancelRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1448,7 +1448,7 @@ class DefaultApi:
     @validate_call
     def close_session(
         self,
-        close_session_request: Annotated[Optional[CloseSessionRequest], Field(description="CloseSessionRequestMessage")] = None,
+        close_session_request: Annotated[Optional[CloseSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1465,7 +1465,7 @@ class DefaultApi:
         """close_session
 
 
-        :param close_session_request: CloseSessionRequestMessage
+        :param close_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).
         :type close_session_request: CloseSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1514,7 +1514,7 @@ class DefaultApi:
     @validate_call
     def close_session_with_http_info(
         self,
-        close_session_request: Annotated[Optional[CloseSessionRequest], Field(description="CloseSessionRequestMessage")] = None,
+        close_session_request: Annotated[Optional[CloseSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1531,7 +1531,7 @@ class DefaultApi:
         """close_session
 
 
-        :param close_session_request: CloseSessionRequestMessage
+        :param close_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).
         :type close_session_request: CloseSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1580,7 +1580,7 @@ class DefaultApi:
     @validate_call
     def close_session_without_preload_content(
         self,
-        close_session_request: Annotated[Optional[CloseSessionRequest], Field(description="CloseSessionRequestMessage")] = None,
+        close_session_request: Annotated[Optional[CloseSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1597,7 +1597,7 @@ class DefaultApi:
         """close_session
 
 
-        :param close_session_request: CloseSessionRequestMessage
+        :param close_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).
         :type close_session_request: CloseSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1718,7 +1718,7 @@ class DefaultApi:
     @validate_call
     def create_monitored_items(
         self,
-        create_monitored_items_request: Annotated[Optional[CreateMonitoredItemsRequest], Field(description="CreateMonitoredItemsRequestMessage")] = None,
+        create_monitored_items_request: Annotated[Optional[CreateMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1735,7 +1735,7 @@ class DefaultApi:
         """create_monitored_items
 
 
-        :param create_monitored_items_request: CreateMonitoredItemsRequestMessage
+        :param create_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).
         :type create_monitored_items_request: CreateMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1784,7 +1784,7 @@ class DefaultApi:
     @validate_call
     def create_monitored_items_with_http_info(
         self,
-        create_monitored_items_request: Annotated[Optional[CreateMonitoredItemsRequest], Field(description="CreateMonitoredItemsRequestMessage")] = None,
+        create_monitored_items_request: Annotated[Optional[CreateMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1801,7 +1801,7 @@ class DefaultApi:
         """create_monitored_items
 
 
-        :param create_monitored_items_request: CreateMonitoredItemsRequestMessage
+        :param create_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).
         :type create_monitored_items_request: CreateMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1850,7 +1850,7 @@ class DefaultApi:
     @validate_call
     def create_monitored_items_without_preload_content(
         self,
-        create_monitored_items_request: Annotated[Optional[CreateMonitoredItemsRequest], Field(description="CreateMonitoredItemsRequestMessage")] = None,
+        create_monitored_items_request: Annotated[Optional[CreateMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1867,7 +1867,7 @@ class DefaultApi:
         """create_monitored_items
 
 
-        :param create_monitored_items_request: CreateMonitoredItemsRequestMessage
+        :param create_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).
         :type create_monitored_items_request: CreateMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1988,7 +1988,7 @@ class DefaultApi:
     @validate_call
     def create_session(
         self,
-        create_session_request: Annotated[Optional[CreateSessionRequest], Field(description="CreateSessionRequestMessage")] = None,
+        create_session_request: Annotated[Optional[CreateSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2005,7 +2005,7 @@ class DefaultApi:
         """create_session
 
 
-        :param create_session_request: CreateSessionRequestMessage
+        :param create_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).
         :type create_session_request: CreateSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2054,7 +2054,7 @@ class DefaultApi:
     @validate_call
     def create_session_with_http_info(
         self,
-        create_session_request: Annotated[Optional[CreateSessionRequest], Field(description="CreateSessionRequestMessage")] = None,
+        create_session_request: Annotated[Optional[CreateSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2071,7 +2071,7 @@ class DefaultApi:
         """create_session
 
 
-        :param create_session_request: CreateSessionRequestMessage
+        :param create_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).
         :type create_session_request: CreateSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2120,7 +2120,7 @@ class DefaultApi:
     @validate_call
     def create_session_without_preload_content(
         self,
-        create_session_request: Annotated[Optional[CreateSessionRequest], Field(description="CreateSessionRequestMessage")] = None,
+        create_session_request: Annotated[Optional[CreateSessionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2137,7 +2137,7 @@ class DefaultApi:
         """create_session
 
 
-        :param create_session_request: CreateSessionRequestMessage
+        :param create_session_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).
         :type create_session_request: CreateSessionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2258,7 +2258,7 @@ class DefaultApi:
     @validate_call
     def create_subscription(
         self,
-        create_subscription_request: Annotated[Optional[CreateSubscriptionRequest], Field(description="CreateSubscriptionRequestMessage")] = None,
+        create_subscription_request: Annotated[Optional[CreateSubscriptionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2275,7 +2275,7 @@ class DefaultApi:
         """create_subscription
 
 
-        :param create_subscription_request: CreateSubscriptionRequestMessage
+        :param create_subscription_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).
         :type create_subscription_request: CreateSubscriptionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2324,7 +2324,7 @@ class DefaultApi:
     @validate_call
     def create_subscription_with_http_info(
         self,
-        create_subscription_request: Annotated[Optional[CreateSubscriptionRequest], Field(description="CreateSubscriptionRequestMessage")] = None,
+        create_subscription_request: Annotated[Optional[CreateSubscriptionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2341,7 +2341,7 @@ class DefaultApi:
         """create_subscription
 
 
-        :param create_subscription_request: CreateSubscriptionRequestMessage
+        :param create_subscription_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).
         :type create_subscription_request: CreateSubscriptionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2390,7 +2390,7 @@ class DefaultApi:
     @validate_call
     def create_subscription_without_preload_content(
         self,
-        create_subscription_request: Annotated[Optional[CreateSubscriptionRequest], Field(description="CreateSubscriptionRequestMessage")] = None,
+        create_subscription_request: Annotated[Optional[CreateSubscriptionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2407,7 +2407,7 @@ class DefaultApi:
         """create_subscription
 
 
-        :param create_subscription_request: CreateSubscriptionRequestMessage
+        :param create_subscription_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).
         :type create_subscription_request: CreateSubscriptionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2528,7 +2528,7 @@ class DefaultApi:
     @validate_call
     def delete_monitored_items(
         self,
-        delete_monitored_items_request: Annotated[Optional[DeleteMonitoredItemsRequest], Field(description="DeleteMonitoredItemsRequestMessage")] = None,
+        delete_monitored_items_request: Annotated[Optional[DeleteMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2545,7 +2545,7 @@ class DefaultApi:
         """delete_monitored_items
 
 
-        :param delete_monitored_items_request: DeleteMonitoredItemsRequestMessage
+        :param delete_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2).
         :type delete_monitored_items_request: DeleteMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2594,7 +2594,7 @@ class DefaultApi:
     @validate_call
     def delete_monitored_items_with_http_info(
         self,
-        delete_monitored_items_request: Annotated[Optional[DeleteMonitoredItemsRequest], Field(description="DeleteMonitoredItemsRequestMessage")] = None,
+        delete_monitored_items_request: Annotated[Optional[DeleteMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2611,7 +2611,7 @@ class DefaultApi:
         """delete_monitored_items
 
 
-        :param delete_monitored_items_request: DeleteMonitoredItemsRequestMessage
+        :param delete_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2).
         :type delete_monitored_items_request: DeleteMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2660,7 +2660,7 @@ class DefaultApi:
     @validate_call
     def delete_monitored_items_without_preload_content(
         self,
-        delete_monitored_items_request: Annotated[Optional[DeleteMonitoredItemsRequest], Field(description="DeleteMonitoredItemsRequestMessage")] = None,
+        delete_monitored_items_request: Annotated[Optional[DeleteMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2677,7 +2677,7 @@ class DefaultApi:
         """delete_monitored_items
 
 
-        :param delete_monitored_items_request: DeleteMonitoredItemsRequestMessage
+        :param delete_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2).
         :type delete_monitored_items_request: DeleteMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2798,7 +2798,7 @@ class DefaultApi:
     @validate_call
     def delete_subscriptions(
         self,
-        delete_subscriptions_request: Annotated[Optional[DeleteSubscriptionsRequest], Field(description="DeleteSubscriptionsRequestMessage")] = None,
+        delete_subscriptions_request: Annotated[Optional[DeleteSubscriptionsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2815,7 +2815,7 @@ class DefaultApi:
         """delete_subscriptions
 
 
-        :param delete_subscriptions_request: DeleteSubscriptionsRequestMessage
+        :param delete_subscriptions_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2).
         :type delete_subscriptions_request: DeleteSubscriptionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2864,7 +2864,7 @@ class DefaultApi:
     @validate_call
     def delete_subscriptions_with_http_info(
         self,
-        delete_subscriptions_request: Annotated[Optional[DeleteSubscriptionsRequest], Field(description="DeleteSubscriptionsRequestMessage")] = None,
+        delete_subscriptions_request: Annotated[Optional[DeleteSubscriptionsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2881,7 +2881,7 @@ class DefaultApi:
         """delete_subscriptions
 
 
-        :param delete_subscriptions_request: DeleteSubscriptionsRequestMessage
+        :param delete_subscriptions_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2).
         :type delete_subscriptions_request: DeleteSubscriptionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2930,7 +2930,7 @@ class DefaultApi:
     @validate_call
     def delete_subscriptions_without_preload_content(
         self,
-        delete_subscriptions_request: Annotated[Optional[DeleteSubscriptionsRequest], Field(description="DeleteSubscriptionsRequestMessage")] = None,
+        delete_subscriptions_request: Annotated[Optional[DeleteSubscriptionsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2947,7 +2947,7 @@ class DefaultApi:
         """delete_subscriptions
 
 
-        :param delete_subscriptions_request: DeleteSubscriptionsRequestMessage
+        :param delete_subscriptions_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2).
         :type delete_subscriptions_request: DeleteSubscriptionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3068,7 +3068,7 @@ class DefaultApi:
     @validate_call
     def find_servers(
         self,
-        find_servers_request: Annotated[Optional[FindServersRequest], Field(description="FindServersRequestMessage")] = None,
+        find_servers_request: Annotated[Optional[FindServersRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3085,7 +3085,7 @@ class DefaultApi:
         """find_servers
 
 
-        :param find_servers_request: FindServersRequestMessage
+        :param find_servers_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).
         :type find_servers_request: FindServersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3134,7 +3134,7 @@ class DefaultApi:
     @validate_call
     def find_servers_with_http_info(
         self,
-        find_servers_request: Annotated[Optional[FindServersRequest], Field(description="FindServersRequestMessage")] = None,
+        find_servers_request: Annotated[Optional[FindServersRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3151,7 +3151,7 @@ class DefaultApi:
         """find_servers
 
 
-        :param find_servers_request: FindServersRequestMessage
+        :param find_servers_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).
         :type find_servers_request: FindServersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3200,7 +3200,7 @@ class DefaultApi:
     @validate_call
     def find_servers_without_preload_content(
         self,
-        find_servers_request: Annotated[Optional[FindServersRequest], Field(description="FindServersRequestMessage")] = None,
+        find_servers_request: Annotated[Optional[FindServersRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3217,7 +3217,7 @@ class DefaultApi:
         """find_servers
 
 
-        :param find_servers_request: FindServersRequestMessage
+        :param find_servers_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2).
         :type find_servers_request: FindServersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3338,7 +3338,7 @@ class DefaultApi:
     @validate_call
     def get_endpoints(
         self,
-        get_endpoints_request: Annotated[Optional[GetEndpointsRequest], Field(description="GetEndpointsRequestMessage")] = None,
+        get_endpoints_request: Annotated[Optional[GetEndpointsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3355,7 +3355,7 @@ class DefaultApi:
         """get_endpoints
 
 
-        :param get_endpoints_request: GetEndpointsRequestMessage
+        :param get_endpoints_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).
         :type get_endpoints_request: GetEndpointsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3404,7 +3404,7 @@ class DefaultApi:
     @validate_call
     def get_endpoints_with_http_info(
         self,
-        get_endpoints_request: Annotated[Optional[GetEndpointsRequest], Field(description="GetEndpointsRequestMessage")] = None,
+        get_endpoints_request: Annotated[Optional[GetEndpointsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3421,7 +3421,7 @@ class DefaultApi:
         """get_endpoints
 
 
-        :param get_endpoints_request: GetEndpointsRequestMessage
+        :param get_endpoints_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).
         :type get_endpoints_request: GetEndpointsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3470,7 +3470,7 @@ class DefaultApi:
     @validate_call
     def get_endpoints_without_preload_content(
         self,
-        get_endpoints_request: Annotated[Optional[GetEndpointsRequest], Field(description="GetEndpointsRequestMessage")] = None,
+        get_endpoints_request: Annotated[Optional[GetEndpointsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3487,7 +3487,7 @@ class DefaultApi:
         """get_endpoints
 
 
-        :param get_endpoints_request: GetEndpointsRequestMessage
+        :param get_endpoints_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2).
         :type get_endpoints_request: GetEndpointsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3608,7 +3608,7 @@ class DefaultApi:
     @validate_call
     def history_read(
         self,
-        history_read_request: Annotated[Optional[HistoryReadRequest], Field(description="HistoryReadRequestMessage")] = None,
+        history_read_request: Annotated[Optional[HistoryReadRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3625,7 +3625,7 @@ class DefaultApi:
         """history_read
 
 
-        :param history_read_request: HistoryReadRequestMessage
+        :param history_read_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).
         :type history_read_request: HistoryReadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3674,7 +3674,7 @@ class DefaultApi:
     @validate_call
     def history_read_with_http_info(
         self,
-        history_read_request: Annotated[Optional[HistoryReadRequest], Field(description="HistoryReadRequestMessage")] = None,
+        history_read_request: Annotated[Optional[HistoryReadRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3691,7 +3691,7 @@ class DefaultApi:
         """history_read
 
 
-        :param history_read_request: HistoryReadRequestMessage
+        :param history_read_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).
         :type history_read_request: HistoryReadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3740,7 +3740,7 @@ class DefaultApi:
     @validate_call
     def history_read_without_preload_content(
         self,
-        history_read_request: Annotated[Optional[HistoryReadRequest], Field(description="HistoryReadRequestMessage")] = None,
+        history_read_request: Annotated[Optional[HistoryReadRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3757,7 +3757,7 @@ class DefaultApi:
         """history_read
 
 
-        :param history_read_request: HistoryReadRequestMessage
+        :param history_read_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).
         :type history_read_request: HistoryReadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3878,7 +3878,7 @@ class DefaultApi:
     @validate_call
     def history_update(
         self,
-        history_update_request: Annotated[Optional[HistoryUpdateRequest], Field(description="HistoryUpdateRequestMessage")] = None,
+        history_update_request: Annotated[Optional[HistoryUpdateRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3895,7 +3895,7 @@ class DefaultApi:
         """history_update
 
 
-        :param history_update_request: HistoryUpdateRequestMessage
+        :param history_update_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).
         :type history_update_request: HistoryUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3944,7 +3944,7 @@ class DefaultApi:
     @validate_call
     def history_update_with_http_info(
         self,
-        history_update_request: Annotated[Optional[HistoryUpdateRequest], Field(description="HistoryUpdateRequestMessage")] = None,
+        history_update_request: Annotated[Optional[HistoryUpdateRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3961,7 +3961,7 @@ class DefaultApi:
         """history_update
 
 
-        :param history_update_request: HistoryUpdateRequestMessage
+        :param history_update_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).
         :type history_update_request: HistoryUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4010,7 +4010,7 @@ class DefaultApi:
     @validate_call
     def history_update_without_preload_content(
         self,
-        history_update_request: Annotated[Optional[HistoryUpdateRequest], Field(description="HistoryUpdateRequestMessage")] = None,
+        history_update_request: Annotated[Optional[HistoryUpdateRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4027,7 +4027,7 @@ class DefaultApi:
         """history_update
 
 
-        :param history_update_request: HistoryUpdateRequestMessage
+        :param history_update_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).
         :type history_update_request: HistoryUpdateRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4148,7 +4148,7 @@ class DefaultApi:
     @validate_call
     def modify_monitored_items(
         self,
-        modify_monitored_items_request: Annotated[Optional[ModifyMonitoredItemsRequest], Field(description="ModifyMonitoredItemsRequestMessage")] = None,
+        modify_monitored_items_request: Annotated[Optional[ModifyMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4165,7 +4165,7 @@ class DefaultApi:
         """modify_monitored_items
 
 
-        :param modify_monitored_items_request: ModifyMonitoredItemsRequestMessage
+        :param modify_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
         :type modify_monitored_items_request: ModifyMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4214,7 +4214,7 @@ class DefaultApi:
     @validate_call
     def modify_monitored_items_with_http_info(
         self,
-        modify_monitored_items_request: Annotated[Optional[ModifyMonitoredItemsRequest], Field(description="ModifyMonitoredItemsRequestMessage")] = None,
+        modify_monitored_items_request: Annotated[Optional[ModifyMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4231,7 +4231,7 @@ class DefaultApi:
         """modify_monitored_items
 
 
-        :param modify_monitored_items_request: ModifyMonitoredItemsRequestMessage
+        :param modify_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
         :type modify_monitored_items_request: ModifyMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4280,7 +4280,7 @@ class DefaultApi:
     @validate_call
     def modify_monitored_items_without_preload_content(
         self,
-        modify_monitored_items_request: Annotated[Optional[ModifyMonitoredItemsRequest], Field(description="ModifyMonitoredItemsRequestMessage")] = None,
+        modify_monitored_items_request: Annotated[Optional[ModifyMonitoredItemsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4297,7 +4297,7 @@ class DefaultApi:
         """modify_monitored_items
 
 
-        :param modify_monitored_items_request: ModifyMonitoredItemsRequestMessage
+        :param modify_monitored_items_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
         :type modify_monitored_items_request: ModifyMonitoredItemsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4418,7 +4418,7 @@ class DefaultApi:
     @validate_call
     def modify_subscription(
         self,
-        modify_subscription_request: Annotated[Optional[ModifySubscriptionRequest], Field(description="ModifySubscriptionRequestMessage")] = None,
+        modify_subscription_request: Annotated[Optional[ModifySubscriptionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4435,7 +4435,7 @@ class DefaultApi:
         """modify_subscription
 
 
-        :param modify_subscription_request: ModifySubscriptionRequestMessage
+        :param modify_subscription_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).
         :type modify_subscription_request: ModifySubscriptionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4484,7 +4484,7 @@ class DefaultApi:
     @validate_call
     def modify_subscription_with_http_info(
         self,
-        modify_subscription_request: Annotated[Optional[ModifySubscriptionRequest], Field(description="ModifySubscriptionRequestMessage")] = None,
+        modify_subscription_request: Annotated[Optional[ModifySubscriptionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4501,7 +4501,7 @@ class DefaultApi:
         """modify_subscription
 
 
-        :param modify_subscription_request: ModifySubscriptionRequestMessage
+        :param modify_subscription_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).
         :type modify_subscription_request: ModifySubscriptionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4550,7 +4550,7 @@ class DefaultApi:
     @validate_call
     def modify_subscription_without_preload_content(
         self,
-        modify_subscription_request: Annotated[Optional[ModifySubscriptionRequest], Field(description="ModifySubscriptionRequestMessage")] = None,
+        modify_subscription_request: Annotated[Optional[ModifySubscriptionRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4567,7 +4567,7 @@ class DefaultApi:
         """modify_subscription
 
 
-        :param modify_subscription_request: ModifySubscriptionRequestMessage
+        :param modify_subscription_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).
         :type modify_subscription_request: ModifySubscriptionRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4688,7 +4688,7 @@ class DefaultApi:
     @validate_call
     def publish(
         self,
-        publish_request: Annotated[Optional[PublishRequest], Field(description="PublishRequestMessage")] = None,
+        publish_request: Annotated[Optional[PublishRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4705,7 +4705,7 @@ class DefaultApi:
         """publish
 
 
-        :param publish_request: PublishRequestMessage
+        :param publish_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).
         :type publish_request: PublishRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4754,7 +4754,7 @@ class DefaultApi:
     @validate_call
     def publish_with_http_info(
         self,
-        publish_request: Annotated[Optional[PublishRequest], Field(description="PublishRequestMessage")] = None,
+        publish_request: Annotated[Optional[PublishRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4771,7 +4771,7 @@ class DefaultApi:
         """publish
 
 
-        :param publish_request: PublishRequestMessage
+        :param publish_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).
         :type publish_request: PublishRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4820,7 +4820,7 @@ class DefaultApi:
     @validate_call
     def publish_without_preload_content(
         self,
-        publish_request: Annotated[Optional[PublishRequest], Field(description="PublishRequestMessage")] = None,
+        publish_request: Annotated[Optional[PublishRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4837,7 +4837,7 @@ class DefaultApi:
         """publish
 
 
-        :param publish_request: PublishRequestMessage
+        :param publish_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).
         :type publish_request: PublishRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4958,7 +4958,7 @@ class DefaultApi:
     @validate_call
     def read(
         self,
-        read_request: Annotated[Optional[ReadRequest], Field(description="ReadRequestMessage")] = None,
+        read_request: Annotated[Optional[ReadRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4975,7 +4975,7 @@ class DefaultApi:
         """read
 
 
-        :param read_request: ReadRequestMessage
+        :param read_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).
         :type read_request: ReadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5024,7 +5024,7 @@ class DefaultApi:
     @validate_call
     def read_with_http_info(
         self,
-        read_request: Annotated[Optional[ReadRequest], Field(description="ReadRequestMessage")] = None,
+        read_request: Annotated[Optional[ReadRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5041,7 +5041,7 @@ class DefaultApi:
         """read
 
 
-        :param read_request: ReadRequestMessage
+        :param read_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).
         :type read_request: ReadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5090,7 +5090,7 @@ class DefaultApi:
     @validate_call
     def read_without_preload_content(
         self,
-        read_request: Annotated[Optional[ReadRequest], Field(description="ReadRequestMessage")] = None,
+        read_request: Annotated[Optional[ReadRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5107,7 +5107,7 @@ class DefaultApi:
         """read
 
 
-        :param read_request: ReadRequestMessage
+        :param read_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2).
         :type read_request: ReadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5228,7 +5228,7 @@ class DefaultApi:
     @validate_call
     def register_nodes(
         self,
-        register_nodes_request: Annotated[Optional[RegisterNodesRequest], Field(description="RegisterNodesRequestMessage")] = None,
+        register_nodes_request: Annotated[Optional[RegisterNodesRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5245,7 +5245,7 @@ class DefaultApi:
         """register_nodes
 
 
-        :param register_nodes_request: RegisterNodesRequestMessage
+        :param register_nodes_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).
         :type register_nodes_request: RegisterNodesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5294,7 +5294,7 @@ class DefaultApi:
     @validate_call
     def register_nodes_with_http_info(
         self,
-        register_nodes_request: Annotated[Optional[RegisterNodesRequest], Field(description="RegisterNodesRequestMessage")] = None,
+        register_nodes_request: Annotated[Optional[RegisterNodesRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5311,7 +5311,7 @@ class DefaultApi:
         """register_nodes
 
 
-        :param register_nodes_request: RegisterNodesRequestMessage
+        :param register_nodes_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).
         :type register_nodes_request: RegisterNodesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5360,7 +5360,7 @@ class DefaultApi:
     @validate_call
     def register_nodes_without_preload_content(
         self,
-        register_nodes_request: Annotated[Optional[RegisterNodesRequest], Field(description="RegisterNodesRequestMessage")] = None,
+        register_nodes_request: Annotated[Optional[RegisterNodesRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5377,7 +5377,7 @@ class DefaultApi:
         """register_nodes
 
 
-        :param register_nodes_request: RegisterNodesRequestMessage
+        :param register_nodes_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2).
         :type register_nodes_request: RegisterNodesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5498,7 +5498,7 @@ class DefaultApi:
     @validate_call
     def republish(
         self,
-        republish_request: Annotated[Optional[RepublishRequest], Field(description="RepublishRequestMessage")] = None,
+        republish_request: Annotated[Optional[RepublishRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5515,7 +5515,7 @@ class DefaultApi:
         """republish
 
 
-        :param republish_request: RepublishRequestMessage
+        :param republish_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).
         :type republish_request: RepublishRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5564,7 +5564,7 @@ class DefaultApi:
     @validate_call
     def republish_with_http_info(
         self,
-        republish_request: Annotated[Optional[RepublishRequest], Field(description="RepublishRequestMessage")] = None,
+        republish_request: Annotated[Optional[RepublishRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5581,7 +5581,7 @@ class DefaultApi:
         """republish
 
 
-        :param republish_request: RepublishRequestMessage
+        :param republish_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).
         :type republish_request: RepublishRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5630,7 +5630,7 @@ class DefaultApi:
     @validate_call
     def republish_without_preload_content(
         self,
-        republish_request: Annotated[Optional[RepublishRequest], Field(description="RepublishRequestMessage")] = None,
+        republish_request: Annotated[Optional[RepublishRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5647,7 +5647,7 @@ class DefaultApi:
         """republish
 
 
-        :param republish_request: RepublishRequestMessage
+        :param republish_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2).
         :type republish_request: RepublishRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5768,7 +5768,7 @@ class DefaultApi:
     @validate_call
     def set_monitoring_mode(
         self,
-        set_monitoring_mode_request: Annotated[Optional[SetMonitoringModeRequest], Field(description="SetMonitoringModeRequestMessage")] = None,
+        set_monitoring_mode_request: Annotated[Optional[SetMonitoringModeRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5785,7 +5785,7 @@ class DefaultApi:
         """set_monitoring_mode
 
 
-        :param set_monitoring_mode_request: SetMonitoringModeRequestMessage
+        :param set_monitoring_mode_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).
         :type set_monitoring_mode_request: SetMonitoringModeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5834,7 +5834,7 @@ class DefaultApi:
     @validate_call
     def set_monitoring_mode_with_http_info(
         self,
-        set_monitoring_mode_request: Annotated[Optional[SetMonitoringModeRequest], Field(description="SetMonitoringModeRequestMessage")] = None,
+        set_monitoring_mode_request: Annotated[Optional[SetMonitoringModeRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5851,7 +5851,7 @@ class DefaultApi:
         """set_monitoring_mode
 
 
-        :param set_monitoring_mode_request: SetMonitoringModeRequestMessage
+        :param set_monitoring_mode_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).
         :type set_monitoring_mode_request: SetMonitoringModeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5900,7 +5900,7 @@ class DefaultApi:
     @validate_call
     def set_monitoring_mode_without_preload_content(
         self,
-        set_monitoring_mode_request: Annotated[Optional[SetMonitoringModeRequest], Field(description="SetMonitoringModeRequestMessage")] = None,
+        set_monitoring_mode_request: Annotated[Optional[SetMonitoringModeRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5917,7 +5917,7 @@ class DefaultApi:
         """set_monitoring_mode
 
 
-        :param set_monitoring_mode_request: SetMonitoringModeRequestMessage
+        :param set_monitoring_mode_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).
         :type set_monitoring_mode_request: SetMonitoringModeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6038,7 +6038,7 @@ class DefaultApi:
     @validate_call
     def set_publishing_mode(
         self,
-        set_publishing_mode_request: Annotated[Optional[SetPublishingModeRequest], Field(description="SetPublishingModeRequestMessage")] = None,
+        set_publishing_mode_request: Annotated[Optional[SetPublishingModeRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6055,7 +6055,7 @@ class DefaultApi:
         """set_publishing_mode
 
 
-        :param set_publishing_mode_request: SetPublishingModeRequestMessage
+        :param set_publishing_mode_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).
         :type set_publishing_mode_request: SetPublishingModeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6104,7 +6104,7 @@ class DefaultApi:
     @validate_call
     def set_publishing_mode_with_http_info(
         self,
-        set_publishing_mode_request: Annotated[Optional[SetPublishingModeRequest], Field(description="SetPublishingModeRequestMessage")] = None,
+        set_publishing_mode_request: Annotated[Optional[SetPublishingModeRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6121,7 +6121,7 @@ class DefaultApi:
         """set_publishing_mode
 
 
-        :param set_publishing_mode_request: SetPublishingModeRequestMessage
+        :param set_publishing_mode_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).
         :type set_publishing_mode_request: SetPublishingModeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6170,7 +6170,7 @@ class DefaultApi:
     @validate_call
     def set_publishing_mode_without_preload_content(
         self,
-        set_publishing_mode_request: Annotated[Optional[SetPublishingModeRequest], Field(description="SetPublishingModeRequestMessage")] = None,
+        set_publishing_mode_request: Annotated[Optional[SetPublishingModeRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6187,7 +6187,7 @@ class DefaultApi:
         """set_publishing_mode
 
 
-        :param set_publishing_mode_request: SetPublishingModeRequestMessage
+        :param set_publishing_mode_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2).
         :type set_publishing_mode_request: SetPublishingModeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6308,7 +6308,7 @@ class DefaultApi:
     @validate_call
     def set_triggering(
         self,
-        set_triggering_request: Annotated[Optional[SetTriggeringRequest], Field(description="SetTriggeringRequestMessage")] = None,
+        set_triggering_request: Annotated[Optional[SetTriggeringRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6325,7 +6325,7 @@ class DefaultApi:
         """set_triggering
 
 
-        :param set_triggering_request: SetTriggeringRequestMessage
+        :param set_triggering_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).
         :type set_triggering_request: SetTriggeringRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6374,7 +6374,7 @@ class DefaultApi:
     @validate_call
     def set_triggering_with_http_info(
         self,
-        set_triggering_request: Annotated[Optional[SetTriggeringRequest], Field(description="SetTriggeringRequestMessage")] = None,
+        set_triggering_request: Annotated[Optional[SetTriggeringRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6391,7 +6391,7 @@ class DefaultApi:
         """set_triggering
 
 
-        :param set_triggering_request: SetTriggeringRequestMessage
+        :param set_triggering_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).
         :type set_triggering_request: SetTriggeringRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6440,7 +6440,7 @@ class DefaultApi:
     @validate_call
     def set_triggering_without_preload_content(
         self,
-        set_triggering_request: Annotated[Optional[SetTriggeringRequest], Field(description="SetTriggeringRequestMessage")] = None,
+        set_triggering_request: Annotated[Optional[SetTriggeringRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6457,7 +6457,7 @@ class DefaultApi:
         """set_triggering
 
 
-        :param set_triggering_request: SetTriggeringRequestMessage
+        :param set_triggering_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2).
         :type set_triggering_request: SetTriggeringRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6578,7 +6578,7 @@ class DefaultApi:
     @validate_call
     def transfer_subscriptions(
         self,
-        transfer_subscriptions_request: Annotated[Optional[TransferSubscriptionsRequest], Field(description="TransferSubscriptionsRequestMessage")] = None,
+        transfer_subscriptions_request: Annotated[Optional[TransferSubscriptionsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6595,7 +6595,7 @@ class DefaultApi:
         """transfer_subscriptions
 
 
-        :param transfer_subscriptions_request: TransferSubscriptionsRequestMessage
+        :param transfer_subscriptions_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).
         :type transfer_subscriptions_request: TransferSubscriptionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6644,7 +6644,7 @@ class DefaultApi:
     @validate_call
     def transfer_subscriptions_with_http_info(
         self,
-        transfer_subscriptions_request: Annotated[Optional[TransferSubscriptionsRequest], Field(description="TransferSubscriptionsRequestMessage")] = None,
+        transfer_subscriptions_request: Annotated[Optional[TransferSubscriptionsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6661,7 +6661,7 @@ class DefaultApi:
         """transfer_subscriptions
 
 
-        :param transfer_subscriptions_request: TransferSubscriptionsRequestMessage
+        :param transfer_subscriptions_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).
         :type transfer_subscriptions_request: TransferSubscriptionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6710,7 +6710,7 @@ class DefaultApi:
     @validate_call
     def transfer_subscriptions_without_preload_content(
         self,
-        transfer_subscriptions_request: Annotated[Optional[TransferSubscriptionsRequest], Field(description="TransferSubscriptionsRequestMessage")] = None,
+        transfer_subscriptions_request: Annotated[Optional[TransferSubscriptionsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6727,7 +6727,7 @@ class DefaultApi:
         """transfer_subscriptions
 
 
-        :param transfer_subscriptions_request: TransferSubscriptionsRequestMessage
+        :param transfer_subscriptions_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2).
         :type transfer_subscriptions_request: TransferSubscriptionsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6848,7 +6848,7 @@ class DefaultApi:
     @validate_call
     def translate_browse_paths_to_node_ids(
         self,
-        translate_browse_paths_to_node_ids_request: Annotated[Optional[TranslateBrowsePathsToNodeIdsRequest], Field(description="TranslateBrowsePathsToNodeIdsRequestMessage")] = None,
+        translate_browse_paths_to_node_ids_request: Annotated[Optional[TranslateBrowsePathsToNodeIdsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6865,7 +6865,7 @@ class DefaultApi:
         """translate_browse_paths_to_node_ids
 
 
-        :param translate_browse_paths_to_node_ids_request: TranslateBrowsePathsToNodeIdsRequestMessage
+        :param translate_browse_paths_to_node_ids_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
         :type translate_browse_paths_to_node_ids_request: TranslateBrowsePathsToNodeIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6914,7 +6914,7 @@ class DefaultApi:
     @validate_call
     def translate_browse_paths_to_node_ids_with_http_info(
         self,
-        translate_browse_paths_to_node_ids_request: Annotated[Optional[TranslateBrowsePathsToNodeIdsRequest], Field(description="TranslateBrowsePathsToNodeIdsRequestMessage")] = None,
+        translate_browse_paths_to_node_ids_request: Annotated[Optional[TranslateBrowsePathsToNodeIdsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6931,7 +6931,7 @@ class DefaultApi:
         """translate_browse_paths_to_node_ids
 
 
-        :param translate_browse_paths_to_node_ids_request: TranslateBrowsePathsToNodeIdsRequestMessage
+        :param translate_browse_paths_to_node_ids_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
         :type translate_browse_paths_to_node_ids_request: TranslateBrowsePathsToNodeIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6980,7 +6980,7 @@ class DefaultApi:
     @validate_call
     def translate_browse_paths_to_node_ids_without_preload_content(
         self,
-        translate_browse_paths_to_node_ids_request: Annotated[Optional[TranslateBrowsePathsToNodeIdsRequest], Field(description="TranslateBrowsePathsToNodeIdsRequestMessage")] = None,
+        translate_browse_paths_to_node_ids_request: Annotated[Optional[TranslateBrowsePathsToNodeIdsRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6997,7 +6997,7 @@ class DefaultApi:
         """translate_browse_paths_to_node_ids
 
 
-        :param translate_browse_paths_to_node_ids_request: TranslateBrowsePathsToNodeIdsRequestMessage
+        :param translate_browse_paths_to_node_ids_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
         :type translate_browse_paths_to_node_ids_request: TranslateBrowsePathsToNodeIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7118,7 +7118,7 @@ class DefaultApi:
     @validate_call
     def unregister_nodes(
         self,
-        unregister_nodes_request: Annotated[Optional[UnregisterNodesRequest], Field(description="UnregisterNodesRequestMessage")] = None,
+        unregister_nodes_request: Annotated[Optional[UnregisterNodesRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7135,7 +7135,7 @@ class DefaultApi:
         """unregister_nodes
 
 
-        :param unregister_nodes_request: UnregisterNodesRequestMessage
+        :param unregister_nodes_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).
         :type unregister_nodes_request: UnregisterNodesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7184,7 +7184,7 @@ class DefaultApi:
     @validate_call
     def unregister_nodes_with_http_info(
         self,
-        unregister_nodes_request: Annotated[Optional[UnregisterNodesRequest], Field(description="UnregisterNodesRequestMessage")] = None,
+        unregister_nodes_request: Annotated[Optional[UnregisterNodesRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7201,7 +7201,7 @@ class DefaultApi:
         """unregister_nodes
 
 
-        :param unregister_nodes_request: UnregisterNodesRequestMessage
+        :param unregister_nodes_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).
         :type unregister_nodes_request: UnregisterNodesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7250,7 +7250,7 @@ class DefaultApi:
     @validate_call
     def unregister_nodes_without_preload_content(
         self,
-        unregister_nodes_request: Annotated[Optional[UnregisterNodesRequest], Field(description="UnregisterNodesRequestMessage")] = None,
+        unregister_nodes_request: Annotated[Optional[UnregisterNodesRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7267,7 +7267,7 @@ class DefaultApi:
         """unregister_nodes
 
 
-        :param unregister_nodes_request: UnregisterNodesRequestMessage
+        :param unregister_nodes_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).
         :type unregister_nodes_request: UnregisterNodesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7388,7 +7388,7 @@ class DefaultApi:
     @validate_call
     def write(
         self,
-        write_request: Annotated[Optional[WriteRequest], Field(description="WriteRequestMessage")] = None,
+        write_request: Annotated[Optional[WriteRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7405,7 +7405,7 @@ class DefaultApi:
         """write
 
 
-        :param write_request: WriteRequestMessage
+        :param write_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).
         :type write_request: WriteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7454,7 +7454,7 @@ class DefaultApi:
     @validate_call
     def write_with_http_info(
         self,
-        write_request: Annotated[Optional[WriteRequest], Field(description="WriteRequestMessage")] = None,
+        write_request: Annotated[Optional[WriteRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7471,7 +7471,7 @@ class DefaultApi:
         """write
 
 
-        :param write_request: WriteRequestMessage
+        :param write_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).
         :type write_request: WriteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7520,7 +7520,7 @@ class DefaultApi:
     @validate_call
     def write_without_preload_content(
         self,
-        write_request: Annotated[Optional[WriteRequest], Field(description="WriteRequestMessage")] = None,
+        write_request: Annotated[Optional[WriteRequest], Field(description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7537,7 +7537,7 @@ class DefaultApi:
         """write
 
 
-        :param write_request: WriteRequestMessage
+        :param write_request: [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).
         :type write_request: WriteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

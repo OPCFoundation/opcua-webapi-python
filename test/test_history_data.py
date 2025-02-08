@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.history_data import HistoryData  # noqa: E501
+from opcua_webapi.models.history_data import HistoryData
 
 class TestHistoryData(unittest.TestCase):
     """HistoryData unit test stubs"""
@@ -29,27 +28,28 @@ class TestHistoryData(unittest.TestCase):
 
     def make_instance(self, include_optional) -> HistoryData:
         """Test HistoryData
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `HistoryData`
         """
-        model = HistoryData()  # noqa: E501
+        model = HistoryData()
         if include_optional:
             return HistoryData(
                 data_values = [
                     opcua_webapi.models.data_value.DataValue(
-                        value = opcua_webapi.models.variant.Variant(
-                            type = 0, 
-                            body = null, 
-                            dimensions = [
-                                0
-                                ], ), 
-                        status_code = 0, 
+                        ua_type = 0, 
+                        value = null, 
+                        dimensions = [
+                            0
+                            ], 
+                        status_code = opcua_webapi.models.status_code.StatusCode(
+                            code = 0, 
+                            symbol = '', ), 
                         source_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        source_pico_seconds = 0, 
+                        source_picoseconds = 0, 
                         server_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        server_pico_seconds = 0, )
+                        server_picoseconds = 0, )
                     ]
             )
         else:

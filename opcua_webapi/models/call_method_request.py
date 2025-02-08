@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class CallMethodRequest(BaseModel):
     """
-    CallMethodRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).
     """ # noqa: E501
     object_id: Optional[StrictStr] = Field(default=None, alias="ObjectId")
     method_id: Optional[StrictStr] = Field(default=None, alias="MethodId")

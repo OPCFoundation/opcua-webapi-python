@@ -26,10 +26,10 @@ from typing_extensions import Self
 
 class ModificationInfo(BaseModel):
     """
-    ModificationInfo
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.6.5).
     """ # noqa: E501
     modification_time: Optional[datetime] = Field(default=None, alias="ModificationTime")
-    update_type: Optional[StrictInt] = Field(default=None, alias="UpdateType")
+    update_type: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.7).", alias="UpdateType")
     user_name: Optional[StrictStr] = Field(default=None, alias="UserName")
     __properties: ClassVar[List[str]] = ["ModificationTime", "UpdateType", "UserName"]
 

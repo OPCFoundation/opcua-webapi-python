@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class Range(BaseModel):
     """
-    Range
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part8/5.6.2).
     """ # noqa: E501
     low: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="Low")
     high: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="High")

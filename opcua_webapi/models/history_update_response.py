@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class HistoryUpdateResponse(BaseModel):
     """
-    HistoryUpdateResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     results: Optional[List[HistoryUpdateResult]] = Field(default=None, alias="Results")

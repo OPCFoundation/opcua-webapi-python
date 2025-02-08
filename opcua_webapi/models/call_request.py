@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class CallRequest(BaseModel):
     """
-    CallRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     methods_to_call: Optional[List[CallMethodRequest]] = Field(default=None, alias="MethodsToCall")

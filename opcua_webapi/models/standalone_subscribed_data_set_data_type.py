@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class StandaloneSubscribedDataSetDataType(BaseModel):
     """
-    StandaloneSubscribedDataSetDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.10/#6.2.10.5).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     data_set_folder: Optional[List[StrictStr]] = Field(default=None, alias="DataSetFolder")

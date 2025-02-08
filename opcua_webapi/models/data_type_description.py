@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class DataTypeDescription(BaseModel):
     """
-    DataTypeDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.32).
     """ # noqa: E501
     data_type_id: Optional[StrictStr] = Field(default=None, alias="DataTypeId")
     name: Optional[StrictStr] = Field(default=None, alias="Name")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class StructureField(BaseModel):
     """
-    StructureField
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.12/#12.2.12.10).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")

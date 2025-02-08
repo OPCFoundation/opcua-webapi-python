@@ -26,14 +26,14 @@ from typing_extensions import Self
 
 class ReferenceDescription(BaseModel):
     """
-    ReferenceDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.30).
     """ # noqa: E501
     reference_type_id: Optional[StrictStr] = Field(default=None, alias="ReferenceTypeId")
     is_forward: Optional[StrictBool] = Field(default=False, alias="IsForward")
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     browse_name: Optional[StrictStr] = Field(default=None, alias="BrowseName")
     display_name: Optional[LocalizedText] = Field(default=None, alias="DisplayName")
-    node_class: Optional[StrictInt] = Field(default=None, alias="NodeClass")
+    node_class: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.5/#12.2.5.2).", alias="NodeClass")
     type_definition: Optional[StrictStr] = Field(default=None, alias="TypeDefinition")
     __properties: ClassVar[List[str]] = ["ReferenceTypeId", "IsForward", "NodeId", "BrowseName", "DisplayName", "NodeClass", "TypeDefinition"]
 

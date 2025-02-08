@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class WriteRequest(BaseModel):
     """
-    WriteRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     nodes_to_write: Optional[List[WriteValue]] = Field(default=None, alias="NodesToWrite")

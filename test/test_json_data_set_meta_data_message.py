@@ -65,7 +65,6 @@ class TestJsonDataSetMetaDataMessage(unittest.TestCase):
                                     key = '', 
                                     value = opcua_webapi.models.variant.Variant(
                                         ua_type = 0, 
-                                        body = null, 
                                         dimensions = [
                                             0
                                             ], ), )

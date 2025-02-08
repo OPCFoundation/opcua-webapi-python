@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class RelativePath(BaseModel):
     """
-    RelativePath
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.31).
     """ # noqa: E501
     elements: Optional[List[RelativePathElement]] = Field(default=None, alias="Elements")
     __properties: ClassVar[List[str]] = ["Elements"]

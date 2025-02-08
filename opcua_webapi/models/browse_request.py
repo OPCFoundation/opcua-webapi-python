@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class BrowseRequest(BaseModel):
     """
-    BrowseRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     view: Optional[ViewDescription] = Field(default=None, alias="View")

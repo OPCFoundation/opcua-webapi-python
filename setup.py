@@ -22,7 +22,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "opcua-webapi"
-VERSION = "1.504.0"
+VERSION = "1.504.1"
 PYTHON_REQUIRES = ">= 3.8"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 3.0.0",
@@ -48,9 +48,4 @@ setup(
     Provides simple HTTPS based access to an OPC UA server.
     """,  # noqa: E501
     package_data={"opcua_webapi": ["py.typed"]},
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
 )

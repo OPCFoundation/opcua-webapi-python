@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class SecurityGroupDataType(BaseModel):
     """
-    SecurityGroupDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.12/#6.2.12.2).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     security_group_folder: Optional[List[StrictStr]] = Field(default=None, alias="SecurityGroupFolder")

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class HistoryEventFieldList(BaseModel):
     """
-    HistoryEventFieldList
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.6.4).
     """ # noqa: E501
     event_fields: Optional[List[Variant]] = Field(default=None, alias="EventFields")
     __properties: ClassVar[List[str]] = ["EventFields"]

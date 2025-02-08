@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class JsonDataSetMessage(BaseModel):
     """
-    JsonDataSetMessage
+    [Link to specification]().
     """ # noqa: E501
     data_set_writer_id: Optional[Annotated[int, Field(le=65535, strict=True, ge=0)]] = Field(default=0, alias="DataSetWriterId")
     data_set_writer_name: Optional[StrictStr] = Field(default=None, alias="DataSetWriterName")

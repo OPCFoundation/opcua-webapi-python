@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ConfigurationVersionDataType(BaseModel):
     """
-    ConfigurationVersionDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.3/#6.2.3.2.6).
     """ # noqa: E501
     major_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MajorVersion")
     minor_version: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MinorVersion")

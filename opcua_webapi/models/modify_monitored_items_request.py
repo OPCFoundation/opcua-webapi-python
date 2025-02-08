@@ -28,11 +28,11 @@ from typing_extensions import Self
 
 class ModifyMonitoredItemsRequest(BaseModel):
     """
-    ModifyMonitoredItemsRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
-    timestamps_to_return: Optional[StrictInt] = Field(default=None, alias="TimestampsToReturn")
+    timestamps_to_return: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.40).", alias="TimestampsToReturn")
     items_to_modify: Optional[List[MonitoredItemModifyRequest]] = Field(default=None, alias="ItemsToModify")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "TimestampsToReturn", "ItemsToModify"]
 

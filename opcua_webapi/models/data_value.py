@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class DataValue(BaseModel):
     """
-    DataValue
+    [Link to specification](https://reference.opcfoundation.org/Core/Part6/v105/docs/5.4.2.18).
     """ # noqa: E501
     ua_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="UaType")
     value: Optional[Any] = Field(default=None, alias="Value")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class JsonApplicationDescriptionMessage(BaseModel):
     """
-    JsonApplicationDescriptionMessage
+    [Link to specification]().
     """ # noqa: E501
     message_id: Optional[StrictStr] = Field(default=None, alias="MessageId")
     message_type: Optional[StrictStr] = Field(default=None, alias="MessageType")

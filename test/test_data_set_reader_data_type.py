@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.data_set_reader_data_type import DataSetReaderDataType  # noqa: E501
+from opcua_webapi.models.data_set_reader_data_type import DataSetReaderDataType
 
 class TestDataSetReaderDataType(unittest.TestCase):
     """DataSetReaderDataType unit test stubs"""
@@ -29,19 +28,19 @@ class TestDataSetReaderDataType(unittest.TestCase):
 
     def make_instance(self, include_optional) -> DataSetReaderDataType:
         """Test DataSetReaderDataType
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `DataSetReaderDataType`
         """
-        model = DataSetReaderDataType()  # noqa: E501
+        model = DataSetReaderDataType()
         if include_optional:
             return DataSetReaderDataType(
                 name = '',
                 enabled = True,
                 publisher_id = opcua_webapi.models.variant.Variant(
-                    type = 0, 
-                    body = null, 
+                    ua_type = 0, 
+                    value = null, 
                     dimensions = [
                         0
                         ], ),
@@ -68,8 +67,7 @@ class TestDataSetReaderDataType(unittest.TestCase):
                                 opcua_webapi.models.key_value_pair.KeyValuePair(
                                     key = '', 
                                     value = opcua_webapi.models.variant.Variant(
-                                        type = 0, 
-                                        body = null, 
+                                        ua_type = 0, 
                                         dimensions = [
                                             0
                                             ], ), )
@@ -118,24 +116,14 @@ class TestDataSetReaderDataType(unittest.TestCase):
                     opcua_webapi.models.key_value_pair.KeyValuePair(
                         key = '', 
                         value = opcua_webapi.models.variant.Variant(
-                            type = 0, 
-                            body = null, 
+                            ua_type = 0, 
                             dimensions = [
                                 0
                                 ], ), )
                     ],
-                transport_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                    type_id = '', 
-                    encoding = 0, 
-                    body = opcua_webapi.models.body.Body(), ),
-                message_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                    type_id = '', 
-                    encoding = 0, 
-                    body = opcua_webapi.models.body.Body(), ),
-                subscribed_data_set = opcua_webapi.models.extension_object.ExtensionObject(
-                    type_id = '', 
-                    encoding = 0, 
-                    body = opcua_webapi.models.body.Body(), )
+                transport_settings = None,
+                message_settings = None,
+                subscribed_data_set = None
             )
         else:
             return DataSetReaderDataType(

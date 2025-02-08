@@ -29,14 +29,14 @@ from typing_extensions import Self
 
 class ReaderGroupDataType(BaseModel):
     """
-    ReaderGroupDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.8/#6.2.8.2.1).
     """ # noqa: E501
     transport_settings: Optional[Dict[str, Any]] = Field(default=None, alias="TransportSettings")
     message_settings: Optional[Dict[str, Any]] = Field(default=None, alias="MessageSettings")
     data_set_readers: Optional[List[DataSetReaderDataType]] = Field(default=None, alias="DataSetReaders")
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")
-    security_mode: Optional[StrictInt] = Field(default=None, alias="SecurityMode")
+    security_mode: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10).", alias="SecurityMode")
     security_group_id: Optional[StrictStr] = Field(default=None, alias="SecurityGroupId")
     security_key_services: Optional[List[EndpointDescription]] = Field(default=None, alias="SecurityKeyServices")
     max_network_message_size: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxNetworkMessageSize")

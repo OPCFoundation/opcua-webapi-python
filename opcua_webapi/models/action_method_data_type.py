@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class ActionMethodDataType(BaseModel):
     """
-    ActionMethodDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.3/#6.2.3.10.5).
     """ # noqa: E501
     object_id: Optional[StrictStr] = Field(default=None, alias="ObjectId")
     method_id: Optional[StrictStr] = Field(default=None, alias="MethodId")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class PublishRequest(BaseModel):
     """
-    PublishRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     subscription_acknowledgements: Optional[List[SubscriptionAcknowledgement]] = Field(default=None, alias="SubscriptionAcknowledgements")

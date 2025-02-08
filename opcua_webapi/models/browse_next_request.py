@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class BrowseNextRequest(BaseModel):
     """
-    BrowseNextRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     release_continuation_points: Optional[StrictBool] = Field(default=False, alias="ReleaseContinuationPoints")

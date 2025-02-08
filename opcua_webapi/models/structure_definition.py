@@ -26,11 +26,11 @@ from typing_extensions import Self
 
 class StructureDefinition(BaseModel):
     """
-    StructureDefinition
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.12/#12.2.12.5).
     """ # noqa: E501
     default_encoding_id: Optional[StrictStr] = Field(default=None, alias="DefaultEncodingId")
     base_data_type: Optional[StrictStr] = Field(default=None, alias="BaseDataType")
-    structure_type: Optional[StrictInt] = Field(default=None, alias="StructureType")
+    structure_type: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.5/#12.2.5.3).", alias="StructureType")
     fields: Optional[List[StructureField]] = Field(default=None, alias="Fields")
     __properties: ClassVar[List[str]] = []
 

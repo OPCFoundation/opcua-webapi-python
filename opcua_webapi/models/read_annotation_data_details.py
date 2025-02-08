@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ReadAnnotationDataDetails(BaseModel):
     """
-    ReadAnnotationDataDetails
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.5.6/#6.5.6.1).
     """ # noqa: E501
     req_times: Optional[List[datetime]] = Field(default=None, alias="ReqTimes")
     __properties: ClassVar[List[str]] = []

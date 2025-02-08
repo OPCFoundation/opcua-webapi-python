@@ -26,9 +26,9 @@ from typing_extensions import Self
 
 class ContentFilterElement(BaseModel):
     """
-    ContentFilterElement
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.1).
     """ # noqa: E501
-    filter_operator: Optional[StrictInt] = Field(default=None, alias="FilterOperator")
+    filter_operator: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.3).", alias="FilterOperator")
     filter_operands: Optional[List[ExtensionObject]] = Field(default=None, alias="FilterOperands")
     __properties: ClassVar[List[str]] = ["FilterOperator", "FilterOperands"]
 

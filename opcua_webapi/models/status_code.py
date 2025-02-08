@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class StatusCode(BaseModel):
     """
-    StatusCode
+    [Link to specification](https://reference.opcfoundation.org/Core/Part4/v105/docs/7.39). [Set of defined codes](https://github.com/OPCFoundation/UA-Nodeset/tree/latest/Schema/StatusCode.csv).
     """ # noqa: E501
     code: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=None, alias="Code")
     symbol: Optional[StrictStr] = Field(default=None, alias="Symbol")

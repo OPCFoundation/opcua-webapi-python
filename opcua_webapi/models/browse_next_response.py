@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class BrowseNextResponse(BaseModel):
     """
-    BrowseNextResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     results: Optional[List[BrowseResult]] = Field(default=None, alias="Results")

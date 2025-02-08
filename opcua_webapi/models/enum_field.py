@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class EnumField(BaseModel):
     """
-    EnumField
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.12/#12.2.12.7).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     value: Optional[StrictInt] = Field(default=0, alias="Value")

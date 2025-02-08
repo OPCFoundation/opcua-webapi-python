@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.user_token_type import UserTokenType  # noqa: E501
+from opcua_webapi.models.user_token_type import UserTokenType
 
 class TestUserTokenType(unittest.TestCase):
     """UserTokenType unit test stubs"""

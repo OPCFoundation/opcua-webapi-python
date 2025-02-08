@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class WriteResponse(BaseModel):
     """
-    WriteResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     results: Optional[List[StatusCode]] = Field(default=None, alias="Results")

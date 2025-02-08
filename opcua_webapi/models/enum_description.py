@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class EnumDescription(BaseModel):
     """
-    EnumDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.34).
     """ # noqa: E501
     enum_definition: Optional[EnumDefinition] = Field(default=None, alias="EnumDefinition")
     built_in_type: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=0, alias="BuiltInType")

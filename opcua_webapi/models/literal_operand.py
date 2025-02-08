@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class LiteralOperand(BaseModel):
     """
-    LiteralOperand
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.4/#7.7.4.3).
     """ # noqa: E501
     value: Optional[Variant] = Field(default=None, alias="Value")
     __properties: ClassVar[List[str]] = []

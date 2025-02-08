@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class CallMethodResult(BaseModel):
     """
-    CallMethodResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     input_argument_results: Optional[List[StatusCode]] = Field(default=None, alias="InputArgumentResults")

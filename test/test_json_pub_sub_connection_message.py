@@ -45,26 +45,19 @@ class TestJsonPubSubConnectionMessage(unittest.TestCase):
                     enabled = True, 
                     publisher_id = opcua_webapi.models.variant.Variant(
                         ua_type = 0, 
-                        body = null, 
+                        value = null, 
                         dimensions = [
                             0
                             ], ), 
                     transport_profile_uri = '', 
-                    address = opcua_webapi.models.extension_object.ExtensionObject(
-                        ua_type_id = '', 
-                        ua_encoding = 0, 
-                        ua_body = 'YQ==', ), 
+                    address = opcua_webapi.models.address.Address(), 
                     connection_properties = [
                         opcua_webapi.models.key_value_pair.KeyValuePair(
                             key = '', 
                             value = opcua_webapi.models.variant.Variant(
-                                ua_type = 0, 
-                                body = null, ), )
+                                ua_type = 0, ), )
                         ], 
-                    transport_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                        ua_type_id = '', 
-                        ua_encoding = 0, 
-                        ua_body = 'YQ==', ), 
+                    transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
                     writer_groups = [
                         opcua_webapi.models.writer_group_data_type.WriterGroupDataType(
                             writer_group_id = 0, 
@@ -75,7 +68,8 @@ class TestJsonPubSubConnectionMessage(unittest.TestCase):
                                 ''
                                 ], 
                             header_layout_uri = '', 
-                            message_settings = , 
+                            transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                            message_settings = opcua_webapi.models.message_settings.MessageSettings(), 
                             data_set_writers = [
                                 opcua_webapi.models.data_set_writer_data_type.DataSetWriterDataType(
                                     name = '', 
@@ -87,11 +81,15 @@ class TestJsonPubSubConnectionMessage(unittest.TestCase):
                                     data_set_writer_properties = [
                                         opcua_webapi.models.key_value_pair.KeyValuePair(
                                             key = '', )
-                                        ], )
+                                        ], 
+                                    transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                                    message_settings = opcua_webapi.models.message_settings.MessageSettings(), )
                                 ], )
                         ], 
                     reader_groups = [
                         opcua_webapi.models.reader_group_data_type.ReaderGroupDataType(
+                            transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                            message_settings = opcua_webapi.models.message_settings.MessageSettings(), 
                             data_set_readers = [
                                 opcua_webapi.models.data_set_reader_data_type.DataSetReaderDataType(
                                     name = '', 
@@ -161,7 +159,9 @@ class TestJsonPubSubConnectionMessage(unittest.TestCase):
                                     data_set_reader_properties = [
                                         
                                         ], 
-                                    subscribed_data_set = , )
+                                    transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                                    message_settings = opcua_webapi.models.message_settings.MessageSettings(), 
+                                    subscribed_data_set = opcua_webapi.models.subscribed_data_set.SubscribedDataSet(), )
                                 ], )
                         ], )
             )

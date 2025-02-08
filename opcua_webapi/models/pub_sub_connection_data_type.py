@@ -29,7 +29,7 @@ from typing_extensions import Self
 
 class PubSubConnectionDataType(BaseModel):
     """
-    PubSubConnectionDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.7/#6.2.7.5.1).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     enabled: Optional[StrictBool] = Field(default=False, alias="Enabled")

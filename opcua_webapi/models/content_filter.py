@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ContentFilter(BaseModel):
     """
-    ContentFilter
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.4).
     """ # noqa: E501
     elements: Optional[List[ContentFilterElement]] = Field(default=None, alias="Elements")
     __properties: ClassVar[List[str]] = ["Elements"]

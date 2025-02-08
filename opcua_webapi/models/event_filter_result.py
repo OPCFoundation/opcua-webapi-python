@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class EventFilterResult(BaseModel):
     """
-    EventFilterResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.22.3).
     """ # noqa: E501
     select_clause_results: Optional[List[StatusCode]] = Field(default=None, alias="SelectClauseResults")
     select_clause_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="SelectClauseDiagnosticInfos")

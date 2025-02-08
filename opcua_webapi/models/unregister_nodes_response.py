@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class UnregisterNodesResponse(BaseModel):
     """
-    UnregisterNodesResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     __properties: ClassVar[List[str]] = ["ResponseHeader"]

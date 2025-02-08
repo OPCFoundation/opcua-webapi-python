@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class EUInformation(BaseModel):
     """
-    EUInformation
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part8/5.6.3/#5.6.3.3).
     """ # noqa: E501
     namespace_uri: Optional[StrictStr] = Field(default=None, alias="NamespaceUri")
     unit_id: Optional[StrictInt] = Field(default=0, alias="UnitId")

@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class CreateSessionResponse(BaseModel):
     """
-    CreateSessionResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     session_id: Optional[StrictStr] = Field(default=None, alias="SessionId")

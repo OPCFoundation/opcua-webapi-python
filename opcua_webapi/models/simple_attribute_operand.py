@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class SimpleAttributeOperand(BaseModel):
     """
-    SimpleAttributeOperand
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.4/#7.7.4.5).
     """ # noqa: E501
     type_definition_id: Optional[StrictStr] = Field(default=None, alias="TypeDefinitionId")
     browse_path: Optional[List[StrictStr]] = Field(default=None, alias="BrowsePath")

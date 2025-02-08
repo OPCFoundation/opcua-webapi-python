@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.key_value_pair import KeyValuePair  # noqa: E501
+from opcua_webapi.models.key_value_pair import KeyValuePair
 
 class TestKeyValuePair(unittest.TestCase):
     """KeyValuePair unit test stubs"""
@@ -29,18 +28,17 @@ class TestKeyValuePair(unittest.TestCase):
 
     def make_instance(self, include_optional) -> KeyValuePair:
         """Test KeyValuePair
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `KeyValuePair`
         """
-        model = KeyValuePair()  # noqa: E501
+        model = KeyValuePair()
         if include_optional:
             return KeyValuePair(
                 key = '',
                 value = opcua_webapi.models.variant.Variant(
-                    type = 0, 
-                    body = null, 
+                    ua_type = 0, 
                     dimensions = [
                         0
                         ], )

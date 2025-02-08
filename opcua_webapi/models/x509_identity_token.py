@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class X509IdentityToken(BaseModel):
     """
-    X509IdentityToken
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.15/#12.3.15.4).
     """ # noqa: E501
     certificate_data: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="CertificateData")
     policy_id: Optional[StrictStr] = Field(default=None, alias="PolicyId")

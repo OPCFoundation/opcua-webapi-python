@@ -34,7 +34,7 @@ from typing_extensions import Self
 
 class PubSubConfiguration2DataType(BaseModel):
     """
-    PubSubConfiguration2DataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.12/#6.2.12.4).
     """ # noqa: E501
     subscribed_data_sets: Optional[List[StandaloneSubscribedDataSetDataType]] = Field(default=None, alias="SubscribedDataSets")
     data_set_classes: Optional[List[DataSetMetaDataType]] = Field(default=None, alias="DataSetClasses")

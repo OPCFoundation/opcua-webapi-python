@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ModifySubscriptionResponse(BaseModel):
     """
-    ModifySubscriptionResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     revised_publishing_interval: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="RevisedPublishingInterval")

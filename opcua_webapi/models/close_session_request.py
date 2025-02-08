@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class CloseSessionRequest(BaseModel):
     """
-    CloseSessionRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     delete_subscriptions: Optional[StrictBool] = Field(default=False, alias="DeleteSubscriptions")

@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class DataSetFieldContentMaskBits(int, Enum):
     """
-    DataSetFieldContentMaskBits
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.4/#6.2.4.2).
     """
 
     """

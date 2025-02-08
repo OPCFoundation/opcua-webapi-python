@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ReadAtTimeDetails(BaseModel):
     """
-    ReadAtTimeDetails
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.5.5/#6.5.5.1).
     """ # noqa: E501
     req_times: Optional[List[datetime]] = Field(default=None, alias="ReqTimes")
     use_simple_bounds: Optional[StrictBool] = Field(default=False, alias="UseSimpleBounds")

@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class Matrix(BaseModel):
     """
-    Matrix
+    [Link to specification](https://reference.opcfoundation.org/Core/Part6/v105/docs/5.4.5).
     """ # noqa: E501
     array: Optional[List[Any]] = Field(default=None, alias="Array")
     dimensions: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="Dimensions")

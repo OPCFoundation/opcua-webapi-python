@@ -50,10 +50,7 @@ class TestJsonDataSetMessage(unittest.TestCase):
                     code = 0, 
                     symbol = '', ),
                 message_type = '',
-                payload = opcua_webapi.models.extension_object.ExtensionObject(
-                    ua_type_id = '', 
-                    ua_encoding = 0, 
-                    ua_body = 'YQ==', )
+                payload = None
             )
         else:
             return JsonDataSetMessage(

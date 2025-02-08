@@ -43,7 +43,10 @@ class TestJsonActionNetworkMessage(unittest.TestCase):
                 response_address = '',
                 correlation_data = 'YQ==',
                 requestor_id = '',
-                timeout_hint = 1.337
+                timeout_hint = 1.337,
+                messages = [
+                    None
+                    ]
             )
         else:
             return JsonActionNetworkMessage(

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class BrowsePathResult(BaseModel):
     """
-    BrowsePathResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
     """ # noqa: E501
     status_code: Optional[StatusCode] = Field(default=None, alias="StatusCode")
     targets: Optional[List[BrowsePathTarget]] = Field(default=None, alias="Targets")

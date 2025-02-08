@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class PubSubConfigurationDataType(BaseModel):
     """
-    PubSubConfigurationDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.12/#6.2.12.1).
     """ # noqa: E501
     published_data_sets: Optional[List[PublishedDataSetDataType]] = Field(default=None, alias="PublishedDataSets")
     connections: Optional[List[PubSubConnectionDataType]] = Field(default=None, alias="Connections")

@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class CreateSessionRequest(BaseModel):
     """
-    CreateSessionRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     client_description: Optional[ApplicationDescription] = Field(default=None, alias="ClientDescription")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ContentFilterResult(BaseModel):
     """
-    ContentFilterResult
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.2).
     """ # noqa: E501
     element_results: Optional[List[ContentFilterElementResult]] = Field(default=None, alias="ElementResults")
     element_diagnostic_infos: Optional[List[DiagnosticInfo]] = Field(default=None, alias="ElementDiagnosticInfos")

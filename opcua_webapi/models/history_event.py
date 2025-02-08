@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class HistoryEvent(BaseModel):
     """
-    HistoryEvent
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.6.4).
     """ # noqa: E501
     events: Optional[List[HistoryEventFieldList]] = Field(default=None, alias="Events")
     __properties: ClassVar[List[str]] = ["Events"]

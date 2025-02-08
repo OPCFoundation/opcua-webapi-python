@@ -25,12 +25,12 @@ from typing_extensions import Self
 
 class BrokerWriterGroupTransportDataType(BaseModel):
     """
-    BrokerWriterGroupTransportDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.3.5).
     """ # noqa: E501
     queue_name: Optional[StrictStr] = Field(default=None, alias="QueueName")
     resource_uri: Optional[StrictStr] = Field(default=None, alias="ResourceUri")
     authentication_profile_uri: Optional[StrictStr] = Field(default=None, alias="AuthenticationProfileUri")
-    requested_delivery_guarantee: Optional[StrictInt] = Field(default=None, alias="RequestedDeliveryGuarantee")
+    requested_delivery_guarantee: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.1).", alias="RequestedDeliveryGuarantee")
     __properties: ClassVar[List[str]] = []
 
     model_config = ConfigDict(

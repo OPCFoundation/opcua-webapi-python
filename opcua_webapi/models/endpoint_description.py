@@ -28,12 +28,12 @@ from typing_extensions import Self
 
 class EndpointDescription(BaseModel):
     """
-    EndpointDescription
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.14).
     """ # noqa: E501
     endpoint_url: Optional[StrictStr] = Field(default=None, alias="EndpointUrl")
     server: Optional[ApplicationDescription] = Field(default=None, alias="Server")
     server_certificate: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="ServerCertificate")
-    security_mode: Optional[StrictInt] = Field(default=None, alias="SecurityMode")
+    security_mode: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10).", alias="SecurityMode")
     security_policy_uri: Optional[StrictStr] = Field(default=None, alias="SecurityPolicyUri")
     user_identity_tokens: Optional[List[UserTokenPolicy]] = Field(default=None, alias="UserIdentityTokens")
     transport_profile_uri: Optional[StrictStr] = Field(default=None, alias="TransportProfileUri")

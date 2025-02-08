@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class EnumDefinition(BaseModel):
     """
-    EnumDefinition
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.12/#12.2.12.4).
     """ # noqa: E501
     fields: Optional[List[EnumField]] = Field(default=None, alias="Fields")
     __properties: ClassVar[List[str]] = []

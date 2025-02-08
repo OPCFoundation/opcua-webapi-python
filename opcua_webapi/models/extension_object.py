@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ExtensionObject(BaseModel):
     """
-    ExtensionObject
+    [Link to specification](https://reference.opcfoundation.org/Core/Part6/v105/docs/5.4.2.16).
     """ # noqa: E501
     ua_type_id: Optional[StrictStr] = Field(default=None, alias="UaTypeId")
     ua_encoding: Optional[Annotated[int, Field(le=255, strict=True, ge=0)]] = Field(default=None, alias="UaEncoding")

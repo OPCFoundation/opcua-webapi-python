@@ -3,7 +3,7 @@
 """
     OPC UA Web API
 
-    This API provides simple HTTPS based access to an OPC UA server.
+    Provides simple HTTPS based access to an OPC UA server.
 
     The version of the OpenAPI document: 1.05.4
     Contact: office@opcfoundation.org
@@ -14,9 +14,8 @@
 
 
 import unittest
-import datetime
 
-from opcua_webapi.models.writer_group_data_type import WriterGroupDataType  # noqa: E501
+from opcua_webapi.models.writer_group_data_type import WriterGroupDataType
 
 class TestWriterGroupDataType(unittest.TestCase):
     """WriterGroupDataType unit test stubs"""
@@ -29,12 +28,12 @@ class TestWriterGroupDataType(unittest.TestCase):
 
     def make_instance(self, include_optional) -> WriterGroupDataType:
         """Test WriterGroupDataType
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `WriterGroupDataType`
         """
-        model = WriterGroupDataType()  # noqa: E501
+        model = WriterGroupDataType()
         if include_optional:
             return WriterGroupDataType(
                 writer_group_id = 0,
@@ -45,14 +44,8 @@ class TestWriterGroupDataType(unittest.TestCase):
                     ''
                     ],
                 header_layout_uri = '',
-                transport_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                    type_id = '', 
-                    encoding = 0, 
-                    body = opcua_webapi.models.body.Body(), ),
-                message_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                    type_id = '', 
-                    encoding = 0, 
-                    body = opcua_webapi.models.body.Body(), ),
+                transport_settings = None,
+                message_settings = None,
                 data_set_writers = [
                     opcua_webapi.models.data_set_writer_data_type.DataSetWriterDataType(
                         name = '', 
@@ -65,20 +58,13 @@ class TestWriterGroupDataType(unittest.TestCase):
                             opcua_webapi.models.key_value_pair.KeyValuePair(
                                 key = '', 
                                 value = opcua_webapi.models.variant.Variant(
-                                    type = 0, 
-                                    body = null, 
+                                    ua_type = 0, 
                                     dimensions = [
                                         0
                                         ], ), )
                             ], 
-                        transport_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                            type_id = '', 
-                            encoding = 0, 
-                            body = opcua_webapi.models.body.Body(), ), 
-                        message_settings = opcua_webapi.models.extension_object.ExtensionObject(
-                            type_id = '', 
-                            encoding = 0, 
-                            body = opcua_webapi.models.body.Body(), ), )
+                        transport_settings = opcua_webapi.models.transport_settings.TransportSettings(), 
+                        message_settings = opcua_webapi.models.message_settings.MessageSettings(), )
                     ],
                 name = '',
                 enabled = True,
@@ -118,8 +104,7 @@ class TestWriterGroupDataType(unittest.TestCase):
                     opcua_webapi.models.key_value_pair.KeyValuePair(
                         key = '', 
                         value = opcua_webapi.models.variant.Variant(
-                            type = 0, 
-                            body = null, 
+                            ua_type = 0, 
                             dimensions = [
                                 0
                                 ], ), )

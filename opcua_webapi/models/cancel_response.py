@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class CancelResponse(BaseModel):
     """
-    CancelResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     cancel_count: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="CancelCount")

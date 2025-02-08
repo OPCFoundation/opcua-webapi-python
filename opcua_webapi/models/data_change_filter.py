@@ -26,9 +26,9 @@ from typing_extensions import Self
 
 class DataChangeFilter(BaseModel):
     """
-    DataChangeFilter
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.22.2).
     """ # noqa: E501
-    trigger: Optional[StrictInt] = Field(default=None, alias="Trigger")
+    trigger: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.10).", alias="Trigger")
     deadband_type: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="DeadbandType")
     deadband_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="DeadbandValue")
     __properties: ClassVar[List[str]] = []

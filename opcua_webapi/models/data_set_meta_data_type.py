@@ -31,7 +31,7 @@ from typing_extensions import Self
 
 class DataSetMetaDataType(BaseModel):
     """
-    DataSetMetaDataType
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.3/#6.2.3.2.3).
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")

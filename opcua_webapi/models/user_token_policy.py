@@ -25,10 +25,10 @@ from typing_extensions import Self
 
 class UserTokenPolicy(BaseModel):
     """
-    UserTokenPolicy
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.42).
     """ # noqa: E501
     policy_id: Optional[StrictStr] = Field(default=None, alias="PolicyId")
-    token_type: Optional[StrictInt] = Field(default=None, alias="TokenType")
+    token_type: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.43).", alias="TokenType")
     issued_token_type: Optional[StrictStr] = Field(default=None, alias="IssuedTokenType")
     issuer_endpoint_url: Optional[StrictStr] = Field(default=None, alias="IssuerEndpointUrl")
     security_policy_uri: Optional[StrictStr] = Field(default=None, alias="SecurityPolicyUri")

@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class CreateSubscriptionResponse(BaseModel):
     """
-    CreateSubscriptionResponse
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2).
     """ # noqa: E501
     response_header: Optional[ResponseHeader] = Field(default=None, alias="ResponseHeader")
     subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")

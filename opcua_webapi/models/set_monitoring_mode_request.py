@@ -27,11 +27,11 @@ from typing_extensions import Self
 
 class SetMonitoringModeRequest(BaseModel):
     """
-    SetMonitoringModeRequest
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     subscription_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="SubscriptionId")
-    monitoring_mode: Optional[StrictInt] = Field(default=None, alias="MonitoringMode")
+    monitoring_mode: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.23).", alias="MonitoringMode")
     monitored_item_ids: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="MonitoredItemIds")
     __properties: ClassVar[List[str]] = ["RequestHeader", "SubscriptionId", "MonitoringMode", "MonitoredItemIds"]
 
