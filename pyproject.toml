@@ -1,23 +1,28 @@
-[tool.poetry]
+[project]
 name = "opcua_webapi"
-version = "1.504.1"
+version = "15.6.0"
 description = "OPC UA Web API"
-authors = ["OpenAPI Generator Community <office@opcfoundation.org>"]
-license = "OPC Source Deliverable Agreement of Use"
+authors = [
+  {name = "OpenAPI Generator Community",email = "office@opcfoundation.org"},
+]
 readme = "README.md"
-repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 keywords = ["OpenAPI", "OpenAPI-Generator", "OPC UA Web API"]
-include = ["opcua_webapi/py.typed"]
+requires-python = ">=3.9"
 
-[tool.poetry.dependencies]
-python = "^3.8"
+dependencies = [
+  "urllib3 (>=2.1.0,<3.0.0)",
+  "python-dateutil (>=2.8.2)",
+  "pydantic (>=2)",
+  "typing-extensions (>=4.7.1)"
+]
 
-urllib3 = ">= 1.25.3 < 3.0.0"
-python-dateutil = ">= 2.8.2"
-pydantic = ">= 2"
-typing-extensions = ">= 4.7.1"
+[project.urls]
+Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry]
+requires-poetry = ">=2.0"
+
+[tool.poetry.group.dev.dependencies]
 pytest = ">= 7.2.1"
 pytest-cov = ">= 2.8.1"
 tox = ">= 3.9.0"
@@ -49,7 +54,7 @@ warn_unused_ignores = true
 
 ## Getting these passing should be easy
 strict_equality = true
-strict_concatenate = true
+extra_checks = true
 
 ## Strongly recommend enabling this one as soon as you can
 check_untyped_defs = true
@@ -70,3 +75,20 @@ disallow_any_generics = true
 #
 ### This one can be tricky to get passing if you use a lot of untyped libraries
 #warn_return_any = true
+
+[[tool.mypy.overrides]]
+module = [
+  "opcua_webapi.configuration",
+]
+warn_unused_ignores = true
+strict_equality = true
+extra_checks = true
+check_untyped_defs = true
+disallow_subclassing_any = true
+disallow_untyped_decorators = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+no_implicit_reexport = true
+warn_return_any = true

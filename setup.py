@@ -22,10 +22,10 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "opcua-webapi"
-VERSION = "1.504.1"
-PYTHON_REQUIRES = ">= 3.8"
+VERSION = "15.6.0"
+PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
-    "urllib3 >= 1.25.3, < 3.0.0",
+    "urllib3 >= 2.1.0, < 3.0.0",
     "python-dateutil >= 2.8.2",
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
@@ -42,7 +42,6 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="OPC Source Deliverable Agreement of Use",
     long_description_content_type='text/markdown',
     long_description="""\
     Provides simple HTTPS based access to an OPC UA server.
