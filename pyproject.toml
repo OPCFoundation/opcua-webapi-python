@@ -1,9 +1,9 @@
 [project]
 name = "opcua_webapi"
-version = "15.6.0"
+version = "15.5.0"
 description = "OPC UA Web API"
 authors = [
-  {name = "OpenAPI Generator Community",email = "office@opcfoundation.org"},
+  {name = "OPC Foundation",email = "office@opcfoundation.org"},
 ]
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "OPC UA Web API"]

@@ -22,7 +22,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "opcua-webapi"
-VERSION = "15.6.0"
+VERSION = "15.5.0"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -35,7 +35,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="OPC UA Web API",
-    author="OpenAPI Generator community",
+    author="OPC Foundation",
     author_email="office@opcfoundation.org",
     url="https://github.com/opcfoundation-org/opcua-webapi-python/",
     keywords=["OpenAPI", "OpenAPI-Generator", "OPC UA Web API"],
