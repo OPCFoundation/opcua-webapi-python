@@ -1,5 +1,6 @@
 # StructureDefinition
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.12/#12.2.12.5).
 
 ## Properties
 
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **default_encoding_id** | **str** |  | [optional] 
 **base_data_type** | **str** |  | [optional] 
-**structure_type** | **int** |  | [optional] 
+**structure_type** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.5/#12.2.5.3). | [optional] 
 **fields** | [**List[StructureField]**](StructureField.md) |  | [optional] 
 
 ## Example

@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class DataTypeSchemaHeader(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.3/#6.2.3.2.2).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.31).
     """ # noqa: E501
     namespaces: Optional[List[StrictStr]] = Field(default=None, alias="Namespaces")
     structure_data_types: Optional[List[StructureDescription]] = Field(default=None, alias="StructureDataTypes")

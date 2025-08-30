@@ -1,5 +1,6 @@
 # JsonDataSetMetaDataMessage
 
+[Link to specification]().
 
 ## Properties
 

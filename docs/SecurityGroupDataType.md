@@ -1,5 +1,6 @@
 # SecurityGroupDataType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.12/#6.2.12.2).
 
 ## Properties
 

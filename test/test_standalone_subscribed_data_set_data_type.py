@@ -71,7 +71,7 @@ class TestStandaloneSubscribedDataSetDataType(unittest.TestCase):
                     configuration_version = opcua_webapi.models.configuration_version_data_type.ConfigurationVersionDataType(
                         major_version = 0, 
                         minor_version = 0, ), ),
-                subscribed_data_set = None
+                subscribed_data_set = opcua_webapi.models.subscribed_data_set.SubscribedDataSet()
             )
         else:
             return StandaloneSubscribedDataSetDataType(

@@ -1,5 +1,6 @@
 # HistoryReadRequest
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).
 
 ## Properties
 
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
 **history_read_details** | [**ExtensionObject**](ExtensionObject.md) |  | [optional] 
-**timestamps_to_return** | **int** |  | [optional] 
+**timestamps_to_return** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.39). | [optional] 
 **release_continuation_points** | **bool** |  | [optional] [default to False]
 **nodes_to_read** | [**List[HistoryReadValueId]**](HistoryReadValueId.md) |  | [optional] 
 

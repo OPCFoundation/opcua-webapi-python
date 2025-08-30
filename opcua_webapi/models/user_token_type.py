@@ -21,7 +21,7 @@ from typing_extensions import Self
 
 class UserTokenType(int, Enum):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.43).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.42).
     """
 
     """

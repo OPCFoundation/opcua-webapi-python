@@ -1,5 +1,6 @@
 # JsonServerEndpointsMessage
 
+[Link to specification]().
 
 ## Properties
 

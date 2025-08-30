@@ -1,5 +1,6 @@
 # JsonActionNetworkMessage
 
+[Link to specification]().
 
 ## Properties
 

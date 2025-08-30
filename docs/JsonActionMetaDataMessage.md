@@ -1,5 +1,6 @@
 # JsonActionMetaDataMessage
 
+[Link to specification]().
 
 ## Properties
 

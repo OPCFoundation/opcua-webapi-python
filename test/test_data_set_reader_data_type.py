@@ -121,9 +121,9 @@ class TestDataSetReaderDataType(unittest.TestCase):
                                 0
                                 ], ), )
                     ],
-                transport_settings = None,
-                message_settings = None,
-                subscribed_data_set = None
+                transport_settings = opcua_webapi.models.transport_settings.TransportSettings(),
+                message_settings = opcua_webapi.models.message_settings.MessageSettings(),
+                subscribed_data_set = opcua_webapi.models.subscribed_data_set.SubscribedDataSet()
             )
         else:
             return DataSetReaderDataType(

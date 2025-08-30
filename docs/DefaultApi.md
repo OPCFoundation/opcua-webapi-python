@@ -37,8 +37,6 @@ Method | HTTP request | Description
 # **activate_session**
 > ActivateSessionResponse activate_session(activate_session_request=activate_session_request)
 
-
-
 ### Example
 
 
@@ -60,7 +58,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    activate_session_request = opcua_webapi.ActivateSessionRequest() # ActivateSessionRequest | ActivateSessionRequestMessage (optional)
+    activate_session_request = opcua_webapi.ActivateSessionRequest() # ActivateSessionRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2). (optional)
 
     try:
         api_response = api_instance.activate_session(activate_session_request=activate_session_request)
@@ -77,7 +75,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **activate_session_request** | [**ActivateSessionRequest**](ActivateSessionRequest.md)| ActivateSessionRequestMessage | [optional] 
+ **activate_session_request** | [**ActivateSessionRequest**](ActivateSessionRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2). | [optional] 
 
 ### Return type
 
@@ -96,14 +94,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | ActivateSessionResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.3/#5.7.3.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **browse**
 > BrowseResponse browse(browse_request=browse_request)
-
-
 
 ### Example
 
@@ -126,7 +122,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    browse_request = opcua_webapi.BrowseRequest() # BrowseRequest | BrowseRequestMessage (optional)
+    browse_request = opcua_webapi.BrowseRequest() # BrowseRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2). (optional)
 
     try:
         api_response = api_instance.browse(browse_request=browse_request)
@@ -143,7 +139,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browse_request** | [**BrowseRequest**](BrowseRequest.md)| BrowseRequestMessage | [optional] 
+ **browse_request** | [**BrowseRequest**](BrowseRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2). | [optional] 
 
 ### Return type
 
@@ -162,14 +158,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | BrowseResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.2/#5.9.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **browse_next**
 > BrowseNextResponse browse_next(browse_next_request=browse_next_request)
-
-
 
 ### Example
 
@@ -192,7 +186,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    browse_next_request = opcua_webapi.BrowseNextRequest() # BrowseNextRequest | BrowseNextRequestMessage (optional)
+    browse_next_request = opcua_webapi.BrowseNextRequest() # BrowseNextRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2). (optional)
 
     try:
         api_response = api_instance.browse_next(browse_next_request=browse_next_request)
@@ -209,7 +203,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **browse_next_request** | [**BrowseNextRequest**](BrowseNextRequest.md)| BrowseNextRequestMessage | [optional] 
+ **browse_next_request** | [**BrowseNextRequest**](BrowseNextRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2). | [optional] 
 
 ### Return type
 
@@ -228,14 +222,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | BrowseNextResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.3/#5.9.3.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **call**
 > CallResponse call(call_request=call_request)
-
-
 
 ### Example
 
@@ -258,7 +250,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    call_request = opcua_webapi.CallRequest() # CallRequest | CallRequestMessage (optional)
+    call_request = opcua_webapi.CallRequest() # CallRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2). (optional)
 
     try:
         api_response = api_instance.call(call_request=call_request)
@@ -275,7 +267,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **call_request** | [**CallRequest**](CallRequest.md)| CallRequestMessage | [optional] 
+ **call_request** | [**CallRequest**](CallRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2). | [optional] 
 
 ### Return type
 
@@ -294,14 +286,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | CallResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.12.2/#5.12.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cancel**
 > CancelResponse cancel(cancel_request=cancel_request)
-
-
 
 ### Example
 
@@ -324,7 +314,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    cancel_request = opcua_webapi.CancelRequest() # CancelRequest | CancelRequestMessage (optional)
+    cancel_request = opcua_webapi.CancelRequest() # CancelRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2). (optional)
 
     try:
         api_response = api_instance.cancel(cancel_request=cancel_request)
@@ -341,7 +331,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_request** | [**CancelRequest**](CancelRequest.md)| CancelRequestMessage | [optional] 
+ **cancel_request** | [**CancelRequest**](CancelRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2). | [optional] 
 
 ### Return type
 
@@ -360,14 +350,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | CancelResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.5/#5.7.5.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **close_session**
 > CloseSessionResponse close_session(close_session_request=close_session_request)
-
-
 
 ### Example
 
@@ -390,7 +378,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    close_session_request = opcua_webapi.CloseSessionRequest() # CloseSessionRequest | CloseSessionRequestMessage (optional)
+    close_session_request = opcua_webapi.CloseSessionRequest() # CloseSessionRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2). (optional)
 
     try:
         api_response = api_instance.close_session(close_session_request=close_session_request)
@@ -407,7 +395,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **close_session_request** | [**CloseSessionRequest**](CloseSessionRequest.md)| CloseSessionRequestMessage | [optional] 
+ **close_session_request** | [**CloseSessionRequest**](CloseSessionRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2). | [optional] 
 
 ### Return type
 
@@ -426,14 +414,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | CloseSessionResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.4/#5.7.4.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_monitored_items**
 > CreateMonitoredItemsResponse create_monitored_items(create_monitored_items_request=create_monitored_items_request)
-
-
 
 ### Example
 
@@ -456,7 +442,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    create_monitored_items_request = opcua_webapi.CreateMonitoredItemsRequest() # CreateMonitoredItemsRequest | CreateMonitoredItemsRequestMessage (optional)
+    create_monitored_items_request = opcua_webapi.CreateMonitoredItemsRequest() # CreateMonitoredItemsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2). (optional)
 
     try:
         api_response = api_instance.create_monitored_items(create_monitored_items_request=create_monitored_items_request)
@@ -473,7 +459,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_monitored_items_request** | [**CreateMonitoredItemsRequest**](CreateMonitoredItemsRequest.md)| CreateMonitoredItemsRequestMessage | [optional] 
+ **create_monitored_items_request** | [**CreateMonitoredItemsRequest**](CreateMonitoredItemsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2). | [optional] 
 
 ### Return type
 
@@ -492,14 +478,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | CreateMonitoredItemsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_session**
 > CreateSessionResponse create_session(create_session_request=create_session_request)
-
-
 
 ### Example
 
@@ -522,7 +506,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    create_session_request = opcua_webapi.CreateSessionRequest() # CreateSessionRequest | CreateSessionRequestMessage (optional)
+    create_session_request = opcua_webapi.CreateSessionRequest() # CreateSessionRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2). (optional)
 
     try:
         api_response = api_instance.create_session(create_session_request=create_session_request)
@@ -539,7 +523,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_session_request** | [**CreateSessionRequest**](CreateSessionRequest.md)| CreateSessionRequestMessage | [optional] 
+ **create_session_request** | [**CreateSessionRequest**](CreateSessionRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2). | [optional] 
 
 ### Return type
 
@@ -558,14 +542,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | CreateSessionResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.7.2/#5.7.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_subscription**
 > CreateSubscriptionResponse create_subscription(create_subscription_request=create_subscription_request)
-
-
 
 ### Example
 
@@ -588,7 +570,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    create_subscription_request = opcua_webapi.CreateSubscriptionRequest() # CreateSubscriptionRequest | CreateSubscriptionRequestMessage (optional)
+    create_subscription_request = opcua_webapi.CreateSubscriptionRequest() # CreateSubscriptionRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2). (optional)
 
     try:
         api_response = api_instance.create_subscription(create_subscription_request=create_subscription_request)
@@ -605,7 +587,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_subscription_request** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)| CreateSubscriptionRequestMessage | [optional] 
+ **create_subscription_request** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2). | [optional] 
 
 ### Return type
 
@@ -624,14 +606,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | CreateSubscriptionResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.2/#5.14.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_monitored_items**
 > DeleteMonitoredItemsResponse delete_monitored_items(delete_monitored_items_request=delete_monitored_items_request)
-
-
 
 ### Example
 
@@ -654,7 +634,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    delete_monitored_items_request = opcua_webapi.DeleteMonitoredItemsRequest() # DeleteMonitoredItemsRequest | DeleteMonitoredItemsRequestMessage (optional)
+    delete_monitored_items_request = opcua_webapi.DeleteMonitoredItemsRequest() # DeleteMonitoredItemsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2). (optional)
 
     try:
         api_response = api_instance.delete_monitored_items(delete_monitored_items_request=delete_monitored_items_request)
@@ -671,7 +651,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **delete_monitored_items_request** | [**DeleteMonitoredItemsRequest**](DeleteMonitoredItemsRequest.md)| DeleteMonitoredItemsRequestMessage | [optional] 
+ **delete_monitored_items_request** | [**DeleteMonitoredItemsRequest**](DeleteMonitoredItemsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2). | [optional] 
 
 ### Return type
 
@@ -690,14 +670,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | DeleteMonitoredItemsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.6/#5.13.6.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_subscriptions**
 > DeleteSubscriptionsResponse delete_subscriptions(delete_subscriptions_request=delete_subscriptions_request)
-
-
 
 ### Example
 
@@ -720,7 +698,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    delete_subscriptions_request = opcua_webapi.DeleteSubscriptionsRequest() # DeleteSubscriptionsRequest | DeleteSubscriptionsRequestMessage (optional)
+    delete_subscriptions_request = opcua_webapi.DeleteSubscriptionsRequest() # DeleteSubscriptionsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2). (optional)
 
     try:
         api_response = api_instance.delete_subscriptions(delete_subscriptions_request=delete_subscriptions_request)
@@ -737,7 +715,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **delete_subscriptions_request** | [**DeleteSubscriptionsRequest**](DeleteSubscriptionsRequest.md)| DeleteSubscriptionsRequestMessage | [optional] 
+ **delete_subscriptions_request** | [**DeleteSubscriptionsRequest**](DeleteSubscriptionsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2). | [optional] 
 
 ### Return type
 
@@ -756,14 +734,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | DeleteSubscriptionsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.8/#5.14.8.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **find_servers**
 > FindServersResponse find_servers(find_servers_request=find_servers_request)
-
-
 
 ### Example
 
@@ -786,7 +762,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    find_servers_request = opcua_webapi.FindServersRequest() # FindServersRequest | FindServersRequestMessage (optional)
+    find_servers_request = opcua_webapi.FindServersRequest() # FindServersRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2). (optional)
 
     try:
         api_response = api_instance.find_servers(find_servers_request=find_servers_request)
@@ -803,7 +779,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **find_servers_request** | [**FindServersRequest**](FindServersRequest.md)| FindServersRequestMessage | [optional] 
+ **find_servers_request** | [**FindServersRequest**](FindServersRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2). | [optional] 
 
 ### Return type
 
@@ -822,14 +798,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | FindServersResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.2/#5.5.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_endpoints**
 > GetEndpointsResponse get_endpoints(get_endpoints_request=get_endpoints_request)
-
-
 
 ### Example
 
@@ -852,7 +826,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    get_endpoints_request = opcua_webapi.GetEndpointsRequest() # GetEndpointsRequest | GetEndpointsRequestMessage (optional)
+    get_endpoints_request = opcua_webapi.GetEndpointsRequest() # GetEndpointsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2). (optional)
 
     try:
         api_response = api_instance.get_endpoints(get_endpoints_request=get_endpoints_request)
@@ -869,7 +843,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **get_endpoints_request** | [**GetEndpointsRequest**](GetEndpointsRequest.md)| GetEndpointsRequestMessage | [optional] 
+ **get_endpoints_request** | [**GetEndpointsRequest**](GetEndpointsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2). | [optional] 
 
 ### Return type
 
@@ -888,14 +862,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | GetEndpointsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.5.4/#5.5.4.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **history_read**
 > HistoryReadResponse history_read(history_read_request=history_read_request)
-
-
 
 ### Example
 
@@ -918,7 +890,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    history_read_request = opcua_webapi.HistoryReadRequest() # HistoryReadRequest | HistoryReadRequestMessage (optional)
+    history_read_request = opcua_webapi.HistoryReadRequest() # HistoryReadRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2). (optional)
 
     try:
         api_response = api_instance.history_read(history_read_request=history_read_request)
@@ -935,7 +907,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **history_read_request** | [**HistoryReadRequest**](HistoryReadRequest.md)| HistoryReadRequestMessage | [optional] 
+ **history_read_request** | [**HistoryReadRequest**](HistoryReadRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2). | [optional] 
 
 ### Return type
 
@@ -954,14 +926,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | HistoryReadResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **history_update**
 > HistoryUpdateResponse history_update(history_update_request=history_update_request)
-
-
 
 ### Example
 
@@ -984,7 +954,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    history_update_request = opcua_webapi.HistoryUpdateRequest() # HistoryUpdateRequest | HistoryUpdateRequestMessage (optional)
+    history_update_request = opcua_webapi.HistoryUpdateRequest() # HistoryUpdateRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2). (optional)
 
     try:
         api_response = api_instance.history_update(history_update_request=history_update_request)
@@ -1001,7 +971,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **history_update_request** | [**HistoryUpdateRequest**](HistoryUpdateRequest.md)| HistoryUpdateRequestMessage | [optional] 
+ **history_update_request** | [**HistoryUpdateRequest**](HistoryUpdateRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2). | [optional] 
 
 ### Return type
 
@@ -1020,14 +990,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | HistoryUpdateResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.5/#5.11.5.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_monitored_items**
 > ModifyMonitoredItemsResponse modify_monitored_items(modify_monitored_items_request=modify_monitored_items_request)
-
-
 
 ### Example
 
@@ -1050,7 +1018,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    modify_monitored_items_request = opcua_webapi.ModifyMonitoredItemsRequest() # ModifyMonitoredItemsRequest | ModifyMonitoredItemsRequestMessage (optional)
+    modify_monitored_items_request = opcua_webapi.ModifyMonitoredItemsRequest() # ModifyMonitoredItemsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2). (optional)
 
     try:
         api_response = api_instance.modify_monitored_items(modify_monitored_items_request=modify_monitored_items_request)
@@ -1067,7 +1035,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modify_monitored_items_request** | [**ModifyMonitoredItemsRequest**](ModifyMonitoredItemsRequest.md)| ModifyMonitoredItemsRequestMessage | [optional] 
+ **modify_monitored_items_request** | [**ModifyMonitoredItemsRequest**](ModifyMonitoredItemsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2). | [optional] 
 
 ### Return type
 
@@ -1086,14 +1054,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | ModifyMonitoredItemsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **modify_subscription**
 > ModifySubscriptionResponse modify_subscription(modify_subscription_request=modify_subscription_request)
-
-
 
 ### Example
 
@@ -1116,7 +1082,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    modify_subscription_request = opcua_webapi.ModifySubscriptionRequest() # ModifySubscriptionRequest | ModifySubscriptionRequestMessage (optional)
+    modify_subscription_request = opcua_webapi.ModifySubscriptionRequest() # ModifySubscriptionRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2). (optional)
 
     try:
         api_response = api_instance.modify_subscription(modify_subscription_request=modify_subscription_request)
@@ -1133,7 +1099,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **modify_subscription_request** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| ModifySubscriptionRequestMessage | [optional] 
+ **modify_subscription_request** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2). | [optional] 
 
 ### Return type
 
@@ -1152,14 +1118,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | ModifySubscriptionResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **publish**
 > PublishResponse publish(publish_request=publish_request)
-
-
 
 ### Example
 
@@ -1182,7 +1146,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    publish_request = opcua_webapi.PublishRequest() # PublishRequest | PublishRequestMessage (optional)
+    publish_request = opcua_webapi.PublishRequest() # PublishRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2). (optional)
 
     try:
         api_response = api_instance.publish(publish_request=publish_request)
@@ -1199,7 +1163,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **publish_request** | [**PublishRequest**](PublishRequest.md)| PublishRequestMessage | [optional] 
+ **publish_request** | [**PublishRequest**](PublishRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2). | [optional] 
 
 ### Return type
 
@@ -1218,14 +1182,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | PublishResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.5/#5.14.5.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read**
 > ReadResponse read(read_request=read_request)
-
-
 
 ### Example
 
@@ -1248,7 +1210,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    read_request = opcua_webapi.ReadRequest() # ReadRequest | ReadRequestMessage (optional)
+    read_request = opcua_webapi.ReadRequest() # ReadRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2). (optional)
 
     try:
         api_response = api_instance.read(read_request=read_request)
@@ -1265,7 +1227,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **read_request** | [**ReadRequest**](ReadRequest.md)| ReadRequestMessage | [optional] 
+ **read_request** | [**ReadRequest**](ReadRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2). | [optional] 
 
 ### Return type
 
@@ -1284,14 +1246,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | ReadResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.2/#5.11.2.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **register_nodes**
 > RegisterNodesResponse register_nodes(register_nodes_request=register_nodes_request)
-
-
 
 ### Example
 
@@ -1314,7 +1274,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    register_nodes_request = opcua_webapi.RegisterNodesRequest() # RegisterNodesRequest | RegisterNodesRequestMessage (optional)
+    register_nodes_request = opcua_webapi.RegisterNodesRequest() # RegisterNodesRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2). (optional)
 
     try:
         api_response = api_instance.register_nodes(register_nodes_request=register_nodes_request)
@@ -1331,7 +1291,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **register_nodes_request** | [**RegisterNodesRequest**](RegisterNodesRequest.md)| RegisterNodesRequestMessage | [optional] 
+ **register_nodes_request** | [**RegisterNodesRequest**](RegisterNodesRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2). | [optional] 
 
 ### Return type
 
@@ -1350,14 +1310,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | RegisterNodesResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.5/#5.9.5.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **republish**
 > RepublishResponse republish(republish_request=republish_request)
-
-
 
 ### Example
 
@@ -1380,7 +1338,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    republish_request = opcua_webapi.RepublishRequest() # RepublishRequest | RepublishRequestMessage (optional)
+    republish_request = opcua_webapi.RepublishRequest() # RepublishRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2). (optional)
 
     try:
         api_response = api_instance.republish(republish_request=republish_request)
@@ -1397,7 +1355,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **republish_request** | [**RepublishRequest**](RepublishRequest.md)| RepublishRequestMessage | [optional] 
+ **republish_request** | [**RepublishRequest**](RepublishRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2). | [optional] 
 
 ### Return type
 
@@ -1416,14 +1374,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | RepublishResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.6/#5.14.6.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_monitoring_mode**
 > SetMonitoringModeResponse set_monitoring_mode(set_monitoring_mode_request=set_monitoring_mode_request)
-
-
 
 ### Example
 
@@ -1446,7 +1402,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    set_monitoring_mode_request = opcua_webapi.SetMonitoringModeRequest() # SetMonitoringModeRequest | SetMonitoringModeRequestMessage (optional)
+    set_monitoring_mode_request = opcua_webapi.SetMonitoringModeRequest() # SetMonitoringModeRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2). (optional)
 
     try:
         api_response = api_instance.set_monitoring_mode(set_monitoring_mode_request=set_monitoring_mode_request)
@@ -1463,7 +1419,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **set_monitoring_mode_request** | [**SetMonitoringModeRequest**](SetMonitoringModeRequest.md)| SetMonitoringModeRequestMessage | [optional] 
+ **set_monitoring_mode_request** | [**SetMonitoringModeRequest**](SetMonitoringModeRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2). | [optional] 
 
 ### Return type
 
@@ -1482,14 +1438,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | SetMonitoringModeResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_publishing_mode**
 > SetPublishingModeResponse set_publishing_mode(set_publishing_mode_request=set_publishing_mode_request)
-
-
 
 ### Example
 
@@ -1512,7 +1466,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    set_publishing_mode_request = opcua_webapi.SetPublishingModeRequest() # SetPublishingModeRequest | SetPublishingModeRequestMessage (optional)
+    set_publishing_mode_request = opcua_webapi.SetPublishingModeRequest() # SetPublishingModeRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2). (optional)
 
     try:
         api_response = api_instance.set_publishing_mode(set_publishing_mode_request=set_publishing_mode_request)
@@ -1529,7 +1483,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **set_publishing_mode_request** | [**SetPublishingModeRequest**](SetPublishingModeRequest.md)| SetPublishingModeRequestMessage | [optional] 
+ **set_publishing_mode_request** | [**SetPublishingModeRequest**](SetPublishingModeRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2). | [optional] 
 
 ### Return type
 
@@ -1548,14 +1502,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | SetPublishingModeResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.4/#5.14.4.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_triggering**
 > SetTriggeringResponse set_triggering(set_triggering_request=set_triggering_request)
-
-
 
 ### Example
 
@@ -1578,7 +1530,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    set_triggering_request = opcua_webapi.SetTriggeringRequest() # SetTriggeringRequest | SetTriggeringRequestMessage (optional)
+    set_triggering_request = opcua_webapi.SetTriggeringRequest() # SetTriggeringRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2). (optional)
 
     try:
         api_response = api_instance.set_triggering(set_triggering_request=set_triggering_request)
@@ -1595,7 +1547,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **set_triggering_request** | [**SetTriggeringRequest**](SetTriggeringRequest.md)| SetTriggeringRequestMessage | [optional] 
+ **set_triggering_request** | [**SetTriggeringRequest**](SetTriggeringRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2). | [optional] 
 
 ### Return type
 
@@ -1614,14 +1566,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | SetTriggeringResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.5/#5.13.5.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **transfer_subscriptions**
 > TransferSubscriptionsResponse transfer_subscriptions(transfer_subscriptions_request=transfer_subscriptions_request)
-
-
 
 ### Example
 
@@ -1644,7 +1594,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    transfer_subscriptions_request = opcua_webapi.TransferSubscriptionsRequest() # TransferSubscriptionsRequest | TransferSubscriptionsRequestMessage (optional)
+    transfer_subscriptions_request = opcua_webapi.TransferSubscriptionsRequest() # TransferSubscriptionsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2). (optional)
 
     try:
         api_response = api_instance.transfer_subscriptions(transfer_subscriptions_request=transfer_subscriptions_request)
@@ -1661,7 +1611,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **transfer_subscriptions_request** | [**TransferSubscriptionsRequest**](TransferSubscriptionsRequest.md)| TransferSubscriptionsRequestMessage | [optional] 
+ **transfer_subscriptions_request** | [**TransferSubscriptionsRequest**](TransferSubscriptionsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2). | [optional] 
 
 ### Return type
 
@@ -1680,14 +1630,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | TransferSubscriptionsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.7/#5.14.7.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **translate_browse_paths_to_node_ids**
 > TranslateBrowsePathsToNodeIdsResponse translate_browse_paths_to_node_ids(translate_browse_paths_to_node_ids_request=translate_browse_paths_to_node_ids_request)
-
-
 
 ### Example
 
@@ -1710,7 +1658,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    translate_browse_paths_to_node_ids_request = opcua_webapi.TranslateBrowsePathsToNodeIdsRequest() # TranslateBrowsePathsToNodeIdsRequest | TranslateBrowsePathsToNodeIdsRequestMessage (optional)
+    translate_browse_paths_to_node_ids_request = opcua_webapi.TranslateBrowsePathsToNodeIdsRequest() # TranslateBrowsePathsToNodeIdsRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2). (optional)
 
     try:
         api_response = api_instance.translate_browse_paths_to_node_ids(translate_browse_paths_to_node_ids_request=translate_browse_paths_to_node_ids_request)
@@ -1727,7 +1675,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **translate_browse_paths_to_node_ids_request** | [**TranslateBrowsePathsToNodeIdsRequest**](TranslateBrowsePathsToNodeIdsRequest.md)| TranslateBrowsePathsToNodeIdsRequestMessage | [optional] 
+ **translate_browse_paths_to_node_ids_request** | [**TranslateBrowsePathsToNodeIdsRequest**](TranslateBrowsePathsToNodeIdsRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2). | [optional] 
 
 ### Return type
 
@@ -1746,14 +1694,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | TranslateBrowsePathsToNodeIdsResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unregister_nodes**
 > UnregisterNodesResponse unregister_nodes(unregister_nodes_request=unregister_nodes_request)
-
-
 
 ### Example
 
@@ -1776,7 +1722,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    unregister_nodes_request = opcua_webapi.UnregisterNodesRequest() # UnregisterNodesRequest | UnregisterNodesRequestMessage (optional)
+    unregister_nodes_request = opcua_webapi.UnregisterNodesRequest() # UnregisterNodesRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2). (optional)
 
     try:
         api_response = api_instance.unregister_nodes(unregister_nodes_request=unregister_nodes_request)
@@ -1793,7 +1739,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **unregister_nodes_request** | [**UnregisterNodesRequest**](UnregisterNodesRequest.md)| UnregisterNodesRequestMessage | [optional] 
+ **unregister_nodes_request** | [**UnregisterNodesRequest**](UnregisterNodesRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2). | [optional] 
 
 ### Return type
 
@@ -1812,14 +1758,12 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | UnregisterNodesResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.6/#5.9.6.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **write**
 > WriteResponse write(write_request=write_request)
-
-
 
 ### Example
 
@@ -1842,7 +1786,7 @@ configuration = opcua_webapi.Configuration(
 with opcua_webapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = opcua_webapi.DefaultApi(api_client)
-    write_request = opcua_webapi.WriteRequest() # WriteRequest | WriteRequestMessage (optional)
+    write_request = opcua_webapi.WriteRequest() # WriteRequest | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2). (optional)
 
     try:
         api_response = api_instance.write(write_request=write_request)
@@ -1859,7 +1803,7 @@ with opcua_webapi.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **write_request** | [**WriteRequest**](WriteRequest.md)| WriteRequestMessage | [optional] 
+ **write_request** | [**WriteRequest**](WriteRequest.md)| [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2). | [optional] 
 
 ### Return type
 
@@ -1878,7 +1822,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | WriteResponseMessage |  -  |
+**200** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.4/#5.11.4.2). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

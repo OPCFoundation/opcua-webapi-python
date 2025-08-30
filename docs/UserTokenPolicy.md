@@ -1,12 +1,13 @@
 # UserTokenPolicy
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.41).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **policy_id** | **str** |  | [optional] 
-**token_type** | **int** |  | [optional] 
+**token_type** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.42). | [optional] 
 **issued_token_type** | **str** |  | [optional] 
 **issuer_endpoint_url** | **str** |  | [optional] 
 **security_policy_uri** | **str** |  | [optional] 

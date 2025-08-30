@@ -3,33 +3,33 @@
 
 ## Enum
 
-* `UA_MINUS_DATA` (value: `'ua-data'`)
+* `Data` (value: `'ua-data'`)
 
-* `UA_MINUS_METADATA` (value: `'ua-metadata'`)
+* `DataSetMetadata` (value: `'ua-metadata'`)
 
-* `UA_MINUS_APPLICATION` (value: `'ua-application'`)
+* `Application` (value: `'ua-application'`)
 
-* `UA_MINUS_ENDPOINTS` (value: `'ua-endpoints'`)
+* `Endpoints` (value: `'ua-endpoints'`)
 
-* `UA_MINUS_STATUS` (value: `'ua-status'`)
+* `Status` (value: `'ua-status'`)
 
-* `UA_MINUS_CONNECTION` (value: `'ua-connection'`)
+* `Connection` (value: `'ua-connection'`)
 
-* `UA_MINUS_ACTION_MINUS_REQUEST` (value: `'ua-action-request'`)
+* `ActionRequest` (value: `'ua-action-request'`)
 
-* `UA_MINUS_ACTION_MINUS_RESPONSE` (value: `'ua-action-response'`)
+* `ActionResponse` (value: `'ua-action-response'`)
 
-* `UA_MINUS_ACTION_MINUS_METADATA` (value: `'ua-action-metadata'`)
+* `ActionMetadata` (value: `'ua-action-metadata'`)
 
-* `UA_MINUS_ACTION_MINUS_RESPONDER` (value: `'ua-action-responder'`)
+* `ActionResponder` (value: `'ua-action-responder'`)
 
-* `UA_MINUS_KEYFRAME` (value: `'ua-keyframe'`)
+* `KeyFrame` (value: `'ua-keyframe'`)
 
-* `UA_MINUS_DELTAFRAME` (value: `'ua-deltaframe'`)
+* `DeltaFrame` (value: `'ua-deltaframe'`)
 
-* `UA_MINUS_EVENT` (value: `'ua-event'`)
+* `Event` (value: `'ua-event'`)
 
-* `UA_MINUS_KEEPALIVE` (value: `'ua-keepalive'`)
+* `KeepAlive` (value: `'ua-keepalive'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

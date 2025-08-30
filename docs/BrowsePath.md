@@ -1,5 +1,6 @@
 # BrowsePath
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part3/6.2.5).
 
 ## Properties
 

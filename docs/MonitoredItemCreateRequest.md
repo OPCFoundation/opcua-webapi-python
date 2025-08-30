@@ -1,12 +1,13 @@
 # MonitoredItemCreateRequest
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.2/#5.13.2.2).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **item_to_monitor** | [**ReadValueId**](ReadValueId.md) |  | [optional] 
-**monitoring_mode** | **int** |  | [optional] 
+**monitoring_mode** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.23). | [optional] 
 **requested_parameters** | [**MonitoringParameters**](MonitoringParameters.md) |  | [optional] 
 
 ## Example

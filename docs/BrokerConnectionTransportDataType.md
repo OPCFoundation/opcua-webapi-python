@@ -1,5 +1,6 @@
 # BrokerConnectionTransportDataType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.2.3).
 
 ## Properties
 

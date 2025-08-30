@@ -1,5 +1,6 @@
 # JsonPubSubConnectionMessage
 
+[Link to specification]().
 
 ## Properties
 

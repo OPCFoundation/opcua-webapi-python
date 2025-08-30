@@ -1,5 +1,6 @@
 # JsonStatusMessage
 
+[Link to specification]().
 
 ## Properties
 
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **publisher_id** | **str** |  | [optional] 
 **timestamp** | **datetime** |  | [optional] 
 **is_cyclic** | **bool** |  | [optional] [default to False]
-**status** | **int** |  | [optional] 
+**status** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.1). | [optional] 
 **next_report_time** | **datetime** |  | [optional] 
 
 ## Example

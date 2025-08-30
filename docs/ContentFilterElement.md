@@ -1,11 +1,12 @@
 # ContentFilterElement
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.1).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter_operator** | **int** |  | [optional] 
+**filter_operator** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.3). | [optional] 
 **filter_operands** | [**List[ExtensionObject]**](ExtensionObject.md) |  | [optional] 
 
 ## Example

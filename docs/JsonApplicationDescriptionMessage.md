@@ -1,5 +1,6 @@
 # JsonApplicationDescriptionMessage
 
+[Link to specification]().
 
 ## Properties
 

@@ -30,7 +30,7 @@ from typing_extensions import Self
 
 class ResponseHeader(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.34).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.33).
     """ # noqa: E501
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
     request_handle: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="RequestHandle")

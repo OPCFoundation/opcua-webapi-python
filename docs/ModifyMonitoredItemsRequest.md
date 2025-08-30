@@ -1,5 +1,6 @@
 # ModifyMonitoredItemsRequest
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.3/#5.13.3.2).
 
 ## Properties
 
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
 **subscription_id** | **int** |  | [optional] [default to 0]
-**timestamps_to_return** | **int** |  | [optional] 
+**timestamps_to_return** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.39). | [optional] 
 **items_to_modify** | [**List[MonitoredItemModifyRequest]**](MonitoredItemModifyRequest.md) |  | [optional] 
 
 ## Example

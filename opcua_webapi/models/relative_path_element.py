@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class RelativePathElement(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.31).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.30).
     """ # noqa: E501
     reference_type_id: Optional[StrictStr] = Field(default=None, alias="ReferenceTypeId")
     is_inverse: Optional[StrictBool] = Field(default=False, alias="IsInverse")

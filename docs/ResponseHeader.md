@@ -1,5 +1,6 @@
 # ResponseHeader
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.33).
 
 ## Properties
 

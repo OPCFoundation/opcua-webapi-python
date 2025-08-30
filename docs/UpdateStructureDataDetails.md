@@ -1,12 +1,13 @@
 # UpdateStructureDataDetails
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.9.3/#6.9.3.1).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | **str** |  | [optional] 
-**perform_insert_replace** | **int** |  | [optional] 
+**perform_insert_replace** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.8). | [optional] 
 **update_values** | [**List[DataValue]**](DataValue.md) |  | [optional] 
 
 ## Example

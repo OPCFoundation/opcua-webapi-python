@@ -1,5 +1,6 @@
 # ReferenceDescription
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.29).
 
 ## Properties
 
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **node_id** | **str** |  | [optional] 
 **browse_name** | **str** |  | [optional] 
 **display_name** | [**LocalizedText**](LocalizedText.md) |  | [optional] 
-**node_class** | **int** |  | [optional] 
+**node_class** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.5/#12.2.5.2). | [optional] 
 **type_definition** | **str** |  | [optional] 
 
 ## Example

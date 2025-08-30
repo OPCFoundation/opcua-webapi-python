@@ -1,5 +1,6 @@
 # JsonActionRequestMessage
 
+[Link to specification]().
 
 ## Properties
 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 **timestamp** | **datetime** |  | [optional] 
 **message_type** | **str** |  | [optional] 
 **request_id** | **int** |  | [optional] [default to 0]
-**action_state** | **int** |  | [optional] 
+**action_state** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.11/#6.2.11.2.1). | [optional] 
 **payload** | **object** |  | [optional] 
 
 ## Example

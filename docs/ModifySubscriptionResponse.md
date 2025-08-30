@@ -1,5 +1,6 @@
 # ModifySubscriptionResponse
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.14.3/#5.14.3.2).
 
 ## Properties
 

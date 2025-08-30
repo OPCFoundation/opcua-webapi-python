@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class SignatureData(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.37).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.36).
     """ # noqa: E501
     algorithm: Optional[StrictStr] = Field(default=None, alias="Algorithm")
     signature: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="Signature")

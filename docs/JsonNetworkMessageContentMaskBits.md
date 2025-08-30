@@ -1,5 +1,6 @@
 # JsonNetworkMessageContentMaskBits
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.3.2/#6.3.2.1.1).
 
 ## Enum
 

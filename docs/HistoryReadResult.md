@@ -1,5 +1,6 @@
 # HistoryReadResult
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.11.3/#5.11.3.2).
 
 ## Properties
 

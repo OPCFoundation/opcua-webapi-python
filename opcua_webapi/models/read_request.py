@@ -31,7 +31,7 @@ class ReadRequest(BaseModel):
     """ # noqa: E501
     request_header: Optional[RequestHeader] = Field(default=None, alias="RequestHeader")
     max_age: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, alias="MaxAge")
-    timestamps_to_return: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.40).", alias="TimestampsToReturn")
+    timestamps_to_return: Optional[StrictInt] = Field(default=None, description="[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.39).", alias="TimestampsToReturn")
     nodes_to_read: Optional[List[ReadValueId]] = Field(default=None, alias="NodesToRead")
     __properties: ClassVar[List[str]] = ["RequestHeader", "MaxAge", "TimestampsToReturn", "NodesToRead"]
 

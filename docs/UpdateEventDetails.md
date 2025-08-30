@@ -1,12 +1,13 @@
 # UpdateEventDetails
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.9.4/#6.9.4.1).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **node_id** | **str** |  | [optional] 
-**perform_insert_replace** | **int** |  | [optional] 
+**perform_insert_replace** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.8). | [optional] 
 **filter** | [**EventFilter**](EventFilter.md) |  | [optional] 
 **event_data** | [**List[HistoryEventFieldList]**](HistoryEventFieldList.md) |  | [optional] 
 

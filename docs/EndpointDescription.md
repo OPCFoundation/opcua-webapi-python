@@ -1,5 +1,6 @@
 # EndpointDescription
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.14).
 
 ## Properties
 
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **endpoint_url** | **str** |  | [optional] 
 **server** | [**ApplicationDescription**](ApplicationDescription.md) |  | [optional] 
 **server_certificate** | **bytearray** |  | [optional] 
-**security_mode** | **int** |  | [optional] 
+**security_mode** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10). | [optional] 
 **security_policy_uri** | **str** |  | [optional] 
 **user_identity_tokens** | [**List[UserTokenPolicy]**](UserTokenPolicy.md) |  | [optional] 
 **transport_profile_uri** | **str** |  | [optional] 

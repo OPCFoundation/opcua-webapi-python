@@ -1,12 +1,13 @@
 # ModificationInfo
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.6.5).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **modification_time** | **datetime** |  | [optional] 
-**update_type** | **int** |  | [optional] 
+**update_type** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part11/6.7). | [optional] 
 **user_name** | **str** |  | [optional] 
 
 ## Example

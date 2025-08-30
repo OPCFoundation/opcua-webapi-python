@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class BrowsePath(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.9.4/#5.9.4.2).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part3/6.2.5).
     """ # noqa: E501
     starting_node: Optional[StrictStr] = Field(default=None, alias="StartingNode")
     relative_path: Optional[RelativePath] = Field(default=None, alias="RelativePath")

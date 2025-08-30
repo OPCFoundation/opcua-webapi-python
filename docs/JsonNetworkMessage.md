@@ -1,5 +1,6 @@
 # JsonNetworkMessage
 
+[Link to specification]().
 
 ## Properties
 

@@ -1,5 +1,6 @@
 # StructureType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.2.5/#12.2.5.3).
 
 ## Enum
 

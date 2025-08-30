@@ -1,5 +1,6 @@
 # DataSetReaderDataType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.9/#6.2.9.13.1).
 
 ## Properties
 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 **message_receive_timeout** | **float** |  | [optional] [default to 0]
 **key_frame_count** | **int** |  | [optional] [default to 0]
 **header_layout_uri** | **str** |  | [optional] 
-**security_mode** | **int** |  | [optional] 
+**security_mode** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10). | [optional] 
 **security_group_id** | **str** |  | [optional] 
 **security_key_services** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
 **data_set_reader_properties** | [**List[KeyValuePair]**](KeyValuePair.md) |  | [optional] 

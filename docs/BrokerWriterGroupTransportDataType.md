@@ -1,5 +1,6 @@
 # BrokerWriterGroupTransportDataType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.3.5).
 
 ## Properties
 
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **queue_name** | **str** |  | [optional] 
 **resource_uri** | **str** |  | [optional] 
 **authentication_profile_uri** | **str** |  | [optional] 
-**requested_delivery_guarantee** | **int** |  | [optional] 
+**requested_delivery_guarantee** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.4.2/#6.4.2.1). | [optional] 
 
 ## Example
 

@@ -1,5 +1,6 @@
 # AttributeOperand
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.7.4/#7.7.4.4).
 
 ## Properties
 

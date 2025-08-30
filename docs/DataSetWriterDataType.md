@@ -1,5 +1,6 @@
 # DataSetWriterDataType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.4/#6.2.4.5.1).
 
 ## Properties
 

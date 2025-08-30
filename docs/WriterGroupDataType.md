@@ -1,5 +1,6 @@
 # WriterGroupDataType
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.6/#6.2.6.7.1).
 
 ## Properties
 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 **data_set_writers** | [**List[DataSetWriterDataType]**](DataSetWriterDataType.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **enabled** | **bool** |  | [optional] [default to False]
-**security_mode** | **int** |  | [optional] 
+**security_mode** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part5/12.3.10). | [optional] 
 **security_group_id** | **str** |  | [optional] 
 **security_key_services** | [**List[EndpointDescription]**](EndpointDescription.md) |  | [optional] 
 **max_network_message_size** | **int** |  | [optional] [default to 0]

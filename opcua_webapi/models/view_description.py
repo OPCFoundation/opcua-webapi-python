@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class ViewDescription(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.45).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.44).
     """ # noqa: E501
     view_id: Optional[StrictStr] = Field(default=None, alias="ViewId")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")

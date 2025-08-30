@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class ReadValueId(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.29).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.28).
     """ # noqa: E501
     node_id: Optional[StrictStr] = Field(default=None, alias="NodeId")
     attribute_id: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="AttributeId")

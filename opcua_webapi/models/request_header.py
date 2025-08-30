@@ -28,7 +28,7 @@ from typing_extensions import Self
 
 class RequestHeader(BaseModel):
     """
-    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.33).
+    [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.32).
     """ # noqa: E501
     authentication_token: Optional[StrictStr] = Field(default=None, alias="AuthenticationToken")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")

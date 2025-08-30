@@ -1,5 +1,6 @@
 # SetMonitoringModeRequest
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/5.13.4/#5.13.4.2).
 
 ## Properties
 
@@ -7,7 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **request_header** | [**RequestHeader**](RequestHeader.md) |  | [optional] 
 **subscription_id** | **int** |  | [optional] [default to 0]
-**monitoring_mode** | **int** |  | [optional] 
+**monitoring_mode** | **int** | [Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part4/7.23). | [optional] 
 **monitored_item_ids** | **List[int]** |  | [optional] 
 
 ## Example

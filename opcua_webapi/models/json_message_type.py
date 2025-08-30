@@ -27,20 +27,20 @@ class JsonMessageType(str, Enum):
     """
     allowed enum values
     """
-    UA_MINUS_DATA = 'ua-data'
-    UA_MINUS_METADATA = 'ua-metadata'
-    UA_MINUS_APPLICATION = 'ua-application'
-    UA_MINUS_ENDPOINTS = 'ua-endpoints'
-    UA_MINUS_STATUS = 'ua-status'
-    UA_MINUS_CONNECTION = 'ua-connection'
-    UA_MINUS_ACTION_MINUS_REQUEST = 'ua-action-request'
-    UA_MINUS_ACTION_MINUS_RESPONSE = 'ua-action-response'
-    UA_MINUS_ACTION_MINUS_METADATA = 'ua-action-metadata'
-    UA_MINUS_ACTION_MINUS_RESPONDER = 'ua-action-responder'
-    UA_MINUS_KEYFRAME = 'ua-keyframe'
-    UA_MINUS_DELTAFRAME = 'ua-deltaframe'
-    UA_MINUS_EVENT = 'ua-event'
-    UA_MINUS_KEEPALIVE = 'ua-keepalive'
+    Data = 'ua-data'
+    DataSetMetadata = 'ua-metadata'
+    Application = 'ua-application'
+    Endpoints = 'ua-endpoints'
+    Status = 'ua-status'
+    Connection = 'ua-connection'
+    ActionRequest = 'ua-action-request'
+    ActionResponse = 'ua-action-response'
+    ActionMetadata = 'ua-action-metadata'
+    ActionResponder = 'ua-action-responder'
+    KeyFrame = 'ua-keyframe'
+    DeltaFrame = 'ua-deltaframe'
+    Event = 'ua-event'
+    KeepAlive = 'ua-keepalive'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

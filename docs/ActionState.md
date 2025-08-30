@@ -1,5 +1,6 @@
 # ActionState
 
+[Link to specification](https://reference.opcfoundation.org/v105/Core/docs/Part14/6.2.11/#6.2.11.2.1).
 
 ## Enum
 
