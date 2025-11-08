@@ -1,6 +1,6 @@
 [project]
 name = "opcua_webapi"
-version = "15.5.0"
+version = "15.6.0"
 description = "OPC UA Web API"
 authors = [
   {name = "OPC Foundation",email = "office@opcfoundation.org"},

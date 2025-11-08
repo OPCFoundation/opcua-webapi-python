@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "15.5.0"
+__version__ = "15.6.0"
 
 # Define package exports
 __all__ = [
@@ -234,9 +234,263 @@ __all__ = [
     "WriteValue",
     "WriterGroupDataType",
     "X509IdentityToken",
+	"BrowseNames",
+	"BuiltInType",
+	"ObjectIds",
+	"VariableIds",
+	"MethodIds",
+	"ObjectTypeIds",
+	"VariableTypeIds",
+	"DataTypeIds",
+	"ReferenceTypeIds",
+	"Attributes",
+	"StatusCodes",
+	"StatusUtils",		
 ]
 
-# import apis into sdk package
+if __import__("typing").TYPE_CHECKING:
+    # import apis into sdk package
+    from opcua_webapi.api.default_api import DefaultApi as DefaultApi
+    
+    # import ApiClient
+    from opcua_webapi.api_response import ApiResponse as ApiResponse
+    from opcua_webapi.api_client import ApiClient as ApiClient
+    from opcua_webapi.configuration import Configuration as Configuration
+    from opcua_webapi.exceptions import OpenApiException as OpenApiException
+    from opcua_webapi.exceptions import ApiTypeError as ApiTypeError
+    from opcua_webapi.exceptions import ApiValueError as ApiValueError
+    from opcua_webapi.exceptions import ApiKeyError as ApiKeyError
+    from opcua_webapi.exceptions import ApiAttributeError as ApiAttributeError
+    from opcua_webapi.exceptions import ApiException as ApiException
+    
+    # import models into sdk package
+    from opcua_webapi.models.action_method_data_type import ActionMethodDataType as ActionMethodDataType
+    from opcua_webapi.models.action_state import ActionState as ActionState
+    from opcua_webapi.models.action_target_data_type import ActionTargetDataType as ActionTargetDataType
+    from opcua_webapi.models.activate_session_request import ActivateSessionRequest as ActivateSessionRequest
+    from opcua_webapi.models.activate_session_response import ActivateSessionResponse as ActivateSessionResponse
+    from opcua_webapi.models.aggregate_configuration import AggregateConfiguration as AggregateConfiguration
+    from opcua_webapi.models.aggregate_filter import AggregateFilter as AggregateFilter
+    from opcua_webapi.models.aggregate_filter_result import AggregateFilterResult as AggregateFilterResult
+    from opcua_webapi.models.application_description import ApplicationDescription as ApplicationDescription
+    from opcua_webapi.models.application_type import ApplicationType as ApplicationType
+    from opcua_webapi.models.argument import Argument as Argument
+    from opcua_webapi.models.attribute_operand import AttributeOperand as AttributeOperand
+    from opcua_webapi.models.broker_connection_transport_data_type import BrokerConnectionTransportDataType as BrokerConnectionTransportDataType
+    from opcua_webapi.models.broker_data_set_reader_transport_data_type import BrokerDataSetReaderTransportDataType as BrokerDataSetReaderTransportDataType
+    from opcua_webapi.models.broker_data_set_writer_transport_data_type import BrokerDataSetWriterTransportDataType as BrokerDataSetWriterTransportDataType
+    from opcua_webapi.models.broker_transport_quality_of_service import BrokerTransportQualityOfService as BrokerTransportQualityOfService
+    from opcua_webapi.models.broker_writer_group_transport_data_type import BrokerWriterGroupTransportDataType as BrokerWriterGroupTransportDataType
+    from opcua_webapi.models.browse_description import BrowseDescription as BrowseDescription
+    from opcua_webapi.models.browse_direction import BrowseDirection as BrowseDirection
+    from opcua_webapi.models.browse_next_request import BrowseNextRequest as BrowseNextRequest
+    from opcua_webapi.models.browse_next_response import BrowseNextResponse as BrowseNextResponse
+    from opcua_webapi.models.browse_path import BrowsePath as BrowsePath
+    from opcua_webapi.models.browse_path_result import BrowsePathResult as BrowsePathResult
+    from opcua_webapi.models.browse_path_target import BrowsePathTarget as BrowsePathTarget
+    from opcua_webapi.models.browse_request import BrowseRequest as BrowseRequest
+    from opcua_webapi.models.browse_response import BrowseResponse as BrowseResponse
+    from opcua_webapi.models.browse_result import BrowseResult as BrowseResult
+    from opcua_webapi.models.call_method_request import CallMethodRequest as CallMethodRequest
+    from opcua_webapi.models.call_method_result import CallMethodResult as CallMethodResult
+    from opcua_webapi.models.call_request import CallRequest as CallRequest
+    from opcua_webapi.models.call_response import CallResponse as CallResponse
+    from opcua_webapi.models.cancel_request import CancelRequest as CancelRequest
+    from opcua_webapi.models.cancel_response import CancelResponse as CancelResponse
+    from opcua_webapi.models.close_session_request import CloseSessionRequest as CloseSessionRequest
+    from opcua_webapi.models.close_session_response import CloseSessionResponse as CloseSessionResponse
+    from opcua_webapi.models.configuration_version_data_type import ConfigurationVersionDataType as ConfigurationVersionDataType
+    from opcua_webapi.models.content_filter import ContentFilter as ContentFilter
+    from opcua_webapi.models.content_filter_element import ContentFilterElement as ContentFilterElement
+    from opcua_webapi.models.content_filter_element_result import ContentFilterElementResult as ContentFilterElementResult
+    from opcua_webapi.models.content_filter_result import ContentFilterResult as ContentFilterResult
+    from opcua_webapi.models.create_monitored_items_request import CreateMonitoredItemsRequest as CreateMonitoredItemsRequest
+    from opcua_webapi.models.create_monitored_items_response import CreateMonitoredItemsResponse as CreateMonitoredItemsResponse
+    from opcua_webapi.models.create_session_request import CreateSessionRequest as CreateSessionRequest
+    from opcua_webapi.models.create_session_response import CreateSessionResponse as CreateSessionResponse
+    from opcua_webapi.models.create_subscription_request import CreateSubscriptionRequest as CreateSubscriptionRequest
+    from opcua_webapi.models.create_subscription_response import CreateSubscriptionResponse as CreateSubscriptionResponse
+    from opcua_webapi.models.data_change_filter import DataChangeFilter as DataChangeFilter
+    from opcua_webapi.models.data_change_notification import DataChangeNotification as DataChangeNotification
+    from opcua_webapi.models.data_change_trigger import DataChangeTrigger as DataChangeTrigger
+    from opcua_webapi.models.data_set_field_content_mask_bits import DataSetFieldContentMaskBits as DataSetFieldContentMaskBits
+    from opcua_webapi.models.data_set_field_flags_bits import DataSetFieldFlagsBits as DataSetFieldFlagsBits
+    from opcua_webapi.models.data_set_meta_data_type import DataSetMetaDataType as DataSetMetaDataType
+    from opcua_webapi.models.data_set_reader_data_type import DataSetReaderDataType as DataSetReaderDataType
+    from opcua_webapi.models.data_set_writer_data_type import DataSetWriterDataType as DataSetWriterDataType
+    from opcua_webapi.models.data_type_description import DataTypeDescription as DataTypeDescription
+    from opcua_webapi.models.data_type_schema_header import DataTypeSchemaHeader as DataTypeSchemaHeader
+    from opcua_webapi.models.data_value import DataValue as DataValue
+    from opcua_webapi.models.decimal import Decimal as Decimal
+    from opcua_webapi.models.delete_monitored_items_request import DeleteMonitoredItemsRequest as DeleteMonitoredItemsRequest
+    from opcua_webapi.models.delete_monitored_items_response import DeleteMonitoredItemsResponse as DeleteMonitoredItemsResponse
+    from opcua_webapi.models.delete_subscriptions_request import DeleteSubscriptionsRequest as DeleteSubscriptionsRequest
+    from opcua_webapi.models.delete_subscriptions_response import DeleteSubscriptionsResponse as DeleteSubscriptionsResponse
+    from opcua_webapi.models.diagnostic_info import DiagnosticInfo as DiagnosticInfo
+    from opcua_webapi.models.eu_information import EUInformation as EUInformation
+    from opcua_webapi.models.element_operand import ElementOperand as ElementOperand
+    from opcua_webapi.models.endpoint_description import EndpointDescription as EndpointDescription
+    from opcua_webapi.models.enum_definition import EnumDefinition as EnumDefinition
+    from opcua_webapi.models.enum_description import EnumDescription as EnumDescription
+    from opcua_webapi.models.enum_field import EnumField as EnumField
+    from opcua_webapi.models.enum_value_type import EnumValueType as EnumValueType
+    from opcua_webapi.models.event_field_list import EventFieldList as EventFieldList
+    from opcua_webapi.models.event_filter import EventFilter as EventFilter
+    from opcua_webapi.models.event_filter_result import EventFilterResult as EventFilterResult
+    from opcua_webapi.models.event_notification_list import EventNotificationList as EventNotificationList
+    from opcua_webapi.models.extension_object import ExtensionObject as ExtensionObject
+    from opcua_webapi.models.field_meta_data import FieldMetaData as FieldMetaData
+    from opcua_webapi.models.filter_operator import FilterOperator as FilterOperator
+    from opcua_webapi.models.find_servers_request import FindServersRequest as FindServersRequest
+    from opcua_webapi.models.find_servers_response import FindServersResponse as FindServersResponse
+    from opcua_webapi.models.get_endpoints_request import GetEndpointsRequest as GetEndpointsRequest
+    from opcua_webapi.models.get_endpoints_response import GetEndpointsResponse as GetEndpointsResponse
+    from opcua_webapi.models.history_data import HistoryData as HistoryData
+    from opcua_webapi.models.history_event import HistoryEvent as HistoryEvent
+    from opcua_webapi.models.history_event_field_list import HistoryEventFieldList as HistoryEventFieldList
+    from opcua_webapi.models.history_modified_data import HistoryModifiedData as HistoryModifiedData
+    from opcua_webapi.models.history_read_request import HistoryReadRequest as HistoryReadRequest
+    from opcua_webapi.models.history_read_response import HistoryReadResponse as HistoryReadResponse
+    from opcua_webapi.models.history_read_result import HistoryReadResult as HistoryReadResult
+    from opcua_webapi.models.history_read_value_id import HistoryReadValueId as HistoryReadValueId
+    from opcua_webapi.models.history_update_request import HistoryUpdateRequest as HistoryUpdateRequest
+    from opcua_webapi.models.history_update_response import HistoryUpdateResponse as HistoryUpdateResponse
+    from opcua_webapi.models.history_update_result import HistoryUpdateResult as HistoryUpdateResult
+    from opcua_webapi.models.history_update_type import HistoryUpdateType as HistoryUpdateType
+    from opcua_webapi.models.issued_identity_token import IssuedIdentityToken as IssuedIdentityToken
+    from opcua_webapi.models.json_action_meta_data_message import JsonActionMetaDataMessage as JsonActionMetaDataMessage
+    from opcua_webapi.models.json_action_network_message import JsonActionNetworkMessage as JsonActionNetworkMessage
+    from opcua_webapi.models.json_action_request_message import JsonActionRequestMessage as JsonActionRequestMessage
+    from opcua_webapi.models.json_action_responder_message import JsonActionResponderMessage as JsonActionResponderMessage
+    from opcua_webapi.models.json_action_response_message import JsonActionResponseMessage as JsonActionResponseMessage
+    from opcua_webapi.models.json_application_description_message import JsonApplicationDescriptionMessage as JsonApplicationDescriptionMessage
+    from opcua_webapi.models.json_data_set_message import JsonDataSetMessage as JsonDataSetMessage
+    from opcua_webapi.models.json_data_set_message_content_mask_bits import JsonDataSetMessageContentMaskBits as JsonDataSetMessageContentMaskBits
+    from opcua_webapi.models.json_data_set_meta_data_message import JsonDataSetMetaDataMessage as JsonDataSetMetaDataMessage
+    from opcua_webapi.models.json_data_set_reader_message_data_type import JsonDataSetReaderMessageDataType as JsonDataSetReaderMessageDataType
+    from opcua_webapi.models.json_data_set_writer_message_data_type import JsonDataSetWriterMessageDataType as JsonDataSetWriterMessageDataType
+    from opcua_webapi.models.json_message_type import JsonMessageType as JsonMessageType
+    from opcua_webapi.models.json_network_message import JsonNetworkMessage as JsonNetworkMessage
+    from opcua_webapi.models.json_network_message_content_mask_bits import JsonNetworkMessageContentMaskBits as JsonNetworkMessageContentMaskBits
+    from opcua_webapi.models.json_pub_sub_connection_message import JsonPubSubConnectionMessage as JsonPubSubConnectionMessage
+    from opcua_webapi.models.json_server_endpoints_message import JsonServerEndpointsMessage as JsonServerEndpointsMessage
+    from opcua_webapi.models.json_status_message import JsonStatusMessage as JsonStatusMessage
+    from opcua_webapi.models.json_writer_group_message_data_type import JsonWriterGroupMessageDataType as JsonWriterGroupMessageDataType
+    from opcua_webapi.models.key_value_pair import KeyValuePair as KeyValuePair
+    from opcua_webapi.models.literal_operand import LiteralOperand as LiteralOperand
+    from opcua_webapi.models.localized_text import LocalizedText as LocalizedText
+    from opcua_webapi.models.matrix import Matrix as Matrix
+    from opcua_webapi.models.message_security_mode import MessageSecurityMode as MessageSecurityMode
+    from opcua_webapi.models.modification_info import ModificationInfo as ModificationInfo
+    from opcua_webapi.models.modify_monitored_items_request import ModifyMonitoredItemsRequest as ModifyMonitoredItemsRequest
+    from opcua_webapi.models.modify_monitored_items_response import ModifyMonitoredItemsResponse as ModifyMonitoredItemsResponse
+    from opcua_webapi.models.modify_subscription_request import ModifySubscriptionRequest as ModifySubscriptionRequest
+    from opcua_webapi.models.modify_subscription_response import ModifySubscriptionResponse as ModifySubscriptionResponse
+    from opcua_webapi.models.monitored_item_create_request import MonitoredItemCreateRequest as MonitoredItemCreateRequest
+    from opcua_webapi.models.monitored_item_create_result import MonitoredItemCreateResult as MonitoredItemCreateResult
+    from opcua_webapi.models.monitored_item_modify_request import MonitoredItemModifyRequest as MonitoredItemModifyRequest
+    from opcua_webapi.models.monitored_item_modify_result import MonitoredItemModifyResult as MonitoredItemModifyResult
+    from opcua_webapi.models.monitored_item_notification import MonitoredItemNotification as MonitoredItemNotification
+    from opcua_webapi.models.monitoring_mode import MonitoringMode as MonitoringMode
+    from opcua_webapi.models.monitoring_parameters import MonitoringParameters as MonitoringParameters
+    from opcua_webapi.models.network_address_data_type import NetworkAddressDataType as NetworkAddressDataType
+    from opcua_webapi.models.node_class import NodeClass as NodeClass
+    from opcua_webapi.models.notification_message import NotificationMessage as NotificationMessage
+    from opcua_webapi.models.perform_update_type import PerformUpdateType as PerformUpdateType
+    from opcua_webapi.models.permission_type_bits import PermissionTypeBits as PermissionTypeBits
+    from opcua_webapi.models.pub_sub_configuration2_data_type import PubSubConfiguration2DataType as PubSubConfiguration2DataType
+    from opcua_webapi.models.pub_sub_configuration_data_type import PubSubConfigurationDataType as PubSubConfigurationDataType
+    from opcua_webapi.models.pub_sub_connection_data_type import PubSubConnectionDataType as PubSubConnectionDataType
+    from opcua_webapi.models.pub_sub_group_data_type import PubSubGroupDataType as PubSubGroupDataType
+    from opcua_webapi.models.pub_sub_key_push_target_data_type import PubSubKeyPushTargetDataType as PubSubKeyPushTargetDataType
+    from opcua_webapi.models.pub_sub_state import PubSubState as PubSubState
+    from opcua_webapi.models.publish_request import PublishRequest as PublishRequest
+    from opcua_webapi.models.publish_response import PublishResponse as PublishResponse
+    from opcua_webapi.models.published_data_set_data_type import PublishedDataSetDataType as PublishedDataSetDataType
+    from opcua_webapi.models.range import Range as Range
+    from opcua_webapi.models.read_annotation_data_details import ReadAnnotationDataDetails as ReadAnnotationDataDetails
+    from opcua_webapi.models.read_at_time_details import ReadAtTimeDetails as ReadAtTimeDetails
+    from opcua_webapi.models.read_event_details import ReadEventDetails as ReadEventDetails
+    from opcua_webapi.models.read_event_details2 import ReadEventDetails2 as ReadEventDetails2
+    from opcua_webapi.models.read_processed_details import ReadProcessedDetails as ReadProcessedDetails
+    from opcua_webapi.models.read_raw_modified_details import ReadRawModifiedDetails as ReadRawModifiedDetails
+    from opcua_webapi.models.read_request import ReadRequest as ReadRequest
+    from opcua_webapi.models.read_response import ReadResponse as ReadResponse
+    from opcua_webapi.models.read_value_id import ReadValueId as ReadValueId
+    from opcua_webapi.models.reader_group_data_type import ReaderGroupDataType as ReaderGroupDataType
+    from opcua_webapi.models.reference_description import ReferenceDescription as ReferenceDescription
+    from opcua_webapi.models.register_nodes_request import RegisterNodesRequest as RegisterNodesRequest
+    from opcua_webapi.models.register_nodes_response import RegisterNodesResponse as RegisterNodesResponse
+    from opcua_webapi.models.relative_path import RelativePath as RelativePath
+    from opcua_webapi.models.relative_path_element import RelativePathElement as RelativePathElement
+    from opcua_webapi.models.republish_request import RepublishRequest as RepublishRequest
+    from opcua_webapi.models.republish_response import RepublishResponse as RepublishResponse
+    from opcua_webapi.models.request_header import RequestHeader as RequestHeader
+    from opcua_webapi.models.response_header import ResponseHeader as ResponseHeader
+    from opcua_webapi.models.role_permission_type import RolePermissionType as RolePermissionType
+    from opcua_webapi.models.security_group_data_type import SecurityGroupDataType as SecurityGroupDataType
+    from opcua_webapi.models.set_monitoring_mode_request import SetMonitoringModeRequest as SetMonitoringModeRequest
+    from opcua_webapi.models.set_monitoring_mode_response import SetMonitoringModeResponse as SetMonitoringModeResponse
+    from opcua_webapi.models.set_publishing_mode_request import SetPublishingModeRequest as SetPublishingModeRequest
+    from opcua_webapi.models.set_publishing_mode_response import SetPublishingModeResponse as SetPublishingModeResponse
+    from opcua_webapi.models.set_triggering_request import SetTriggeringRequest as SetTriggeringRequest
+    from opcua_webapi.models.set_triggering_response import SetTriggeringResponse as SetTriggeringResponse
+    from opcua_webapi.models.signature_data import SignatureData as SignatureData
+    from opcua_webapi.models.signed_software_certificate import SignedSoftwareCertificate as SignedSoftwareCertificate
+    from opcua_webapi.models.simple_attribute_operand import SimpleAttributeOperand as SimpleAttributeOperand
+    from opcua_webapi.models.simple_type_description import SimpleTypeDescription as SimpleTypeDescription
+    from opcua_webapi.models.standalone_subscribed_data_set_data_type import StandaloneSubscribedDataSetDataType as StandaloneSubscribedDataSetDataType
+    from opcua_webapi.models.status_change_notification import StatusChangeNotification as StatusChangeNotification
+    from opcua_webapi.models.status_code import StatusCode as StatusCode
+    from opcua_webapi.models.structure_definition import StructureDefinition as StructureDefinition
+    from opcua_webapi.models.structure_description import StructureDescription as StructureDescription
+    from opcua_webapi.models.structure_field import StructureField as StructureField
+    from opcua_webapi.models.structure_type import StructureType as StructureType
+    from opcua_webapi.models.subscription_acknowledgement import SubscriptionAcknowledgement as SubscriptionAcknowledgement
+    from opcua_webapi.models.timestamps_to_return import TimestampsToReturn as TimestampsToReturn
+    from opcua_webapi.models.transfer_result import TransferResult as TransferResult
+    from opcua_webapi.models.transfer_subscriptions_request import TransferSubscriptionsRequest as TransferSubscriptionsRequest
+    from opcua_webapi.models.transfer_subscriptions_response import TransferSubscriptionsResponse as TransferSubscriptionsResponse
+    from opcua_webapi.models.translate_browse_paths_to_node_ids_request import TranslateBrowsePathsToNodeIdsRequest as TranslateBrowsePathsToNodeIdsRequest
+    from opcua_webapi.models.translate_browse_paths_to_node_ids_response import TranslateBrowsePathsToNodeIdsResponse as TranslateBrowsePathsToNodeIdsResponse
+    from opcua_webapi.models.unregister_nodes_request import UnregisterNodesRequest as UnregisterNodesRequest
+    from opcua_webapi.models.unregister_nodes_response import UnregisterNodesResponse as UnregisterNodesResponse
+    from opcua_webapi.models.update_data_details import UpdateDataDetails as UpdateDataDetails
+    from opcua_webapi.models.update_event_details import UpdateEventDetails as UpdateEventDetails
+    from opcua_webapi.models.update_structure_data_details import UpdateStructureDataDetails as UpdateStructureDataDetails
+    from opcua_webapi.models.user_identity_token import UserIdentityToken as UserIdentityToken
+    from opcua_webapi.models.user_name_identity_token import UserNameIdentityToken as UserNameIdentityToken
+    from opcua_webapi.models.user_token_policy import UserTokenPolicy as UserTokenPolicy
+    from opcua_webapi.models.user_token_type import UserTokenType as UserTokenType
+    from opcua_webapi.models.variant import Variant as Variant
+    from opcua_webapi.models.view_description import ViewDescription as ViewDescription
+    from opcua_webapi.models.write_request import WriteRequest as WriteRequest
+    from opcua_webapi.models.write_response import WriteResponse as WriteResponse
+    from opcua_webapi.models.write_value import WriteValue as WriteValue
+    from opcua_webapi.models.writer_group_data_type import WriterGroupDataType as WriterGroupDataType
+    from opcua_webapi.models.x509_identity_token import X509IdentityToken as X509IdentityToken
+    from opcua_webapi.opcua_constants import BrowseNames as BrowseNames
+    from opcua_webapi.opcua_constants import BuiltInType as BuiltInType
+    from opcua_webapi.opcua_constants import ObjectIds as ObjectIds
+    from opcua_webapi.opcua_constants import VariableIds as VariableIds
+    from opcua_webapi.opcua_constants import MethodIds as MethodIds
+    from opcua_webapi.opcua_constants import ObjectTypeIds as ObjectTypeIds
+    from opcua_webapi.opcua_constants import VariableTypeIds as VariableTypeIds
+    from opcua_webapi.opcua_constants import DataTypeIds as DataTypeIds
+    from opcua_webapi.opcua_constants import ReferenceTypeIds as ReferenceTypeIds
+    from opcua_webapi.opcua_attributes import Attributes as Attributes
+    from opcua_webapi.opcua_statuscodes import StatusCodes as StatusCodes
+    from opcua_webapi.opcua_statuscodes import StatusUtils as StatusUtils
+    
+else:
+    from lazy_imports import LazyModule, as_package, load
+
+    load(
+        LazyModule(
+            *as_package(__file__),
+            ("__version__", __version__),
+            ("__all__", __all__),
+            """# import apis into sdk package
 from opcua_webapi.api.default_api import DefaultApi as DefaultApi
 
 # import ApiClient
@@ -456,17 +710,21 @@ from opcua_webapi.models.write_response import WriteResponse as WriteResponse
 from opcua_webapi.models.write_value import WriteValue as WriteValue
 from opcua_webapi.models.writer_group_data_type import WriterGroupDataType as WriterGroupDataType
 from opcua_webapi.models.x509_identity_token import X509IdentityToken as X509IdentityToken
+from opcua_webapi.opcua_constants import BrowseNames as BrowseNames
+from opcua_webapi.opcua_constants import BuiltInType as BuiltInType
+from opcua_webapi.opcua_constants import ObjectIds as ObjectIds
+from opcua_webapi.opcua_constants import VariableIds as VariableIds
+from opcua_webapi.opcua_constants import MethodIds as MethodIds
+from opcua_webapi.opcua_constants import ObjectTypeIds as ObjectTypeIds
+from opcua_webapi.opcua_constants import VariableTypeIds as VariableTypeIds
+from opcua_webapi.opcua_constants import DataTypeIds as DataTypeIds
+from opcua_webapi.opcua_constants import ReferenceTypeIds as ReferenceTypeIds
+from opcua_webapi.opcua_attributes import Attributes as Attributes
+from opcua_webapi.opcua_statuscodes import StatusCodes as StatusCodes
+from opcua_webapi.opcua_statuscodes import StatusUtils as StatusUtils
 
-# import OPC UA constants
-from opcua_webapi.opcua_constants import BrowseNames
-from opcua_webapi.opcua_constants import BuiltInType
-from opcua_webapi.opcua_constants import ObjectIds
-from opcua_webapi.opcua_constants import VariableIds
-from opcua_webapi.opcua_constants import MethodIds
-from opcua_webapi.opcua_constants import ObjectTypeIds
-from opcua_webapi.opcua_constants import VariableTypeIds
-from opcua_webapi.opcua_constants import DataTypeIds
-from opcua_webapi.opcua_constants import ReferenceTypeIds
-from opcua_webapi.opcua_attributes import Attributes
-from opcua_webapi.opcua_statuscodes import StatusCodes
-from opcua_webapi.opcua_statuscodes import StatusUtils
+""",
+            name=__name__,
+            doc=__doc__,
+        )
+    )

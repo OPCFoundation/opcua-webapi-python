@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from opcua_webapi.models.configuration_version_data_type import ConfigurationVersionDataType
 from opcua_webapi.models.enum_description import EnumDescription
 from opcua_webapi.models.field_meta_data import FieldMetaData
@@ -36,7 +37,7 @@ class DataSetMetaDataType(BaseModel):
     name: Optional[StrictStr] = Field(default=None, alias="Name")
     description: Optional[LocalizedText] = Field(default=None, alias="Description")
     fields: Optional[List[FieldMetaData]] = Field(default=None, alias="Fields")
-    data_set_class_id: Optional[StrictStr] = Field(default=None, alias="DataSetClassId")
+    data_set_class_id: Optional[UUID] = Field(default=None, alias="DataSetClassId")
     configuration_version: Optional[ConfigurationVersionDataType] = Field(default=None, alias="ConfigurationVersion")
     namespaces: Optional[List[StrictStr]] = Field(default=None, alias="Namespaces")
     structure_data_types: Optional[List[StructureDescription]] = Field(default=None, alias="StructureDataTypes")

@@ -21,6 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
 from opcua_webapi.models.key_value_pair import KeyValuePair
 from opcua_webapi.models.localized_text import LocalizedText
 from typing import Optional, Set
@@ -38,7 +39,7 @@ class FieldMetaData(BaseModel):
     value_rank: Optional[StrictInt] = Field(default=0, alias="ValueRank")
     array_dimensions: Optional[List[Annotated[int, Field(le=4294967295, strict=True, ge=0)]]] = Field(default=None, alias="ArrayDimensions")
     max_string_length: Optional[Annotated[int, Field(le=4294967295, strict=True, ge=0)]] = Field(default=0, alias="MaxStringLength")
-    data_set_field_id: Optional[StrictStr] = Field(default=None, alias="DataSetFieldId")
+    data_set_field_id: Optional[UUID] = Field(default=None, alias="DataSetFieldId")
     properties: Optional[List[KeyValuePair]] = Field(default=None, alias="Properties")
     __properties: ClassVar[List[str]] = ["Name", "Description", "FieldFlags", "BuiltInType", "DataType", "ValueRank", "ArrayDimensions", "MaxStringLength", "DataSetFieldId", "Properties"]
 
